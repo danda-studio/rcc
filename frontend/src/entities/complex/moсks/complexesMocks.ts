@@ -1,6 +1,6 @@
-import { Complex } from "../types/complex";
+import { ComplexTypes } from "../types/complexTypes";
 
-export const mockComplexes: Complex =
+export const mockComplexes: ComplexTypes =
     {
         id: "1",
         name: "ЖК Солнечный берег",

@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { mockComplexes } from "../moсks/complexes";
-import { Complex } from "../types/complex";
+import { mockComplexes } from "../moсks/complexesMocks";
+import { ComplexTypes } from "../types/complexTypes";
 
 interface ComplexState {
-    list: Complex;
+    list: ComplexTypes;
 }
 
 const initialState: ComplexState = {

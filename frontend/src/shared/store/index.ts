@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import complexReducer from "@/entities/complex/model/complexSlice";
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        complex: complexReducer,
+    },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,0 +1,1 @@
+export { ComplexDetailContainer } from "./ComplexDetailContainer/ui/ComplexDetailContainer";

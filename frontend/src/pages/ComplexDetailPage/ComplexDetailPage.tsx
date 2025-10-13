@@ -1,4 +1,4 @@
-import {ComplexDetailContainer} from "@/widgets";
+import {ComplexDetailContainer} from "@/widgets/ComplexDetail";
 
 export const ComplexDetailPage = () => {
     return (

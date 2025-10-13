@@ -1,4 +1,9 @@
+<<<<<<< HEAD:frontend/src/app/globals.css
 @import "tailwindcss";
+=======
+@import "node_modules/tailwindcss";
+@import "node_modules/tw-animate-css";
+>>>>>>> cbf42c6 (Add in project):frontend/src/shared/styles/globals.css
 
 /*noinspection CssInvalidAtRule*/
 @custom-variant dark (&:is(.dark *));

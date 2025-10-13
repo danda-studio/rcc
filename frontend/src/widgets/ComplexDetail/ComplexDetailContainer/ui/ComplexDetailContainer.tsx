@@ -17,7 +17,6 @@ export const ComplexDetailContainer = () => {
 
     return (
         <section>
-            <h2>DetailPage</h2>
             <ComplexDetailHero/>
             <ComplexDetailFeatures/>
             <ComplexDetailIntroBlock/>

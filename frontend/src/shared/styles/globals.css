@@ -41,6 +41,14 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-red: red;
+
+  --text-header: 7.5rem;
+  --text-header--line-height: 0.92;
+  /* --leading-header: 0.92; */
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }
 
 :root {
@@ -77,8 +85,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /*gradients*/
-  --bg-gradient: linear-gradient(180deg, #345783 0%, #192435 27%, #101828 54%, #03050C 79%, #01050C 100%);
+  @apply text-[calc((16/(1920/100))*1vw)];
 }
 
 .dark {
@@ -122,5 +129,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-radial-1 {
+    background-image: radial-gradient(102.84% 147.65% at 47.88% -69.85%, #FFFFFF 0%, #B6D4EE 27.44%, #345783 54.42%, #192435 78.88%, #03050C 100%)
+  }
+  .bg-test-text {
+    @apply bg-linear-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent;
   }
 }

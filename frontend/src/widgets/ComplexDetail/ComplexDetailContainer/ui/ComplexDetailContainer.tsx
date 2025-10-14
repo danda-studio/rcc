@@ -16,7 +16,7 @@ export const ComplexDetailContainer = () => {
     const complex = useSelector((state: RootState) => state.complex.list);
 
     return (
-        <section className="min-h-screen px-[1.6rem] py-[1.6rem]">
+        <section className="min-h-screen px-[1.2rem] py-[1.2rem]">
             <ComplexDetailHero/>
             <ComplexDetailFeatures/>
             <ComplexDetailIntroBlock/>

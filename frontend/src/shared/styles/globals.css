@@ -76,6 +76,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /*gradients*/
+  --bg-gradient: linear-gradient(180deg, #345783 0%, #192435 27%, #101828 54%, #03050C 79%, #01050C 100%);
 }
 
 .dark {
@@ -115,6 +118,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    box-sizing: border-box;
   }
   body {
     @apply bg-background text-foreground;

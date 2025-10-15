@@ -1,4 +1,3 @@
-import {ContainerBlure} from "@/widgets/ComplexDetail/ComplexDetailHero/ui/ContainerBlure";
 import Image from "next/image";
 import Armor from "../../../../shared/images/svg/armor.svg"
 import Procent from "../../../../shared/images/png/procent.png"
@@ -17,10 +16,10 @@ export const HeroMainContent = () => {
             </div>
             <div className="flex relative z-10 gap-41.5">
                 <div className="flex flex-col gap-59">
-                    <Image src={Armor} alt={"Armor"} className="w-23 h-23"/>
-                    <Image src={Procent} alt={"Procent"} className="w-47.75 h-42"/>
+                    <Image src={Armor} alt={"Armor"} className="w-23 h-23 translate-x-37 translate-y-25"/>
+                    <Image src={Procent} alt={"Procent"} className="w-47.75 h-42 translate-x-40 translate-y-25"/>
                 </div>
-                <Image src={Ceil} alt={"Ceil"} className="w-78.5 h-42"/>
+                <Image src={Ceil} alt={"Ceil"} className="w-78.5 h-42 translate-x-40 translate-y-45"/>
             </div>
         </section>
     )

@@ -7,7 +7,7 @@ export const HeroMainContent = () => {
     return (
         <section className="flex px-10">
             <div className="flex flex-col items-left max-w-222">
-                <h2 className="font-manrope font-medium text-header tracking-[-0.04em] bg-test-text">
+                <h2 className="font-manrope font-medium text-header tracking-[-0.04em] bg-test-text mb-6">
                     Продажи в новом ЖК "Олимпийский"
                 </h2>
                 <p className="font-manrope font-medium text-subtitle-hero tracking-[-0.04em] text-subtitle">

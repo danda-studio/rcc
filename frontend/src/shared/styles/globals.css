@@ -46,6 +46,8 @@
 
   --text-subtitle-hero:  2.1rem;
   /* --leading-header: 0.92; */
+
+  --color-subtitle: #FFFFFF;
 }
 
 ::-webkit-scrollbar {
@@ -86,7 +88,6 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  --text-a: red;
   @apply text-[calc((16/(1920/100))*1vw)];
 }
 

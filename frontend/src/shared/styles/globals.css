@@ -45,6 +45,9 @@
   --text-header--line-height: 0.92;
   --text-subtitle-hero:  2.1rem;
 
+  --text-header-md: 2.75rem;
+
+
   --color-subtitle: #FFFFFF;
 
   /* --leading-header: 0.92; */
@@ -88,7 +91,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  @apply text-[calc((16/(1920/100))*1vw)];
+  @apply text-[calc((16/(360/100))*1vw)] md:text-[calc((16/(1920/100))*1vw)];
 }
 
 .dark {

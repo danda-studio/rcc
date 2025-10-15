@@ -15,8 +15,8 @@ export const HeroMainContent = () => {
                     Место, где хочется жить
                 </p>
             </div>
-            <div className="flex relative z-10 gap-68.5">
-                <div сlassNames="flex">
+            <div className="flex relative z-10 gap-41.5">
+                <div className="flex flex-col gap-59">
                     <Image src={Armor} alt={"Armor"} className="w-23 h-23"/>
                     <Image src={Procent} alt={"Procent"} className="w-47.75 h-42"/>
                 </div>

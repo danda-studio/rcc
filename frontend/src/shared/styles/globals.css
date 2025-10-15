@@ -43,11 +43,11 @@
 
   --text-header: 7.5rem;
   --text-header--line-height: 0.92;
-
   --text-subtitle-hero:  2.1rem;
-  /* --leading-header: 0.92; */
 
   --color-subtitle: #FFFFFF;
+
+  /* --leading-header: 0.92; */
 }
 
 ::-webkit-scrollbar {

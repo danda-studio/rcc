@@ -13,6 +13,7 @@ export const ComplexDetailHero = () => {
             <article className="absolute right-[-26.5rem] bottom-0">
                 <Image src={Complex} alt="Complex" className="object-cover w-480 h-250"/>
             </article>
+            <div className="absolute bottom-0 left-0 w-full h-0 shadow-[0_-80px_160px_80px_rgba(1,1,1,1)] pointer-events-none"></div>
         </section>
 
     );

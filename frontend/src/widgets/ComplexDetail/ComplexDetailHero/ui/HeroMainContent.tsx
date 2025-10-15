@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Armor from "../../../../shared/images/svg/armor.svg"
+import Armor from "../../../../shared/images/png/armor.png"
 import Procent from "../../../../shared/images/png/procent.png"
 import Ceil from "../../../../shared/images/png/ceil.png"
 

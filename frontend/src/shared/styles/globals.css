@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./fonts/Manrope/style.css";
 
 /*noinspection CssInvalidAtRule*/
 @custom-variant dark (&:is(.dark *));
@@ -41,6 +42,11 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
+
+  /* Tailwind */
+  /* Text */
+  --font-manrope: 'Manrope'; 
+  --default-font-family: var(--font-manrope);
   --text-header: 7.5rem;
   --text-header--line-height: 0.92;
   --text-subtitle-hero:  2.1rem;

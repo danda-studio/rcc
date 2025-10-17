@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "./fonts/Manrope/style.css";
 
 /*noinspection CssInvalidAtRule*/
 @custom-variant dark (&:is(.dark *));

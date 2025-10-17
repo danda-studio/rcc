@@ -1,0 +1,12 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/rcc/CopilotIndices/17.14.1091.29919/CodeChunks.db
+/.vs/rcc/CopilotIndices/17.14.1091.29919/SemanticSymbols.db
+/.vs/rcc/FileContentIndex/3dc61655-56eb-4a8d-ae43-6f322f62464e.vsidx
+/.vs/rcc/v17/.wsuo
+/.vs/rcc/v17/DocumentLayout.backup.json
+/.vs/rcc/v17/DocumentLayout.json
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json

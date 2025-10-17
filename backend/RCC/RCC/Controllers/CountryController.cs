@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PhoneNumbers;
+using System.Text.RegularExpressions;
 
 namespace RCC.Controllers
 {
@@ -14,12 +15,19 @@ namespace RCC.Controllers
             var supportedRegions = phoneUtil.GetSupportedRegions();
 
             var countryCodes = supportedRegions
-                .Select(region => new
+                .Select(region =>
                 {
-                    Region = region,
-                    CountryCode = phoneUtil.GetCountryCodeForRegion(region),
-                    ExampleNumber = phoneUtil.GetExampleNumber(region)?.NationalNumber.ToString()
+                    var exampleNumber = phoneUtil.GetExampleNumber(region);
+                    var mask = exampleNumber != null
+                        ? Regex.Replace(phoneUtil.Format(exampleNumber, PhoneNumberFormat.INTERNATIONAL), @"\d", "X")
+                        : null;
 
+                    return new
+                    {
+                        Region = region,
+                        CountryCode = phoneUtil.GetCountryCodeForRegion(region),
+                        Mask = mask
+                    };
                 })
                 .OrderBy(c => c.CountryCode)
                 .ToList();

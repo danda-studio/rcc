@@ -17,7 +17,6 @@ namespace RCC.Services
 
         public async Task<SendContactResponse> SendContact(SendContactRequest request)
         {
-            // Валидация
             if (!ContactValidator.ValidateName(request.Name, out var nameError))
                 return new SendContactResponse { Success = false, Message = nameError };
 
@@ -27,8 +26,6 @@ namespace RCC.Services
             if (!ContactValidator.ValidatePhone(request.Phone.Code, request.Phone.Number, out var phoneError))
                 return new SendContactResponse { Success = false, Message = phoneError };
 
-            try
-            {
                 using var client = new SmtpClient(_gmailSetting.SmtpServer, _gmailSetting.SmtpPort)
                 {
                     EnableSsl = true,
@@ -47,17 +44,9 @@ namespace RCC.Services
 
                 mailMessage.To.Add(_gmailSetting.Email);
 
-                //Console.WriteLine($"Connecting to {_gmailSetting.SmtpServer}:{_gmailSetting.SmtpPort} as {_gmailSetting.Email}");
-
                 await client.SendMailAsync(mailMessage);
 
                 return new SendContactResponse { Success = true };
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error sending email: {ex.Message}");
-                return new SendContactResponse { Success = false, Message = "Ошибка при отправке письма." };
-            }
         }
 
         private string FormatEmailBody(SendContactRequest request)

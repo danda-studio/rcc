@@ -1,25 +1,38 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import antfu from "@antfu/eslint-config";
+import nextPlugin from "@next/eslint-plugin-next";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+export default antfu(
   {
-    ignores: [
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-    ],
-  },
-];
+    react: true,
+    typescript: true,
 
-export default eslintConfig;
+    lessOpinionated: true,
+    isInEditor: false,
+
+    stylistic: {
+      indent: 2,
+      quotes: "double",
+      semi: true,
+    },
+
+    formatters: true,
+
+    ignores: ["migrations/**/*", "global.d.ts", "next-env.d.ts", "./src/shared/api/scheme/**/*"],
+  },
+  {
+    plugins: {
+      "@next/next": nextPlugin,
+    },
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+    },
+  },
+  {
+    rules: {
+      "antfu/no-top-level-await": "off",
+      "style/brace-style": ["error", "1tbs"],
+      "node/prefer-global/process": "off",
+    },
+  },
+);

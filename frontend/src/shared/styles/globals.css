@@ -47,16 +47,64 @@
   /* Text */
   --font-manrope: 'Manrope'; 
   --default-font-family: var(--font-manrope);
-  --text-header: 7.5rem;
-  --text-header--line-height: 0.92;
-  --text-subtitle-hero:  2.1rem;
+  
+  /* 120px */
+  --text-5xl: 7.5rem;
+  --text-5xl--line-height: 0.92;
+  
+  /* 64px */
+  --text-4xl: 4rem;
+  --text-4xl--line-height: 1;
+  
+  /* 44px */
+  --text-2xl: 2.75rem;
+  --text-2xl--line-height: 1;
 
-  --text-header-md: 2.75rem;
+  /* 40px */
+  --text-xl: 2.5rem;
+  --text-xl--line-height: 1;
 
+  /* 32px */
+  --text-lg: 2rem;
+  --text-lg--line-height: 1;
 
-  --color-subtitle: #FFFFFF;
+  /* 20px */
+  --text-md: 1.25rem;
+  --text-md--line-height: 1;
 
-  /* --leading-header: 0.92; */
+  /* 14px */
+  --text-sm: .875rem;
+  --text-sm--line-height: 1;
+
+  /* 12px */
+  --text-xs: .75rem;
+  --text-xs--line-height: 1;
+
+  /* Letter Spacing */
+  --tracking-md: 0.04em;
+  --tracking-sm: 0.02em;
+
+  /* Colors */
+  --color-white: var(--white);
+
+  --color-blue-1: var(--blue-1);
+  --color-blue-2: var(--blue-2);
+  --color-blue-3: var(--blue-3);
+  --color-blue-4: var(--blue-4);
+  --color-blue-5: var(--blue-5);
+  --color-blue-6: var(--blue-6);
+  
+  --color-gray-1: var(--gray-1);
+  --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
+  --color-gray-4: var(--gray-4);
+  --color-gray-5: var(--gray-5);
+
+  --color-gold-1: var(--gold-1);
+  --color-gold-2: var(--gold-2);
+  --color-gold-3: var(--gold-3);
+  --color-gold-4: var(--gold-4);
+
 }
 
 ::-webkit-scrollbar {
@@ -64,8 +112,29 @@
 }
 
 :root {
+  --white: #FFFFFF;
+  
+  --blue-1: #B6D4EE;
+  --blue-2: #345783;
+  --blue-3: #192435;
+  --blue-4: #111F38;
+  --blue-5: #090D17;
+  --blue-6: #03050C;
+  
+  --gray-1: #F2F4F6;
+  --gray-2: #DCE1EA;
+  --gray-3: #E4E8EC;
+  --gray-4: #6A6F7E;
+  --gray-5: #595868;
+
+  --gold-1: #FFEBA5;
+  --gold-2: #D8B24F;
+  --gold-3: #BB7E25;
+  --gold-4: #B77521;
+
+
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(100% 0.00011 271.152);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -147,12 +216,5 @@
 @layer utilities {
   .bg-radial-1 {
     background-image: radial-gradient(102.84% 147.65% at 47.88% -69.85%, #FFFFFF 0%, #B6D4EE 27.44%, #345783 54.42%, #192435 78.88%, #03050C 100%)
-  }
-  .bg-radial-hero {
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
-  }
-  .bg-test-text {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 1));
   }
 }

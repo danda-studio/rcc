@@ -17,7 +17,12 @@ export default antfu(
 
     formatters: true,
 
-    ignores: ["migrations/**/*", "global.d.ts", "next-env.d.ts", "./src/shared/api/scheme/**/*"],
+    ignores: [
+      "migrations/**/*",
+      "global.d.ts",
+      "next-env.d.ts",
+      "./src/shared/api/scheme/**/*",
+    ],
   },
   {
     plugins: {

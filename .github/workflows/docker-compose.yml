@@ -17,7 +17,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
-        run: docker build -t myapi:latest .
+        run: docker build -t myapi:latest ./backend/RCC/RCC
 
       - name: Save Docker image as artifact
         run: docker save myapi:latest | gzip > myapi.tar.gz

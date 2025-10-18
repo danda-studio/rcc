@@ -1,0 +1,29 @@
+name: CI/CD - Local Docker Test
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-test-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build -t myapi:latest .
+
+      - name: Save Docker image as artifact
+        run: docker save myapi:latest | gzip > myapi.tar.gz
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: myapi-image
+          path: myapi.tar.gz

@@ -26,6 +26,7 @@ namespace RCC.Controllers
                     {
                         Region = region,
                         CountryCode = phoneUtil.GetCountryCodeForRegion(region),
+                        ExampleNumber = exampleNumber,
                         Mask = mask
                     };
                 })

@@ -39,6 +39,7 @@ const buttonVariants = cva(
             active:text-white
             focus-visible:outline-white/40
           `,
+          cart: "text-gray-700 "
       },
       size: {
         "md": `

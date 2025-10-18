@@ -23,7 +23,7 @@ export const ResidentialWidget = () => {
                         </div>
                     </div>
 
-                    <div className="flex justify-end">
+                    <div className=" flex justify-end">
                         <div className="flex flex-col ">
                             <span className="text-5xl md:text-6xl text-blue-6 font-medium">128</span>
                             <span className="md:text-lg text-md-l text-blue-6 font-medium">Квартир</span>
@@ -43,7 +43,7 @@ export const ResidentialWidget = () => {
                     >
                         <div className="absolute inset-y-0 left-0 flex items-center">
                             <Image
-                                src="/images/house.png"
+                                src="/images/complex/house.png"
                                 alt="house"
                                 width={420}
                                 height={594}

@@ -1,6 +1,7 @@
-import type {FC} from "react";
-import {CityBadge} from "@/entities/city";
+import type { FC } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/shared/lib/shadcn/ui/button";
 
 export const ComplexFooterWidget: FC = () => {
     return (
@@ -8,26 +9,71 @@ export const ComplexFooterWidget: FC = () => {
             <h1 className="text-center text-2-2xl md:text-7xl mb-7 font-medium bg-clip-text text-transparent bg-liner-2">
                 Олимпийский
             </h1>
-            <div className='flex items-start  md:items-end justify-between flex-col md:flex-row'>
+
+            <div className="flex items-start md:items-end justify-between flex-col md:flex-row">
                 <div className="flex flex-col gap-4 mb-10 md:mb-0">
-                    <Link className='text-gray-4 font-medium text text-sm-m hover:text-gray-6' href={'#'}>О
-                        проекте</Link>
-                    <Link className='text-gray-4 font-medium text text-sm-m  hover:text-gray-6'
-                          href={'#'}>Ипотека</Link>
-                    <Link className='text-gray-4 font-medium text text-sm-m  hover:text-gray-6' href={'#'}>Хронология
-                        строительства</Link>
-                    <Link className='text-gray-4 font-medium text text-sm-m  hover:text-gray-6'
-                          href={'#'}>Планировки</Link>
+                    <Link
+                        className="text-gray-4 font-medium text text-sm-m hover:text-gray-700"
+                        href="#"
+                    >
+                        О проекте
+                    </Link>
+                    <Link
+                        className="text-gray-4 font-medium text text-sm-m hover:text-gray-700"
+                        href="#"
+                    >
+                        Ипотека
+                    </Link>
+                    <Link
+                        className="text-gray-4 font-medium text text-sm-m hover:text-gray-700"
+                        href="#"
+                    >
+                        Хронология строительства
+                    </Link>
+                    <Link
+                        className="text-gray-4 font-medium text text-sm-m hover:text-gray-700"
+                        href="#"
+                    >
+                        Планировки
+                    </Link>
+
+                    <Link
+                        className="underline pt-6 text-gray-4 font-medium text text-sm-m hover:text-gray-700 md:hidden"
+                        href="#"
+                    >
+                        Политика обработки персональных данных
+                    </Link>
                 </div>
 
                 <div>
-                    <span className='text-gray-4 font-medium text text-sm-m'>© 2025 ООО "СЗ"РСК""</span>
+          <span className="text-gray-4 font-medium text text-sm-m hidden md:inline">
+                 © 2025 ООО "СЗ"РСК""
+          </span>
                 </div>
-                <div>
-                    <button>asdasddsa</button>
-                    <Link className='text-gray-4 font-medium text text-sm-m  hover:text-gray-6' href={'#'}>Политика
-                        обработки персональных
-                        данных</Link>
+
+                <div className="flex flex-col items-end">
+                    <Button className="max-w-56 hidden md:inline-flex" size={"md"} variant="cart">
+                        <Image src="/icons/map.svg" width={24} height={24} alt="map icon" />
+                        Мы на карте
+                    </Button>
+
+                    <Link
+                        className="underline pt-10 text-gray-4 font-medium text text-sm-m hover:text-gray-700 hidden md:inline"
+                        href="#"
+                    >
+                        Политика обработки персональных данных
+                    </Link>
+                </div>
+            </div>
+
+            <div className="mt-6 md:hidden px-4">
+                <div className="flex items-center justify-between">
+                    <Button className="max-w-56" size={"md"} variant={'cart'}>
+                        <Image src="/icons/map.svg" width={24} height={24} alt="map icon" />
+                        Мы на карте
+                    </Button>
+
+                    <span className="text-gray-4 font-medium text text-sm-m">© 2025 ООО "СЗ"РСК""</span>
                 </div>
             </div>
         </section>

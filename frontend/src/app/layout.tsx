@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import {ReduxProvider} from "@/shared/redux/provider/ReduxProvider";
+import { UILayout } from "@/shared";
+import { manropeFont } from "@/shared/styles/fonts/manrope";
+import "../shared/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "",
@@ -13,11 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={manropeFont.variable}>
       <body>
-        <ReduxProvider>
-            {children}
-        </ReduxProvider>
+        <UILayout>
+          {children}
+        </UILayout>
       </body>
     </html>
   );

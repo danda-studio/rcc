@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <div>
+import { ComplexPage } from "@/pages/complex";
 
-    </div>
-  );
+export default function Home() {
+  return <ComplexPage />;
 }

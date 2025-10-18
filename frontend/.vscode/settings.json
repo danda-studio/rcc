@@ -51,5 +51,7 @@
 
   // Igone warnings: @custom-variant, @theme
   "css.lint.unknownAtRules": "ignore",
-  "scss.lint.unknownAtRules": "ignore"
+  "scss.lint.unknownAtRules": "ignore",
+
+  "tailwindCSS.classFunctions": ["cva"]
 }

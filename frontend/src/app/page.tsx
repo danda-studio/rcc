@@ -1,3 +1,5 @@
+import { ComplexPage } from "@/pages/complex";
+
 export default function Home() {
-  return <h1>test</h1>;
+  return <ComplexPage />;
 }

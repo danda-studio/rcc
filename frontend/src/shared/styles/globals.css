@@ -81,6 +81,9 @@
   --tracking-md: 0.04em;
   --tracking-sm: 0.02em;
 
+  /* Border Radius */
+  --radius-xs: 0.75rem;
+
   /* Colors */
   --color-white: var(--white);
 
@@ -130,7 +133,7 @@
 
   --radius: 0.625rem;
   --background: oklch(100% 0.00011 271.152);
-  --foreground: oklch(0.145 0 0);
+  --foreground: var(--white);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -160,6 +163,40 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --radial-1: radial-gradient(
+    102.84% 147.65% at 47.88% -69.85%,
+    var(--color-white) 0%,
+    var(--color-blue-1) 27.44%,
+    var(--color-blue-2) 54.42%,
+    var(--color-blue-3) 78.88%,
+    var(--color-blue-6) 100%
+  );
+  --radial-2: 375.87% 211.17% at -25% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.48) 100%;
+
+  --px: calc((1 / 16) * 1rem);
+
+  --clip-path-1: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    0% 100%,
+    0% 100%,
+    0% var(--px),
+    var(--px) var(--px),
+    var(--px) calc(100% - 9 * var(--px)),
+    calc(4 * var(--px)) calc(100% - 4 * var(--px)),
+    calc(9 * var(--px)) calc(100% - var(--px)),
+    calc(100% - 9 * var(--px)) calc(100% - var(--px)),
+    calc(100% - 4 * var(--px)) calc(100% - 4 * var(--px)),
+    calc(100% - var(--px)) calc(100% - 9 * var(--px)),
+    calc(100% - var(--px)) calc(9 * var(--px)),
+    calc(100% - 4 * var(--px)) calc(4 * var(--px)),
+    calc(100% - 9 * var(--px)) var(--px),
+    calc(9 * var(--px)) var(--px),
+    calc(4 * var(--px)) calc(4 * var(--px)),
+    var(--px) calc(9 * var(--px))
+  );
 
   @apply text-[calc((16/(360/100))*1vw)] md:text-[calc((16/(1920/100))*1vw)];
 }
@@ -210,13 +247,19 @@
 
 @layer utilities {
   .bg-radial-1 {
-    background-image: radial-gradient(
-      102.84% 147.65% at 47.88% -69.85%,
-      #ffffff 0%,
-      #b6d4ee 27.44%,
-      #345783 54.42%,
-      #192435 78.88%,
-      #03050c 100%
-    );
+    background-image: var(--radial-1);
+  }
+  .bg-radial-2 {
+    background-image: radial-gradient(var(--radial-2));
+  }
+  .bg-liner-1 {
+    background-image: linear-gradient(290.5deg, #ffffff 67.25%, rgba(255, 255, 255, 0) 113.92%);
+  }
+
+  .clip-path-1 {
+    clip-path: var(--clip-path-1);
+  }
+  .shadow-1 {
+    box-shadow: 0 calc(4 * var(--px)) calc(8.7 * var(--px)) 0 rgba(255, 255, 255, 0.13) inset;
   }
 }

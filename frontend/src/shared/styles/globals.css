@@ -433,6 +433,14 @@
   .clip-path-1 {
     clip-path: var(--clip-path-1);
   }
+    .bg-liner-2 {
+        background-image: linear-gradient(115.15deg, #FFEBA5 16%, #D8B24F 35.33%, #B77521 91.73%);
+    }
+
+    /* Clip path */
+    .clip-path-1 {
+        clip-path: var(--clip-path-1);
+    }
 
   /* Shadow */
   .shadow-1 {

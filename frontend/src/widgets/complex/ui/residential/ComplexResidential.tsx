@@ -23,7 +23,7 @@ export const ResidentialWidget = () => {
                         </div>
                     </div>
 
-                    <div className=" flex justify-end">
+                    <div className="flex justify-end">
                         <div className="flex flex-col ">
                             <span className="text-5xl md:text-6xl text-blue-6 font-medium">128</span>
                             <span className="md:text-lg text-md-l text-blue-6 font-medium">Квартир</span>

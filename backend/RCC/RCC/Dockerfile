@@ -3,11 +3,12 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Копируем и восстанавливаем зависимости
-COPY backend/RCC/RCC/RCC.csproj .
-RUN dotnet restore RCC.csproj
+COPY ["backend/RCC/RCC/RCC.csproj", "backend/RCC/RCC/"]
+RUN dotnet restore "backend/RCC/RCC/RCC.csproj"
 
 # Копируем исходный код и публикуем
-COPY backend/RCC/RCC/ .
+COPY . .
+WORKDIR "/src/backend/RCC/RCC"
 RUN dotnet publish -c Release -o /app/publish
 
 # Финальный образ

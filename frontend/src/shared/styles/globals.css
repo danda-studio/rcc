@@ -5,6 +5,7 @@
 
 /*noinspection CssInvalidAtRule*/
 @theme inline {
+  /* Shandcn */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -111,26 +112,7 @@
 }
 
 :root {
-  --white: #ffffff;
-
-  --blue-1: #b6d4ee;
-  --blue-2: #345783;
-  --blue-3: #192435;
-  --blue-4: #111f38;
-  --blue-5: #090d17;
-  --blue-6: #03050c;
-
-  --gray-1: #f2f4f6;
-  --gray-2: #dce1ea;
-  --gray-3: #e4e8ec;
-  --gray-4: #6a6f7e;
-  --gray-5: #595868;
-
-  --gold-1: #ffeba5;
-  --gold-2: #d8b24f;
-  --gold-3: #bb7e25;
-  --gold-4: #b77521;
-
+  /* Shandcn */
   --radius: 0.625rem;
   --background: oklch(100% 0.00011 271.152);
   --foreground: var(--white);
@@ -164,6 +146,32 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
+  /* Tailwind */
+  /* Colors */
+  --white: #ffffff;
+
+  --blue-1: #b6d4ee;
+  --blue-2: #345783;
+  --blue-3: #192435;
+  --blue-4: #111f38;
+  --blue-5: #090d17;
+  --blue-6: #03050c;
+
+  --gray-1: #f2f4f6;
+  --gray-2: #dce1ea;
+  --gray-3: #e4e8ec;
+  --gray-4: #6a6f7e;
+  --gray-5: #595868;
+
+  --gold-1: #ffeba5;
+  --gold-2: #d8b24f;
+  --gold-3: #bb7e25;
+  --gold-4: #b77521;
+
+  /* 1px to rem */
+  --px: calc((1 / 16) * 1rem);
+
+  /* Radial gradients */
   --radial-1: radial-gradient(
     102.84% 147.65% at 47.88% -69.85%,
     var(--color-white) 0%,
@@ -174,8 +182,7 @@
   );
   --radial-2: 375.87% 211.17% at -25% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.48) 100%;
 
-  --px: calc((1 / 16) * 1rem);
-
+  /* Clip path */
   --clip-path-1: polygon(
     0% 0%,
     100% 0%,
@@ -202,6 +209,7 @@
 }
 
 .dark {
+  /* Shandcn */
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -246,19 +254,25 @@
 }
 
 @layer utilities {
+  /* BG radial */
   .bg-radial-1 {
     background-image: var(--radial-1);
   }
   .bg-radial-2 {
     background-image: radial-gradient(var(--radial-2));
   }
+
+  /* BG liner */
   .bg-liner-1 {
     background-image: linear-gradient(290.5deg, #ffffff 67.25%, rgba(255, 255, 255, 0) 113.92%);
   }
 
+  /* Clip path */
   .clip-path-1 {
     clip-path: var(--clip-path-1);
   }
+
+  /* Shadow */
   .shadow-1 {
     box-shadow: 0 calc(4 * var(--px)) calc(8.7 * var(--px)) 0 rgba(255, 255, 255, 0.13) inset;
   }

@@ -50,6 +50,17 @@
   /* Text */
   --default-font-family: var(--font-manrope);
 
+    /* 300px */
+    --text-7xl: 16rem;
+    --text-7xl--line-height: 0.92;
+
+    /* 160px */
+    --text-6xl: 9.5rem;
+    --text-6xl--line-height: 0.92;
+
+    /* 120px */
+    --text-5xl: 7.5rem;
+    --text-5xl--line-height: 0.92;
   /* 180px */
   --text-6-5xl: 11.25rem;
   --text-6-5xl--line-height: 0.92;
@@ -62,9 +73,24 @@
   --text-5xl: 7.5rem;
   --text-5xl--line-height: 0.92;
 
-  /* 64px */
-  --text-4xl: 4rem;
-  --text-4xl--line-height: 1;
+    /* 100px */
+    --text-4-6xl: 6.25rem;
+    --text-4-6xl--line-height: 0.92;
+
+    /* 72px */
+    --text-4-5xl: 4.2rem;
+    --text-4-5xl--line-height: 0.92;
+
+    /* 64px */
+    --text-4xl: 4rem;
+    --text-4xl--line-height: 1;
+    /* 60px */
+    --text-2-3xl: 4rem;
+    --text-2-3xl--line-height: 0.92;
+
+    /* 58px */
+    --text-2-2xl: 2.75rem;
+    --text-2-2xl--line-height: 1;
 
   /* 60px */
   --text-3xl: 3.75rem;
@@ -78,13 +104,28 @@
   --text-xl: 2.5rem;
   --text-xl--line-height: 1;
 
-  /* 32px */
-  --text-lg: 2rem;
-  --text-lg--line-height: 1;
+    /* 36px */
+    --text-lg-x: 2.25rem;
+    --text-lg-x--line-height: 1;
+    /* 32px */
+    --text-lg: 2rem;
+    --text-lg--line-height: 1;
 
-  /* 20px */
-  --text-md: 1.25rem;
-  --text-md--line-height: 1;
+    /* 28px */
+    --text-md-l: 1.75rem;
+    --text-md-l-line-height: 1;
+
+    /* 24px */
+    --text-md-x: 1.50rem;
+    --text-md-x-line-height: 1;
+
+    /* 20px */
+    --text-md: 1.25rem;
+    --text-md--line-height: 1;
+
+    /* 16px */
+    --text-sm-m: 1rem;
+    --text-sm-m--line-height: 1;
 
   /* 16px */
   --text-base: 1rem;
@@ -94,19 +135,19 @@
   --text-sm: 0.875rem;
   --text-sm--line-height: 1;
 
-  /* 12px */
-  --text-xs: 0.75rem;
-  --text-xs--line-height: 1;
+    /* 12px */
+    --text-xs: 0.75rem;
+    --text-xs--line-height: 1;
 
-  /* Letter Spacing */
-  --tracking-md: 0.04em;
-  --tracking-sm: 0.02em;
+    /* Letter Spacing */
+    --tracking-md: 0.04em;
+    --tracking-sm: 0.02em;
 
-  /* Border Radius */
-  --radius-xs: 0.75rem;
+    /* Border Radius */
+    --radius-xs: 0.75rem;
 
-  /* Colors */
-  --color-white: var(--white);
+    /* Colors */
+    --color-white: var(--white);
 
   --color-blue-1: var(--blue-1);
   --color-blue-2: var(--blue-2);
@@ -374,6 +415,14 @@
   .clip-path-1 {
     clip-path: var(--clip-path-1);
   }
+    .bg-liner-2 {
+        background-image: linear-gradient(115.15deg, #FFEBA5 16%, #D8B24F 35.33%, #B77521 91.73%);
+    }
+
+    /* Clip path */
+    .clip-path-1 {
+        clip-path: var(--clip-path-1);
+    }
 
   /* Shadow */
   .shadow-1 {

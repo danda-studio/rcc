@@ -43,6 +43,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   /* Tailwind */
+  /* Border radius */
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+
   /* Text */
   --default-font-family: var(--font-manrope);
 
@@ -94,6 +98,8 @@
   --color-blue-4: var(--blue-4);
   --color-blue-5: var(--blue-5);
   --color-blue-6: var(--blue-6);
+  --color-blue-7: var(--blue-7);
+  --color-blue-8: var(--blue-8);
 
   --color-gray-1: var(--gray-1);
   --color-gray-2: var(--gray-2);
@@ -160,6 +166,8 @@
   --blue-4: #111f38;
   --blue-5: #090d17;
   --blue-6: #03050c;
+  --blue-7: #6081a7;
+  --blue-8: #4c6d96;
 
   --gray-1: #f2f4f6;
   --gray-2: #dce1ea;
@@ -176,15 +184,14 @@
   --px: calc((1 / 16) * 1rem);
 
   /* Radial gradients */
-  --radial-1: radial-gradient(
-    102.84% 147.65% at 47.88% -69.85%,
-    var(--color-white) 0%,
-    var(--color-blue-1) 27.44%,
-    var(--color-blue-2) 54.42%,
-    var(--color-blue-3) 78.88%,
-    var(--color-blue-6) 100%
-  );
+  --radial-1:
+    102.84% 147.65% at 47.88% -69.85%, var(--color-white) 0%, var(--color-blue-1) 27.44%, var(--color-blue-2) 54.42%,
+    var(--color-blue-3) 78.88%, var(--color-blue-6) 100%;
   --radial-2: 375.87% 211.17% at -25% 50%, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.48) 100%;
+
+  /* Linear gradients */
+  --linear-1: 290.5deg, var(--white) 67.25%, rgba(255, 255, 255, 0) 113.92%;
+  --linear-2: 270deg, var(--blue-8) 1.7%, var(--blue-7) 22.87%;
 
   /* Clip path */
   --clip-path-1: polygon(
@@ -296,15 +303,18 @@
 @layer utilities {
   /* BG radial */
   .bg-radial-1 {
-    background-image: var(--radial-1);
+    background-image: radial-gradient(var(--radial-1));
   }
   .bg-radial-2 {
     background-image: radial-gradient(var(--radial-2));
   }
 
-  /* BG liner */
-  .bg-liner-1 {
-    background-image: linear-gradient(290.5deg, #ffffff 67.25%, rgba(255, 255, 255, 0) 113.92%);
+  /* BG linear */
+  .bg-linear-1 {
+    background-image: linear-gradient(var(--linear-1));
+  }
+  .bg-linear-2 {
+    background-image: linear-gradient(var(--linear-2));
   }
 
   /* Clip path */

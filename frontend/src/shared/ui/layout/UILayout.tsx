@@ -3,7 +3,7 @@ import type { UILayoutProps } from "./types";
 
 export const UILayout: FC<UILayoutProps> = ({ children }) => {
   return (
-    <main className="p-4">
+    <main className="p-1 md:p-4">
       {children}
     </main>
   );

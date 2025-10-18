@@ -14,10 +14,10 @@ export const ComplexBanner: FC = () => {
         height={1080}
         alt="Hero image"
         src="/images/complex/banner.png"
-        className="absolute left-1/2 -translate-x-1/2 md:left-98 bottom-0 min-w-208 md:w-480 md:h-270"
+        className="absolute left-1/2 max-md:-translate-x-1/2 md:left-98 bottom-0 min-w-208 md:w-480 md:h-270"
       />
 
-      <div className="absolute left-0 md:left-98 bottom-0 w-400 h-30 overflow-hidden blur-lg">
+      <div className="absolute left-1/2 max-md:-translate-x-1/2 md:left-98 bottom-0 w-full md:w-400 h-10 md:h-30 overflow-hidden blur-lg">
         <Image
           width={192}
           height={108}

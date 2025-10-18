@@ -14,7 +14,7 @@ const badgeVariants = cva(
           "relative border-none shadow-1 before:absolute before:inset-0 -before:z-10 before:bg-radial-(--radial-2) before:[clip-path:var(--clip-path-1)] bg-white/9",
       },
       size: {
-        md: "h-9.5 px-4 text-md [&>svg]:size-6 rounded-xs gap-2",
+        md: "h-8 md:h-10 max-md:pl-2 max-md:pr-3 md:px-4 text-sm md:text-md [&>svg]:size-4 md:[&>svg]:size-6 rounded-sm md:rounded-md gap-2",
       },
     },
     defaultVariants: {

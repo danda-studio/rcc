@@ -14,7 +14,13 @@ export const UIGlass: FC<UIGlassProps> = ({
 }) => {
   return (
     <div className={cx(
-      "bg-white/9 shadow-1 backdrop-blur-md rounded-md overflow-hidden",
+      `
+        bg-white/9
+        shadow-1
+        backdrop-blur-md
+        rounded-md
+        overflow-hidden
+      `,
       borderVariants[border],
       className,
     )}

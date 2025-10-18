@@ -50,6 +50,10 @@
   /* Text */
   --default-font-family: var(--font-manrope);
 
+  /* 180px */
+  --text-6-5xl: 11.25rem;
+  --text-6-5xl--line-height: 0.92;
+
     /* 300px */
     --text-7xl: 16rem;
     --text-7xl--line-height: 0.92;
@@ -57,17 +61,6 @@
     /* 160px */
     --text-6xl: 9.5rem;
     --text-6xl--line-height: 0.92;
-
-    /* 120px */
-    --text-5xl: 7.5rem;
-    --text-5xl--line-height: 0.92;
-  /* 180px */
-  --text-6-5xl: 11.25rem;
-  --text-6-5xl--line-height: 0.92;
-
-  /* 120px */
-  --text-5xl: 7.5rem;
-  --text-5xl--line-height: 0.92;
 
   /* 120px */
   --text-5xl: 7.5rem;
@@ -425,6 +418,21 @@
     .clip-path-1 {
         clip-path: var(--clip-path-1);
     }
+  .bg-gradient-1 {
+    background: radial-gradient(
+      150% 135% at 0% 140%,
+      #ffffff 0%,
+      #b6d4ee 15.13%,
+      #345783 56.39%,
+      #192435 85.1%,
+      #03050c 100%
+    );
+  }
+
+  /* Clip path */
+  .clip-path-1 {
+    clip-path: var(--clip-path-1);
+  }
 
   /* Shadow */
   .shadow-1 {

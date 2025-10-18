@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { UILayout } from "@/shared";
 import { manropeFont } from "@/shared/styles/fonts/manrope";
 import "../shared/styles/globals.css";
 
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={manropeFont.variable}>
       <body>
-        {children}
+        <UILayout>
+          {children}
+        </UILayout>
       </body>
     </html>
   );

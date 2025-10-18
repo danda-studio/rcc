@@ -251,6 +251,27 @@
     calc(3 * var(--px) + var(--px) * 2.33) calc(3 * var(--px) + var(--px) * 2.33),
     calc(var(--px) * 2.33) calc(9 * var(--px) + var(--px) * 2.33)
   );
+  --clip-path-3: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    0% 100%,
+    0% 100%,
+    0% var(--px),
+    var(--px) var(--px),
+    var(--px) calc(100% - 7 * var(--px)),
+    calc(3 * var(--px)) calc(100% - 3 * var(--px)),
+    calc(7 * var(--px)) calc(100% - var(--px)),
+    calc(100% - 7 * var(--px)) calc(100% - var(--px)),
+    calc(100% - 3 * var(--px)) calc(100% - 3 * var(--px)),
+    calc(100% - var(--px)) calc(100% - 7 * var(--px)),
+    calc(100% - var(--px)) calc(7 * var(--px)),
+    calc(100% - 3 * var(--px)) calc(3 * var(--px)),
+    calc(100% - 7 * var(--px)) var(--px),
+    calc(7 * var(--px)) var(--px),
+    calc(3 * var(--px)) calc(3 * var(--px)),
+    var(--px) calc(7 * var(--px))
+  );
 
   @apply text-[calc((16/(360/100))*1vw)] md:text-[calc((16/(1920/100))*1vw)];
 }

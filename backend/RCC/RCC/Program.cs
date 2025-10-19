@@ -11,18 +11,27 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<GmailSetting>(builder.Configuration.GetSection("GmailSetting"));
 builder.Services.AddScoped<IContactService, ContactService>();
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin", policy =>
+    {
+        policy.WithOrigins("https://danda-studio.github.io")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
+
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
+app.UseSwagger();
 
-    app.MapScalarApiReference(options =>
-    {
-        options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
-        options.Title = "RCC API Documentation";
-    });
-}
+app.MapScalarApiReference(options =>
+{
+    options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
+    options.Title = "RCC API Documentation";
+});
 
 app.UseHttpsRedirection();
 app.UseAuthorization();

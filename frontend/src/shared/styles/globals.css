@@ -186,6 +186,8 @@
   --color-gray-5: var(--gray-5);
   --color-gray-6: var(--gray-6);
 
+  --color-gray-7: var(--gray-7);
+
   --color-gold-1: var(--gold-1);
   --color-gold-2: var(--gold-2);
   --color-gold-3: var(--gold-3);
@@ -257,6 +259,8 @@
   --gray-4: #6a6f7e;
   --gray-5: #595868;
   --gray-6: #6a6f7e;
+
+  --gray-7: #e4e4e4;
 
   --gold-1: #ffeba5;
   --gold-2: #d8b24f;

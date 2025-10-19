@@ -5,7 +5,7 @@ import Image from 'next/image';
 export const ResidentialWidget = () => {
 
     return (
-        <div className="bg-white flex flex-col  justify-between  md:flex-row md:pr-14 md:pl-10 ">
+        <div className="bg-white flex flex-col  justify-between  md:flex-row px-3 md:pr-14 md:pl-10 ">
             <div className="max-w-[51rem]">
                 <h2 className="text-lg-x mb-6 font-medium text-blue-6 md:text-4-5xl">
                     Пространство, где комфорт встречается с современностью
@@ -37,9 +37,7 @@ export const ResidentialWidget = () => {
                 <div className="items-center md:justify-self-start">
                     <div
                         className={`
-                                relative flex flex-col justify-between w-auto md:w-[440px] h-[594px] overflow-hidden p-6 text-white
-       
-                                                    `}
+                                relative flex flex-col justify-between md:w-[27.5rem] h-[25rem] md:h-[37.125rem] rounded-xs`}
                     >
                         <div className="absolute inset-y-0 left-0 flex items-center">
                             <Image
@@ -52,7 +50,7 @@ export const ResidentialWidget = () => {
                             />
                         </div>
 
-                        {/* Контент */}
+
                     </div>
                 </div>
 
@@ -60,7 +58,7 @@ export const ResidentialWidget = () => {
                     <div
                         className={`
                             rounded-xs
-        relative flex flex-col justify-between w-auto md:w-105 h-[37rem] overflow-hidden p-6 text-white bg-gray-1
+        relative flex flex-col justify-between w-auto md:w-105 h-[25rem] md:h-[37rem] overflow-hidden p-6 text-white bg-gray-1
       `}
                     >
                         <div className="relative z-10 flex flex-col justify-between h-full">

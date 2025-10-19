@@ -6,12 +6,12 @@ import { Button } from "@/shared/lib/shadcn/ui/button";
 export const ComplexFooterWidget: FC = () => {
     return (
         <section className="bg-white md:pl-16 md:pr-16 pt-16 md:pt-28 ">
-            <h1 className="text-center text-2-6xl md:text-7xl mb-7 font-medium bg-clip-text text-transparent bg-liner-3">
+            <h1 className="text-center mb-6 text-2-2xl -tracking-lg  md:text-7xl md:mb-18.5 font-medium bg-clip-text text-transparent bg-liner-3">
                 Олимпийский
             </h1>
 
             <div className="flex items-start md:items-end justify-between flex-col md:flex-row">
-                <div className="flex flex-col gap-4 mb-10 md:mb-0">
+                <div className="flex ml-2 md:ml-0 flex-col gap-4 mb-10 md:mb-0">
                     <Link
                         className="text-gray-4 font-medium text text-sm-m hover:text-gray-700"
                         href="#"

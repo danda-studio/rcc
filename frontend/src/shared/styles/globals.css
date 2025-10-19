@@ -14,6 +14,19 @@
 .carousel-pattern > *:nth-child(3n + 3) {
     margin-bottom: 11.875rem; /* третья */
 }
+@media (max-width: 768px) {
+    .carousel-pattern > *:nth-child(3n + 1) {
+        margin-bottom: 2.5rem; /* первая */
+    }
+
+    .carousel-pattern > *:nth-child(3n + 2) {
+        margin-bottom: 5rem; /* вторая */
+    }
+
+    .carousel-pattern > *:nth-child(3n + 3) {
+        margin-bottom: 0; /* третья */
+    }
+}
 /*noinspection CssInvalidAtRule*/
 @theme inline {
   /* Shandcn */
@@ -66,7 +79,7 @@
   --text-6-5xl--line-height: 0.92;
 
     /* 300px */
-    --text-7xl: 16rem;
+    --text-7xl: 18.75rem;
     --text-7xl--line-height: 0.92;
 
     /* 160px */
@@ -132,7 +145,7 @@
 
     /* 16px */
     --text-sm-m: 1rem;
-    --text-sm-m--line-height: 1;
+    --text-sm-m--line-height: 1.2;
 
   /* 16px */
   --text-base: 1rem;
@@ -149,6 +162,7 @@
     /* Letter Spacing */
     --tracking-md: 0.04em;
     --tracking-sm: 0.02em;
+    --tracking-lg: 0.08em;
 
     /* Border Radius */
     --radius-xs: 0.75rem;

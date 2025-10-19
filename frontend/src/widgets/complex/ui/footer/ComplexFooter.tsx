@@ -6,7 +6,7 @@ import { Button } from "@/shared/lib/shadcn/ui/button";
 export const ComplexFooterWidget: FC = () => {
     return (
         <section className="bg-white md:pl-16 md:pr-16 pt-16 md:pt-28 ">
-            <h1 className="text-center text-2-2xl md:text-7xl mb-7 font-medium bg-clip-text text-transparent bg-liner-2">
+            <h1 className="text-center text-2-2xl md:text-7xl mb-7 font-medium bg-clip-text text-transparent bg-liner-3">
                 Олимпийский
             </h1>
 

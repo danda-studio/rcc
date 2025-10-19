@@ -12,7 +12,18 @@ import {
 
 export const ComplexAboutWidget: FC = () => {
     return (
-        <section className="relative w-full py-10 md:py-20 bg-white">
+        <section className="relative w-full py-10 md:py-20 bg-white md:ml-10">
+            <div className="max-w-[44.5rem] md: pb-20">
+
+                <h2 className="text-lg-x mb-6 font-medium text-blue-6 md:text-4-5xl">
+                    О нашем проекте подробнее
+                </h2>
+                <p className="text-md-x text-gray-4 font-medium mt-6">
+                    ЖК "Олимпийский" - это идеальное место для жизни, где гармонично сочетаются современные технологии и
+                    эстетика, обеспечивая комфорт и уют каждому жителю
+                </p>
+            </div>
+
             <Carousel
                 className="max-w-[100vw] overflow-hidden"
                 opts={{
@@ -20,23 +31,19 @@ export const ComplexAboutWidget: FC = () => {
                     slidesToScroll: 1,
                 }}
             >
-                {/* ✅ фиксированная высота в ремах, центрирование и видимость overflow */}
                 <CarouselContent className="-ml-[1rem] md:h-[40.25rem] items-end overflow-visible carousel-pattern">
                     {/* 1 */}
-                    <CarouselItem className="basis-[60%] md:basis-[18%] pl-[1rem]">
+                    <CarouselItem className="!basis-[90%] md:!basis-[18%] pl-[1rem]">
                         <div
-                            className={`
-                            rounded-xs
-                                bg-liner-5 relative flex flex-col justify-between w-[18.75] md:w-80 md:h-[28.375rem] overflow-hidden p-6 text-white bg-gray-1
-                             `}
+                            className="rounded-xs bg-liner-5 relative flex flex-col justify-between w-[18.75rem] md:w-80
+                           h-[21.25rem] md:h-[28.375rem] overflow-hidden p-6 text-white bg-gray-1
+                             "
                         >
-                            <div className="relative z-10 flex flex-col justify-between h-full">
-                                <div className="pl-6 md:pl-0 flex items-baseline">
-                                    <div className="pl-6 md:pl-0 flex items-baseline">
-                                        <p className="md:text-4-6xl font-medium text-white">2</p>
-                                        <p className="ml-1.5 text-2-6xl font-medium text-white">%</p>
+                            <div className="relative  z-10 flex flex-col justify-between h-full">
+                                    <div className="md:pl-0 flex items-baseline">
+                                        <p className="md:text-4-6xl text-4-6xl font-medium text-white">2</p>
+                                        <p className="ml-1.5  text-xl md:text-2-6xl justify-end font-medium text-white">%</p>
                                     </div>
-                                </div>
 
                                 <div>
                                      <span className="text-sm-m md:text-lg font-medium text-white">
@@ -48,11 +55,12 @@ export const ComplexAboutWidget: FC = () => {
                     </CarouselItem>
 
                     {/* 2 */}
-                    <CarouselItem className="basis-[60%] md:basis-[18%] pl-[1rem]">
+                    <CarouselItem className="!basis-[90%] md:!basis-[18%] pl-[1rem]">
                         <div
                             className="
+                            h-[21.25rem] w-[18.75rem] md:w-80 md:h-[28.375rem]
       rounded-xs relative flex flex-col justify-between
-      w-auto md:w-80 md:h-[28.375rem] overflow-hidden
+       overflow-hidden
       p-6 text-white bg-gray-1 bg-liner-4
     "
                         >
@@ -65,14 +73,14 @@ export const ComplexAboutWidget: FC = () => {
                             />
 
                             <div className="relative z-10 flex flex-col justify-between h-full">
-                                <div className="pl-6 md:pl-0 flex items-baseline">
-                                    <p className="font-medium text-lg">Первоначальный взнос</p>
+                                <div className="md:pl-0 flex items-baseline">
+                                    <p className="font-medium text-md md:text-lg">Первоначальный взнос</p>
                                 </div>
 
                                 <div>
-                                    <div className="pl-6 md:pl-0 flex items-baseline">
-                                        <p className="md:text-4-6xl font-medium text-white">10</p>
-                                        <p className="ml-1.5 text-2-6xl font-medium text-white">%</p>
+                                    <div className=" md:pl-0 flex items-baseline">
+                                        <p className="text-4-6xl md:text-4-6xl font-medium text-white">10</p>
+                                        <p className="ml-1.5 text-xl md:text-2-6xl font-medium text-white">%</p>
                                     </div>
                                 </div>
                             </div>
@@ -80,17 +88,17 @@ export const ComplexAboutWidget: FC = () => {
                     </CarouselItem>
 
                     {/* 3 */}
-                    <CarouselItem className="basis-[60%] md:basis-[18%] pl-3">
+                    <CarouselItem className="!basis-[90%] md:!basis-[18%] pl-3">
                         <div
                             className={`
-                            rounded-xs
-                               bg-blue-6 relative flex flex-col justify-between w-auto md:w-80 md:h-[28.375rem] overflow-hidden p-6 text-white
+                            rounded-xs h-[21.25rem] w-[18.75rem] md:w-80 md:h-[28.375rem]
+                               bg-blue-6 relative flex flex-col justify-between overflow-hidden p-6 text-white
                              `}
                         >
                             <div className="relative z-10 flex flex-col justify-between h-full">
-                                <div className="pl-6 md:pl-0 flex items-baseline">
-                                    <p className="md:text-4-6xl font-medium text-white">5</p>
-                                    <p className="ml-1.5 text-2-6xl font-medium text-white">минут</p>
+                                <div className="md:pl-0 flex items-baseline">
+                                    <p className="text-4-6xl md:text-4-6xl font-medium text-white">5</p>
+                                    <p className="ml-1.5 text-xl md:text-2-6xl font-medium text-white">минут</p>
                                 </div>
 
                                 <div>
@@ -102,11 +110,12 @@ export const ComplexAboutWidget: FC = () => {
                         </div>
                     </CarouselItem>
 
-                    <CarouselItem className="basis-[60%] md:basis-[18%] pl-[1rem]">
+                    <CarouselItem className="!basis-[90%] md:!basis-[18%] pl-[1rem]">
                         <div
                             className="
+                            h-[21.25rem] w-[18.75rem] md:w-80 md:h-[28.375rem]
       rounded-xs relative flex flex-col justify-between
-      w-auto md:w-80 md:h-[28.375rem] overflow-hidden
+       overflow-hidden
       p-6 text-white bg-gray-1 bg-liner-4
     "
                         >
@@ -119,13 +128,13 @@ export const ComplexAboutWidget: FC = () => {
                             />
 
                             <div className="relative z-10 flex flex-col justify-between h-full">
-                                <div className="pl-6 md:pl-0 flex items-baseline">
-                                    <p className="font-medium text-lg">Первоначальный взнос</p>
+                                <div className=" md:pl-0 flex items-baseline">
+                                    <p className="text-md font-medium md:text-lg">Первоначальный взнос</p>
                                 </div>
 
                                 <div>
-                                    <div className="pl-6 md:pl-0 flex items-baseline">
-                                        <p className="md:text-4-6xl font-medium text-white">10</p>
+                                    <div className="md:pl-0 flex items-baseline">
+                                        <p className="text-4-6xl md:text-4-6xl font-medium text-white">10</p>
                                         <p className="ml-1.5 text-2-6xl font-medium text-white">%</p>
                                     </div>
                                 </div>
@@ -133,18 +142,17 @@ export const ComplexAboutWidget: FC = () => {
                         </div>
                     </CarouselItem>
 
-                    <CarouselItem className="basis-[60%] md:basis-[18%] pl-[1rem]">
+                    <CarouselItem className="!basis-[90%] md:!basis-[18%] pl-[1rem]">
                         <div
                             className={`
+                            h-[21.25rem] w-[18.75rem] md:w-80 md:h-[28.375rem]
                             rounded-xs
-                                bg-liner-5 relative flex flex-col justify-between w-auto md:w-80 md:h-[28.375rem] overflow-hidden p-6 text-white bg-gray-1
+                                bg-liner-5 relative flex flex-col justify-between overflow-hidden p-6 text-white bg-gray-1
                              `}
                         >
                             <div className="relative z-10 flex flex-col justify-between h-full">
-                                <div className="pl-6 md:pl-0 flex items-baseline">
-                                    <div className="pl-6 md:pl-0 flex items-baseline">
-                                        <p className="md:text-4-6xl font-medium text-white">3</p>
-                                    </div>
+                                <div className=" md:pl-0 flex items-baseline">
+                                        <p className="text-4-6xl md:text-4-6xl font-medium text-white">3</p>
                                 </div>
 
                                 <div>
@@ -156,11 +164,12 @@ export const ComplexAboutWidget: FC = () => {
                         </div>
                     </CarouselItem>
 
-                    <CarouselItem className="basis-[60%] md:basis-[18%] pl-[1rem]">
+                    <CarouselItem className="!basis-[90%] md:!basis-[18%] pl-[1rem]">
                         <div
                             className="
+                            h-[21.25rem] w-[18.75rem] md:w-80 md:h-[28.375rem]
       rounded-xs relative flex flex-col justify-between
-      w-auto md:w-80 md:h-[28.375rem] overflow-hidden
+      overflow-hidden
       p-6 text-white bg-gray-1 bg-liner-4
     "
                         >
@@ -173,13 +182,13 @@ export const ComplexAboutWidget: FC = () => {
                             />
 
                             <div className="relative z-10 flex flex-col justify-between h-full">
-                                <div className="pl-6 md:pl-0 flex items-baseline">
+                                <div className="md:pl-0 flex items-baseline">
                                     <p className="font-medium text-lg">Безопастность</p>
                                 </div>
 
                                 <div>
-                                    <div className="pl-6 md:pl-0 flex items-baseline">
-                                        <p className="md:text-4-6xl font-medium text-white">24/7</p>
+                                    <div className=" md:pl-0 flex items-baseline">
+                                        <p className="text-4-6xl md:text-4-6xl font-medium text-white">24/7</p>
                                     </div>
                                 </div>
                             </div>

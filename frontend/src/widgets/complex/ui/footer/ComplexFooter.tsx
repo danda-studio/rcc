@@ -6,7 +6,7 @@ import { Button } from "@/shared/lib/shadcn/ui/button";
 export const ComplexFooterWidget: FC = () => {
     return (
         <section className="bg-white md:pl-16 md:pr-16 pt-16 md:pt-28 ">
-            <h1 className="text-center text-2-2xl md:text-7xl mb-7 font-medium bg-clip-text text-transparent bg-liner-3">
+            <h1 className="text-center text-2-6xl md:text-7xl mb-7 font-medium bg-clip-text text-transparent bg-liner-3">
                 Олимпийский
             </h1>
 
@@ -52,9 +52,9 @@ export const ComplexFooterWidget: FC = () => {
                 </div>
 
                 <div className="flex flex-col items-end">
-                    <Button className="max-w-56 hidden md:inline-flex" size={"md"} variant="cart">
-                        <Image src="/icons/map.svg" width={24} height={24} alt="map icon" />
-                        Мы на карте
+                    <Button className="max-w-56 !hidden md:!inline-flex" size={"sm"} variant="cart">
+                        <Image className={'pr-0'} src="/icons/map.svg" width={24} height={24} alt="map icon" />
+                        <span className={'pl-2'}> Мы на карте</span>
                     </Button>
 
                     <Link
@@ -66,10 +66,10 @@ export const ComplexFooterWidget: FC = () => {
                 </div>
             </div>
 
-            <div className="mt-6 md:hidden px-4">
+            <div className="mt-6 md:hidden ">
                 <div className="flex items-center justify-between">
-                    <Button className="max-w-56" size={"md"} variant={'cart'}>
-                        <Image src="/icons/map.svg" width={24} height={24} alt="map icon" />
+                    <Button className="max-w-56" size={"sm"} variant={'cart'}>
+                        <Image className={'mr-3.5'} src="/icons/map.svg" width={24} height={24} alt="map icon" />
                         Мы на карте
                     </Button>
 

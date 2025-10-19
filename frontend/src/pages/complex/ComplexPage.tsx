@@ -1,18 +1,19 @@
 import type { FC } from "react";
-import {ComplexFooterWidget, ResidentialWidget} from "@/widgets/complex/ui";
-import {ComplexAboutWidget} from "@/widgets/complex/ui/ComplexAbout";
+import {ComplexAboutWidget} from "@/widgets/complex/ui/about";
 import { ComplexBanner } from "@/widgets/complex";
-import { ComplexMortgageWidget } from "@/widgets/complex/ui";
+import {ComplexConstructionWidget, ComplexMortgageWidget} from "@/widgets/complex/ui";
+import {ComplexFooterWidget, ResidentialWidget} from "@/widgets/complex/ui";
 
 export const ComplexPage: FC = () => {
   return (
     <>
       <ComplexBanner />
-        <ResidentialWidget />
         <ComplexAboutWidget />
-        <ComplexFooterWidget />
 
-      <ComplexMortgageWidget />
+        <ResidentialWidget />
+        <ComplexMortgageWidget />
+        <ComplexConstructionWidget />
+        <ComplexFooterWidget />
     </>
   );
 };

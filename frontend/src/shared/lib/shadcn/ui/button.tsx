@@ -39,9 +39,13 @@ const buttonVariants = cva(
             active:text-white
             focus-visible:outline-white/40
           `,
-          cart: "text-gray-700 "
+          cart: "text-blue-6 border border-gray-2 bg-gray-1 justify-between rounded-xs"
       },
       size: {
+          "sm": `
+            h-12
+            md:h-17
+            text-base md:text-md-x px-4 py-3`,
         "md": `
           h-24
           px-9

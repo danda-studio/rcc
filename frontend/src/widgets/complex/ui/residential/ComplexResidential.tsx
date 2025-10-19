@@ -5,12 +5,12 @@ import Image from 'next/image';
 export const ResidentialWidget = () => {
 
     return (
-        <div className="bg-white flex flex-col  justify-between  md:flex-row md:pr-14 md:pl-14 ">
+        <div className="bg-white flex flex-col  justify-between  md:flex-row md:pr-14 md:pl-10 ">
             <div className="max-w-[51rem]">
                 <h2 className="text-lg-x mb-6 font-medium text-blue-6 md:text-4-5xl">
                     Пространство, где комфорт встречается с современностью
                 </h2>
-                <p className="text-sm-m text-gray-4 font-medium mt-6">
+                <p className="text-md-x text-gray-4 font-medium mt-6">
                     Современный 12-этажный дом комфорт-класса предлагает удобные 1- и 2-комнатные квартиры с
                     продуманными планировками и возможностью создать интерьер по своему вкусу
                 </p>

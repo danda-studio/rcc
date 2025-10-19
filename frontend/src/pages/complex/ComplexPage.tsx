@@ -11,6 +11,8 @@ export const ComplexPage: FC = () => {
       <ComplexCatalogWidget />
       <ContactFormWidget />
 
+      <ContactFormWidget />
+
       <ComplexBanner />
       <ComplexAboutWidget />
 

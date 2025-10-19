@@ -66,6 +66,7 @@ export const ContactFormWidget: FC = () => {
             leading-[1.2]
             text-base
             md:text-md-x
+            mb-15
           `}
           >
             Оставьте заявку — и наш специалист поможет выбрать квартиру в

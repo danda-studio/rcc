@@ -1,0 +1,1 @@
+export { SocialTabSelect } from "./ui";

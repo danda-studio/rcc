@@ -28,9 +28,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: `
+          border-transparent
+          active:opacity-86
+          active:bg-blue-5
+          hover:bg-blue-5
           bg-blue-6
           text-white
           text-md-x
+          focus-visible:outline-black/40
         `,
         outline:
           `
@@ -62,14 +67,13 @@ const buttonVariants = cva(
           py-3
         `,
         "md": `
-          h-24
-          px-9
-          py-8
+          h-12
+          md:h-17
+          text-base
           rounded-2xl
-          gap-4
-          text-lg
-          -tracking-sm
-          [&_svg:not([class*='size-'])]:size-8
+          md:text-md-x
+          px-4
+          py-3
         `,
         "lg": `
           h-15.5

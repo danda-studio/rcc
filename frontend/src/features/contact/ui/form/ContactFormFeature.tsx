@@ -1,11 +1,9 @@
 import type { FC } from "react";
-import { UIField } from "@/shared";
+import { SocialTabSelect } from "@/entities/social";
+import { UIInputField } from "@/shared";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import {
   Field,
-  FieldGroup,
-  FieldSeparator,
-  FieldSet,
 } from "@/shared/lib/shadcn/ui/field";
 
 export const ContactFormFeature: FC = () => {
@@ -16,29 +14,33 @@ export const ContactFormFeature: FC = () => {
       text-blue-6
     `}
     >
-      <form>
-        <FieldGroup>
-          <FieldSet>
-            <FieldGroup>
-              <UIField
-                id="name"
-                label="Имя"
-              />
-              <UIField
-                id="email"
-                label="Email"
-              />
-            </FieldGroup>
-          </FieldSet>
-          <FieldSeparator />
-          <Field orientation="horizontal">
-            <Button
-              type="submit"
-            >
+      <form className={`
+        flex
+        flex-col
+        gap-3.5
+      `}
+      >
+        <UIInputField
+          id="name"
+          label="Имя"
+        />
+        <Field orientation="horizontal">
+          <SocialTabSelect />
+        </Field>
+        <UIInputField
+          id="email"
+          label="Email"
+        />
+        <Field orientation="horizontal">
+          <Button
+            type="submit"
+            className="w-full"
+          >
+            <span className="font-medium">
               Подобрать квартиру
-            </Button>
-          </Field>
-        </FieldGroup>
+            </span>
+          </Button>
+        </Field>
       </form>
     </div>
   );

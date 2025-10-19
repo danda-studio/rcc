@@ -1,9 +1,9 @@
 import type { FC } from "react";
-import type { UIFieldProps } from "./types";
+import type { UIInputFieldProps } from "./types";
 import { Field, FieldLabel } from "@/shared/lib/shadcn/ui/field";
 import { Input } from "@/shared/lib/shadcn/ui/input";
 
-export const UIField: FC<UIFieldProps> = ({ id, label }) => {
+export const UIInputField: FC<UIInputFieldProps> = ({ id, label }) => {
   return (
     <Field className="relative">
       <FieldLabel

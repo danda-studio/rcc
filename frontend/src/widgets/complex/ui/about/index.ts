@@ -1,0 +1,1 @@
+export { ComplexAboutWidget } from "./ComplexAbout";

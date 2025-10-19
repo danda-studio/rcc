@@ -1,0 +1,1 @@
+export { ResidentialWidget } from "./ComplexResidential";

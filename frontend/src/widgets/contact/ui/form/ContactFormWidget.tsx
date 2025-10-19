@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import Image from "next/image";
+import { ContactFormFeature } from "@/features/contact";
 
 export const ContactFormWidget: FC = () => {
   return (
@@ -71,6 +72,8 @@ export const ContactFormWidget: FC = () => {
             <span className="text-blue-6"> ЖК «Олимпийский» </span>
             под ваши цели и бюджет
           </p>
+
+          <ContactFormFeature />
         </div>
       </div>
     </section>

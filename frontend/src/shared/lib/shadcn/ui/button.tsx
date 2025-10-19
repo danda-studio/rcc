@@ -27,7 +27,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "",
+        default: `
+          bg-blue-6
+          text-white
+          text-md-x
+        `,
         outline:
           `
             border

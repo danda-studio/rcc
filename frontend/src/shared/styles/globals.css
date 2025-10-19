@@ -159,10 +159,14 @@
   --text-xs: 0.75rem;
   --text-xs--line-height: 1;
 
-  /* Letter Spacing */
-  --tracking-md: 0.04em;
-  --tracking-sm: 0.02em;
-  --tracking-lg: 0.08em;
+  /* 10px */
+  --text-xxs: 0.625rem;
+  --text-xxs--line-height: 1.35;
+
+    /* Letter Spacing */
+    --tracking-md: 0.04em;
+    --tracking-sm: 0.02em;
+    --tracking-lg: 0.08em;
 
   /* Border Radius */
   --radius-xs: 0.75rem;

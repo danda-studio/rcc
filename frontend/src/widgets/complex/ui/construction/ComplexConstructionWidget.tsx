@@ -61,17 +61,17 @@ export const ComplexConstructionWidget = () => {
     }, [api]);
 
     return (
-        <div>
-            <div className="max-w-[43.5rem] md:pb-20">
+        <div className='md:ml-10'>
+            <div className="max-w-[43.5rem] md:pb-20 ">
                 <h2 className="text-lg-x mb-6 font-medium text-blue-6 md:text-4-5xl">
                     Хронология строительства
                 </h2>
-                <p className="text-md-x text-gray-4 font-medium mt-6">
+                <p className="text-sm-m md:text-md-x text-gray-4 font-medium mt-6">
                     Следите за каждым этапом — от фундамента до новоселья. Прозрачность, стабильные темпы и качество на каждом шаге это основа подхода РСК
                 </p>
             </div>
 
-            <Carousel setApi={setApi} className="max-w-[100vw] overflow-hidden" opts={{ align: "start", slidesToScroll: 1 }}>
+            <Carousel setApi={setApi} className="-mr-4 max-w-[100vw] overflow-hidden" opts={{ align: "start", slidesToScroll: 1 }}>
                 <CarouselContent className="-ml-[1rem] md:h-[40.25rem] items-end overflow-visible">
                     {slides.map((slide, idx) => (
                         <CarouselItem key={idx} className="pt-10 md:pt-0 !basis-[75%] md:!basis-[24%]">
@@ -81,7 +81,6 @@ export const ComplexConstructionWidget = () => {
                 </CarouselContent>
             </Carousel>
 
-            {/* Прогресс бар */}
             <div className="mt-4 block md:hidden w-full max-w-[90vw] mx-auto h-[3px] bg-[#A5A5A636] rounded-full overflow-hidden">
                 <div
                     className="h-full bg-gray-6 transition-all duration-300 ease-out"

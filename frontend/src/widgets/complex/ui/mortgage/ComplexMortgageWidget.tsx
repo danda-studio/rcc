@@ -43,7 +43,7 @@ export const ComplexMortgageWidget: FC = () => {
             mb-5
             md:mb-8
             font-medium
-            bg-linear-1
+            bg-linear-(--linear-1)
             bg-clip-text
             text-transparent
             -tracking-md

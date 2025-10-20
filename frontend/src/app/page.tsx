@@ -1,5 +1,13 @@
+'use client'
 import { ComplexPage } from "@/pages/complex";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 export default function Home() {
-  return <ComplexPage />;
+  return (
+      <QueryClientProvider client={queryClient}>
+          <ComplexPage />;
+      </QueryClientProvider>
+  )
 }

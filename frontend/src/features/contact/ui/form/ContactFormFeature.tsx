@@ -5,6 +5,8 @@ import { Button } from "@/shared/lib/shadcn/ui/button";
 import {
   Field,
 } from "@/shared/lib/shadcn/ui/field";
+import {UISelectInputField} from "@/shared/ui/select-input-field";
+import {UIPhoneField} from "@/shared/ui/select-input-field/UIPhoneField";
 
 export const ContactFormFeature: FC = () => {
   return (
@@ -24,6 +26,7 @@ export const ContactFormFeature: FC = () => {
           id="name"
           label="Имя"
         />
+        <UIPhoneField id={'phone'} label={'Телефон'}/>
         <Field orientation="horizontal">
           <SocialTabSelect />
         </Field>

@@ -75,6 +75,8 @@ export const ContactFormWidget: FC = () => {
           </p>
 
           <ContactFormFeature />
+
+          <p className='mt-3.5 max-w-86 text-xxs text-gray-4 md:text-xs'>Оставляя заявку, вы соглашаетесь с условиями обработки персональных данных</p>
         </div>
       </div>
     </section>

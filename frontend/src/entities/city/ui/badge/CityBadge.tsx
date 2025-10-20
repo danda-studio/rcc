@@ -5,7 +5,7 @@ import { Badge } from "@/shared/lib/shadcn/ui/badge";
 
 export const CityBadge: FC<CityBadgeProps> = ({ name, className }) => {
   return (
-    <Badge className={className}>
+    <Badge size="xl" variant="glass" className={className}>
       <MapPinCheckInside />
       <span className={`
         leading-3.5

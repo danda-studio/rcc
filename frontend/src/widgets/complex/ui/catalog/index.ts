@@ -1,0 +1,1 @@
+export { ComplexCatalogWidget } from "./ComplexCatalogWidget";

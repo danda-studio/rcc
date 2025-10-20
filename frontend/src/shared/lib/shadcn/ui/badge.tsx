@@ -29,7 +29,7 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default:
+        glass:
           `
             relative
             border-none
@@ -41,9 +41,16 @@ const badgeVariants = cva(
             before:[clip-path:var(--clip-path-1)]
             bg-white/9
           `,
+        default:
+          `
+            border-gray-1
+            relative
+            bg-gray-1
+            text-blue-6/72
+          `,
       },
       size: {
-        md: `
+        xl: `
           h-8
           md:h-10
           max-md:pl-2
@@ -55,6 +62,36 @@ const badgeVariants = cva(
           md:[&>svg]:size-6
           rounded-sm
           md:rounded-md
+          gap-2
+        `,
+        lg: `
+          h-9
+          md:h-9.5
+          px-3
+          md:px-4
+          text-base
+          md:text-md
+          rounded-sm
+          md:rounded-md
+        `,
+        md: `
+          h-9
+          px-4
+          text-base
+          rounded-md
+        `,
+        sm: `
+          h-8
+          md:h-7.5
+          max-md:pl-2
+          max-md:pr-3
+          md:px-3
+          text-sm
+          md:text-xs
+          [&>svg]:size-4
+          md:[&>svg]:size-6
+          rounded-sm
+          md:rounded-sm
           gap-2
         `,
       },
@@ -69,6 +106,7 @@ const badgeVariants = cva(
 function Badge({
   className,
   variant,
+  size,
   asChild = false,
   ...props
 }: React.ComponentProps<"span">
@@ -78,7 +116,7 @@ function Badge({
   return (
     <Comp
       data-slot="badge"
-      className={cn(badgeVariants({ variant }), className)}
+      className={cn(badgeVariants({ variant, size }), className)}
       {...props}
     />
   );

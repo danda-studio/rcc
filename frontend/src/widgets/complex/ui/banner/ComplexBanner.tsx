@@ -99,7 +99,7 @@ export const ComplexBanner: FC = () => {
             mb-5
             md:mb-7
             font-medium
-            bg-linear-1
+            bg-linear-(--linear-1)
             bg-clip-text
             text-transparent
           `}

@@ -15,20 +15,23 @@ export const UIGlass: FC<UIGlassProps> = ({
   children,
   className,
   border = "default",
+  onClick,
 }) => {
   return (
-    <div className={cx(
-      `
-        bg-white/9
-        shadow-1
-        backdrop-blur-md
-        rounded-sm
-        md:rounded-md
-        overflow-hidden
-      `,
-      borderVariants[border],
-      className,
-    )}
+    <div
+      onClick={onClick}
+      className={cx(
+        `
+          bg-white/9
+          shadow-1
+          backdrop-blur-md
+          rounded-sm
+          md:rounded-md
+          overflow-hidden
+        `,
+        borderVariants[border],
+        className,
+      )}
     >
       {children}
     </div>

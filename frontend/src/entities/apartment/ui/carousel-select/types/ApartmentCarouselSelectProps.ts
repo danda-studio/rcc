@@ -5,4 +5,5 @@ export interface ApartmentCarouselSelectProps {
   value: string;
   onChange: (...event: any[]) => void;
   className?: string;
+  contentClassName?: string;
 }

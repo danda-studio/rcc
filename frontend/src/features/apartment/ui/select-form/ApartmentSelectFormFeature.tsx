@@ -73,7 +73,8 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
         flex
         flex-col
         items-center
-        gap-10
+        gap-8
+        md:gap-10
       `, className)}
       onSubmit={form.handleSubmit(onSubmit)}
     >
@@ -107,6 +108,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
             justify-center
             items-center
             gap-4
+            overflow-hidden
           `}
           >
             {apartmentSideItems.left.map(i => (
@@ -121,7 +123,14 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
               />
             ))}
 
-            <ApartmentCarouselSelect className="shrink-0" {...field} items={apartmentItems.selectable} />
+            <ApartmentCarouselSelect
+              contentClassName={`
+                md:shrink-0
+                max-md:max-w-88
+              `}
+              {...field}
+              items={apartmentItems.selectable}
+            />
 
             {apartmentSideItems.right.map(i => (
               <ApartmentCarouselSelectItemContent
@@ -138,7 +147,12 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
         )}
       />
 
-      <Button variant="outline" type="submit">
+      <Button
+        variant="outline"
+        size="lg"
+        type="submit"
+        className="max-md:w-70"
+      >
         <MousePointerClick />
         Подробнее
       </Button>

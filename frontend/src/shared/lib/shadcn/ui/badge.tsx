@@ -65,31 +65,20 @@ const badgeVariants = cva(
           gap-2
         `,
         lg: `
-          h-8
+          h-9
           md:h-9.5
-          max-md:px-4
+          px-3
           md:px-4
-          text-sm
+          text-base
           md:text-md
-          [&>svg]:size-4
-          md:[&>svg]:size-6
           rounded-sm
           md:rounded-md
-          gap-2
         `,
         md: `
-          h-8
-          md:h-10
-          max-md:pl-2
-          max-md:pr-3
-          md:px-4
-          text-sm
-          md:text-base
-          [&>svg]:size-4
-          md:[&>svg]:size-6
-          rounded-sm
-          md:rounded-md
-          gap-2
+          h-9
+          px-4
+          text-base
+          rounded-md
         `,
         sm: `
           h-8

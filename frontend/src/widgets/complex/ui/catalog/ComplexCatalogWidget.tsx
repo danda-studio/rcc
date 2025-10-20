@@ -8,7 +8,8 @@ export const ComplexCatalogWidget = () => {
       rounded-md
       overflow-hidden
       px-4
-      py-15
+      py-8
+      md:py-15
       relative
     `}
     >
@@ -16,7 +17,8 @@ export const ComplexCatalogWidget = () => {
         flex
         flex-col
         items-center
-        mb-15
+        mb-10
+        md:mb-15
       `}
       >
         <h2 className={`
@@ -24,16 +26,20 @@ export const ComplexCatalogWidget = () => {
           bg-clip-text
           text-transparent
           font-medium
-          text-2-3xl
+          max-md:text-center
+          text-3xl
           md:text-5xl
+          mb-6
+          md:mb-7
         `}
         >
           Каталог квартир
         </h2>
         <span className={`
           text-white
-          md:text-lg
+          max-md:text-center
           text-md
+          md:text-lg
         `}
         >
           Всё, что нужно для жизни — рядом с вами
@@ -50,6 +56,7 @@ export const ComplexCatalogWidget = () => {
         bg-linear-90
         from-black-1
         to-transparent
+        max-md:hidden
       `}
       />
 
@@ -61,6 +68,7 @@ export const ComplexCatalogWidget = () => {
         bg-linear-270
         from-black-1
         to-transparent
+        max-md:hidden
       `}
       />
     </div>

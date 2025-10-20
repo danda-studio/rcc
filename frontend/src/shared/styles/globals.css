@@ -415,14 +415,6 @@
     background-image: radial-gradient(var(--radial-2));
   }
 
-  /* BG linear */
-  .bg-linear-1 {
-    background-image: linear-gradient(var(--linear-1));
-  }
-  .bg-linear-2 {
-    background-image: linear-gradient(var(--linear-2));
-  }
-
   .bg-gradient-1 {
     background: radial-gradient(
       150% 135% at 0% 140%,
@@ -434,18 +426,6 @@
     );
   }
 
-  /* Clip path */
-  .clip-path-1 {
-    clip-path: var(--clip-path-1);
-  }
-    .bg-liner-2 {
-        background-image: linear-gradient(115.15deg, #FFEBA5 16%, #D8B24F 35.33%, #B77521 91.73%);
-    }
-
-    /* Clip path */
-    .clip-path-1 {
-        clip-path: var(--clip-path-1);
-    }
   .bg-gradient-1 {
     background: radial-gradient(
       150% 135% at 0% 140%,
@@ -471,9 +451,15 @@
              background-image: linear-gradient(137.07deg, #B77521 0%, #D8B24F 32.11%, #FFEBA5 59.42%, #BB7E25 93.04%);
          }
     .bg-liner-5 {
-        background-image: radial-gradient(175.15% 145.93% at 122.19% -42.73%, #FFFFFF 0%, #B6D4EE 15.13%, #345783 56.39%, #192435 85.1%, #03050C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-
+        background-image: radial-gradient(175.15% 145.93% at 122.19% -42.73%, #FFFFFF 0%, #B6D4EE 15.13%, #345783 56.39%, #192435 85.1%, #03050C 100%)
     }
+    .bg-liner-6 {
+        background-image: linear-gradient(290.5deg, #FFFFFF 67.25%, rgba(255, 255, 255, 0) 113.92%);
+    }
+    .bg-liner-7 {
+        background-image: radial-gradient(66.15% 138.59% at 68.56% 137.75%, #FFFFFF 0%, #B6D4EE 15.13%, #345783 56.39%, #192435 85.1%, #03050C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    }
+
 
     /* Clip path */
     .clip-path-1 {

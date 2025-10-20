@@ -1,1 +1,1 @@
-export {ComplexCatalogWidget} from './ComplexCatalogWidget'
+export { ComplexCatalogWidget } from "./ComplexCatalogWidget";

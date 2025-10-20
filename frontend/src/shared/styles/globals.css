@@ -4,28 +4,28 @@
 @custom-variant dark (&:is(.dark *));
 
 .carousel-pattern > *:nth-child(3n + 1) {
-    margin-bottom: 3.75rem; /* первая */
+  margin-bottom: 3.75rem; /* первая */
 }
 
 .carousel-pattern > *:nth-child(3n + 2) {
-    margin-bottom: 0; /* вторая */
+  margin-bottom: 0; /* вторая */
 }
 
 .carousel-pattern > *:nth-child(3n + 3) {
-    margin-bottom: 11.875rem; /* третья */
+  margin-bottom: 11.875rem; /* третья */
 }
 @media (max-width: 768px) {
-    .carousel-pattern > *:nth-child(3n + 1) {
-        margin-bottom: 2.5rem; /* первая */
-    }
+  .carousel-pattern > *:nth-child(3n + 1) {
+    margin-bottom: 2.5rem; /* первая */
+  }
 
-    .carousel-pattern > *:nth-child(3n + 2) {
-        margin-bottom: 5rem; /* вторая */
-    }
+  .carousel-pattern > *:nth-child(3n + 2) {
+    margin-bottom: 5rem; /* вторая */
+  }
 
-    .carousel-pattern > *:nth-child(3n + 3) {
-        margin-bottom: 0; /* третья */
-    }
+  .carousel-pattern > *:nth-child(3n + 3) {
+    margin-bottom: 0; /* третья */
+  }
 }
 /*noinspection CssInvalidAtRule*/
 @theme inline {
@@ -78,36 +78,36 @@
   --text-6-5xl: 11.25rem;
   --text-6-5xl--line-height: 0.92;
 
-    /* 300px */
-    --text-7xl: 18.75rem;
-    --text-7xl--line-height: 0.92;
+  /* 300px */
+  --text-7xl: 18.75rem;
+  --text-7xl--line-height: 0.92;
 
-    /* 160px */
-    --text-6xl: 9.5rem;
-    --text-6xl--line-height: 0.92;
+  /* 160px */
+  --text-6xl: 9.5rem;
+  --text-6xl--line-height: 0.92;
 
   /* 120px */
   --text-5xl: 7.5rem;
   --text-5xl--line-height: 0.92;
 
-    /* 100px */
-    --text-4-6xl: 6.25rem;
-    --text-4-6xl--line-height: 0.92;
+  /* 100px */
+  --text-4-6xl: 6.25rem;
+  --text-4-6xl--line-height: 0.92;
 
-    /* 72px */
-    --text-4-5xl: 4.2rem;
-    --text-4-5xl--line-height: 0.92;
+  /* 72px */
+  --text-4-5xl: 4.2rem;
+  --text-4-5xl--line-height: 0.92;
 
-    /* 64px */
-    --text-4xl: 4rem;
-    --text-4xl--line-height: 1;
-    /* 60px */
-    --text-2-3xl: 4rem;
-    --text-2-3xl--line-height: 0.92;
+  /* 64px */
+  --text-4xl: 4rem;
+  --text-4xl--line-height: 1;
+  /* 60px */
+  --text-2-3xl: 4rem;
+  --text-2-3xl--line-height: 0.92;
 
-    /* 58px */
-    --text-2-2xl: 3.50rem;
-    --text-2-2xl--line-height: 1;
+  /* 58px */
+  --text-2-2xl: 3.5rem;
+  --text-2-2xl--line-height: 1;
 
   /* 60px */
   --text-3xl: 3.75rem;
@@ -116,36 +116,36 @@
   /* 44px */
   --text-2xl: 2.75rem;
   --text-2xl--line-height: 1;
-    /* 48px */
-    --text-2-6xl: 3rem;
-    --text-2-6xl--line-height: 1;
+  /* 48px */
+  --text-2-6xl: 3rem;
+  --text-2-6xl--line-height: 1;
 
   /* 40px */
   --text-xl: 2.5rem;
   --text-xl--line-height: 1;
 
-    /* 36px */
-    --text-lg-x: 2.25rem;
-    --text-lg-x--line-height: 1;
-    /* 32px */
-    --text-lg: 2rem;
-    --text-lg--line-height: 1;
+  /* 36px */
+  --text-lg-x: 2.25rem;
+  --text-lg-x--line-height: 1;
+  /* 32px */
+  --text-lg: 2rem;
+  --text-lg--line-height: 1;
 
-    /* 28px */
-    --text-md-l: 1.75rem;
-    --text-md-l-line-height: 1;
+  /* 28px */
+  --text-md-l: 1.75rem;
+  --text-md-l-line-height: 1;
 
-    /* 24px */
-    --text-md-x: 1.50rem;
-    --text-md-x-line-height: 1;
+  /* 24px */
+  --text-md-x: 1.5rem;
+  --text-md-x-line-height: 1;
 
-    /* 20px */
-    --text-md: 1.25rem;
-    --text-md--line-height: 1;
+  /* 20px */
+  --text-md: 1.25rem;
+  --text-md--line-height: 1;
 
-    /* 16px */
-    --text-sm-m: 1rem;
-    --text-sm-m--line-height: 1.2;
+  /* 16px */
+  --text-sm-m: 1rem;
+  --text-sm-m--line-height: 1.2;
 
   /* 16px */
   --text-base: 1rem;
@@ -155,20 +155,20 @@
   --text-sm: 0.875rem;
   --text-sm--line-height: 1;
 
-    /* 12px */
-    --text-xs: 0.75rem;
-    --text-xs--line-height: 1;
+  /* 12px */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1;
 
-    /* Letter Spacing */
-    --tracking-md: 0.04em;
-    --tracking-sm: 0.02em;
-    --tracking-lg: 0.08em;
+  /* Letter Spacing */
+  --tracking-md: 0.04em;
+  --tracking-sm: 0.02em;
+  --tracking-lg: 0.08em;
 
-    /* Border Radius */
-    --radius-xs: 0.75rem;
+  /* Border Radius */
+  --radius-xs: 0.75rem;
 
-    /* Colors */
-    --color-white: var(--white);
+  /* Colors */
+  --color-white: var(--white);
 
   --color-blue-1: var(--blue-1);
   --color-blue-2: var(--blue-2);
@@ -190,6 +190,8 @@
   --color-gold-2: var(--gold-2);
   --color-gold-3: var(--gold-3);
   --color-gold-4: var(--gold-4);
+
+  --color-black-1: var(--black-1);
 
   /* Backdrop blur */
   --blur-lg: calc(25 * var(--px));
@@ -254,12 +256,14 @@
   --gray-3: #e4e8ec;
   --gray-4: #6a6f7e;
   --gray-5: #595868;
-  --gray-6: #6A6F7E;
+  --gray-6: #6a6f7e;
 
   --gold-1: #ffeba5;
   --gold-2: #d8b24f;
   --gold-3: #bb7e25;
   --gold-4: #b77521;
+
+  --black-1: #04060d;
 
   /* 1px to rem */
   --px: calc((1 / 16) * 1rem);
@@ -358,6 +362,43 @@
     var(--px) calc(7 * var(--px))
   );
 
+  --clip-path-4: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    0% 100%,
+    0% calc(var(--px) * 2.33),
+    calc(var(--px) * 2.33) calc(var(--px) * 2.33),
+    calc(var(--px) * 2.33) calc(25 * var(--px)),
+    0% calc(25 * var(--px)),
+    0% calc(100% - 25 * var(--px)),
+    calc(var(--px) * 2.33) calc(100% - 25 * var(--px)),
+    calc(var(--px) * 2.33) calc(100% - 9 * var(--px) - var(--px) * 2.33),
+    calc(3 * var(--px) + var(--px) * 2.33) calc(100% - 3 * var(--px) - var(--px) * 2.33),
+    calc(9 * var(--px) + var(--px) * 2.33) calc(100% - var(--px) * 2.33),
+    calc(25 * var(--px)) calc(100% - var(--px) * 2.33),
+    calc(25 * var(--px)) 100%,
+    calc(100% - 25 * var(--px)) 100%,
+    calc(100% - 25 * var(--px)) calc(100% - var(--px) * 2.33),
+    calc(100% - 9 * var(--px) - var(--px) * 2.33) calc(100% - var(--px) * 2.33),
+    calc(100% - 3 * var(--px) - var(--px) * 2.33) calc(100% - 3 * var(--px) - var(--px) * 2.33),
+    calc(100% - var(--px) * 2.33) calc(100% - 9 * var(--px) - var(--px) * 2.33),
+    calc(100% - var(--px) * 2.33) calc(100% - 25 * var(--px)),
+    calc(100%) calc(100% - 25 * var(--px)),
+    calc(100%) calc(25 * var(--px)),
+    calc(100% - var(--px) * 2.33) calc(25 * var(--px)),
+    calc(100% - var(--px) * 2.33) calc(9 * var(--px) + var(--px) * 2.33),
+    calc(100% - 3 * var(--px) - var(--px) * 2.33) calc(3 * var(--px) + var(--px) * 2.33),
+    calc(100% - 9 * var(--px) - var(--px) * 2.33) calc(var(--px) * 2.33),
+    calc(100% - 25 * var(--px)) calc(var(--px) * 2.33),
+    calc(100% - 25 * var(--px)) 0,
+    calc(25 * var(--px)) 0,
+    calc(25 * var(--px)) calc(var(--px) * 2.33),
+    calc(9 * var(--px) + var(--px) * 2.33) calc(var(--px) * 2.33),
+    calc(3 * var(--px) + var(--px) * 2.33) calc(3 * var(--px) + var(--px) * 2.33),
+    calc(var(--px) * 2.33) calc(9 * var(--px) + var(--px) * 2.33)
+  );
+
   @apply text-[calc((16/(360/100))*1vw)] md:text-[calc((16/(1920/100))*1vw)];
 }
 
@@ -441,30 +482,44 @@
   .clip-path-1 {
     clip-path: var(--clip-path-1);
   }
-    .bg-liner-2 {
-        background-image: linear-gradient(115.15deg, #FFEBA5 16%, #D8B24F 35.33%, #B77521 91.73%);
-    }
-    .bg-liner-3 {
-        background-image: linear-gradient(115.15deg, #FFEBA5 16%, #D8B24F 35.33%, #B77521 91.73%);
-    }
-    .bg-liner-4 {
-             background-image: linear-gradient(137.07deg, #B77521 0%, #D8B24F 32.11%, #FFEBA5 59.42%, #BB7E25 93.04%);
-         }
-    .bg-liner-5 {
-        background-image: radial-gradient(175.15% 145.93% at 122.19% -42.73%, #FFFFFF 0%, #B6D4EE 15.13%, #345783 56.39%, #192435 85.1%, #03050C 100%)
-    }
-    .bg-liner-6 {
-        background-image: linear-gradient(290.5deg, #FFFFFF 67.25%, rgba(255, 255, 255, 0) 113.92%);
-    }
-    .bg-liner-7 {
-        background-image: radial-gradient(66.15% 138.59% at 68.56% 137.75%, #FFFFFF 0%, #B6D4EE 15.13%, #345783 56.39%, #192435 85.1%, #03050C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-    }
+  .bg-liner-2 {
+    background-image: linear-gradient(115.15deg, #ffeba5 16%, #d8b24f 35.33%, #b77521 91.73%);
+  }
+  .bg-liner-3 {
+    background-image: linear-gradient(115.15deg, #ffeba5 16%, #d8b24f 35.33%, #b77521 91.73%);
+  }
+  .bg-liner-4 {
+    background-image: linear-gradient(137.07deg, #b77521 0%, #d8b24f 32.11%, #ffeba5 59.42%, #bb7e25 93.04%);
+  }
+  .bg-liner-5 {
+    background-image: radial-gradient(
+      175.15% 145.93% at 122.19% -42.73%,
+      #ffffff 0%,
+      #b6d4ee 15.13%,
+      #345783 56.39%,
+      #192435 85.1%,
+      #03050c 100%
+    );
+  }
+  .bg-liner-6 {
+    background-image: linear-gradient(290.5deg, #ffffff 67.25%, rgba(255, 255, 255, 0) 113.92%);
+  }
+  .bg-liner-7 {
+    background-image: radial-gradient(
+        66.15% 138.59% at 68.56% 137.75%,
+        #ffffff 0%,
+        #b6d4ee 15.13%,
+        #345783 56.39%,
+        #192435 85.1%,
+        #03050c 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  }
 
-
-    /* Clip path */
-    .clip-path-1 {
-        clip-path: var(--clip-path-1);
-    }
+  /* Clip path */
+  .clip-path-1 {
+    clip-path: var(--clip-path-1);
+  }
 
   /* Shadow */
   .shadow-1 {

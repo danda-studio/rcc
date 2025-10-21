@@ -1,18 +1,28 @@
 import type { FC } from "react";
+import { ContactMethod } from "@/shared/api/scheme";
 
-const socials = ["Звонок", "WhatsApp", "Telegram"];
+export type ContactMethodType = (typeof ContactMethod)[keyof typeof ContactMethod];
 
-export const SocialTabSelect: FC = () => {
+export const socials = [
+  { label: "Звонок", value: ContactMethod.NUMBER_0 },
+  { label: "WhatsApp", value: ContactMethod.NUMBER_1 },
+  { label: "Telegram", value: ContactMethod.NUMBER_2 },
+] as const;
+
+interface SocialTabSelectProps {
+  value?: ContactMethodType;
+  onChange?: (val: ContactMethodType) => void;
+}
+
+export const SocialTabSelect: FC<SocialTabSelectProps> = ({ value, onChange }) => {
   return (
-    <div className={`
-      flex
-      gap-2
-    `}
-    >
-      {socials.map(s => (
-        <div
+    <div className="flex gap-2">
+      {socials.map((s) => (
+        <label
+          key={s.value}
           className={`
             relative
+            cursor-pointer
             text-gray-4
             border
             border-gray-2
@@ -27,22 +37,18 @@ export const SocialTabSelect: FC = () => {
             rounded-sm
             font-medium
           `}
-          key={s}
         >
           <input
-            className={`
-              absolute
-              inset-0
-              opacity-0
-            `}
-            name="social"
             type="radio"
-            value={s}
+            name="social"
+            value={s.value}
+            checked={value === s.value}
+            onChange={() => onChange?.(s.value)}
+            className="absolute inset-0 opacity-0 cursor-pointer"
           />
-          {s}
-        </div>
+          {s.label}
+        </label>
       ))}
-
     </div>
   );
 };

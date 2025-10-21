@@ -1,1 +1,1 @@
-export { UISelectInputField } from "./UIPhoneField";
+export { UIPhoneField } from "./UIPhoneField";

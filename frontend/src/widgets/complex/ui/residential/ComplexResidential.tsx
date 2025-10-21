@@ -12,28 +12,34 @@ export const ResidentialWidget = () => {
       px-3
       md:pr-14
       md:pl-10
+      gap-x-12
     `}
     >
-      <div className="max-w-[51rem]">
+      <div className="max-w-[55.5rem]">
         <h2 className={`
           text-lg-x
           mb-6
           font-medium
           text-blue-6
           md:text-4-5xl
+          -tracking-md
         `}
         >
-          Пространство, где комфорт встречается с современностью
+          Пространство,
+          <br />
+          где комфорт встречается с современностью
         </h2>
         <p className={`
           text-md-x
+          leading-[1.2]
           text-gray-4
           font-medium
           mt-6
+          -tracking-sm
+          max-w-191
         `}
         >
-          Современный 12-этажный дом комфорт-класса предлагает удобные 1- и 2-комнатные квартиры с
-          продуманными планировками и возможностью создать интерьер по своему вкусу
+          Современный 12-этажный дом комфорт-класса предлагает удобные 1- и 2-комнатные квартиры с продуманными планировками и возможностью создать интерьер по своему вкусу
         </p>
 
         <div className={`
@@ -110,12 +116,11 @@ export const ResidentialWidget = () => {
       </div>
 
       <div className={`
-        md:grid
-        md:grid-cols-2
         pt-10
         md:pt-0
         flex
-        flex-col
+        gap-x-4
+        max-md:flex-col
       `}
       >
         <div className={`
@@ -129,16 +134,16 @@ export const ResidentialWidget = () => {
               flex
               flex-col
               justify-between
-              md:w-[27.5rem]
+              md:w-[26rem]
               h-[25rem]
               md:h-[37.125rem]
               rounded-xs
+              overflow-hidden
             `}
           >
             <div className={`
               absolute
-              inset-y-0
-              left-0
+              inset-0
               flex
               items-center
             `}
@@ -149,8 +154,9 @@ export const ResidentialWidget = () => {
                 width={420}
                 height={594}
                 className={`
-                  rounded-xs
-                  w-105
+                  w-full
+                  h-full
+                  object-cover
                 `}
                 sizes="(max-width: 360px) 328px, 420px"
               />
@@ -162,9 +168,9 @@ export const ResidentialWidget = () => {
         <div className={`
           items-center
           md:justify-self-end
-          md:w-[auto]
+          md:w-110
           md:h-[auto]
-          mt-14
+          mt-3
           md:mt-[42%]
         `}
         >
@@ -176,13 +182,15 @@ export const ResidentialWidget = () => {
               flex-col
               justify-between
               w-auto
-              md:w-105
+              md:w-110
               h-[25rem]
               md:h-[37rem]
               overflow-hidden
               p-6
               text-white
               bg-gray-1
+              border
+              border-gray-11
             `}
           >
             <div className={`

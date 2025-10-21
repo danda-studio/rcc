@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Новая заявка - ЖК Олимпийский</title>
+    <style>
+      /* Import Manrope font */
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap");
+
+      /* Reset styles for email clients */
+      body,
+      table,
+      td,
+      p,
+      a,
+      li,
+      blockquote {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+      img {
+        -ms-interpolation-mode: bicubic;
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+      }
+
+      /* Main styles */
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+        min-width: 100%;
+        height: 100%;
+        background-color: #f2f4f6;
+        font-family: "Manrope", Arial, sans-serif;
+      }
+
+      .email-wrapper {
+        background-color: #f2f4f6;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .email-container {
+        max-width: 680px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .header {
+        padding: 48px 60px 32px 60px;
+        text-align: center;
+      }
+
+      .logo-section {
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .logo-icon {
+        flex-shrink: 0;
+        width: 46px;
+        height: 72px;
+      }
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .company-name {
+        color: transparent;
+        font-size: 80px;
+        font-weight: 500;
+        line-height: 0.92;
+        letter-spacing: -0.06em;
+        margin: 0;
+        background: linear-gradient(115.15deg, #ffeba5 16%, #d8b24f 35.33%, #b77521 91.73%);
+        background-clip: text;
+      }
+
+      .main-title-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .main-title {
+        color: #03050c;
+        font-size: 20px;
+        line-height: 0.92;
+        font-weight: 500;
+        margin: 0;
+        text-align: left;
+        letter-spacing: -0.04em;
+      }
+
+      .link-text {
+        color: #d1a94c;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+        text-align: right;
+        text-decoration: underline;
+        letter-spacing: -0.02em;
+      }
+
+      .content {
+        padding: 0 60px 48px 60px;
+      }
+
+      .info-card {
+        background-color: #f2f4f6;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 24px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0 16px 0;
+        border-bottom: 1px solid #e4e4e4;
+      }
+      .info-row:first-child {
+        padding-top: 0;
+      }
+
+      .info-row:last-child {
+        border-bottom: none;
+      }
+
+      .info-label {
+        color: #6a6f7e;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+        line-height: 0.92;
+        letter-spacing: -0.02em;
+      }
+
+      .info-value {
+        color: #03050c;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0;
+        text-align: right;
+        line-height: 0.92;
+        letter-spacing: -0.04em;
+      }
+
+      .footer {
+        padding: 0 60px 48px 60px;
+        background-color: #ffffff;
+      }
+
+      .disclaimer {
+        color: #6a6f7e;
+        font-size: 12px;
+        line-height: 1.2;
+        margin: 0 0 32px 0;
+        letter-spacing: -0.02em;
+      }
+
+      .copyright {
+        color: #6a6f7e;
+        font-size: 12px;
+        line-height: 1.2;
+        margin: 0 0 24px 0;
+        letter-spacing: -0.02em;
+      }
+
+      .copyright a {
+        color: #d1a94c;
+        text-decoration: none;
+      }
+
+      .browser-link {
+        color: #d1a94c;
+        font-size: 12px;
+        line-height: 1.2;
+        font-weight: 500;
+        text-decoration: underline;
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        letter-spacing: -0.02em;
+      }
+
+      /* Responsive styles */
+      @media only screen and (max-width: 680px) {
+        .email-container {
+          min-width: 320px;
+        }
+
+        .header {
+          padding: 24px 16px 32px 16px;
+        }
+        .company-name {
+          font-size: 40px;
+        }
+        .logo-icon {
+          width: 23px;
+          height: 36px;
+        }
+        .logo-section {
+          margin-bottom: 32px;
+        }
+
+        .main-title-section {
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+
+        .content {
+          padding: 0 16px 41px 16px;
+        }
+
+        .footer {
+          padding: 0 16px 32px 16px;
+        }
+        .disclaimer {
+          margin-bottom: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-wrapper">
+      <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+          <div class="logo-section">
+            <h1 class="company-name">Олимпийский</h1>
+            <div class="logo-icon">
+              <img src="https://rcc-7z0s.onrender.com/files/logo.svg" />
+            </div>
+          </div>
+          <div class="main-title-section">
+            <h2 class="main-title">Новый пользователь оставил заявку на вашем сайте</h2>
+            <a href="#" class="link-text">Link</a>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+          <div class="info-card">
+            <div class="info-row">
+              <p class="info-label">Имя</p>
+              <p class="info-value">Евгений</p>
+            </div>
+            <div class="info-row">
+              <p class="info-label">Номер</p>
+              <p class="info-value">+79499046784</p>
+            </div>
+            <div class="info-row">
+              <p class="info-label">Способ связи</p>
+              <p class="info-value">Звонок</p>
+            </div>
+            <div class="info-row">
+              <p class="info-label">Email</p>
+              <p class="info-value">client@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+          <p class="disclaimer">
+            If you did not sign up for this account you can ignore this email and the account will be deleted.
+          </p>
+          <p class="copyright">
+            ©2024 Company. All rights reserved. You received this email because you signed up for an app that helps you
+            create your emails, To update your emails subscription preferences <a href="#">click here</a>.
+          </p>
+          <a href="#" class="browser-link">View this email in the browser</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -5,7 +5,8 @@ import { ContactFormFeature } from "@/features/contact";
 export const ContactFormWidget: FC = () => {
   return (
     <section className={`
-    -mt-24
+    -mt-12
+    md:-mt-24
       relative
       overflow-hidden
       bg-gray-1

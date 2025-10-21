@@ -191,7 +191,7 @@ export const ComplexAboutWidget: FC = () => {
                 height={400}
                 className={`
                   absolute
-                  bottom-0
+                  -bottom-28
                   left-1/2
                   -translate-x-1/2
                   w-auto

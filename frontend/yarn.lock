@@ -3316,6 +3316,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flag-icons@npm:^7.5.0":
+  version: 7.5.0
+  resolution: "flag-icons@npm:7.5.0"
+  checksum: 10c0/c81e20c1751833882c95633349ba7e76e74d7d86c317e4ac2bac86589325430a3181913453fa3824edabaa1a84469f7ae4fd50c388027079048a5c3be438874a
+  languageName: node
+  linkType: hard
+
 "flat-cache@npm:^4.0.0":
   version: 4.0.1
   resolution: "flat-cache@npm:4.0.1"
@@ -5350,6 +5357,7 @@ __metadata:
     eslint-plugin-format: "npm:^1.0.2"
     eslint-plugin-react-refresh: "npm:^0.4.24"
     eslint-plugin-readable-tailwind: "npm:^3.0.0"
+    flag-icons: "npm:^7.5.0"
     lucide-react: "npm:^0.545.0"
     next: "npm:15.5.4"
     react: "npm:19.1.0"

@@ -42,12 +42,18 @@ app.MapScalarApiReference(options =>
     options.Title = "RCC API Documentation";
 });
 
+var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "files");
+if (!Directory.Exists(staticPath))
+{
+    Directory.CreateDirectory(staticPath);
+}
+
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "files")),
+    FileProvider = new PhysicalFileProvider(staticPath),
     RequestPath = "/files"
 });
+
 
 app.UseHttpsRedirection();
 app.UseAuthorization();

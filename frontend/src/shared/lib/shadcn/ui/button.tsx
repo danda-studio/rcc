@@ -34,7 +34,8 @@ const buttonVariants = cva(
           hover:bg-blue-5
           bg-blue-6
           text-white
-          text-md-x
+          text-md
+          md:text-md-x
           focus-visible:outline-black/40
         `,
         outline:

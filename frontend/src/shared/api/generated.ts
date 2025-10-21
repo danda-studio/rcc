@@ -9,9 +9,14 @@ import {
   useQuery
 } from '@tanstack/react-query';
 import type {
+  DataTag,
+  DefinedInitialDataOptions,
+  DefinedUseQueryResult,
   MutationFunction,
+  QueryClient,
   QueryFunction,
   QueryKey,
+  UndefinedInitialDataOptions,
   UseMutationOptions,
   UseMutationResult,
   UseQueryOptions,
@@ -36,7 +41,7 @@ export const postApiContactContact = (
     
     
     return axios.post(
-      `/api/Contact/contact`,
+      `https://rcc-7z0s.onrender.com/api/Contact/contact`,
       sendContactRequest,options
     );
   }
@@ -74,7 +79,7 @@ const {mutation: mutationOptions, axios: axiosOptions} = options ?
 
     export const usePostApiContactContact = <TError = AxiosError<unknown>,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof postApiContactContact>>, TError,{data: SendContactRequest}, TContext>, axios?: AxiosRequestConfig}
- ): UseMutationResult<
+ , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof postApiContactContact>>,
         TError,
         {data: SendContactRequest},
@@ -83,7 +88,7 @@ const {mutation: mutationOptions, axios: axiosOptions} = options ?
 
       const mutationOptions = getPostApiContactContactMutationOptions(options);
 
-      return useMutation(mutationOptions);
+      return useMutation(mutationOptions, queryClient);
     }
     
 export const getApiCountryCodes = (
@@ -92,7 +97,7 @@ export const getApiCountryCodes = (
     
     
     return axios.get(
-      `/api/Country/codes`,options
+      `https://rcc-7z0s.onrender.com/api/Country/codes`,options
     );
   }
 
@@ -101,12 +106,12 @@ export const getApiCountryCodes = (
 
 export const getGetApiCountryCodesQueryKey = () => {
     return [
-    `/api/Country/codes`
+    `https://rcc-7z0s.onrender.com/api/Country/codes`
     ] as const;
     }
 
     
-export const getGetApiCountryCodesQueryOptions = <TData = Awaited<ReturnType<typeof getApiCountryCodes>>, TError = AxiosError<unknown>>( options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>, axios?: AxiosRequestConfig}
+export const getGetApiCountryCodesQueryOptions = <TData = Awaited<ReturnType<typeof getApiCountryCodes>>, TError = AxiosError<unknown>>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>>, axios?: AxiosRequestConfig}
 ) => {
 
 const {query: queryOptions, axios: axiosOptions} = options ?? {};
@@ -121,22 +126,46 @@ const {query: queryOptions, axios: axiosOptions} = options ?? {};
 
       
 
-   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData> & { queryKey: QueryKey }
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
 }
 
 export type GetApiCountryCodesQueryResult = NonNullable<Awaited<ReturnType<typeof getApiCountryCodes>>>
 export type GetApiCountryCodesQueryError = AxiosError<unknown>
 
 
+export function useGetApiCountryCodes<TData = Awaited<ReturnType<typeof getApiCountryCodes>>, TError = AxiosError<unknown>>(
+  options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getApiCountryCodes>>,
+          TError,
+          Awaited<ReturnType<typeof getApiCountryCodes>>
+        > , 'initialData'
+      >, axios?: AxiosRequestConfig}
+ , queryClient?: QueryClient
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useGetApiCountryCodes<TData = Awaited<ReturnType<typeof getApiCountryCodes>>, TError = AxiosError<unknown>>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof getApiCountryCodes>>,
+          TError,
+          Awaited<ReturnType<typeof getApiCountryCodes>>
+        > , 'initialData'
+      >, axios?: AxiosRequestConfig}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useGetApiCountryCodes<TData = Awaited<ReturnType<typeof getApiCountryCodes>>, TError = AxiosError<unknown>>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>>, axios?: AxiosRequestConfig}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
 
 export function useGetApiCountryCodes<TData = Awaited<ReturnType<typeof getApiCountryCodes>>, TError = AxiosError<unknown>>(
-  options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>, axios?: AxiosRequestConfig}
-  
- ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>>, axios?: AxiosRequestConfig}
+ , queryClient?: QueryClient 
+ ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
 
   const queryOptions = getGetApiCountryCodesQueryOptions(options)
 
-  const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
+  const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
 
   query.queryKey = queryOptions.queryKey ;
 

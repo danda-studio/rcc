@@ -66,8 +66,9 @@ export const ContactFormWidget: FC = () => {
             leading-[1.2]
             text-base
             md:text-md-x
-            mb-15
-          `}
+            md:mb-15
+            mb-7
+            `}
           >
             Оставьте заявку — и наш специалист поможет выбрать квартиру в
             <span className="text-blue-6"> ЖК «Олимпийский» </span>

@@ -109,7 +109,7 @@ export const ContactFormFeature: FC = () => {
                 />
 
                 <Field orientation="horizontal">
-                    <Button type="submit" className="w-full" >
+                    <Button type="submit" className="w-full  cursor-pointer" >
                       Подобрать квартиру
                     </Button>
                 </Field>

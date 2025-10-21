@@ -9,8 +9,6 @@ export const ComplexFooterWidget: FC = () => {
       bg-white
       md:pl-16
       md:pr-16
-      pt-16
-      md:pt-28
     `}
     >
       <h1 className={`
@@ -56,7 +54,7 @@ export const ComplexFooterWidget: FC = () => {
                         Планировки
                     </Link>
 
-                    <span className="mt-8 mb-7 text-gray-4 font-medium text text-sm-m">Офис - г. Мариуполь, улица Артема,58 </span>
+                    <span className="mt-8 mb-7 text-gray-4 font-medium text hidden md:inline text-sm-m">Офис - г. Мариуполь, улица Артема,58 </span>
 
                     <span className={'md:hidden text-lg-x text-blue-6 -tracking-md mt-8'}>
                         +79499046784

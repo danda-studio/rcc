@@ -113,7 +113,7 @@ const CountrySelectItem = memo(({
 });
 
 export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
-  const { id, label, value, onChange, error } = props;
+  const { id, label, value, onChange } = props;
   const [searchQuery, setSearchQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const parentRef = useRef<HTMLDivElement>(null);

@@ -25,13 +25,49 @@ namespace RCC.Services
 
             if (!ContactValidator.ValidatePhone(request.Phone.Code, request.Phone.Number, out var phoneError))
                 return new SendContactResponse { Success = false, Message = phoneError };
+            try
+            {
+                var recipients = new List<string>();
+                if (_gmailSetting.Recipients != null && _gmailSetting.Recipients.Count != 0)
+                {
+                    recipients.AddRange(_gmailSetting.Recipients.Where(r => !string.IsNullOrWhiteSpace(r)));
+                }
+                else
+                {
+                    recipients.Add(_gmailSetting.Email);
+                }
 
+                var emailTasks = recipients.Select(recipient =>
+                    SendSingleEmailAsync(recipient, request)
+                ).ToArray();
+
+                // Ждем завершения всех отправок (макс 30 секунд)
+                await Task.WhenAll(emailTasks);
+
+                // Проверяем результаты
+                var successfulSends = emailTasks.Count(t => t.Result);
+                Console.WriteLine($"Successfully sent {successfulSends} out of {recipients.Count} emails");
+
+                return new SendContactResponse { Success = successfulSends > 0 };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in SendContact: {ex.Message}");
+                return new SendContactResponse { Success = false, Message = "Failed to send email" };
+            }
+        }
+
+        private async Task<bool> SendSingleEmailAsync(string recipient, SendContactRequest request)
+        {
+            try
+            {
                 using var client = new SmtpClient(_gmailSetting.SmtpServer, _gmailSetting.SmtpPort)
                 {
                     EnableSsl = true,
                     Credentials = new NetworkCredential(_gmailSetting.Email, _gmailSetting.Password),
                     UseDefaultCredentials = false,
-                    DeliveryMethod = SmtpDeliveryMethod.Network
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    Timeout = 15000 // 15 секунд на каждую отправку
                 };
 
                 var mailMessage = new MailMessage
@@ -42,24 +78,22 @@ namespace RCC.Services
                     IsBodyHtml = false
                 };
 
-                if (_gmailSetting.Recipients != null && _gmailSetting.Recipients.Count != 0)
-                {
-                    foreach (var recipient in _gmailSetting.Recipients)
-                    {
-                        if (!string.IsNullOrWhiteSpace(recipient))
-                            mailMessage.To.Add(recipient.Trim());
-                    }
-                }
-                else
-                {
-                    mailMessage.To.Add(_gmailSetting.Email);
-                }
+                mailMessage.To.Add(recipient);
 
-            mailMessage.To.Add(_gmailSetting.Email);
-
+                Console.WriteLine($"Attempting to send to: {recipient}");
                 await client.SendMailAsync(mailMessage);
+                Console.WriteLine($"Successfully sent to: {recipient}");
 
-                return new SendContactResponse { Success = true };
+                // Задержка между отправками
+                await Task.Delay(1000);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to send to {recipient}: {ex.Message}");
+                return false;
+            }
         }
 
         private string FormatEmailBody(SendContactRequest request)

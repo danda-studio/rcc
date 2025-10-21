@@ -32,6 +32,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+
 var app = builder.Build();
 
 app.UseSwagger();
@@ -42,18 +43,18 @@ app.MapScalarApiReference(options =>
     options.Title = "RCC API Documentation";
 });
 
-var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "static");
+var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "files");
 if (!Directory.Exists(staticPath))
 {
     Directory.CreateDirectory(staticPath);
-    Console.WriteLine($"Created static directory: {staticPath}");
 }
 
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(staticPath),
-    RequestPath = "/static"
+    RequestPath = "/files"
 });
+
 
 app.UseHttpsRedirection();
 app.UseAuthorization();

@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using RCC.Services;
 using RCC.Services.Model;
 using Scalar.AspNetCore;
@@ -39,6 +40,13 @@ app.MapScalarApiReference(options =>
 {
     options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
     options.Title = "RCC API Documentation";
+});
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "static")),
+    RequestPath = "/files"
 });
 
 app.UseHttpsRedirection();

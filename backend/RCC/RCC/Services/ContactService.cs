@@ -42,7 +42,20 @@ namespace RCC.Services
                     IsBodyHtml = false
                 };
 
-                mailMessage.To.Add(_gmailSetting.Email);
+                if (_gmailSetting.Recipients != null && _gmailSetting.Recipients.Count != 0)
+                {
+                    foreach (var recipient in _gmailSetting.Recipients)
+                    {
+                        if (!string.IsNullOrWhiteSpace(recipient))
+                            mailMessage.To.Add(recipient.Trim());
+                    }
+                }
+                else
+                {
+                    mailMessage.To.Add(_gmailSetting.Email);
+                }
+
+            mailMessage.To.Add(_gmailSetting.Email);
 
                 await client.SendMailAsync(mailMessage);
 

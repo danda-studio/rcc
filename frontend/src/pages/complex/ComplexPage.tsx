@@ -13,7 +13,7 @@ import {ContactFormWidget} from "@/widgets/contact";
 
 export const ComplexPage: FC = () => {
     return (
-        <div className='flex flex-col gap-30'>
+        <div className='flex flex-col gap-15 md:gap-30'>
             <ComplexBanner/>
             <ComplexAboutWidget/>
             <ResidentialWidget/>

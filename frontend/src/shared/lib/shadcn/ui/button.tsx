@@ -50,7 +50,7 @@ const buttonVariants = cva(
             focus-visible:outline-white/40
           `,
         cart: `
-          text-blue-6
+          text-blue-6/80
           border
           border-gray-2
           bg-gray-1
@@ -66,6 +66,9 @@ const buttonVariants = cva(
           md:text-md-x
           px-4
           py-3
+          gap-3.5
+          [&_svg:not([class*='size-'])]:size-4
+          md:[&_svg:not([class*='size-'])]:size-6
         `,
         "md": `
           h-12

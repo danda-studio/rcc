@@ -106,7 +106,7 @@
   --text-2-3xl--line-height: 0.92;
 
   /* 58px */
-  --text-2-2xl: 3.5rem;
+  --text-2-2xl: 3.625rem;
   --text-2-2xl--line-height: 1;
 
   /* 60px */
@@ -163,10 +163,10 @@
   --text-xxs: 0.625rem;
   --text-xxs--line-height: 1.35;
 
-    /* Letter Spacing */
-    --tracking-md: 0.04em;
-    --tracking-sm: 0.02em;
-    --tracking-lg: 0.08em;
+  /* Letter Spacing */
+  --tracking-md: 0.04em;
+  --tracking-sm: 0.02em;
+  --tracking-lg: 0.06em;
 
   /* Border Radius */
   --radius-xs: 0.75rem;
@@ -193,7 +193,6 @@
   --color-gray-8: var(--gray-8);
   --color-gray-9: var(--gray-9);
   --color-gray-10: var(--gray-10);
-
 
   --color-gray-7: var(--gray-7);
 
@@ -270,9 +269,9 @@
   --gray-6: #6a6f7e;
 
   --gray-7: #e4e4e4;
-  --gray-8: #A3ABBB4F;
-  --gray-9: #C4C4C4;
-  --gray-10: #9AA1B1;
+  --gray-8: #a3abbb4f;
+  --gray-9: #c4c4c4;
+  --gray-10: #9aa1b1;
 
   --gold-1: #ffeba5;
   --gold-2: #d8b24f;

@@ -1,6 +1,6 @@
 // src/features/contact/model/contactFormSchema.ts
-import {z} from "zod";
-import {ContactMethod} from "@/shared/api/scheme";
+import { z } from "zod";
+import { ContactMethod } from "@/shared/api/scheme";
 
 export const contactFormSchema = z.object({
   name: z.string().min(2, "Введите имя"),

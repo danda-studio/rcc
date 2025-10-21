@@ -5,8 +5,8 @@ import { ContactFormFeature } from "@/features/contact";
 export const ContactFormWidget: FC = () => {
   return (
     <section className={`
-    -mt-12
-    md:-mt-24
+      -mt-12
+      md:-mt-24
       relative
       overflow-hidden
       bg-gray-1
@@ -70,7 +70,7 @@ export const ContactFormWidget: FC = () => {
             md:text-md-x
             md:mb-15
             mb-7
-            `}
+          `}
           >
             Оставьте заявку — и наш специалист поможет выбрать квартиру в
             <span className="text-blue-6"> ЖК «Олимпийский» </span>
@@ -79,7 +79,16 @@ export const ContactFormWidget: FC = () => {
 
           <ContactFormFeature />
 
-          <p className='mt-3.5 max-w-86 text-xxs text-gray-4 md:text-xs'>Оставляя заявку, вы соглашаетесь с условиями обработки персональных данных</p>
+          <p className={`
+            mt-3.5
+            max-w-86
+            text-xxs
+            text-gray-4
+            md:text-xs
+          `}
+          >
+            Оставляя заявку, вы соглашаетесь с условиями обработки персональных данных
+          </p>
         </div>
       </div>
     </section>

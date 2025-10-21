@@ -7,8 +7,8 @@ import React from "react";
 export const CarouselCard: FC<CarouselCardProps> = ({ image, year, title, description }) => (
   <div className={`
     h-[21.25rem]
-    w-[18.75rem]
-    md:w-[27.5rem]
+    w-75
+    md:w-110
     md:h-[35rem]
     rounded-xs
     relative
@@ -32,9 +32,9 @@ export const CarouselCard: FC<CarouselCardProps> = ({ image, year, title, descri
         md:rounded-0
         left-1/2
         -translate-x-1/2
-        w-auto
-        h-[100%]
-        object-contain
+        w-full
+        h-full
+        object-cover
         z-0
       `}
     />

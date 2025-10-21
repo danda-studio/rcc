@@ -16,9 +16,17 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.WithOrigins("https://danda-studio.github.io", "http://localhost:3000")
+        policy.WithOrigins("https://danda-studio.github.io")
               .AllowAnyMethod()
               .AllowAnyHeader()
+              .AllowCredentials();
+    });
+
+    options.AddPolicy("AllowLocalhost3000", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
               .AllowCredentials();
     });
 });
@@ -36,5 +44,7 @@ app.MapScalarApiReference(options =>
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
+app.UseCors("AllowLocalhost3000");
 
 app.Run();

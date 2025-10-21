@@ -16,9 +16,9 @@ export const ComplexAboutWidget: FC = () => {
     <section className={`
       relative
       w-full
-      pl-3
       bg-white
-      md:ml-10
+      px-3
+      md:px-10
     `}
     >
       <div className={`
@@ -65,9 +65,10 @@ export const ComplexAboutWidget: FC = () => {
 
       <Carousel
         className={`
-          max-w-[100vw]
+          w-screen
           overflow-hidden
-          -mr-1
+          -mx-4
+          md:-mx-14
         `}
         opts={{
           align: "start",
@@ -75,7 +76,7 @@ export const ComplexAboutWidget: FC = () => {
         }}
       >
         <CarouselContent className={`
-          -ml-[1rem]
+          !ml-0
           md:h-[40.25rem]
           items-end
           overflow-visible
@@ -84,9 +85,10 @@ export const ComplexAboutWidget: FC = () => {
         >
           {/* 1 */}
           <CarouselItem className={`
-            !basis-[85%]
-            md:!basis-[18%]
-            pl-[1rem]
+            !basis-79
+            md:!basis-94
+            pl-4
+            md:pl-14
           `}
           >
             <div
@@ -97,7 +99,7 @@ export const ComplexAboutWidget: FC = () => {
                 flex
                 flex-col
                 justify-between
-                w-[18.75rem]
+                w-75
                 md:w-80
                 h-[21.25rem]
                 md:h-[28.375rem]
@@ -161,15 +163,15 @@ export const ComplexAboutWidget: FC = () => {
 
           {/* 2 */}
           <CarouselItem className={`
-            !basis-[85%]
-            md:!basis-[18%]
-            pl-[1rem]
+            !basis-79
+            md:!basis-84
+            pl-4
           `}
           >
             <div
               className={`
                 h-[21.25rem]
-                w-[18.75rem]
+                w-75
                 md:w-80
                 md:h-[28.375rem]
                 rounded-xs
@@ -260,8 +262,8 @@ export const ComplexAboutWidget: FC = () => {
 
           {/* 3 */}
           <CarouselItem className={`
-            !basis-[85%]
-            md:!basis-[18%]
+            !basis-79
+            md:!basis-84
             pl-3
           `}
           >
@@ -269,7 +271,7 @@ export const ComplexAboutWidget: FC = () => {
               className={`
                 rounded-xs
                 h-[21.25rem]
-                w-[18.75rem]
+                w-75
                 md:w-80
                 md:h-[28.375rem]
                 bg-blue-6
@@ -334,15 +336,15 @@ export const ComplexAboutWidget: FC = () => {
           </CarouselItem>
 
           <CarouselItem className={`
-            !basis-[85%]
-            md:!basis-[18%]
-            pl-[1rem]
+            !basis-79
+            md:!basis-84
+            pl-4
           `}
           >
             <div
               className={`
                 h-[21.25rem]
-                w-[18.75rem]
+                w-75
                 md:w-80
                 md:h-[28.375rem]
                 rounded-xs
@@ -431,15 +433,15 @@ export const ComplexAboutWidget: FC = () => {
           </CarouselItem>
 
           <CarouselItem className={`
-            !basis-[85%]
-            md:!basis-[18%]
-            pl-[1rem]
+            !basis-79
+            md:!basis-84
+            pl-4
           `}
           >
             <div
               className={`
                 h-[21.25rem]
-                w-[18.75rem]
+                w-75
                 md:w-80
                 md:h-[28.375rem]
                 rounded-xs
@@ -496,15 +498,17 @@ export const ComplexAboutWidget: FC = () => {
           </CarouselItem>
 
           <CarouselItem className={`
-            !basis-[85%]
-            md:!basis-[18%]
-            pl-[1rem]
+            !basis-83
+            md:!basis-98
+            pl-4
+            pr-4
+            md:pr-14
           `}
           >
             <div
               className={`
                 h-[21.25rem]
-                w-[18.75rem]
+                w-75
                 md:w-80
                 md:h-[28.375rem]
                 rounded-xs

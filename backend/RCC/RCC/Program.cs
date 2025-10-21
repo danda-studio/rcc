@@ -45,7 +45,7 @@ app.MapScalarApiReference(options =>
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "static")),
+        Path.Combine(Directory.GetCurrentDirectory(), "files")),
     RequestPath = "/files"
 });
 

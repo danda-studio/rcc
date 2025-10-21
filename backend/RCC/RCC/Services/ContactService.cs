@@ -67,8 +67,6 @@ namespace RCC.Services
             try
             {
                 var filePath = Path.Combine("files", "email-message.html");
-
-                // Читаем HTML шаблон из файла
                 var htmlTemplate = File.ReadAllText(filePath);
 
                 // Преобразуем ContactMethod в читаемую строку

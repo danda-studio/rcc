@@ -1,5 +1,5 @@
 export interface UIInputFieldProps {
-    label: string;
-    id: string;
-    className?: string
+  label: string;
+  id: string;
+  className?: string;
 }

@@ -108,7 +108,7 @@ export const ComplexBanner: FC = () => {
           </h1>
 
           <p className={`
-            text-md
+            text-xl
             md:text-lg
           `}
           >

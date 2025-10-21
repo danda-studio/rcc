@@ -1,266 +1,416 @@
-import {FC, useState, useMemo, ChangeEvent, memo, useCallback, useRef} from "react";
+import type { ChangeEvent } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useVirtualizer } from "@tanstack/react-virtual";
+import Image from "next/image";
+import { memo, useCallback, useMemo, useRef, useState } from "react";
+import { getApiCountryCodes } from "@/shared/api/generated";
 import { Field, FieldLabel } from "@/shared/lib/shadcn/ui/field";
 import { Input } from "@/shared/lib/shadcn/ui/input";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
+  Select,
+  SelectContent,
+  SelectTrigger,
+  SelectValue,
 } from "@/shared/lib/shadcn/ui/select";
-import { useQuery } from "@tanstack/react-query";
-import { getApiCountryCodes } from "@/shared/api/generated";
-import { useVirtualizer } from "@tanstack/react-virtual";
 import "flag-icons/css/flag-icons.min.css";
-import Image from "next/image";
 
 interface CountryCode {
-    region: string;
-    countryCode: number;
-    mask: string;
+  region: string;
+  countryCode: number;
+  mask: string;
 }
 
 interface UIPhoneFieldProps {
-    id: string;
-    label: string;
-    value: {
-        code: string;
-        number: string;
-    };
-    onChange: (value: { code: string; number: string }) => void;
-    error?: string;
+  id: string;
+  label: string;
+  value: {
+    code: string;
+    number: string;
+  };
+  onChange: (value: { code: string; number: string }) => void;
+  error?: string;
 }
 
 const CountryFlag = memo(({ region }: { region: string }) => (
-    <span className={`fi fi-${region.toLowerCase()} !w-4 !h-4 rounded-full flex-shrink-0`} />
+  <span className={`
+    fi
+    fi-${region.toLowerCase()}
+    !w-4
+    !h-4
+    rounded-full
+    flex-shrink-0
+  `}
+  />
 ));
 
 const CountrySelectItem = memo(({
-                                    country,
-                                    onSelect
-                                }: {
-    country: CountryCode;
-    onSelect: (value: string) => void;
+  country,
+  onSelect,
+}: {
+  country: CountryCode;
+  onSelect: (value: string) => void;
 }) => {
-    const handleClick = useCallback(() => {
-        onSelect(`+${country.countryCode}-${country.region}`);
-    }, [country, onSelect]);
+  const handleClick = useCallback(() => {
+    onSelect(`+${country.countryCode}-${country.region}`);
+  }, [country, onSelect]);
 
-    return (
-        <div
-            onClick={handleClick}
-            className="cursor-pointer border-none rounded-md py-3 px-3 hover:bg-gray-3 w-full transition-colors"
+  return (
+    <div
+      onClick={handleClick}
+      className={`
+        cursor-pointer
+        border-none
+        rounded-md
+        py-3
+        px-3
+        hover:bg-gray-3
+        w-full
+        transition-colors
+      `}
+    >
+      <div className={`
+        w-full
+        flex
+        items-center
+        justify-between
+        gap-4
+      `}
+      >
+        <div className={`
+          w-full
+          flex
+          items-center
+          gap-3
+          min-w-0
+          flex-1
+        `}
         >
-            <div className="w-full flex items-center justify-between gap-4">
-                <div className="w-full flex items-center gap-3 min-w-0 flex-1">
-                    <CountryFlag region={country.region} />
-                    <span className="text-sm font-normal truncate">
+          <CountryFlag region={country.region} />
+          <span className={`
+            text-sm
+            font-normal
+            truncate
+          `}
+          >
             {country.region}
           </span>
-                </div>
-                <span className="float-right text-sm text-gray-11 flex-shrink-0 ml-auto tabular-nums">
-          +{country.countryCode}
-        </span>
-            </div>
         </div>
-    );
+        <span className={`
+          float-right
+          text-sm
+          text-gray-11
+          flex-shrink-0
+          ml-auto
+          tabular-nums
+        `}
+        >
+          +
+          {country.countryCode}
+        </span>
+      </div>
+    </div>
+  );
 });
 
 export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
-    const { id, label, value, onChange, error } = props;
-    const [searchQuery, setSearchQuery] = useState("");
-    const [isOpen, setIsOpen] = useState(false);
-    const parentRef = useRef<HTMLDivElement>(null);
+  const { id, label, value, onChange } = props;
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const parentRef = useRef<HTMLDivElement>(null);
 
-    const { data } = useQuery({
-        queryKey: ["country-codes"],
-        queryFn: () =>
-            getApiCountryCodes( ),
-        staleTime: 1000 * 60 * 60 * 24,
-        gcTime: 1000 * 60 * 60 * 24 * 7,
-        refetchOnWindowFocus: false,
-        refetchOnMount: false,
-        refetchOnReconnect: false,
-    });
+  const { data } = useQuery({
+    queryKey: ["country-codes"],
+    queryFn: () =>
+      getApiCountryCodes(),
+    staleTime: 1000 * 60 * 60 * 24,
+    gcTime: 1000 * 60 * 60 * 24 * 7,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+  });
 
-    const countryCodes: CountryCode[] = useMemo(() => data?.data ?? [], [data]);
+  const countryCodes: CountryCode[] = useMemo(() => data?.data ?? [], [data]);
 
-    const filteredCountries = useMemo(() => {
-        if (!searchQuery) return countryCodes;
-        const query = searchQuery.toLowerCase();
-        return countryCodes.filter(
-            (c) =>
-                c.region.toLowerCase().includes(query) ||
-                c.countryCode.toString().includes(query)
-        );
-    }, [countryCodes, searchQuery]);
-
-    const rowVirtualizer = useVirtualizer({
-        count: filteredCountries.length,
-        getScrollElement: () => parentRef.current,
-        estimateSize: () => 48,
-        overscan: 5,
-    });
-
-    const selectedCountry = useMemo(
-        () => countryCodes.find((c) => `+${c.countryCode}` === value.code),
-        [countryCodes, value.code]
+  const filteredCountries = useMemo(() => {
+    if (!searchQuery) {
+      return countryCodes;
+    }
+    const query = searchQuery.toLowerCase();
+    return countryCodes.filter(
+      c =>
+        c.region.toLowerCase().includes(query)
+        || c.countryCode.toString().includes(query),
     );
+  }, [countryCodes, searchQuery]);
 
-    const handleCodeChange = useCallback((newCode: string) => {
-        const code = newCode.split("-")[0];
-        onChange({ code, number: value.number });
-        setSearchQuery("");
-        setIsOpen(false);
-    }, [onChange, value.number]);
+  const rowVirtualizer = useVirtualizer({
+    count: filteredCountries.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 48,
+    overscan: 5,
+  });
 
-    const handleNumberChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        onChange({ code: value.code, number: e.target.value });
-    }, [onChange, value.code]);
+  const selectedCountry = useMemo(
+    () => countryCodes.find(c => `+${c.countryCode}` === value.code),
+    [countryCodes, value.code],
+  );
 
-    const handleSearchChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(e.target.value);
-    }, []);
+  const handleCodeChange = useCallback((newCode: string) => {
+    const code = newCode.split("-")[0];
+    onChange({ code, number: value.number });
+    setSearchQuery("");
+    setIsOpen(false);
+  }, [onChange, value.number]);
 
-    return (
-        <Field className="relative">
-            <div className="relative">
-                <div className="absolute left-2 top-0 bottom-0 flex items-center z-20">
-                    <Select
-                        value={value.code}
-                        onValueChange={handleCodeChange}
-                        open={isOpen}
-                        onOpenChange={setIsOpen}
-                    >
-                        <SelectTrigger className="
-            border-none
-            !bg-gray-8
-            h-9
-            gap-1.5
-            !focus:outline-none
-            focus-visible:border-none
-            focus-visible:ring-offset-0
-            !data-[state=open]:outline-none
-            !data-[state=open]:ring-0
-            !data-[state=open]:border-none
-            focus-visible:ring-0 focus-visible:ring-transparent focus-visible:outline-none
-            [&>svg]:hidden
-            rounded-xs
-            border-r-gray-6"
-                        >
-                            <SelectValue>
-                                <div className="flex items-center gap-1.5">
-                                    {selectedCountry ? (
-                                        <CountryFlag region={selectedCountry.region} />
-                                    ) : (
-                                        <div className="w-5 h-4 bg-gray-6 rounded-sm flex-shrink-0" />
-                                    )}
-                                    <span className="text-sm text-blue-6 whitespace-nowrap">
+  const handleNumberChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    onChange({ code: value.code, number: e.target.value });
+  }, [onChange, value.code]);
+
+  const handleSearchChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  }, []);
+
+  return (
+    <Field className="relative">
+      <div className="relative">
+        <div className={`
+          absolute
+          left-2
+          top-0
+          bottom-0
+          flex
+          items-center
+          z-20
+        `}
+        >
+          <Select
+            value={value.code}
+            onValueChange={handleCodeChange}
+            open={isOpen}
+            onOpenChange={setIsOpen}
+          >
+            <SelectTrigger className={`
+              border-none
+              !bg-gray-8
+              h-9
+              gap-1.5
+              !focus:outline-none
+              focus-visible:border-none
+              focus-visible:ring-offset-0
+              !data-[state=open]:outline-none
+              !data-[state=open]:ring-0
+              !data-[state=open]:border-none
+              focus-visible:ring-0
+              focus-visible:ring-transparent
+              focus-visible:outline-none
+              [&>svg]:hidden
+              rounded-xs
+              border-r-gray-6
+            `}
+            >
+              <SelectValue>
+                <div className={`
+                  flex
+                  items-center
+                  gap-1.5
+                `}
+                >
+                  {selectedCountry
+                    ? (
+                        <CountryFlag region={selectedCountry.region} />
+                      )
+                    : (
+                        <div className={`
+                          w-5
+                          h-4
+                          bg-gray-6
+                          rounded-sm
+                          flex-shrink-0
+                        `}
+                        />
+                      )}
+                  <span className={`
+                    text-sm
+                    text-blue-6
+                    whitespace-nowrap
+                  `}
+                  >
                     {value.code || "+7"}
                   </span>
-                                    <svg
-                                        width="10"
-                                        height="10"
-                                        viewBox="0 0 10 10"
-                                        fill="none"
-                                        className={`text-gray-10 flex-shrink-0 transition-transform duration-200 ${
-                                            isOpen ? 'rotate-180' : ''
-                                        }`}
-                                    >
-                                        <path
-                                            d="M2.5 3.75L5 6.25L7.5 3.75"
-                                            stroke="currentColor"
-                                            strokeWidth="1.2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
-                                </div>
-                            </SelectValue>
-                        </SelectTrigger>
-                        <SelectContent
-                            className="bg-gray-2 -left-2 mt-1 border-none"
-                            align="start"
-                            sideOffset={4}
-                        >
-                            <div>
-                                <div className="relative">
-                                    <Image
-                                        src='icons/search.svg'
-                                        alt={'search'}
-                                        width={16}
-                                        height={16}
-                                        className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-9 pointer-events-none"
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Поиск"
-                                        value={searchQuery}
-                                        onChange={handleSearchChange}
-                                        className="w-full placeholder-gray-5 h-10 bg-gray-3 border-none rounded-md pl-10 pr-3 text-sm focus:outline-none focus:ring-0"
-                                        onKeyDown={(e) => e.stopPropagation()}
-                                    />
-                                </div>
-                            </div>
-
-                            {filteredCountries.length === 0 ? (
-                                <div className="h-[10rem] w-[19.50rem] md:w-[27.55rem] flex flex-col justify-center p-2 mt-3 text-center text-sm text-gray-11">
-                                    Ничего не найдено
-                                </div>
-                            ) : (
-                                <div
-                                    ref={parentRef}
-                                    className="max-h-80  md:w-[27.55rem] overflow-y-auto p-2 mt-3"
-                                >
-                                    <div
-                                        style={{
-                                            height: `${rowVirtualizer.getTotalSize()}px`,
-                                            width: '100%',
-                                            position: 'relative',
-                                        }}
-                                    >
-                                        {rowVirtualizer.getVirtualItems().map((virtualRow) => {
-                                            const country = filteredCountries[virtualRow.index];
-                                            return (
-                                                <div
-                                                    key={`${country.countryCode}-${country.region}`}
-                                                    style={{
-                                                        position: 'absolute',
-                                                        top: 0,
-                                                        left: 0,
-                                                        width: '100%',
-                                                        transform: `translateY(${virtualRow.start}px)`,
-                                                    }}
-                                                >
-                                                    <CountrySelectItem
-                                                        country={country}
-                                                        onSelect={handleCodeChange}
-                                                    />
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-                            )}
-                        </SelectContent>
-                    </Select>
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    className={`
+                      text-gray-10
+                      flex-shrink-0
+                      transition-transform
+                      duration-200
+                      ${
+    isOpen ? "rotate-180" : ""
+    }
+                    `}
+                  >
+                    <path
+                      d="M2.5 3.75L5 6.25L7.5 3.75"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent
+              className={`
+                bg-gray-2
+                -left-2
+                mt-1
+                border-none
+              `}
+              align="start"
+              sideOffset={4}
+            >
+              <div>
+                <div className="relative">
+                  <Image
+                    src="icons/search.svg"
+                    alt="search"
+                    width={16}
+                    height={16}
+                    className={`
+                      absolute
+                      left-3
+                      top-1/2
+                      -translate-y-1/2
+                      w-4
+                      h-4
+                      text-gray-9
+                      pointer-events-none
+                    `}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Поиск"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    className={`
+                      w-full
+                      placeholder-gray-5
+                      h-10
+                      bg-gray-3
+                      border-none
+                      rounded-md
+                      pl-10
+                      pr-3
+                      text-sm
+                      focus:outline-none
+                      focus:ring-0
+                    `}
+                    onKeyDown={e => e.stopPropagation()}
+                  />
+                </div>
+              </div>
 
-                <FieldLabel
-                    className="absolute z-10 left-25 text-gray-5 px-3.5 has-[+input:focus,+input:not(:placeholder-shown)]:top-2.25 top-1/2 has-[+input:focus,+input:not(:placeholder-shown)]:translate-y-0 -translate-y-1/2 has-[+input:focus,+input:not(:placeholder-shown)]:text-xxs pointer-events-none transition-all"
-                    htmlFor={id}
-                >
-                    {label}
-                </FieldLabel>
+              {filteredCountries.length === 0
+                ? (
+                    <div className={`
+                      h-[10rem]
+                      w-[19.50rem]
+                      md:w-[27.55rem]
+                      flex
+                      flex-col
+                      justify-center
+                      p-2
+                      mt-3
+                      text-center
+                      text-sm
+                      text-gray-11
+                    `}
+                    >
+                      Ничего не найдено
+                    </div>
+                  )
+                : (
+                    <div
+                      ref={parentRef}
+                      className={`
+                        max-h-80
+                        md:w-[27.55rem]
+                        overflow-y-auto
+                        p-2
+                        mt-3
+                      `}
+                    >
+                      <div
+                        style={{
+                          height: `${rowVirtualizer.getTotalSize()}px`,
+                          width: "100%",
+                          position: "relative",
+                        }}
+                      >
+                        {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+                          const country = filteredCountries[virtualRow.index];
+                          return (
+                            <div
+                              key={`${country.countryCode}-${country.region}`}
+                              style={{
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                transform: `translateY(${virtualRow.start}px)`,
+                              }}
+                            >
+                              <CountrySelectItem
+                                country={country}
+                                onSelect={handleCodeChange}
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+            </SelectContent>
+          </Select>
+        </div>
 
-                <Input
-                    id={id}
-                    placeholder=" "
-                    value={value.number}
-                    onChange={handleNumberChange}
-                    className="pb-2.25 pt-5.75 leading-5 pl-29"
-                />
-            </div>
-        </Field>
-    );
+        <FieldLabel
+          className={`
+            absolute
+            z-10
+            left-25
+            text-gray-5
+            px-3.5
+            has-[+input:focus,+input:not(:placeholder-shown)]:top-2.25
+            top-1/2
+            has-[+input:focus,+input:not(:placeholder-shown)]:translate-y-0
+            -translate-y-1/2
+            has-[+input:focus,+input:not(:placeholder-shown)]:text-xxs
+            pointer-events-none
+            transition-all
+          `}
+          htmlFor={id}
+        >
+          {label}
+        </FieldLabel>
+
+        <Input
+          id={id}
+          placeholder=" "
+          value={value.number}
+          onChange={handleNumberChange}
+          className={`
+            pb-2.25
+            pt-5.75
+            leading-5
+            pl-29
+          `}
+        />
+      </div>
+    </Field>
+  );
 });

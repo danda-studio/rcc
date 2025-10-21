@@ -5,26 +5,26 @@ import { Field, FieldLabel } from "@/shared/lib/shadcn/ui/field";
 import { Input } from "@/shared/lib/shadcn/ui/input";
 
 export interface ControlledUIInputFieldProps extends UIInputFieldProps {
-    name: string;
-    value?: string;
-    onChange: () => void;
-    onBlur?: () => void;
-    error: any
+  name: string;
+  value?: string;
+  onChange: () => void;
+  onBlur?: () => void;
+  error: any;
 }
 
 export const UIInputField: FC<ControlledUIInputFieldProps> = ({
-                                                        id,
-                                                        label,
-                                                        value,
-                                                        onChange,
-                                                        onBlur,
-                                                        error,
-                                                        className,
-                                                    }) => {
-    return (
-        <Field className="relative">
-            <FieldLabel
-                className={`
+  id,
+  label,
+  value,
+  onChange,
+  onBlur,
+  error,
+  className,
+}) => {
+  return (
+    <Field className="relative">
+      <FieldLabel
+        className={`
           absolute
           text-gray-5
           px-3.5
@@ -37,24 +37,35 @@ export const UIInputField: FC<ControlledUIInputFieldProps> = ({
           [&+input]:pt-5.75
           [&+input]:leading-5
         `}
-                htmlFor={id}
-            >
-                {label}
-            </FieldLabel>
+        htmlFor={id}
+      >
+        {label}
+      </FieldLabel>
 
-            <Input
-                id={id}
-                placeholder={label}
-                value={value}
-                onChange={onChange}
-                onBlur={onBlur}
-                required
-                className={`${className ?? ""} ${error ? "border-red-500" : ""}`}
-            />
+      <Input
+        id={id}
+        placeholder={label}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        required
+        className={`
+          ${className ?? ""}
+          ${error ? "border-red-500" : ""}
+        `}
+      />
 
-            {error && (
-                <span className="absolute text-xs text-red-500 mt-1">{error}</span>
-            )}
-        </Field>
-    );
+      {error && (
+        <span className={`
+          absolute
+          text-xs
+          text-red-500
+          mt-1
+        `}
+        >
+          {error}
+        </span>
+      )}
+    </Field>
+  );
 };

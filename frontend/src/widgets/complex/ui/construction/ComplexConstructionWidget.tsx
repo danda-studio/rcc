@@ -64,9 +64,14 @@ export const ComplexConstructionWidget = () => {
   }, [api]);
 
   return (
-    <div className="md:ml-10">
+    <div className={`
+      px-3
+      md:px-10
+    `}
+    >
       <div className={`
         max-w-[43.5rem]
+        pb-10
         md:pb-20
       `}
       >
@@ -95,14 +100,15 @@ export const ComplexConstructionWidget = () => {
       <Carousel
         setApi={setApi}
         className={`
-          -mr-4
+          -mx-4
+          md:-mx-14
           max-w-[100vw]
           overflow-hidden
         `}
         opts={{ align: "start", slidesToScroll: 1 }}
       >
         <CarouselContent className={`
-          -ml-[1rem]
+          !ml-0
           md:h-[40.25rem]
           items-end
           overflow-visible
@@ -112,10 +118,14 @@ export const ComplexConstructionWidget = () => {
             <CarouselItem
               key={idx}
               className={`
-                pt-10
-                md:pt-0
-                !basis-[75%]
-                md:!basis-[24%]
+                md:last:pr-14
+                md:first:pl-14
+                pl-4
+                !basis-79
+                last:!basis-83
+                md:last:!basis-128
+                md:first:!basis-124
+                md:!basis-114
               `}
             >
               <CarouselCard {...slide} />

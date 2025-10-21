@@ -108,8 +108,8 @@ export const ComplexBanner: FC = () => {
           </h1>
 
           <p className={`
-            text-xl
-            md:text-lg
+            text-md
+            md:text-xl
           `}
           >
             Место, где хочется жить

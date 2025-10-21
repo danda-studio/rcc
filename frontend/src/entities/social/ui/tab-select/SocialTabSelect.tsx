@@ -16,8 +16,12 @@ interface SocialTabSelectProps {
 
 export const SocialTabSelect: FC<SocialTabSelectProps> = ({ value, onChange }) => {
   return (
-    <div className="flex gap-2">
-      {socials.map((s) => (
+    <div className={`
+      flex
+      gap-2
+    `}
+    >
+      {socials.map(s => (
         <label
           key={s.value}
           className={`
@@ -44,7 +48,12 @@ export const SocialTabSelect: FC<SocialTabSelectProps> = ({ value, onChange }) =
             value={s.value}
             checked={value === s.value}
             onChange={() => onChange?.(s.value)}
-            className="absolute inset-0 opacity-0 cursor-pointer"
+            className={`
+              absolute
+              inset-0
+              opacity-0
+              cursor-pointer
+            `}
           />
           {s.label}
         </label>

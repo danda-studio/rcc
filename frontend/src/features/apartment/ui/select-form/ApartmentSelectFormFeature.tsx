@@ -112,6 +112,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
             items-center
             gap-4
             overflow-hidden
+            md:w-full
           `}
           >
             {apartmentSideItems.left.map(i => (

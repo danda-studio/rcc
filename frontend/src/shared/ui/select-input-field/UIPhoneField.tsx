@@ -117,7 +117,6 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const parentRef = useRef<HTMLDivElement>(null);
-
   const { data } = useQuery({
     queryKey: ["country-codes"],
     queryFn: () =>
@@ -150,15 +149,25 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
     overscan: 5,
   });
 
-  const selectedCountry = useMemo(
-    () => countryCodes.find(c => `+${c.countryCode}` === value.code),
-    [countryCodes, value.code],
-  );
+  const selectedCountry = useMemo(() => {
+    const parts = value.code.match(/^\+(\d+)(?:-(.+))?$/);
+    if (!parts) {
+      return countryCodes.find(c => `+${c.countryCode}` === value.code);
+    }
 
+    const code = parts[1];
+    const region = parts[2];
+
+    if (region) {
+      return countryCodes.find(c =>
+        c.countryCode.toString() === code && c.region.toLowerCase() === region.toLowerCase(),
+      );
+    }
+
+    return countryCodes.find(c => c.countryCode.toString() === code);
+  }, [countryCodes, value.code]);
   const handleCodeChange = useCallback((newCode: string) => {
-    const code = newCode.split("-")[0];
-    onChange({ code, number: value.number });
-    setSearchQuery("");
+    onChange({ code: newCode, number: value.number });
     setIsOpen(false);
   }, [onChange, value.number]);
 
@@ -185,7 +194,6 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
         >
           <Select
             value={value.code}
-            onValueChange={handleCodeChange}
             open={isOpen}
             onOpenChange={setIsOpen}
           >
@@ -235,7 +243,7 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
                     whitespace-nowrap
                   `}
                   >
-                    {value.code || "+7"}
+                    {value.code ? value.code.split("-")[0] : "+7"}
                   </span>
                   <svg
                     width="10"

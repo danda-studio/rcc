@@ -55,7 +55,6 @@ namespace RCC.Services
                     mailMessage.To.Add(_gmailSetting.Email);
                 }
 
-            mailMessage.To.Add(_gmailSetting.Email);
 
                 await client.SendMailAsync(mailMessage);
 

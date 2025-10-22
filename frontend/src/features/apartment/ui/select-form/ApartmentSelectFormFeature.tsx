@@ -64,9 +64,9 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
     return data;
   }, [apartmentItems.secondary]);
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log(data);
-  }
+  // function onSubmit(data: z.infer<typeof formSchema>) {
+  //   console.log(data);
+  // }
 
   const apartamentId = form.watch("apartment");
 
@@ -79,7 +79,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
         gap-8
         md:gap-10
       `, className)}
-      onSubmit={form.handleSubmit(onSubmit)}
+      // onSubmit={form.handleSubmit(onSubmit)}
     >
       <Controller
         name="countRoom"
@@ -154,7 +154,6 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
         <Button
           variant="outline"
           size="lg"
-          type="submit"
           className="max-md:w-70"
         >
           <MousePointerClick />

@@ -69,7 +69,6 @@ namespace RCC.Services
                 var filePath = Path.Combine("files", "email-message.html");
                 var htmlTemplate = File.ReadAllText(filePath);
 
-                // Преобразуем ContactMethod в читаемую строку
                 string contactMethodText = request.ContactMethod switch
                 {
                     ContactMethod.Call => "Звонок",
@@ -80,10 +79,11 @@ namespace RCC.Services
 
                 // Заменяем плейсхолдеры на реальные данные
                 var formattedHtml = htmlTemplate
-                    .Replace("Евгений", request.Name)
-                    .Replace("+79499046784", $"+{request.Phone?.Code} {request.Phone?.Number}")
-                    .Replace("Звонок", contactMethodText)
-                    .Replace("client@gmail.com", request.Email);
+                    .Replace("{{NAME}}", request.Name)
+                    .Replace("{{PHONE}}", $"+{request.Phone?.Code} {request.Phone?.Number}")
+                    .Replace("{{CONTACT_METHOD}}", contactMethodText)
+                    .Replace("{{EMAIL}}", request.Email)
+                    .Replace("{{DATE}}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
                 return formattedHtml;
             }

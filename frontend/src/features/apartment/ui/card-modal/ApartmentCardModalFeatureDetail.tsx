@@ -33,24 +33,33 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
       items-start
     `, className)}
     >
-      <DialogHeader className="gap-0">
+      <DialogHeader className={`
+        !gap-0
+        max-md:mb-8
+      `}
+      >
         <DialogTitle className={`
-          text-4-5xl
+          font-medium
+          text-left
           text-blue-6
           -tracking-md
           max-w-111.5
-          font-medium
-          mb-6
+          text-md-l
+          md:text-4-5xl
+          mb-4
+          md:mb-6
         `}
         >
           {title}
         </DialogTitle>
         <DialogDescription className={`
-          text-md-x
+          text-left
           -tracking-sm
+          font-medium
           leading-[1.2]
           text-gray-4
-          font-medium
+          text-base
+          md:text-md-x
         `}
         >
           {description}
@@ -58,11 +67,15 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
       </DialogHeader>
 
       <div className={`
+        max-md:w-53.25
         mt-auto
-        mb-7
+        mb-4
+        md:mb-7
         grid
-        grid-cols-[fit-content(7.5rem)_1fr]
-        gap-4
+        grid-cols-[1fr_fit-content(7.5rem)]
+        md:grid-cols-[fit-content(7.5rem)_1fr]
+        gap-3
+        md:gap-4
         text-nowrap
       `}
       >
@@ -76,8 +89,9 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
               <span className={`
                 leading-[1.2]
                 text-gray-4
-                text-base
                 font-medium
+                text-xs
+                md:text-base
               `}
               >
                 {label}
@@ -91,8 +105,9 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
               <span className={`
                 leading-[1.2]
                 text-blue-6
-                text-md
                 font-medium
+                text-base
+                md:text-md
               `}
               >
                 {value}
@@ -103,7 +118,11 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
       </div>
 
       <ContactFormModalFeature>
-        <Button className="px-10">
+        <Button className={`
+          max-md:w-64.5
+          px-10
+        `}
+        >
           Забронировать
         </Button>
       </ContactFormModalFeature>

@@ -46,10 +46,18 @@
 
       .email-wrapper {
         background-color: #f2f4f6;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        padding: 16px;
+      }
+      .email-wrapper .email-container {
+        margin: auto auto;
+      }
+      .email-wrapper::before {
+        content: "";
+        flex: 1;
+      }
+      .email-wrapper::after {
+        content: "";
+        flex: 1;
       }
 
       .email-container {
@@ -63,14 +71,22 @@
 
       .header {
         padding: 48px 60px 32px 60px;
-        text-align: center;
       }
 
       .logo-section {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
         margin-bottom: 20px;
+        overflow: hidden;
+      }
+      .logo-section .company-name {
+        vertical-align: top;
+      }
+      .logo-section .logo-icon {
+        float: right;
+        vertical-align: top;
+      }
+      .logo-section .company-name {
+        float: left;
+        width: calc(100% - 46px);
       }
 
       .logo-icon {
@@ -96,29 +112,40 @@
       }
 
       .main-title-section {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        overflow: hidden;
+      }
+      .main-title-section .main-title {
+        float: left;
+        width: calc(100% - 100px);
+        vertical-align: middle;
+      }
+      .main-title-section .link-text {
+        float: right;
+        vertical-align: middle;
+      }
+      .main-title-section .main-title {
+        flex: 1;
       }
 
       .main-title {
         color: #03050c;
         font-size: 20px;
-        line-height: 0.92;
+        line-height: 1.2;
         font-weight: 500;
         margin: 0;
         text-align: left;
-        letter-spacing: -0.04em;
+        letter-spacing: -0.05em;
       }
 
       .link-text {
-        color: #d1a94c;
+        color: #d1a94c !important;
+        line-height: 24px !important;
         font-size: 16px;
         font-weight: 500;
         margin: 0;
         text-align: right;
         text-decoration: underline;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.02em !important;
       }
 
       .content {
@@ -134,11 +161,21 @@
       }
 
       .info-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         padding: 24px 0 16px 0;
         border-bottom: 1px solid #e4e4e4;
+        overflow: hidden;
+      }
+      .info-row .info-label {
+        vertical-align: middle;
+      }
+      .info-row .info-value {
+        float: right;
+        width: calc(100% - 104px);
+        vertical-align: middle;
+      }
+      .info-row .info-label {
+        float: left;
+        width: 104px;
       }
       .info-row:first-child {
         padding-top: 0;
@@ -194,9 +231,9 @@
       }
 
       .browser-link {
-        color: #d1a94c;
-        font-size: 12px;
-        line-height: 1.2;
+        color: #d1a94c !important;
+        font-size: 12px !important;
+        line-height: 1.2 !important;
         font-weight: 500;
         text-decoration: underline;
         display: inline-block;
@@ -227,7 +264,16 @@
 
         .main-title-section {
           flex-wrap: wrap;
-          gap: 16px;
+        }
+        .main-title-section .main-title {
+          margin-bottom: 16px;
+          width: 100%;
+          line-height: 0.92;
+        }
+        .main-title-section .link-text {
+          width: 100%;
+          text-align: left;
+          line-height: 1.2 !important;
         }
 
         .content {

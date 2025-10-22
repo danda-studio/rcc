@@ -13,9 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="files\email-message.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="files\logo.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

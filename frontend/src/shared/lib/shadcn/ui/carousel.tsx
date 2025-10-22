@@ -173,6 +173,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="carousel-item"
       className={cn(
         `
+          select-none
           min-w-0
           shrink-0
           grow-0

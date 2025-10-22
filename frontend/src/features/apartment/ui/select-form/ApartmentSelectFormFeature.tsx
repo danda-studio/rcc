@@ -12,6 +12,7 @@ import { ApartmentCarouselSelect, ApartmentCountRoomSelect } from "@/entities/ap
 import { ApartmentCarouselSelectItemContent } from "@/entities/apartment/ui/carousel-select/ApartmentCarouselSelectItemContent";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { cn } from "@/shared/lib/shadcn/utils";
+import { ApartmentCardModalFeature } from "../card-modal/ApartmentCardModalFeature";
 import { items } from "./consts/items";
 
 const formSchema = z.object({
@@ -66,6 +67,8 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
   function onSubmit(data: z.infer<typeof formSchema>) {
     console.log(data);
   }
+
+  const apartamentId = form.watch("apartment");
 
   return (
     <form
@@ -147,15 +150,17 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
         )}
       />
 
-      <Button
-        variant="outline"
-        size="lg"
-        type="submit"
-        className="max-md:w-70"
-      >
-        <MousePointerClick />
-        Подробнее
-      </Button>
+      <ApartmentCardModalFeature apartmentId={apartamentId}>
+        <Button
+          variant="outline"
+          size="lg"
+          type="submit"
+          className="max-md:w-70"
+        >
+          <MousePointerClick />
+          Подробнее
+        </Button>
+      </ApartmentCardModalFeature>
 
     </form>
   );

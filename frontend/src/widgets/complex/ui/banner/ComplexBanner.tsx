@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { MousePointerClick, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { CityBadge } from "@/entities/city";
+import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { UIGlass } from "@/shared/ui/glass";
 import { ComplexTag } from "../tag";
@@ -24,6 +25,7 @@ export const ComplexBanner: FC = () => {
         height={1080}
         alt="Hero image"
         src="/images/complex/banner.png"
+        priority
         className={`
           absolute
           left-1/2
@@ -115,17 +117,19 @@ export const ComplexBanner: FC = () => {
             Место, где хочется жить
           </p>
 
-          <Button
-            className={`
-              max-md:w-full
-              mt-auto
-            `}
-            variant="outline"
-            size="lg"
-          >
-            <MousePointerClick />
-            Подобрать квартиру
-          </Button>
+          <ContactFormModalFeature>
+            <Button
+              className={`
+                max-md:w-full
+                mt-auto
+              `}
+              variant="outline"
+              size="lg"
+            >
+              <MousePointerClick />
+              Подобрать квартиру
+            </Button>
+          </ContactFormModalFeature>
         </div>
       </div>
 

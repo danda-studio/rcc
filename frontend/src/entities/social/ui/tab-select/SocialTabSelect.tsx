@@ -18,7 +18,7 @@ export const SocialTabSelect: FC<SocialTabSelectProps> = ({ value, onChange }) =
   return (
     <div className={`
       flex
-      gap-2
+      gap-1.5
     `}
     >
       {socials.map(s => (
@@ -34,7 +34,7 @@ export const SocialTabSelect: FC<SocialTabSelectProps> = ({ value, onChange }) =
             has-[input:checked]:border-blue-6
             has-[input:checked]:bg-blue-6
             has-[input:checked]:text-white
-            px-4
+            px-3.75
             h-9
             flex
             items-center

@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import { MousePointerClick, TicketPercent, Users, Wallet } from "lucide-react";
 import Image from "next/image";
+import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { UIInfo } from "@/shared/ui/info/UIInfo";
 
@@ -158,20 +159,22 @@ export const ComplexMortgageWidget: FC = () => {
         />
       </div>
 
-      <Button
-        className={`
-          absolute
-          max-md:inset-x-3
-          md:right-11
-          bottom-3
-          md:bottom-15
-        `}
-        variant="outline"
-        size="lg"
-      >
-        <MousePointerClick />
-        Заказать звонок
-      </Button>
+      <ContactFormModalFeature>
+        <Button
+          className={`
+            absolute
+            max-md:inset-x-3
+            md:right-11
+            bottom-3
+            md:bottom-15
+          `}
+          variant="outline"
+          size="lg"
+        >
+          <MousePointerClick />
+          Заказать звонок
+        </Button>
+      </ContactFormModalFeature>
 
     </section>
   );

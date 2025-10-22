@@ -60,16 +60,17 @@ export const UIInputField: FC<ControlledUIInputFieldProps> = ({
           z-10
           bg-transparent
           ${className ?? ""}
-          ${error ? "border-red-500" : ""}
+          ${error ? "border-red-1" : ""}
         `}
       />
 
       {error && (
         <span className={`
+          top-full
           absolute
-          text-xs
-          text-red-500
-          mt-1
+          text-xxs
+          leading-none
+          text-red-1
         `}
         >
           {error}

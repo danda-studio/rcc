@@ -136,7 +136,7 @@ html {
 
   /* 28px */
   --text-md-l: 1.75rem;
-  --text-md-l-line-height: 1;
+  --text-md-l--line-height: 1;
 
   /* 24px */
   --text-md-x: 1.5rem;
@@ -207,6 +207,8 @@ html {
   --color-gold-4: var(--gold-4);
 
   --color-black-1: var(--black-1);
+
+  --color-red-1: var(--red-1);
 
   /* Backdrop blur */
   --blur-lg: calc(25 * var(--px));
@@ -286,6 +288,8 @@ html {
   --gold-4: #b77521;
 
   --black-1: #04060d;
+
+  --red-1: #d80027;
 
   /* 1px to rem */
   --px: calc((1 / 16) * 1rem);

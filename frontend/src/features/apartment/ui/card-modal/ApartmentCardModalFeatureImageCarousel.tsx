@@ -39,7 +39,8 @@ export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
       flex
       flex-col
       items-center
-      gap-13
+      gap-2
+      md:gap-13
     `, className)}
     >
       <Carousel
@@ -52,7 +53,8 @@ export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
       >
         <CarouselContent className={`
           !ml-0
-          md:h-[40.25rem]
+          h-47.5
+          md:h-133.75
           items-end
           overflow-visible
         `}
@@ -84,7 +86,8 @@ export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
 
       <div className={`
         block
-        w-80
+        w-50
+        md:w-80
         mx-auto
         h-[3px]
         bg-white/49

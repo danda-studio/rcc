@@ -20,14 +20,18 @@ export const ContactFormModalFeature: FC<ContactFormModalFeatureProps> = ({ chil
           !gap-0
           !border-none
           md:max-w-143
+          flex
+          flex-col
         `}
       >
         <DialogHeader className={`
           bg-radial-(--radial-5)
           !gap-0
           relative
-          h-67
           overflow-hidden
+          max-md:w-88
+          h-45
+          md:h-67
         `}
         >
           <Image
@@ -36,41 +40,50 @@ export const ContactFormModalFeature: FC<ContactFormModalFeatureProps> = ({ chil
             width={364}
             height={364}
             className={`
-              h-91
-              w-91
               absolute
-              -top-5
-              -right-28
+              -right-23.5
+              md:-right-28
+              -top-2.75
+              md:-top-5
+              size-66
+              md:size-91
             `}
           />
           <div className={`
             absolute
             inset-0
-            p-10
+            p-5
+            md:p-10
           `}
           >
             <DialogTitle className={`
-              max-w-77.75
+              -tracking-md
+              max-md:text-left
+              max-w-40
+              md:max-w-77.75
               mb-4
-              text-4xl
               leading-[0.92]
               font-medium
               text-white
-              -tracking-md
+              text-lg-x
+              md:text-4xl
             `}
             >
               Оставить заявку
             </DialogTitle>
             <DialogDescription className={`
-              max-w-70.5
-              text-md
               leading-[1.2]
               text-white
               font-medium
               -tracking-sm
+              max-w-42.5
+              md:max-w-70.5
+              max-md:text-left
+              text-base
+              md:text-md
             `}
             >
-              Сделайте первый шаг к новой квартире уже сегодня.
+              Сделайте первый шаг к новой квартире уже сегодня
             </DialogDescription>
 
             <DialogClose
@@ -96,8 +109,13 @@ export const ContactFormModalFeature: FC<ContactFormModalFeatureProps> = ({ chil
           </div>
         </DialogHeader>
 
-        <div className="p-10">
-          <ContactFormFeature />
+        <div className={`
+          p-5
+          md:p-10
+          max-md:w-88
+        `}
+        >
+          <ContactFormFeature className="w-full" />
           <div className={`
             mt-3.5
             flex

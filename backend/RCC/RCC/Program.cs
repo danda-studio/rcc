@@ -61,5 +61,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseCors("AllowLocalhost3000");
+app.UseCors("AllowSpecificOrigin");
 
 app.Run();

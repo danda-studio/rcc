@@ -337,8 +337,9 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
                     <div
                       ref={parentRef}
                       className={`
-                        max-h-80
-                        md:w-[27.55rem]
+                        max-h-[19.5rem]
+                        md:w-[29.6rem]
+                        w-[19.5rem]
                         overflow-y-auto
                         p-2
                         mt-3

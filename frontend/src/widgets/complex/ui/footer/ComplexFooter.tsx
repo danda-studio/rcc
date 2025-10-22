@@ -55,7 +55,7 @@ export const ComplexFooterWidget: FC = () => {
               text-sm-m
               hover:text-gray-700
             `}
-            href="#"
+            href="#about"
           >
             О проекте
           </Link>
@@ -67,7 +67,7 @@ export const ComplexFooterWidget: FC = () => {
               text-sm-m
               hover:text-gray-700
             `}
-            href="#"
+            href="#mortgage"
           >
             Ипотека
           </Link>
@@ -79,7 +79,7 @@ export const ComplexFooterWidget: FC = () => {
               text-sm-m
               hover:text-gray-700
             `}
-            href="#"
+            href="#construction"
           >
             Хронология строительства
           </Link>
@@ -91,7 +91,7 @@ export const ComplexFooterWidget: FC = () => {
               text-sm-m
               hover:text-gray-700
             `}
-            href="#"
+            href="#catalog"
           >
             Планировки
           </Link>

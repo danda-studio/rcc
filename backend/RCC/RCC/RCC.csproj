@@ -7,9 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CountryData.Standard" Version="1.5.0" />
     <PackageReference Include="libphonenumber-csharp" Version="9.0.16" />
     <PackageReference Include="Scalar.AspNetCore" Version="2.9.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="files\email-message.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="files\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="files\logo.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

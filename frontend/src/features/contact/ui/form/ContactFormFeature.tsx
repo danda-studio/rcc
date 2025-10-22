@@ -22,7 +22,7 @@ export const ContactFormFeature: FC = () => {
     defaultValues: {
       name: "",
       phone: {
-        code: "+373",
+        code: "+7",
         number: "",
       },
       contactMethod: ContactMethod.NUMBER_0,

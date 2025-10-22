@@ -25,6 +25,7 @@ export const ComplexBanner: FC = () => {
         height={1080}
         alt="Hero image"
         src="/images/complex/banner.png"
+        priority
         className={`
           absolute
           left-1/2

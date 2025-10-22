@@ -1,9 +1,8 @@
 import type { FC } from "react";
 import type { ContactFormModalFeatureProps } from "./types";
-import { DialogClose, DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import Image from "next/image";
-import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/shared/lib/shadcn/ui/dialog";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/shared/lib/shadcn/ui/dialog";
 import { UIGlass } from "@/shared/ui/glass";
 import { ContactFormFeature } from "./ContactFormFeature";
 

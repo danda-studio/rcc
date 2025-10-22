@@ -197,6 +197,7 @@ html {
   --color-gray-9: var(--gray-9);
   --color-gray-10: var(--gray-10);
   --color-gray-11: var(--gray-11);
+  --color-gray-12: var(--gray-12);
 
   --color-gray-7: var(--gray-7);
 
@@ -277,6 +278,7 @@ html {
   --gray-9: #c4c4c4;
   --gray-10: #9aa1b1;
   --gray-11: #cbd3df;
+  --gray-12: #53575f;
 
   --gold-1: #ffeba5;
   --gold-2: #d8b24f;

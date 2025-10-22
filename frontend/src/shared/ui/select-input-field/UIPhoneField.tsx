@@ -1,7 +1,7 @@
 import type { ChangeEvent } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import Image from "next/image";
+import { Search } from "lucide-react";
 import { memo, useCallback, useMemo, useRef, useState } from "react";
 import { getApiCountryCodes } from "@/shared/api/generated";
 import { Field, FieldLabel } from "@/shared/lib/shadcn/ui/field";
@@ -283,22 +283,17 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
             >
               <div>
                 <div className="relative">
-                  <Image
-                    src="icons/search.svg"
-                    alt="search"
-                    width={16}
-                    height={16}
-                    className={`
-                      absolute
-                      left-3
-                      top-1/2
-                      -translate-y-1/2
-                      w-4
-                      h-4
-                      text-gray-9
-                      pointer-events-none
-                    `}
+                  <Search className={`
+                    absolute
+                    left-3
+                    top-1/2
+                    -translate-y-1/2
+                    size-4
+                    text-gray-12
+                    pointer-events-none
+                  `}
                   />
+
                   <input
                     type="text"
                     placeholder="Поиск"

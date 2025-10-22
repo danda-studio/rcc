@@ -1,4 +1,4 @@
-import { ShieldCheck } from "lucide-react";
+import { House, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import { UIGlass } from "@/shared/ui/glass";
@@ -13,12 +13,13 @@ export const ResidentialWidget = () => {
       md:ml-4
     `}
     >
-      <Image
-        src="/icons/home.svg"
-        width="24"
-        height="24"
-        alt="home"
-        className="mr-4"
+      <House
+        className={`
+          shrink-0
+          size-6
+          mr-4
+          text-white
+        `}
       />
       <span className={`
         font-medium

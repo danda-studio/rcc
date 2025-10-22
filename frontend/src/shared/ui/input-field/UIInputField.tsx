@@ -22,9 +22,15 @@ export const UIInputField: FC<ControlledUIInputFieldProps> = ({
   className,
 }) => {
   return (
-    <Field className="relative">
+    <Field className={`
+      relative
+      bg-gray-3
+      rounded-md
+    `}
+    >
       <FieldLabel
         className={`
+          z-0
           absolute
           text-gray-5
           px-3.5
@@ -36,6 +42,7 @@ export const UIInputField: FC<ControlledUIInputFieldProps> = ({
           [&+input]:pb-2.25
           [&+input]:pt-5.75
           [&+input]:leading-5
+          transition-all
         `}
         htmlFor={id}
       >
@@ -50,6 +57,8 @@ export const UIInputField: FC<ControlledUIInputFieldProps> = ({
         onBlur={onBlur}
         required
         className={`
+          z-10
+          bg-transparent
           ${className ?? ""}
           ${error ? "border-red-500" : ""}
         `}

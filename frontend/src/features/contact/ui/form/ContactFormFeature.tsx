@@ -53,7 +53,6 @@ export const ContactFormFeature: FC = () => {
   return (
     <div className={`
       w-full
-      max-w-md
       text-blue-6
     `}
     >

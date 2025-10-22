@@ -80,7 +80,7 @@ function DialogContent({
             z-50
             grid
             w-full
-            max-w-[calc(100%-2rem)]
+            max-w-[calc(100%-0.5rem)]
             translate-x-[-50%]
             translate-y-[-50%]
             gap-4

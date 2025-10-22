@@ -40,7 +40,7 @@ export const postApiContactContact = (
   options?: AxiosRequestConfig,
 ): Promise<AxiosResponse<SendContactResponse>> => {
   return axios.post(
-    `https://rcc-7z0s.onrender.com/api/Contact/contact`,
+    `https://diplomatic-staci-rcc-c14bdd3f.koyeb.app/api/Contact/contact`,
     sendContactRequest,
     options,
   );
@@ -84,14 +84,14 @@ export const getApiCountryCodes = (
   options?: AxiosRequestConfig,
 ): Promise<AxiosResponse<void>> => {
   return axios.get(
-    `https://rcc-7z0s.onrender.com/api/Country/codes`,
+    `https://diplomatic-staci-rcc-c14bdd3f.koyeb.app/api/Country/codes`,
     options,
   );
 };
 
 export const getGetApiCountryCodesQueryKey = () => {
   return [
-    `https://rcc-7z0s.onrender.com/api/Country/codes`,
+    `https://diplomatic-staci-rcc-c14bdd3f.koyeb.app/api/Country/codes`,
   ] as const;
 };
 

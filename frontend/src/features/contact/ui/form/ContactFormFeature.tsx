@@ -14,9 +14,10 @@ import { postApiContactContact } from "@/shared/api/generated";
 import { ContactMethod } from "@/shared/api/scheme";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { Field } from "@/shared/lib/shadcn/ui/field";
+import { cn } from "@/shared/lib/shadcn/utils";
 import { UIPhoneField } from "@/shared/ui/select-input-field/UIPhoneField";
 
-export const ContactFormFeature: FC = () => {
+export const ContactFormFeature: FC<{ className?: string }> = ({ className }) => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -51,11 +52,7 @@ export const ContactFormFeature: FC = () => {
   });
 
   return (
-    <div className={`
-      w-full
-      text-blue-6
-    `}
-    >
+    <div className={cn(`text-blue-6`, className)}>
       <form
         className={`
           flex

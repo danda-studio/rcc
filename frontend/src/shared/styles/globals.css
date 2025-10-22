@@ -27,6 +27,9 @@
     margin-bottom: 0; /* третья */
   }
 }
+html {
+    scroll-behavior: smooth;
+}
 /*noinspection CssInvalidAtRule*/
 @theme inline {
   /* Shandcn */

@@ -21,11 +21,19 @@ export const ComplexPage: FC = () => {
     `}
     >
       <ComplexBanner />
-      <ComplexAboutWidget />
+      <div id="about">
+        <ComplexAboutWidget />
+      </div>
       <ResidentialWidget />
-      <ComplexMortgageWidget />
-      <ComplexConstructionWidget />
-      <ComplexCatalogWidget />
+      <div id="mortgage">
+        <ComplexMortgageWidget />
+      </div>
+      <div id="construction">
+        <ComplexConstructionWidget />
+      </div>
+      <div id="catalog">
+        <ComplexCatalogWidget />
+      </div>
       <ContactFormWidget />
       <ComplexFooterWidget />
     </div>

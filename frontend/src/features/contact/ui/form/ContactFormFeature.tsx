@@ -6,6 +6,7 @@ import type { ContactFormValues } from "@/features/contact/model/contactFormSche
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useMutation } from "@tanstack/react-query";
+import { Loader2Icon } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { SocialTabSelect } from "@/entities/social";
 import { contactFormSchema } from "@/features/contact/model/contactFormSchema";
@@ -23,20 +24,29 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
     defaultValues: {
       name: "",
       phone: {
-        code: "+7",
+        code: "+7-RU",
         number: "",
       },
       contactMethod: ContactMethod.NUMBER_0,
       email: "",
     },
+    mode: "onChange",
   });
 
   const { control, handleSubmit, reset, formState } = form;
   const { errors } = formState;
 
   const mutation = useMutation({
-    mutationFn: async (values: ContactFormValues) => {
-      const res = await postApiContactContact(values);
+    mutationFn: async ({ contactMethod, name, phone: { code, number }, email }: ContactFormValues) => {
+      const res = await postApiContactContact({
+        name,
+        phone: {
+          code: code.replace(/\D/g, ""),
+          number,
+        },
+        contactMethod,
+        email,
+      });
       return res.data ?? res;
     },
     onSuccess: () => {
@@ -54,6 +64,7 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
   return (
     <div className={cn(`text-blue-6`, className)}>
       <form
+        noValidate
         className={`
           flex
           flex-col
@@ -77,13 +88,12 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
         <Controller
           name="phone"
           control={control}
-          render={({ field: { onChange, value } }) => (
+          render={({ field }) => (
             <UIPhoneField
+              {...field}
               id="phone"
               label="Телефон"
-              value={value}
-              error={errors.phone?.message}
-              onChange={onChange}
+              error={errors.phone?.code?.message ?? errors.phone?.number?.message}
             />
           )}
         />
@@ -124,7 +134,12 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
               cursor-pointer
             `}
           >
-            Подобрать квартиру
+            {
+              mutation.isPending
+                ? <Loader2Icon className="animate-spin" />
+                : "Подобрать квартиру"
+            }
+
           </Button>
         </Field>
       </form>

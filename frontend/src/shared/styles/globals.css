@@ -208,6 +208,8 @@ html {
 
   --color-black-1: var(--black-1);
 
+  --color-red-1: var(--red-1);
+
   /* Backdrop blur */
   --blur-lg: calc(25 * var(--px));
   --blur-md: calc(22.75 * var(--px));
@@ -286,6 +288,8 @@ html {
   --gold-4: #b77521;
 
   --black-1: #04060d;
+
+  --red-1: #d80027;
 
   /* 1px to rem */
   --px: calc((1 / 16) * 1rem);

@@ -18,7 +18,6 @@ namespace RCC.Controllers
             var supportedRegions = phoneUtil.GetSupportedRegions();
 
             var countryHelper = new CountryHelper();
-
             var allCountries = countryHelper.GetCountryData() ?? new List<Country>();
 
             var countryCodes = supportedRegions
@@ -29,18 +28,14 @@ namespace RCC.Controllers
                         ? Regex.Replace(phoneUtil.Format(exampleNumber, PhoneNumberFormat.INTERNATIONAL), @"\d", "X")
                         : null;
 
-                    var numericCode = phoneUtil.GetCountryCodeForRegion(region); 
+                    var numericCode = phoneUtil.GetCountryCodeForRegion(region);
 
-                    // Попытки сопоставления:
-                    // 1) по CountryShortCode (например "RU")
-                    // 2) по PhoneCode (например "+7" или "7")
                     var countryInfo = allCountries.FirstOrDefault(c =>
                         !string.IsNullOrEmpty(c.CountryShortCode) &&
                         c.CountryShortCode.Equals(region, System.StringComparison.OrdinalIgnoreCase))
                         ??
                         allCountries.FirstOrDefault(c =>
                             !string.IsNullOrEmpty(c.PhoneCode) &&
-
                             int.TryParse(c.PhoneCode.Trim().TrimStart('+').Split(' ').FirstOrDefault() ?? "", out var pc) &&
                             pc == numericCode
                         );
@@ -48,11 +43,13 @@ namespace RCC.Controllers
                     return new
                     {
                         Region = region,
-                        CountryPhoneCode = countryInfo?.PhoneCode,      
+                        CountryPhoneCode = countryInfo?.PhoneCode,
                         CountryName = countryInfo?.CountryName ?? region,
                         Mask = mask
                     };
                 })
+                // 🔹 Фильтруем «пустые» или фиктивные регионы
+                .Where(c => c.CountryPhoneCode != null && c.Mask != null)
                 .OrderBy(c => c.CountryName)
                 .ToList();
 

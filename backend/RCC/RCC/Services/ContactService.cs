@@ -39,10 +39,22 @@ namespace RCC.Services
                     From = new MailAddress(_gmailSetting.Email),
                     Subject = $"New Contact Request from {request.Name}",
                     Body = FormatEmailBody(request),
-                    IsBodyHtml = false
+                    IsBodyHtml = true
                 };
 
-                mailMessage.To.Add(_gmailSetting.Email);
+                if (_gmailSetting.Recipients != null && _gmailSetting.Recipients.Count != 0)
+                {
+                    foreach (var recipient in _gmailSetting.Recipients)
+                    {
+                        if (!string.IsNullOrWhiteSpace(recipient))
+                            mailMessage.To.Add(recipient.Trim());
+                    }
+                }
+                else
+                {
+                    mailMessage.To.Add(_gmailSetting.Email);
+                }
+
 
                 await client.SendMailAsync(mailMessage);
 
@@ -51,16 +63,44 @@ namespace RCC.Services
 
         private string FormatEmailBody(SendContactRequest request)
         {
-            return $@"
-            Новая заявка
-            -------------------
-            Имя: {request.Name}
-            Email: {request.Email}
-            Номер телефона: +{request.Phone?.Code} {request.Phone?.Number}
-            Способ связи с клиентом: {request.ContactMethod}
-            -------------------
-            Дата заявки: {DateTime.Now:yyyy-MM-dd HH:mm:ss}
-            ";
+            try
+            {
+                var filePath = Path.Combine("files", "email-message.html");
+                var htmlTemplate = File.ReadAllText(filePath);
+
+                string contactMethodText = request.ContactMethod switch
+                {
+                    ContactMethod.Call => "Звонок",
+                    ContactMethod.WhatsApp => "WhatsApp",
+                    ContactMethod.Telegram => "Telegram",
+                    _ => "Не указан"
+                };
+
+                // Заменяем плейсхолдеры на реальные данные
+                var formattedHtml = htmlTemplate
+                    .Replace("{{NAME}}", request.Name)
+                    .Replace("{{PHONE}}", $"+{request.Phone?.Code} {request.Phone?.Number}")
+                    .Replace("{{CONTACT_METHOD}}", contactMethodText)
+                    .Replace("{{EMAIL}}", request.Email)
+                    .Replace("{{DATE}}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+                return formattedHtml;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading HTML template: {ex.Message}");
+                // Fallback - обычный текст
+                return $@"
+                Новая заявка
+                -------------------
+                Имя: {request.Name}
+                Email: {request.Email}
+                Номер телефона: +{request.Phone?.Code} {request.Phone?.Number}
+                Способ связи с клиентом: {request.ContactMethod}
+                -------------------
+                Дата заявки: {DateTime.Now:yyyy-MM-dd HH:mm:ss}
+                ";
+            }
         }
     }
 }

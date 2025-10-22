@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using RCC.Services;
 using RCC.Services.Model;
 using Scalar.AspNetCore;
@@ -16,7 +17,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.WithOrigins("https://danda-studio.github.io")
+        policy.WithOrigins("https://danda-studio.github.io", "https://rcc-hrmo.vercel.app/")
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials();
@@ -31,6 +32,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+
 var app = builder.Build();
 
 app.UseSwagger();
@@ -40,6 +42,19 @@ app.MapScalarApiReference(options =>
     options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
     options.Title = "RCC API Documentation";
 });
+
+var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "files");
+if (!Directory.Exists(staticPath))
+{
+    Directory.CreateDirectory(staticPath);
+}
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(staticPath),
+    RequestPath = "/files"
+});
+
 
 app.UseHttpsRedirection();
 app.UseAuthorization();

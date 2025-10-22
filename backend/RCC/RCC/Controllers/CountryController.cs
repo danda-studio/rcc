@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CountryData.Standard;
+using Microsoft.AspNetCore.Mvc;
 using PhoneNumbers;
-using CountryData.Standard;
-using System.Text.RegularExpressions;
-using System.Linq;
+using RCC.Services.Model;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace RCC.Controllers
 {
@@ -12,7 +13,7 @@ namespace RCC.Controllers
     public class CountryController : ControllerBase
     {
         [HttpGet("codes")]
-        public IActionResult GetCountryCodes()
+        public async Task<ActionResult<CountryCodeResponse>> GetCountryCodes()
         {
             var phoneUtil = PhoneNumberUtil.GetInstance();
             var supportedRegions = phoneUtil.GetSupportedRegions();
@@ -40,7 +41,7 @@ namespace RCC.Controllers
                             pc == numericCode
                         );
 
-                    return new
+                    return new CountryCodeResponse
                     {
                         Region = region,
                         CountryPhoneCode = countryInfo?.PhoneCode,

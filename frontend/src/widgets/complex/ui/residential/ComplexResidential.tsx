@@ -1,7 +1,37 @@
+import { ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { UIGlass } from "@/shared/ui/glass";
+import { ComplexTag } from "@/widgets/complex/ui/tag";
 
 export const ResidentialWidget = () => {
+  const descrtion = (
+    <span className={`
+      flex
+      items-center
+      justify-center
+      md:ml-4
+    `}
+    >
+      <Image
+        src="/icons/home.svg"
+        width="24"
+        height="24"
+        alt="home"
+        className="mr-4"
+      />
+      <span className={`
+        font-medium
+        text-base
+        text-white
+        md:text-md
+      `}
+      >
+        Современный дом, где каждая деталь продумана до мелочей
+      </span>
+    </span>
+  );
+
   return (
     <div className={`
       bg-white
@@ -39,7 +69,8 @@ export const ResidentialWidget = () => {
           max-w-191
         `}
         >
-          Современный 12-этажный дом комфорт-класса предлагает удобные 1- и 2-комнатные квартиры с продуманными планировками и возможностью создать интерьер по своему вкусу
+          Современный 12-этажный дом комфорт-класса предлагает удобные 1- и 2-комнатные квартиры с
+          продуманными планировками и возможностью создать интерьер по своему вкусу
         </p>
 
         <div className={`
@@ -154,11 +185,50 @@ export const ResidentialWidget = () => {
                 width={420}
                 height={594}
                 className={`
+                  relative
                   w-full
                   h-full
                   object-cover
                 `}
                 sizes="(max-width: 360px) 328px, 420px"
+              />
+              <UIGlass
+                className={`
+                  absolute
+                  right-8
+                  md:right-10
+                  top-15
+                  z-10
+                  md:top-30
+                  p-3
+                  md:p-7.5
+                `}
+                border="corner"
+              >
+                <ShieldCheck
+                  className={`
+                    size-6
+                    md:size-8
+                  `}
+                />
+              </UIGlass>
+              <ComplexTag
+                className={`
+                  absolute
+                  !max-w-[18rem]
+                  bottom-4
+                  right-4
+                  md:right-6
+                  md:bottom-6
+                  md:!pr-8
+                  md:!max-w-[23rem]
+                `}
+                title={{
+                  start: "",
+                  middle: "",
+                  end: "",
+                }}
+                description={descrtion}
               />
             </div>
 

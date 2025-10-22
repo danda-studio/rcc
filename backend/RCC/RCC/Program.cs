@@ -12,15 +12,26 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<GmailSetting>(builder.Configuration.GetSection("GmailSetting"));
 builder.Services.AddScoped<IContactService, ContactService>();
 
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("https://danda-studio.github.io", "https://rcc-hrmo.vercel.app/")
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+
+    options.AddPolicy("AllowLocalhost3000", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
+
 
 var app = builder.Build();
 
@@ -38,22 +49,17 @@ if (!Directory.Exists(staticPath))
     Directory.CreateDirectory(staticPath);
 }
 
-// ÂÀÆÍÎ: CORS ÄÎËÆÅÍ ÁÛÒÜ ÄÎ StaticFiles
-app.UseCors("AllowAll");
-
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(staticPath),
-    RequestPath = "/files",
-    OnPrepareResponse = ctx =>
-    {
-        ctx.Context.Response.Headers.Append("Access-Control-Allow-Origin", "*");
-        ctx.Context.Response.Headers.Append("Cache-Control", "public, max-age=3600");
-    }
+    RequestPath = "/files"
 });
+
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
+app.UseCors("AllowLocalhost3000");
 
 app.Run();

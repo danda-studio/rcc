@@ -35,6 +35,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseCors("AllowLocalhost3000");
+app.UseCors("AllowSpecificOrigin");
+
 app.UseSwagger();
 
 app.MapScalarApiReference(options =>

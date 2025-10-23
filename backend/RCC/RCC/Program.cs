@@ -55,12 +55,11 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/files"
 });
 
+app.UseCors("AllowLocalhost3000");
+app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-
-app.UseCors("AllowLocalhost3000");
-app.UseCors("AllowSpecificOrigin");
 
 app.Run();

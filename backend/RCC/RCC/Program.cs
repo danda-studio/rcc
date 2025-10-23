@@ -39,7 +39,6 @@ var app = builder.Build();
 
 app.UseCors("AllowSpecificOrigin");
 
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -75,5 +74,4 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseHttpsRedirection();
 
 app.MapControllers();
-
 app.Run();

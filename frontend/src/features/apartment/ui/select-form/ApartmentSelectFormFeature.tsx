@@ -132,6 +132,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
                 md:shrink-0
                 max-md:max-w-88
               `}
+              className="md:basis-208"
               {...field}
               items={apartmentItems.selectable}
             />

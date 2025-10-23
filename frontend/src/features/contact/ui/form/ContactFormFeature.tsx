@@ -16,7 +16,7 @@ import { ContactMethod } from "@/shared/api/scheme";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { Field } from "@/shared/lib/shadcn/ui/field";
 import { cn } from "@/shared/lib/shadcn/utils";
-import { UIPhoneField } from "@/shared/ui/select-input-field/UIPhoneField";
+import { UIPhoneField } from "@/shared/ui/phone-field/UIPhoneField";
 
 export const ContactFormFeature: FC<{ className?: string }> = ({ className }) => {
   const form = useForm<ContactFormValues>({

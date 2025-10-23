@@ -1,4 +1,5 @@
 import type { ChangeEvent } from "react";
+import type { CountryCode, UIPhoneFieldProps } from "./types";
 import { useQuery } from "@tanstack/react-query";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { Search } from "lucide-react";
@@ -13,105 +14,9 @@ import {
   SelectValue,
 } from "@/shared/lib/shadcn/ui/select";
 import { cn } from "@/shared/lib/shadcn/utils";
+import { CountryFlag } from "@/shared/ui/phone-field/CountryFlag";
+import { CountrySelectItem } from "@/shared/ui/phone-field/CountrySelectItem";
 import "flag-icons/css/flag-icons.min.css";
-
-interface CountryCode {
-  region: string;
-  countryName: number;
-  countryPhoneCode?: string;
-  mask: string;
-}
-
-interface UIPhoneFieldProps {
-  id: string;
-  label: string;
-  value: {
-    code: string;
-    number: string;
-  };
-  onChange: (value: { code: string; number: string }) => void;
-  error?: string;
-}
-
-const CountryFlag = memo(({ region }: { region: string }) => (
-  <span className={`
-    fi
-    fi-${region.toLowerCase()}
-    fis
-    !size-4
-    rounded-full
-    shrink-0
-  `}
-  />
-));
-
-const CountrySelectItem = memo(({
-  country,
-  onSelect,
-}: {
-  country: CountryCode;
-  onSelect: (value: string) => void;
-}) => {
-  const handleClick = useCallback(() => {
-    onSelect(`${country.countryPhoneCode}-${country.region}`);
-  }, [country, onSelect]);
-
-  return (
-    <div
-      onClick={handleClick}
-      className={`
-        cursor-pointer
-        border-none
-        rounded-md
-        py-3
-        px-3
-        hover:bg-gray-3
-        w-full
-        transition-colors
-      `}
-    >
-      <div className={`
-        w-full
-        flex
-        items-center
-        justify-between
-        gap-4
-      `}
-      >
-        <div className={`
-          w-full
-          flex
-          items-center
-          gap-3
-          min-w-0
-          flex-1
-        `}
-        >
-          <CountryFlag region={country.region} />
-          <span className={`
-            text-sm
-            font-normal
-            truncate
-          `}
-          >
-            {country.countryName}
-          </span>
-        </div>
-        <span className={`
-          float-right
-          text-sm
-          text-gray-11
-          flex-shrink-0
-          ml-auto
-          tabular-nums
-        `}
-        >
-          {country.countryPhoneCode}
-        </span>
-      </div>
-    </div>
-  );
-});
 
 export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
   const { id, label, value, onChange, error } = props;

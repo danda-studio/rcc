@@ -126,7 +126,7 @@ export const ComplexMortgageWidget: FC = () => {
         `}
       />
 
-      <div className={`
+      {/* <div className={`
         absolute
         left-1/2
         max-md:-translate-x-1/2
@@ -157,7 +157,7 @@ export const ComplexMortgageWidget: FC = () => {
             md:min-h-280.25
           `}
         />
-      </div>
+      </div> */}
 
       <ContactFormModalFeature>
         <Button

@@ -38,7 +38,7 @@ export const ComplexBanner: FC = () => {
         `}
       />
 
-      <div className={`
+      {/* <div className={`
         absolute
         left-1/2
         max-md:-translate-x-1/2
@@ -66,7 +66,7 @@ export const ComplexBanner: FC = () => {
             md:min-h-270
           `}
         />
-      </div>
+      </div> */}
 
       <div className={`
         absolute

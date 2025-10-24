@@ -27,7 +27,6 @@ export const SocialTabSelect: FC<SocialTabSelectProps> = ({ value, onChange }) =
           className={`
             relative
             cursor-pointer
-            text-gray-4
             border
             border-gray-2
             bg-gray-3

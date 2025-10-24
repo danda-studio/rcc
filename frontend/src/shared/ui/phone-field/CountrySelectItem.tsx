@@ -1,11 +1,11 @@
-import {memo, useCallback} from "react";
-import {CountryCode} from "./types";
-import {CountryFlag} from "./CountryFlag";
+import type { CountryCode } from "./types";
+import { memo, useCallback } from "react";
+import { CountryFlag } from "./CountryFlag";
 
 export const CountrySelectItem = memo(({
-                                  country,
-                                  onSelect,
-                                }: {
+  country,
+  onSelect,
+}: {
   country: CountryCode;
   onSelect: (value: string) => void;
 }) => {

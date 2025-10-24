@@ -37,6 +37,7 @@ const buttonVariants = cva(
           text-md
           md:text-md-x
           focus-visible:outline-black/40
+          cursor-pointer
         `,
         outline:
           `
@@ -48,6 +49,7 @@ const buttonVariants = cva(
             active:bg-transparent
             active:text-white
             focus-visible:outline-white/40
+            cursor-pointer
           `,
         cart: `
           text-blue-6/80
@@ -56,6 +58,7 @@ const buttonVariants = cva(
           bg-gray-1
           justify-between
           rounded-xs
+          cursor-pointer
         `,
       },
       size: {

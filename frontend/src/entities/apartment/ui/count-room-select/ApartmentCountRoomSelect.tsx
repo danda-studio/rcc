@@ -12,31 +12,35 @@ export const ApartmentCountRoomSelect: FC<ApartmentCountRoomSelectProps> = ({ va
     `}
     >
       {counts.map(count => (
-        <Badge
-          className={`
-            relative
-            has-[input:checked]:bg-white
-            has-[input:checked]:before:hidden
-            has-[input:checked]:text-blue-6
-          `}
-          size="lg"
-          key={count}
-          variant="glass"
-        >
-          {count}
-          <input
+        <label key={count}>
+          <Badge
             className={`
-              absolute
-              inset-0
-              opacity-0
+              relative
+              cursor-pointer
+              has-[input:checked]:bg-white
+              has-[input:checked]:before:hidden
+              has-[input:checked]:text-blue-6
             `}
-            name="ApartmentCountRoom"
-            value={count}
-            defaultChecked={count === value}
-            type="radio"
-            onClick={() => onChange(count)}
-          />
-        </Badge>
+            size="lg"
+            variant="glass"
+          >
+            {count}
+            <input
+              className={`
+                absolute
+                inset-0
+                opacity-0
+                cursor-pointer
+              `}
+              type="radio"
+              name="ApartmentCountRoom"
+              value={count}
+              checked={count === value}
+              onChange={() => onChange(count)}
+              aria-label={count}
+            />
+          </Badge>
+        </label>
       ))}
     </div>
   );

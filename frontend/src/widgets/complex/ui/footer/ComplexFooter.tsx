@@ -202,6 +202,7 @@ export const ComplexFooterWidget: FC = () => {
           </span>
 
           <Button
+            onClick={() => window.open("https://yandex.ru/maps/-/CLb8iR0A", "_blank")}
             className={`
               max-w-56
               !hidden

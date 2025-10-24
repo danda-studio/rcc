@@ -119,24 +119,26 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
           open={isOpen}
           onOpenChange={setIsOpen}
         >
-          <SelectTrigger className={`
-            border-none
-            !bg-gray-8
-            h-9
-            gap-1.5
-            !focus:outline-none
-            focus-visible:border-none
-            focus-visible:ring-offset-0
-            !data-[state=open]:outline-none
-            !data-[state=open]:ring-0
-            !data-[state=open]:border-none
-            focus-visible:ring-0
-            focus-visible:ring-transparent
-            focus-visible:outline-none
-            [&>svg]:hidden
-            rounded-xs
-            border-r-gray-6
-          `}
+          <SelectTrigger
+            aria-label="Выбрать код страны"
+            className={`
+              border-none
+              !bg-gray-8
+              h-9
+              gap-1.5
+              !focus:outline-none
+              focus-visible:border-none
+              focus-visible:ring-offset-0
+              !data-[state=open]:outline-none
+              !data-[state=open]:ring-0
+              !data-[state=open]:border-none
+              focus-visible:ring-0
+              focus-visible:ring-transparent
+              focus-visible:outline-none
+              [&>svg]:hidden
+              rounded-xs
+              border-r-gray-6
+            `}
           >
             <SelectValue>
               <div className={`

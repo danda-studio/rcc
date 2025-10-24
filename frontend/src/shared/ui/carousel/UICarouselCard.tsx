@@ -55,14 +55,14 @@ export const CarouselCard: FC<CarouselCardProps> = ({ image, year, title, descri
         gap-6
       `}
       >
-        <h4 className={`
+        <h3 className={`
           text-2xl
           md:text-3xl
           text-white
         `}
         >
           {year}
-        </h4>
+        </h3>
         <span className={`
           font-medium
           text-md-x

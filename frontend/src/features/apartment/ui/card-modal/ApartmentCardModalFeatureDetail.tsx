@@ -118,10 +118,12 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
       </div>
 
       <ContactFormModalFeature>
-        <Button className={`
-          max-md:w-64.5
-          px-10
-        `}
+        <Button
+          className={`
+            max-md:w-full
+            px-10
+          `}
+          size="md"
         >
           Забронировать
         </Button>

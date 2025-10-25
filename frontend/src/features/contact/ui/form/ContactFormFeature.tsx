@@ -129,6 +129,7 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
         <Field orientation="horizontal">
           <Button
             type="submit"
+            size="md"
             className={`
               w-full
               cursor-pointer

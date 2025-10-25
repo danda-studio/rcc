@@ -47,7 +47,7 @@ namespace RCC.Controllers
                         CountryPhoneCode = countryInfo?.PhoneCode,
                         CountryName = countryInfo?.CountryName ?? region,
                         Mask = mask,
-                        Test = "Test"
+                        Test = "Tet"
                     };
                 })
                 // 🔹 Фильтруем «пустые» или фиктивные регионы

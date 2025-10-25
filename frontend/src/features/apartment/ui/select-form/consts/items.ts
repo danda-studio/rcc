@@ -5,7 +5,7 @@ export const items: ApartmentCarouselSelectItem[] = [
     id: "1-1",
     title: "1 комната",
     size: 88,
-    image: "/images/apartment/room/1/1.png",
+    image: "/images/apartment/plan/1/a/3d.webp",
     floor: 1,
     frame: 1,
   },

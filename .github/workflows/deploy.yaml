@@ -11,7 +11,7 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment: back_autodeploy
     
     steps:
       - name: Checkout repository
@@ -33,7 +33,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.SSH_KEY }}
+          key: ${{ secrets.SSH_KEY }}
           script: |
             sudo systemctl stop rck-backend.service || true
             rm -rf ${{ secrets.DEPLOY_PATH }}/* || true

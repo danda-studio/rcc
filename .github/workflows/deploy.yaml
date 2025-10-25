@@ -28,7 +28,7 @@ jobs:
       - name: Build and publish
         run: dotnet publish backend/RCC/RCC/RCC.csproj -c Release -o publish --no-restore
 
-      - name: Clean and deploy
+      - name: Clean directory
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -40,22 +40,20 @@ jobs:
             mkdir -p ${{ secrets.DEPLOY_PATH }}
       
       - name: Deploy to VPS
-        uses: appleboy/ssh-action@v0.1.7
-        env:
+        uses: appleboy/scp-action@v0.1.7
+        with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-        with:
-          source: 'publish/*'
+          source: "publish/*"
           target: ${{ secrets.DEPLOY_PATH }}
           
       - name: Verify deployment
         uses: appleboy/ssh-action@v0.1.7
-        env:
+        with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-        with:
           script: |
             echo "Files in deploy path:"
             ls -la ${{ secrets.DEPLOY_PATH }}
@@ -64,10 +62,9 @@ jobs:
 
       - name: Restart backend service
         uses: appleboy/ssh-action@v0.1.7
-        env:
+        with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-        with:
           script: |
             sudo systemctl restart rck-backend.service

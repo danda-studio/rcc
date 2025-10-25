@@ -1,0 +1,29 @@
+name: Deploy to Ubuntu Server
+
+on:
+  push:
+    branches:
+      - feature/sttcMdPm
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.8.1
+      with:
+        ssh-private-key: ${{ secrets.PROD_DEPLOY_FRONTEND_KEY }}
+
+    - name: Deploy to server
+      run: |
+        ssh -o StrictHostKeyChecking=no user@your.server.ip "
+          cd ~/var/rck/frontend || mkdir -p ~/var/rcc
+          git fetch origin
+          git reset --hard origin/feature/sttcMdPm
+          yarn install
+          yarn run build
+        "

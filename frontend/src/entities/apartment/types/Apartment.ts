@@ -8,7 +8,8 @@ export interface Apartment {
     kitchen: number;
     hallway: number;
     bathroom: number;
-    balcony: number;
+    balcony?: number[];
+    tambour?: number;
   };
   floors: number[];
   image: {

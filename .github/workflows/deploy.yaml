@@ -32,7 +32,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
+          password: ${{ secrets.SSH_KEY }}
           script: |
             sudo systemctl stop rck-backend.service || true
             rm -rf ${{ secrets.DEPLOY_PATH }}/* || true
@@ -43,7 +43,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
+          password: ${{ secrets.SSH_KEY }}
           source: "publish/*"
           target: ${{ secrets.DEPLOY_PATH }}
           
@@ -52,7 +52,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
+          password: ${{ secrets.SSH_KEY }}
           script: |
             echo "Files in deploy path:"
             ls -la ${{ secrets.DEPLOY_PATH }}
@@ -64,6 +64,6 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
+          password: ${{ secrets.SSH_KEY }}
           script: |
             sudo systemctl restart rck-backend.service

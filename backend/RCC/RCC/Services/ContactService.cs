@@ -89,7 +89,7 @@ namespace RCC.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error reading HTML template: {ex.Message}");
-                // Fallback - обычный текст
+
                 return $@"
                 Новая заявка
                 -------------------

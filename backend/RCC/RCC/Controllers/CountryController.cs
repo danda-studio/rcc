@@ -13,7 +13,7 @@ namespace RCC.Controllers
     public class CountryController : ControllerBase
     {
         [HttpGet("codes")]
-        public async Task<ActionResult<CountryCodeResponse>> GetCountryCodes()
+        public ActionResult<IEnumerable<CountryCodeResponse>> GetCountryCodes()
         {
             var phoneUtil = PhoneNumberUtil.GetInstance();
             var supportedRegions = phoneUtil.GetSupportedRegions();

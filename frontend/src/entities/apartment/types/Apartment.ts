@@ -1,6 +1,7 @@
 export interface Apartment {
   id: string;
   title: string;
+  room: number;
   area: {
     total: number;
     life: number;

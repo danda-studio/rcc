@@ -113,7 +113,7 @@ export const ComplexMortgageWidget: FC = () => {
         width={1920}
         height={1080}
         alt="Hero image"
-        src="/images/buildings/2.png"
+        src="/images/complex/house-banner.png"
         className={`
           absolute
           left-8
@@ -145,7 +145,7 @@ export const ComplexMortgageWidget: FC = () => {
           width={192}
           height={108}
           alt="Hero image"
-          src="/images/buildings/2.png"
+          src="/images/complex/house-banner.png"
           className={`
             absolute
             -bottom-28.25

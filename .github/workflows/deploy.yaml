@@ -48,18 +48,6 @@ jobs:
           source: "publish/*"
           target: ${{ secrets.DEPLOY_PATH }}
           
-      - name: Verify deployment
-        uses: appleboy/ssh-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            echo "Files in deploy path:"
-            ls -la ${{ secrets.DEPLOY_PATH }}
-            echo "Service status:"
-            sudo systemctl status rck-backend.service --no-pager
-
       - name: Restart backend service
         uses: appleboy/ssh-action@v0.1.7
         with:
@@ -67,4 +55,8 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            sudo systemctl daemon-reload
             sudo systemctl restart rck-backend.service
+            # Ждем немного и проверяем статус
+            sleep 5
+            sudo systemctl status rck-backend.service --no-pager

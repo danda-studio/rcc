@@ -74,10 +74,11 @@ const buttonVariants = cva(
           md:[&_svg:not([class*='size-'])]:size-6
         `,
         "md": `
-          h-12
-          md:h-17
-          text-base
-          rounded-2xl
+          h-15
+          md:h-17.5
+          rounded-md
+          md:rounded-2xl
+          text-md
           md:text-md-x
           px-4
           py-3

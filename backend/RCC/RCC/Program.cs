@@ -61,6 +61,12 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseCors("AllowLocalhost3000");
 app.UseCors("AllowSpecificOrigin");
 
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/scalar");
+    return Task.CompletedTask;
+});
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

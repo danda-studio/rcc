@@ -6,5 +6,7 @@
         public string CountryPhoneCode { get; set; } = string.Empty;
         public string CountryName { get; set;} = string.Empty;
         public string Mask { get; set; } = string.Empty;
+
+        public string Test { get; set; } = string.Empty;
     }
 }

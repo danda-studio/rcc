@@ -22,14 +22,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Go to dir
-        run: cd /frontend
+      - name: Change directory
+        run: cd frontend
 
       - name: Install dependencies
         run: yarn
+        working-directory: ./frontend
 
       - name: Build project
         run: yarn build
+        working-directory: ./frontend
 
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.1
@@ -42,5 +44,5 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: ".next/*"
+          source: "frontend/.next/*"
           target: "/var/rck/frontend"

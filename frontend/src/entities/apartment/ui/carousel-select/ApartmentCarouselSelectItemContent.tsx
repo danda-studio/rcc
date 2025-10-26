@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { useMemo, type FC } from "react";
 import type { ApartmentCarouselSelectItemProps } from "./types";
 import Image from "next/image";
 import { Badge } from "@/shared/lib/shadcn/ui/badge";
@@ -7,16 +7,28 @@ import { UIGlass } from "@/shared/ui/glass";
 
 export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemProps> = ({
   id,
-  title,
-  floor,
-  frame,
-  size,
-  image,
+  floors,
+  room,
+  area: {total},
+  image: {card},
   checked,
   onClick,
   className,
   disabled,
 }) => {
+  const title = useMemo(() => {
+    let title = ""
+    switch(room) {
+      case 1:
+        title = "1 комната"
+        break
+      case 2:
+        title = "2 комнаты"
+        break
+    }
+    return title
+  }, [room])
+
   return (
     <UIGlass
       onClick={onClick}
@@ -61,7 +73,8 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
         has-[~input:checked]:text-white/72
       `}
       >
-        {size}
+        {total}
+        {" "}
         м
       </p>
       <div className={`
@@ -76,14 +89,14 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
       >
         <Image
           alt={`Room ${id}`}
-          src={image}
+          src={card}
           width={320}
           height={180}
           className={`
             absolute
             w-full
             h-full
-            object-cover
+            object-contain
           `}
         />
       </div>
@@ -93,18 +106,19 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
         gap-2
         has-[~input:checked]:hidden
         mt-auto
+        overflow-hidden
       `}
       >
         <Badge size="sm">
-          Корпус
-          {" "}
-          {frame}
+          {id}
         </Badge>
 
-        <Badge size="sm">
-          Этаж
-          {" "}
-          {floor}
+        <Badge size="sm" className="max-w-full !shrink overflow-hidden">
+          <span className="overflow-hidden text-ellipsis w-full">
+            Этажи
+            {" "}
+            {floors.join(",")}
+          </span>
         </Badge>
       </div>
       <div className={`
@@ -112,18 +126,19 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
         gap-2
         not-has-[~input:checked]:hidden
         mt-auto
+        overflow-hidden
       `}
       >
         <Badge variant="glass" size="md">
-          Корпус
-          {" "}
-          {frame}
+          {id}
         </Badge>
 
-        <Badge variant="glass" size="md">
-          Этаж
-          {" "}
-          {floor}
+        <Badge variant="glass" size="md" className="max-w-full !shrink overflow-hidden">
+          <span className="overflow-hidden text-ellipsis w-full">
+            Этажи
+            {" "}
+            {floors.join(",")}
+          </span>
         </Badge>
       </div>
 

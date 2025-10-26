@@ -10,11 +10,11 @@ import { Dialog, DialogContent, DialogTrigger } from "@/shared/lib/shadcn/ui/dia
 import { UIGlass } from "@/shared/ui/glass";
 import { ApartmentCardModalFeatureDetail } from "./ApartmentCardModalFeatureDetail";
 import { ApartmentCardModalFeatureImageCarousel } from "./ApartmentCardModalFeatureImageCarousel";
-import { items } from "./consts/items";
+import { APARTMENTS } from "@/entities/apartment/consts/apartments";
 
 export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({ apartmentId, children }) => {
   const apartment = useMemo(() => {
-    return items.find(({ id }) => id === apartmentId);
+    return APARTMENTS.find(({ id }) => id === apartmentId);
   }, [apartmentId]);
   return (
     <Dialog>
@@ -56,18 +56,18 @@ export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({ 
                 <div className={`
                   bg-radial-(--radial-6)
                   rounded-md
-                  h-80.5
+                  h-58
                   md:h-192
                   w-full
                   md:w-239
                   shrink-0
-                  pt-3
-                  md:pt-17
+                  flex
+                  items-center
                 `}
                 >
                   <ApartmentCardModalFeatureImageCarousel {...apartment} />
 
-                  <div className={`
+                  {/* <div className={`
                     px-10
                     flex
                     flex-wrap
@@ -78,7 +78,7 @@ export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({ 
                     md:mt-8
                   `}
                   >
-                    {apartment.rooms.map(r => (
+                    {apartment.image.carousel.map(r => (
                       <Badge
                         key={r}
                         size="md"
@@ -88,7 +88,7 @@ export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({ 
                         {r}
                       </Badge>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             )

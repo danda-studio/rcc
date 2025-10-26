@@ -1,4 +1,4 @@
 export interface ApartmentCountRoomSelectProps {
-  value: string;
+  value: number;
   onChange: (...event: any[]) => void;
 }

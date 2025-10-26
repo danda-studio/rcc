@@ -8,7 +8,7 @@ import { cn } from "@/shared/lib/shadcn/utils";
 
 export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
   className?: string;
-}> = ({ images, className }) => {
+}> = ({ image:{carousel}, className }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [progress, setProgress] = useState(0);
 
@@ -59,18 +59,19 @@ export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
           overflow-visible
         `}
         >
-          {images.map(image => (
+          {carousel.map(image => (
             <CarouselItem
               key={image}
               className={`
                 !pl-0
                 relative
                 w-full
+                h-full
               `}
             >
               <Image
                 className={`
-                  object-cover
+                  object-contain
                   w-full
                   h-full
                 `}

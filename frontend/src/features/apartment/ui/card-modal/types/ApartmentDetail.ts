@@ -1,11 +1,3 @@
-export interface ApartmentDetail {
-  id: string;
-  title: string;
-  description: string;
-  area: number;
-  floor: number;
-  maxFloor: number;
-  height: number;
-  images: string[];
-  rooms: string[];
-}
+import { Apartment } from "@/entities/apartment/types/Apartment";
+
+export type ApartmentDetail = Apartment 

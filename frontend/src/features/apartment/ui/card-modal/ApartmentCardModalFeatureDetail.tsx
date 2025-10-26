@@ -8,23 +8,60 @@ import { cn } from "@/shared/lib/shadcn/utils";
 
 export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
   className?: string;
-}> = ({ title, description, area, floor, maxFloor, height, className }) => {
+}> = ({ room, area: {total, life, kitchen,hallway, bathroom,
+  balcony, tambour
+}, floors, className }) => {
   const data = useMemo(() => {
-    return [
+    const els = [
       {
         label: "Общая площадь",
-        value: `${area} м²`,
+        value: `${total} м²`,
       },
       {
-        label: "Этаж",
-        value: `${floor} из ${maxFloor}`,
+        label: "Жилая площадь",
+        value: `${life} м`,
       },
       {
-        label: "Высота потолка",
-        value: `${height} м`,
+        label: "Кухня",
+        value: `${kitchen} м`,
+      },
+      {
+        label: "Коридор",
+        value: `${hallway} м`,
+      },
+      {
+        label: "Ванная",
+        value: `${bathroom} м`,
+      },
+      {
+        label: "Этажи",
+        value: floors.join(","),
       },
     ];
-  }, [area, floor, maxFloor, height]);
+    if(balcony) els.push({
+      label: 'Балкон',
+      value: `${balcony} м`
+    })
+    if(tambour) els.push({
+      label: 'Тамбур',
+      value: `${tambour} м`
+    })
+    return els
+  }, [total, life, kitchen,hallway, bathroom,
+  balcony, tambour]);
+
+  const title = useMemo(() => {
+    let title = ""
+    switch(room) {
+      case 1:
+        title = "1-комнатная квартира"
+        break
+      case 2:
+        title = "2-комнатная квартира"
+        break
+    }
+    return title
+  }, [room])
 
   return (
     <div className={cn(`
@@ -62,7 +99,7 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
           md:text-md-x
         `}
         >
-          {description}
+          Квартира имеет удачную планировку. Большие окна наполняют помещения естественным светом, создавая теплую атмосферу
         </DialogDescription>
       </DialogHeader>
 
@@ -73,7 +110,7 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
         md:mb-7
         grid
         grid-cols-[1fr_fit-content(7.5rem)]
-        md:grid-cols-[fit-content(7.5rem)_1fr]
+        md:grid-cols-[fit-content(7.5rem)_1fr_fit-content(7.5rem)_1fr]
         gap-3
         md:gap-4
         text-nowrap

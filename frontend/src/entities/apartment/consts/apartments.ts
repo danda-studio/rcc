@@ -4,7 +4,6 @@ export const APARTMENTS: Apartment[] = [
   {
     id: "1А",
     room: 1,
-    title: "1 комната",
     area: {
       total: 40.76,
       life: 14.02,
@@ -25,7 +24,6 @@ export const APARTMENTS: Apartment[] = [
   {
     id: "1Б",
     room: 1,
-    title: "1 комната",
     area: {
       total: 45.10,
       life: 19.62,
@@ -46,7 +44,6 @@ export const APARTMENTS: Apartment[] = [
   {
     id: "1В",
     room: 1,
-    title: "1 комната",
     area: {
       total: 37.80,
       life: 13.96,
@@ -57,7 +54,7 @@ export const APARTMENTS: Apartment[] = [
     },
     floors: [3, 7, 9, 10],
     image: {
-      card: "/images/apartment/plan/1/v/3d.webp",
+      card: "/images/apartment/plan/1/c/3d.webp",
       carousel: [
         "/images/apartment/plan/1/c/3d.webp",
         "/images/apartment/plan/1/c/2d-m.webp",
@@ -68,16 +65,15 @@ export const APARTMENTS: Apartment[] = [
   {
     id: "2А",
     room: 2,
-    title: "2 комнаты",
     area: {
       total: 49.21,
       life: 24.28,
       kitchen: 8.99,
       hallway: 6.83,
       bathroom: 4.88,
-      tambour: 2.32, // добавлен тамбур
+      tambour: 2.32,
     },
-    floors: [], // этажи не указаны
+    floors: [2, 3, 6, 8, 9, 10, 11, 12],
     image: {
       card: "/images/apartment/plan/2/a/3d.webp",
       carousel: [
@@ -89,7 +85,6 @@ export const APARTMENTS: Apartment[] = [
   {
     id: "2Б",
     room: 2,
-    title: "2 комнаты",
     area: {
       total: 60.72,
       life: 25.40,
@@ -110,7 +105,6 @@ export const APARTMENTS: Apartment[] = [
   {
     id: "2В",
     room: 2,
-    title: "2 комнаты",
     area: {
       total: 64.36,
       life: 27.71,
@@ -121,17 +115,16 @@ export const APARTMENTS: Apartment[] = [
     },
     floors: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     image: {
-      card: "/images/apartment/plan/2/v/3d.webp",
+      card: "/images/apartment/plan/2/c/3d.webp",
       carousel: [
-        "/images/apartment/plan/2/v/3d.webp",
-        "/images/apartment/plan/2/v/2d-m.webp",
+        "/images/apartment/plan/2/c/3d.webp",
+        "/images/apartment/plan/2/c/2d-m.webp",
       ],
     },
   },
   {
     id: "2Г",
     room: 2,
-    title: "2 комнаты",
     area: {
       total: 53.86,
       life: 24.92,
@@ -142,7 +135,7 @@ export const APARTMENTS: Apartment[] = [
     },
     floors: [2, 3, 4, 10, 12],
     image: {
-      card: "/images/apartment/plan/2/g/3d.webp",
+      card: "/images/apartment/plan/2/d/3d.webp",
       carousel: [
         "/images/apartment/plan/2/d/3d.webp",
         "/images/apartment/plan/2/d/2d@-m.webp",

@@ -14,10 +14,11 @@ import { Button } from "@/shared/lib/shadcn/ui/button";
 import { cn } from "@/shared/lib/shadcn/utils";
 import { ApartmentCardModalFeature } from "../card-modal/ApartmentCardModalFeature";
 import { items } from "./consts/items";
+import { APARTMENTS } from "@/entities/apartment/consts/apartments";
 
 const formSchema = z.object({
   countRoom: z
-    .string(),
+    .number(),
   apartment: z
     .string(),
 });
@@ -26,16 +27,16 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      countRoom: "1 комната",
-      apartment: "1-2",
+      countRoom: 1,
+      apartment: "1Б",
     },
   });
   const countRoom = form.watch("countRoom");
 
   const apartmentItems = useMemo(() => {
-    return items.reduce(
+    return APARTMENTS.reduce(
       (acc, i) => {
-        if (i.title === countRoom) {
+        if (i.room === countRoom) {
           acc.selectable.push(i);
         } else {
           acc.secondary.push(i);
@@ -89,11 +90,11 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
             {...field}
             onChange={(e) => {
               switch (e) {
-                case "1 комната":
-                  form.setValue("apartment", "1-2");
+                case 1:
+                  form.setValue("apartment", "1Б");
                   break;
-                case "2 комнаты":
-                  form.setValue("apartment", "2-2");
+                case 2:
+                  form.setValue("apartment", "2Б");
                   break;
               }
               onChange(e);
@@ -123,6 +124,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
                 className={`
                   md:basis-60
                   shrink-0
+                  max-md:hidden
                 `}
               />
             ))}
@@ -145,6 +147,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
                 className={`
                   md:basis-60
                   shrink-0
+                  max-md:hidden
                 `}
               />
             ))}

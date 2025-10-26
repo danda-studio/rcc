@@ -47,10 +47,9 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference(options =>
     {
         options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
-        options.Title = "RCC API Documentation";
+        options.Title = "RCK API Documentation";
     });
 
-    // Редирект только в Development
     app.MapGet("/", context =>
     {
         context.Response.Redirect("/scalar");
@@ -59,8 +58,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    // В Production простой ответ
-    app.MapGet("/", () => "RCC API is running");
+    app.MapGet("/", () => "RCK API is running");
 }
 
 var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "files");

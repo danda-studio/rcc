@@ -44,9 +44,9 @@ namespace RCC.Controllers
                     return new CountryCodeResponse
                     {
                         Region = region,
-                        CountryPhoneCode = string.IsNullOrEmpty(countryInfo?.PhoneCode) ? "+0": countryInfo.PhoneCode,
+                        CountryPhoneCode = countryInfo?.PhoneCode,
                         CountryName = countryInfo?.CountryName ?? region,
-                        Mask = string.IsNullOrEmpty(mask) ? "Неопределенноо": mask
+                        Mask = mask
                     };
                 })
                 // 🔹 Фильтруем «пустые» или фиктивные регионы

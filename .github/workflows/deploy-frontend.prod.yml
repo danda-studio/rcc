@@ -9,7 +9,7 @@ on:
       - ".github/workflows/deploy-frontend.prod.yml"
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
     environment: frontend.prod
 
@@ -17,18 +17,27 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build project
+        run: yarn build
+
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.1
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
 
       - name: Deploy to server
-        run: |
-          ssh -o StrictHostKeyChecking=no root@80.93.62.59 "
-            source ~/.nvm/nvm.sh
-            cd /var/rcc/frontend
-            git fetch origin
-            git reset --hard origin/feature/sttcMdPm
-            yarn --network-concurrency 1
-            yarn build
-          "
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: ".next/*"
+          target: "/var/rck/frontend"

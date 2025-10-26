@@ -41,3 +41,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "frontend/.next/*"
           target: "/var/rck/frontend"
+          rm: true

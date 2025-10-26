@@ -33,6 +33,11 @@ jobs:
         run: yarn build
         working-directory: ./frontend
 
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+
       - name: Deploy using rsync
         run: |
           rsync -avz --delete ./frontend/.next/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/rck/frontend/.next

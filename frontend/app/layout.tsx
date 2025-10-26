@@ -4,7 +4,7 @@ import { manropeFont } from "@/shared/styles/fonts/manrope";
 import "@/shared/styles/globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.com"), // наш домен
+  metadataBase: new URL("https://your-domain.com"),
   title: {
     template: "%s | ЖК Олимпийский",
     default: "ЖК Олимпийский - Новостройки в Мариуполе",
@@ -38,7 +38,13 @@ export default function RootLayout({
   return (
     <html lang="ru" className={manropeFont.variable}>
       <head>
-        <link rel="icon" href="/favicon.svg" />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/complex/banner.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
       </head>
       <body>
         <Providers>

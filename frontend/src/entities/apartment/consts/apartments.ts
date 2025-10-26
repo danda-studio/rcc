@@ -2,7 +2,7 @@ import type { Apartment } from "../types/Apartment";
 
 export const APARTMENTS: Apartment[] = [
   {
-    id: "1a",
+    id: "1А",
     room: 1,
     title: "1 комната",
     area: {
@@ -23,7 +23,7 @@ export const APARTMENTS: Apartment[] = [
     },
   },
   {
-    id: "1b",
+    id: "1Б",
     room: 1,
     title: "1 комната",
     area: {
@@ -44,7 +44,7 @@ export const APARTMENTS: Apartment[] = [
     },
   },
   {
-    id: "1с",
+    id: "1В",
     room: 1,
     title: "1 комната",
     area: {
@@ -66,7 +66,7 @@ export const APARTMENTS: Apartment[] = [
   },
 
   {
-    id: "2a",
+    id: "2А",
     room: 2,
     title: "2 комнаты",
     area: {
@@ -87,7 +87,7 @@ export const APARTMENTS: Apartment[] = [
     },
   },
   {
-    id: "2b",
+    id: "2Б",
     room: 2,
     title: "2 комнаты",
     area: {
@@ -108,7 +108,7 @@ export const APARTMENTS: Apartment[] = [
     },
   },
   {
-    id: "2c",
+    id: "2В",
     room: 2,
     title: "2 комнаты",
     area: {
@@ -129,28 +129,7 @@ export const APARTMENTS: Apartment[] = [
     },
   },
   {
-    id: "2c",
-    room: 2,
-    title: "2 комнаты",
-    area: {
-      total: 64.36,
-      life: 27.71,
-      kitchen: 9.94,
-      hallway: 11.28,
-      bathroom: 4.68,
-      balcony: [5.49],
-    },
-    floors: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-    image: {
-      card: "/images/apartment/plan/2/c/3d.webp",
-      carousel: [
-        "/images/apartment/plan/2/c/3d.webp",
-        "/images/apartment/plan/2/c/2d-m.webp",
-      ],
-    },
-  },
-  {
-    id: "2d",
+    id: "2Г",
     room: 2,
     title: "2 комнаты",
     area: {

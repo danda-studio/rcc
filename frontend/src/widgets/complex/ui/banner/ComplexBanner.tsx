@@ -116,7 +116,7 @@ export const ComplexBanner: FC = () => {
             `}
             style={
               {
-                color: "red",
+                // color: "red",
               }
             }
           >

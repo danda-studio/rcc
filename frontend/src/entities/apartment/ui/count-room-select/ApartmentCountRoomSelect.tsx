@@ -1,10 +1,23 @@
 import type { FC } from "react";
 import type { ApartmentCountRoomSelectProps } from "./types/ApartmentCountRoomSelectProps";
+import { useCallback } from "react";
 import { Badge } from "@/shared/lib/shadcn/ui/badge";
 
-const counts = ["1 комната", "2 комнаты"];
+const counts = [1, 2];
 
 export const ApartmentCountRoomSelect: FC<ApartmentCountRoomSelectProps> = ({ value, onChange }) => {
+  const title = useCallback((room: number) => {
+    let title = "";
+    switch (room) {
+      case 1:
+        title = "1 комната";
+        break;
+      case 2:
+        title = "2 комнаты";
+        break;
+    }
+    return title;
+  }, []);
   return (
     <div className={`
       flex
@@ -24,7 +37,7 @@ export const ApartmentCountRoomSelect: FC<ApartmentCountRoomSelectProps> = ({ va
             size="lg"
             variant="glass"
           >
-            {count}
+            {title(count)}
             <input
               className={`
                 absolute
@@ -37,7 +50,7 @@ export const ApartmentCountRoomSelect: FC<ApartmentCountRoomSelectProps> = ({ va
               value={count}
               checked={count === value}
               onChange={() => onChange(count)}
-              aria-label={count}
+              aria-label={`${count}`}
             />
           </Badge>
         </label>

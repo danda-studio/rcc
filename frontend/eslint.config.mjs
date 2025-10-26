@@ -1,6 +1,6 @@
 import antfu from "@antfu/eslint-config";
 import nextPlugin from "@next/eslint-plugin-next";
-import readableTailwind from "eslint-plugin-readable-tailwind";
+import betterTailwind from "eslint-plugin-better-tailwindcss";
 
 export default antfu(
   {
@@ -28,16 +28,17 @@ export default antfu(
   {
     plugins: {
       "@next/next": nextPlugin,
-      "readable-tailwind": readableTailwind,
+      "better-tailwind": betterTailwind,
+    },
+    settings: {
+      "better-tailwind": {
+        entryPoint: "src/shared/styles/global.css",
+      },
     },
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs["core-web-vitals"].rules,
-      "readable-tailwind/multiline": ["error", {
-        classesPerLine: 1,
-        lineBreakStyle: "windows",
-      }],
-      "readable-tailwind/no-duplicate-classes": "error",
+      "better-tailwind/no-duplicate-classes": "error",
     },
   },
   {

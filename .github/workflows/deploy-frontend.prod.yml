@@ -46,4 +46,4 @@ jobs:
 
           rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./frontend/.next/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/rck/frontend/.next
           rsync -avz "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./frontend/package.json ./frontend/yarn.lock ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/rck/frontend/
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./frontend/node_modules/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/rck/frontend/node_modules
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./frontend/node_modules/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/rck/frontend/node_modules

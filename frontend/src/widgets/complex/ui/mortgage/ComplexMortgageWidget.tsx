@@ -125,6 +125,20 @@ export const ComplexMortgageWidget: FC = () => {
           md:h-280.25
         `}
       />
+      <div className={`
+        absolute
+        left-1/2
+        max-md:-translate-x-1/2
+        md:left-98
+        bottom-0
+        w-full
+        md:w-480
+        h-40
+        md:h-72
+        overflow-hidden
+        bg-liner-8
+      `}
+      />
 
       {/* <div className={`
         absolute

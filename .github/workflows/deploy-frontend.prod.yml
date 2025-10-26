@@ -24,7 +24,7 @@ jobs:
 
       - name: Deploy to server
         run: |
-          ssh -o StrictHostKeyChecking=no user@your.server.ip "
+          ssh -o StrictHostKeyChecking=no root@80.93.62.59 "
             cd ~/var/rck/frontend || mkdir -p ~/var/rcc
             git fetch origin
             git reset --hard origin/feature/sttcMdPm

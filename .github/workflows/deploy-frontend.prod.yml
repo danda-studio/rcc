@@ -33,17 +33,12 @@ jobs:
         run: yarn build
         working-directory: ./frontend
 
-      - name: Add server to known_hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
-
-      - name: Deploy using rsync
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" ./frontend/.next/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/rck/frontend/.next
-          rsync -avz ./frontend/package.json ./frontend/yarn.lock ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/rck/frontend/
-          rsync -avz -e ./frontend/node_modules/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/rck/frontend/node_modules
+      - name: Deploy to server
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "frontend/.next/*,frontend/node_modules/*,frontend/yarn.lock,frontend/package.json"
+          target: "/var/rck/frontend"
+          rm: true

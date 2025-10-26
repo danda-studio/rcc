@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "ЖК Олимпийский",
     images: [
       {
-        url: "/images/complex/banner.png",
+        url: "/images/complex/banner.webp",
         width: 1200,
         height: 630,
         alt: "Жилой комплекс Олимпийский в Мариуполе",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ЖК Олимпийский Мариуполь",
     description: "Квартиры от застройщика. Ипотека",
-    images: ["/images/complex/banner.png"],
+    images: ["/images/complex/banner.webp"],
   },
   alternates: {
     canonical: "https://your-domain.com", // добавить домен
@@ -53,7 +53,7 @@ const jsonLd = {
   },
   "priceRange": "от 11 500₽/мес",
   "url": "https://your-domain.com",
-  "image": "/images/complex/banner.png",
+  "image": "/images/complex/banner.webp",
   "telephone": "+79499046784",
   "aggregateRating": {
     "@type": "AggregateRating",

@@ -20,7 +20,7 @@ export const ContactFormWidget: FC = () => {
         width={1920}
         height={1080}
         alt="Hero image"
-        src="/images/complex/banner.png"
+        src="/images/complex/banner.webp"
         className={`
           absolute
           -left-51.75

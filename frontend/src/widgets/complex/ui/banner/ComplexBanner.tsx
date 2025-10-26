@@ -20,12 +20,16 @@ export const ComplexBanner: FC = () => {
       overflow-hidden
     `}
     >
+
       <Image
         width={1920}
         height={1080}
         alt="Hero image"
-        src="/images/complex/banner.png"
+        src="/images/complex/banner.webp"
+        sizes="(max-width: 768px) 832px, 1920px"
+        fetchPriority="high"
         priority
+        loading="eager"
         className={`
           absolute
           left-1/2
@@ -36,6 +40,20 @@ export const ComplexBanner: FC = () => {
           md:w-480
           md:h-270
         `}
+      />
+      <div className={`
+        absolute
+        left-1/2
+        max-md:-translate-x-1/2
+        md:left-98
+        bottom-0
+        w-full
+        md:w-480
+        h-40
+        md:h-72
+        overflow-hidden
+        bg-liner-8
+      `}
       />
 
       {/* <div className={`

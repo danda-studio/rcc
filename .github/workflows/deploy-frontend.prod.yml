@@ -25,6 +25,7 @@ jobs:
       - name: Deploy to server
         run: |
           ssh -o StrictHostKeyChecking=no root@80.93.62.59 "
+            source /.nvm/nvm.sh
             cd /var/rcc/frontend
             git fetch origin
             git reset --hard origin/feature/sttcMdPm

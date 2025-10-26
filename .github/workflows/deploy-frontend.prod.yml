@@ -39,6 +39,6 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "frontend/.next,frontend/node_modules,frontend/yarn.lock,frontend/package.json"
+          source: "frontend/.next/*,frontend/node_modules/*,frontend/public/*,frontend/yarn.lock,frontend/package.json"
           target: "/var/rck/frontend"
           rm: true

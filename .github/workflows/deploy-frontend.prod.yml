@@ -29,6 +29,6 @@ jobs:
             cd /var/rcc/frontend
             git fetch origin
             git reset --hard origin/feature/sttcMdPm
-            yarn
+            yarn --network-concurrency 1
             yarn build
           "

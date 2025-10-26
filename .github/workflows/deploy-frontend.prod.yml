@@ -42,3 +42,8 @@ jobs:
           source: "frontend/.next/*,frontend/node_modules/*,frontend/public/*,frontend/yarn.lock,frontend/package.json"
           target: "/var/rck/frontend"
           rm: true
+      - name: Restart Next.js via PM2
+        run: |
+          ssh -o StrictHostKeyChecking=no user@your.server.ip "
+            pm2 restart frontend
+          "

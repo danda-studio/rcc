@@ -4,26 +4,29 @@ on:
   push:
     branches:
       - feature/sttcMdPm
+    paths:
+      - "frontend/**"
+      - ".github/workflows/deploy-frontend.prod.yml"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.1
-      with:
-        ssh-private-key: ${{ secrets.PROD_DEPLOY_FRONTEND_KEY }}
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
 
-    - name: Deploy to server
-      run: |
-        ssh -o StrictHostKeyChecking=no user@your.server.ip "
-          cd ~/var/rck/frontend || mkdir -p ~/var/rcc
-          git fetch origin
-          git reset --hard origin/feature/sttcMdPm
-          yarn install
-          yarn run build
-        "
+      - name: Deploy to server
+        run: |
+          ssh -o StrictHostKeyChecking=no user@your.server.ip "
+            cd ~/var/rck/frontend || mkdir -p ~/var/rcc
+            git fetch origin
+            git reset --hard origin/feature/sttcMdPm
+            yarn install
+            yarn run build
+          "

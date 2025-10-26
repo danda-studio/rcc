@@ -11,7 +11,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: back_autodeploy
+    environment: frontend.prod
 
     steps:
       - name: Checkout repo

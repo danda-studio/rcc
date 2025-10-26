@@ -46,6 +46,29 @@ app.MapScalarApiReference(options =>
     options.Title = "RCC API Documentation";
 });
 
+// Swagger и Scalar только для Development
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.MapScalarApiReference(options =>
+    {
+        options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
+        options.Title = "RCC API Documentation";
+    });
+
+    // Редирект только в Development
+    app.MapGet("/", context =>
+    {
+        context.Response.Redirect("/scalar");
+        return Task.CompletedTask;
+    });
+}
+else
+{
+    // В Production простой ответ
+    app.MapGet("/", () => "RCC API is running");
+}
+
 var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "files");
 if (!Directory.Exists(staticPath))
 {
@@ -56,12 +79,6 @@ app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(staticPath),
     RequestPath = "/files"
-});
-
-app.MapGet("/", context =>
-{
-    context.Response.Redirect("/scalar");
-    return Task.CompletedTask;
 });
 
 app.UseHttpsRedirection();

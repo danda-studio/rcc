@@ -9,12 +9,11 @@ import { useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import { ApartmentCarouselSelect, ApartmentCountRoomSelect } from "@/entities/apartment";
+import { APARTMENTS } from "@/entities/apartment/consts/apartments";
 import { ApartmentCarouselSelectItemContent } from "@/entities/apartment/ui/carousel-select/ApartmentCarouselSelectItemContent";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { cn } from "@/shared/lib/shadcn/utils";
 import { ApartmentCardModalFeature } from "../card-modal/ApartmentCardModalFeature";
-import { items } from "./consts/items";
-import { APARTMENTS } from "@/entities/apartment/consts/apartments";
 
 const formSchema = z.object({
   countRoom: z

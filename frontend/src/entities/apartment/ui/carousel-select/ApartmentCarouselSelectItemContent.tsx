@@ -1,6 +1,7 @@
-import { useMemo, type FC } from "react";
+import type { FC } from "react";
 import type { ApartmentCarouselSelectItemProps } from "./types";
 import Image from "next/image";
+import { useMemo } from "react";
 import { Badge } from "@/shared/lib/shadcn/ui/badge";
 import { cn } from "@/shared/lib/shadcn/utils";
 import { UIGlass } from "@/shared/ui/glass";
@@ -9,25 +10,25 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
   id,
   floors,
   room,
-  area: {total},
-  image: {card},
+  area: { total },
+  image: { card },
   checked,
   onClick,
   className,
   disabled,
 }) => {
   const title = useMemo(() => {
-    let title = ""
-    switch(room) {
+    let title = "";
+    switch (room) {
       case 1:
-        title = "1 комната"
-        break
+        title = "1 комната";
+        break;
       case 2:
-        title = "2 комнаты"
-        break
+        title = "2 комнаты";
+        break;
     }
-    return title
-  }, [room])
+    return title;
+  }, [room]);
 
   return (
     <UIGlass
@@ -113,8 +114,20 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
           {id}
         </Badge>
 
-        <Badge size="sm" className="max-w-full !shrink overflow-hidden">
-          <span className="overflow-hidden text-ellipsis w-full">
+        <Badge
+          size="sm"
+          className={`
+            max-w-full
+            !shrink
+            overflow-hidden
+          `}
+        >
+          <span className={`
+            overflow-hidden
+            text-ellipsis
+            w-full
+          `}
+          >
             Этажи
             {" "}
             {floors.join(",")}
@@ -133,8 +146,21 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
           {id}
         </Badge>
 
-        <Badge variant="glass" size="md" className="max-w-full !shrink overflow-hidden">
-          <span className="overflow-hidden text-ellipsis w-full">
+        <Badge
+          variant="glass"
+          size="md"
+          className={`
+            max-w-full
+            !shrink
+            overflow-hidden
+          `}
+        >
+          <span className={`
+            overflow-hidden
+            text-ellipsis
+            w-full
+          `}
+          >
             Этажи
             {" "}
             {floors.join(",")}

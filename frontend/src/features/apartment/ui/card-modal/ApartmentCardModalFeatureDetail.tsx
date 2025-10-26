@@ -8,8 +8,7 @@ import { cn } from "@/shared/lib/shadcn/utils";
 
 export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
   className?: string;
-}> = ({ room, area: {total, life, kitchen,hallway, bathroom,
-  balcony, tambour
+}> = ({ room, area: { total, life, kitchen, hallway, bathroom, balcony, tambour,
 }, floors, className }) => {
   const data = useMemo(() => {
     const els = [
@@ -38,30 +37,33 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
         value: floors.join(","),
       },
     ];
-    if(balcony) els.push({
-      label: 'Балкон',
-      value: `${balcony} м`
-    })
-    if(tambour) els.push({
-      label: 'Тамбур',
-      value: `${tambour} м`
-    })
-    return els
-  }, [total, life, kitchen,hallway, bathroom,
-  balcony, tambour]);
+    if (balcony) {
+      els.push({
+        label: "Балкон",
+        value: `${balcony} м`,
+      });
+    }
+    if (tambour) {
+      els.push({
+        label: "Тамбур",
+        value: `${tambour} м`,
+      });
+    }
+    return els;
+  }, [total, life, kitchen, hallway, bathroom, balcony, tambour]);
 
   const title = useMemo(() => {
-    let title = ""
-    switch(room) {
+    let title = "";
+    switch (room) {
       case 1:
-        title = "1-комнатная квартира"
-        break
+        title = "1-комнатная квартира";
+        break;
       case 2:
-        title = "2-комнатная квартира"
-        break
+        title = "2-комнатная квартира";
+        break;
     }
-    return title
-  }, [room])
+    return title;
+  }, [room]);
 
   return (
     <div className={cn(`

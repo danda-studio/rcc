@@ -5,12 +5,11 @@ import type { ApartmentCardModalFeatureProps } from "./types";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { useMemo } from "react";
-import { Badge } from "@/shared/lib/shadcn/ui/badge";
+import { APARTMENTS } from "@/entities/apartment/consts/apartments";
 import { Dialog, DialogContent, DialogTrigger } from "@/shared/lib/shadcn/ui/dialog";
 import { UIGlass } from "@/shared/ui/glass";
 import { ApartmentCardModalFeatureDetail } from "./ApartmentCardModalFeatureDetail";
 import { ApartmentCardModalFeatureImageCarousel } from "./ApartmentCardModalFeatureImageCarousel";
-import { APARTMENTS } from "@/entities/apartment/consts/apartments";
 
 export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({ apartmentId, children }) => {
   const apartment = useMemo(() => {

@@ -1,3 +1,3 @@
-import { Apartment } from "@/entities/apartment/types/Apartment";
+import type { Apartment } from "@/entities/apartment/types/Apartment";
 
-export type ApartmentDetail = Apartment 
+export type ApartmentDetail = Apartment;

@@ -8,7 +8,7 @@ import { cn } from "@/shared/lib/shadcn/utils";
 
 export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
   className?: string;
-}> = ({ image:{carousel}, className }) => {
+}> = ({ image: { carousel }, className }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [progress, setProgress] = useState(0);
 

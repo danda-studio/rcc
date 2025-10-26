@@ -6,12 +6,16 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+// Swagger и Scalar только для Development
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+}
 
 builder.Services.Configure<GmailSetting>(builder.Configuration.GetSection("GmailSetting"));
 builder.Services.AddScoped<IContactService, ContactService>();
-
 
 builder.Services.AddCors(options =>
 {
@@ -32,21 +36,11 @@ builder.Services.AddCors(options =>
     });
 });
 
-
 var app = builder.Build();
 
-//app.UseCors("AllowLocalhost3000");
 app.UseCors("AllowSpecificOrigin");
 
-app.UseSwagger();
 
-app.MapScalarApiReference(options =>
-{
-    options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
-    options.Title = "RCC API Documentation";
-});
-
-// Swagger и Scalar только для Development
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

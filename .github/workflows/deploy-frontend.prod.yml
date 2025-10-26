@@ -29,6 +29,6 @@ jobs:
             cd /var/rcc/frontend
             git fetch origin
             git reset --hard origin/feature/sttcMdPm
-            yarn install
-            yarn run build
+            yarn
+            yarn build
           "

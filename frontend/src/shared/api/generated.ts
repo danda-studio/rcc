@@ -41,7 +41,7 @@ export const postApiContactContact = (
   options?: AxiosRequestConfig,
 ): Promise<AxiosResponse<SendContactResponse>> => {
   return axios.post(
-    `http://api.rsk-olimpiyskiy.ru/api/Contact/contact`,
+    `https://api.rsk-olimpiyskiy.ru/api/Contact/contact`,
     sendContactRequest,
     options,
   );
@@ -85,14 +85,14 @@ export const getApiCountryCodes = (
   options?: AxiosRequestConfig,
 ): Promise<AxiosResponse<CountryCodeResponse>> => {
   return axios.get(
-    `http://api.rsk-olimpiyskiy.ru/api/Country/codes`,
+    `https://api.rsk-olimpiyskiy.ru/api/Country/codes`,
     options,
   );
 };
 
 export const getGetApiCountryCodesQueryKey = () => {
   return [
-    `http://api.rsk-olimpiyskiy.ru/api/Country/codes`,
+    `https://api.rsk-olimpiyskiy.ru/api/Country/codes`,
   ] as const;
 };
 
@@ -111,25 +111,29 @@ export type GetApiCountryCodesQueryResult = NonNullable<Awaited<ReturnType<typeo
 export type GetApiCountryCodesQueryError = AxiosError<unknown>;
 
 export function useGetApiCountryCodes<TData = Awaited<ReturnType<typeof getApiCountryCodes>>, TError = AxiosError<unknown>>(
-  options: { query: Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>> & Pick<
-    DefinedInitialDataOptions<
-      Awaited<ReturnType<typeof getApiCountryCodes>>,
-      TError,
-      Awaited<ReturnType<typeof getApiCountryCodes>>
-    >,
-    "initialData"
-  >; axios?: AxiosRequestConfig; },
+  options: {
+    query: Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>> & Pick<
+      DefinedInitialDataOptions<
+        Awaited<ReturnType<typeof getApiCountryCodes>>,
+        TError,
+        Awaited<ReturnType<typeof getApiCountryCodes>>
+      >,
+      "initialData"
+    >; axios?: AxiosRequestConfig;
+  },
   queryClient?: QueryClient,
 ): DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
 export function useGetApiCountryCodes<TData = Awaited<ReturnType<typeof getApiCountryCodes>>, TError = AxiosError<unknown>>(
-  options?: { query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>> & Pick<
-    UndefinedInitialDataOptions<
-      Awaited<ReturnType<typeof getApiCountryCodes>>,
-      TError,
-      Awaited<ReturnType<typeof getApiCountryCodes>>
-    >,
-    "initialData"
-  >; axios?: AxiosRequestConfig; },
+  options?: {
+    query?: Partial<UseQueryOptions<Awaited<ReturnType<typeof getApiCountryCodes>>, TError, TData>> & Pick<
+      UndefinedInitialDataOptions<
+        Awaited<ReturnType<typeof getApiCountryCodes>>,
+        TError,
+        Awaited<ReturnType<typeof getApiCountryCodes>>
+      >,
+      "initialData"
+    >; axios?: AxiosRequestConfig;
+  },
   queryClient?: QueryClient,
 ): UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
 export function useGetApiCountryCodes<TData = Awaited<ReturnType<typeof getApiCountryCodes>>, TError = AxiosError<unknown>>(

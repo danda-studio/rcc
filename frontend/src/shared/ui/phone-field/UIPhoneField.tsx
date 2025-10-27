@@ -34,7 +34,7 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
     refetchOnReconnect: false,
   });
 
-  const countryCodes: CountryCode[] = useMemo(() => data?.data ?? [], [data]);
+  const countryCodes: CountryCode[] = useMemo(() => data?.data as CountryCode[] ?? [], [data]);
 
   const filteredCountries = useMemo(() => {
     if (!searchQuery) {

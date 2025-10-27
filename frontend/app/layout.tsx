@@ -38,6 +38,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={manropeFont.variable}>
       <head>
+        <link rel="icon" href="/favicon.svg" />
         <link
           rel="preload"
           as="image"

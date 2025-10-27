@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useMemo } from "react";
 import { Badge } from "@/shared/lib/shadcn/ui/badge";
 import { cn } from "@/shared/lib/shadcn/utils";
-import { UIGlass } from "@/shared/ui/glass";
 
 export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemProps> = ({
   id,
@@ -31,7 +30,7 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
   }, [room]);
 
   return (
-    <UIGlass
+    <div
       onClick={onClick}
       className={cn(`
         relative
@@ -48,139 +47,160 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
         has-[input:checked]:min-h-86.5
         md:has-[input:checked]:min-h-100
         has-[input:disabled]:opacity-20
+        not-has-[input:checked]:rounded-md
       `, className)}
-      border="corner-fixed"
     >
-      <p className={`
-        leading-[1.2]
-        font-semibold
-        text-md
-        has-[~input:checked]:text-md-x
-        md:has-[~input:checked]:text-lg
-        mb-1
-        has-[~input:checked]:mb-2
-      `}
-      >
-        {title}
-      </p>
-      <p className={`
-        leading-[1.2]
-        text-xs
-        has-[~input:checked]:text-base
-        md:has-[~input:checked]:text-md
-        not-has-[~input:checked]:mb-5
-        has-[~input:checked]:mb-7
-        not-has-[~input:checked]:text-blue-6/72
-        has-[~input:checked]:text-white/72
-      `}
-      >
-        {total}
-        {" "}
-        м
-      </p>
-      <div className={`
-        relative
-        overflow-hidden
-        has-[~input:checked]:-mx-6
-        not-has-[~input:checked]:-mx-4
-        has-[~input:checked]:h-39
-        md:has-[~input:checked]:h-45
-        not-has-[~input:checked]:h-35
-      `}
-      >
-        <Image
-          alt={`Room ${id}`}
-          src={card}
-          width={320}
-          height={180}
-          className={`
-            absolute
-            w-full
-            h-full
-            object-contain
-          `}
-        />
-      </div>
-
-      <div className={`
-        flex
-        gap-2
-        has-[~input:checked]:hidden
-        mt-auto
-        overflow-hidden
-      `}
-      >
-        <Badge size="sm">
-          {id}
-        </Badge>
-
-        <Badge
-          size="sm"
-          className={`
-            max-w-full
-            !shrink
-            overflow-hidden
-          `}
-        >
-          <span className={`
-            overflow-hidden
-            text-ellipsis
-            w-full
-          `}
-          >
-            Этажи
-            {" "}
-            {floors.join(",")}
-          </span>
-        </Badge>
-      </div>
-      <div className={`
-        flex
-        gap-2
-        not-has-[~input:checked]:hidden
-        mt-auto
-        overflow-hidden
-      `}
-      >
-        <Badge variant="glass" size="md">
-          {id}
-        </Badge>
-
-        <Badge
-          variant="glass"
-          size="md"
-          className={`
-            max-w-full
-            !shrink
-            overflow-hidden
-          `}
-        >
-          <span className={`
-            overflow-hidden
-            text-ellipsis
-            w-full
-          `}
-          >
-            Этажи
-            {" "}
-            {floors.join(",")}
-          </span>
-        </Badge>
-      </div>
-
-      <input
-        name="ApartmentCarouselSelect"
-        type="radio"
-        checked={checked}
+      <Image
         className={`
           absolute
           inset-0
-          opacity-0
-          hidden
+          w-full
+          h-full
         `}
-        onChange={onClick}
-        disabled={disabled}
+        src="/images/backdrop/1.png"
+        alt="bg"
+        width={320}
+        height={400}
       />
-    </UIGlass>
+      <div className={`
+        absolute
+        inset-0
+        flex
+        flex-col
+        p-4
+      `}
+      >
+        <p className={`
+          leading-[1.2]
+          font-semibold
+          text-md
+          has-[~input:checked]:text-md-x
+          md:has-[~input:checked]:text-lg
+          mb-1
+          has-[~input:checked]:mb-2
+        `}
+        >
+          {title}
+        </p>
+        <p className={`
+          leading-[1.2]
+          text-xs
+          has-[~input:checked]:text-base
+          md:has-[~input:checked]:text-md
+          not-has-[~input:checked]:mb-5
+          has-[~input:checked]:mb-7
+          not-has-[~input:checked]:text-blue-6/72
+          has-[~input:checked]:text-white/72
+        `}
+        >
+          {total}
+          {" "}
+          м
+        </p>
+        <div className={`
+          relative
+          overflow-hidden
+          has-[~input:checked]:-mx-6
+          not-has-[~input:checked]:-mx-4
+          has-[~input:checked]:h-39
+          md:has-[~input:checked]:h-45
+          not-has-[~input:checked]:h-35
+        `}
+        >
+          <Image
+            alt={`Room ${id}`}
+            src={card}
+            width={320}
+            height={180}
+            className={`
+              absolute
+              w-full
+              h-full
+              object-contain
+            `}
+          />
+        </div>
+
+        <div className={`
+          flex
+          gap-2
+          has-[~input:checked]:hidden
+          mt-auto
+          overflow-hidden
+        `}
+        >
+          <Badge size="sm">
+            {id}
+          </Badge>
+
+          <Badge
+            size="sm"
+            className={`
+              max-w-full
+              !shrink
+              overflow-hidden
+            `}
+          >
+            <span className={`
+              overflow-hidden
+              text-ellipsis
+              w-full
+            `}
+            >
+              Этажи
+              {" "}
+              {floors.join(",")}
+            </span>
+          </Badge>
+        </div>
+        <div className={`
+          flex
+          gap-2
+          not-has-[~input:checked]:hidden
+          mt-auto
+          overflow-hidden
+        `}
+        >
+          <Badge variant="glass" size="md">
+            {id}
+          </Badge>
+
+          <Badge
+            variant="glass"
+            size="md"
+            className={`
+              max-w-full
+              !shrink
+              overflow-hidden
+            `}
+          >
+            <span className={`
+              overflow-hidden
+              text-ellipsis
+              w-full
+            `}
+            >
+              Этажи
+              {" "}
+              {floors.join(",")}
+            </span>
+          </Badge>
+        </div>
+
+        <input
+          name="ApartmentCarouselSelect"
+          type="radio"
+          checked={checked}
+          className={`
+            absolute
+            inset-0
+            opacity-0
+            hidden
+          `}
+          onChange={onClick}
+          disabled={disabled}
+        />
+      </div>
+    </div>
   );
 };

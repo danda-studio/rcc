@@ -1,3 +1,4 @@
+"use client";
 import type { FC } from "react";
 import { Map } from "lucide-react";
 import Link from "next/link";

@@ -1,0 +1,96 @@
+"use client";
+import type { FC } from "react";
+import type { CarouselCardProps } from "@/shared/ui/carousel/types";
+import Image from "next/image";
+import React from "react";
+
+export const CarouselCard: FC<CarouselCardProps> = ({ image, year, title, description }) => (
+  <div className={`
+    h-[21.25rem]
+    w-75
+    md:w-110
+    md:h-[35rem]
+    rounded-xs
+    relative
+    flex
+    flex-col
+    justify-between
+    overflow-hidden
+    p-6
+    text-white
+  `}
+  >
+    <Image
+      src={image}
+      alt={title}
+      width={400}
+      height={400}
+      className={`
+        absolute
+        bottom-0
+        rounded-xs
+        md:rounded-0
+        left-1/2
+        -translate-x-1/2
+        w-full
+        h-full
+        object-cover
+        z-0
+      `}
+    />
+    <div className={`
+      relative
+      z-10
+      flex
+      flex-col
+      justify-between
+      h-full
+    `}
+    >
+      <div className={`
+        md:pl-0
+        items-baseline
+        flex
+        flex-col
+        gap-6
+      `}
+      >
+        <h3 className={`
+          text-2xl
+          md:text-3xl
+          text-white
+        `}
+        >
+          {year}
+        </h3>
+        <span className={`
+          font-medium
+          text-md-x
+          md:text-lg
+        `}
+        >
+          {title}
+        </span>
+      </div>
+      <div>
+        <div className={`
+          md:pl-0
+          flex
+          items-baseline
+        `}
+        >
+          <p className={`
+            ml-1.5
+            text-sm
+            md:text-md
+            font-medium
+            text-white/72
+          `}
+          >
+            {description}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+);

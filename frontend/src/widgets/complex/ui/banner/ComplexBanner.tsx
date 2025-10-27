@@ -127,10 +127,16 @@ export const ComplexBanner: FC = () => {
             Продажи в новом ЖК "Олимпийский"
           </h1>
 
-          <p className={`
-            text-md
-            md:text-xl
-          `}
+          <p
+            className={`
+              text-md
+              md:text-xl
+            `}
+            style={
+              {
+                // color: "red",
+              }
+            }
           >
             Место, где хочется жить
           </p>

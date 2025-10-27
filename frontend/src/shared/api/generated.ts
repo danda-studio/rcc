@@ -119,7 +119,8 @@ export function useGetApiCountryCodes<TData = Awaited<ReturnType<typeof getApiCo
         Awaited<ReturnType<typeof getApiCountryCodes>>
       >,
       "initialData"
-    >; axios?: AxiosRequestConfig;
+    >;
+    axios?: AxiosRequestConfig;
   },
   queryClient?: QueryClient,
 ): DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
@@ -132,7 +133,8 @@ export function useGetApiCountryCodes<TData = Awaited<ReturnType<typeof getApiCo
         Awaited<ReturnType<typeof getApiCountryCodes>>
       >,
       "initialData"
-    >; axios?: AxiosRequestConfig;
+    >;
+    axios?: AxiosRequestConfig;
   },
   queryClient?: QueryClient,
 ): UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };

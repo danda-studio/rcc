@@ -6,18 +6,21 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-builder.Services.Configure<GmailSetting>(builder.Configuration.GetSection("GmailSetting"));
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+}
+
+builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("GmailSetting"));
 builder.Services.AddScoped<IContactService, ContactService>();
-
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.WithOrigins("https://danda-studio.github.io", "https://rcc-hrmo.vercel.app")
+        policy.WithOrigins("https://danda-studio.github.io", "https://rcc-hrmo.vercel.app", "https://rsk-olimpiyskiy.ru")
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials();
@@ -32,19 +35,30 @@ builder.Services.AddCors(options =>
     });
 });
 
-
 var app = builder.Build();
 
-//app.UseCors("AllowLocalhost3000");
 app.UseCors("AllowSpecificOrigin");
 
-app.UseSwagger();
 
-app.MapScalarApiReference(options =>
+if (app.Environment.IsDevelopment())
 {
-    options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
-    options.Title = "RCC API Documentation";
-});
+    app.UseSwagger();
+    app.MapScalarApiReference(options =>
+    {
+        options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
+        options.Title = "RCK API Documentation";
+    });
+
+    app.MapGet("/", context =>
+    {
+        context.Response.Redirect("/scalar");
+        return Task.CompletedTask;
+    });
+}
+else
+{
+    app.MapGet("/", () => "RCK API is running");
+}
 
 var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "files");
 if (!Directory.Exists(staticPath))
@@ -58,11 +72,8 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/files"
 });
 
-app.UseCors("AllowLocalhost3000");
-app.UseCors("AllowSpecificOrigin");
-
 app.UseHttpsRedirection();
-app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();

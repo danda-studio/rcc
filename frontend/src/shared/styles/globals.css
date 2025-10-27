@@ -554,9 +554,9 @@ h6 {
       )
       /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   }
-    .bg-liner-8 {
-        background-image: linear-gradient(360deg, #03050C 17.58%, rgba(3, 5, 12, 0) 100%);
-    }
+  .bg-liner-8 {
+    background-image: linear-gradient(360deg, #03050c 17.58%, rgba(3, 5, 12, 0) 100%);
+  }
 
   /* Clip path */
   .clip-path-1 {

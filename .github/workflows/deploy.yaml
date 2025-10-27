@@ -3,16 +3,16 @@ name: Build & Deploy Backend (.NET)
 on:
   push:
     branches:
-      - master
+      - main
     paths:
-      - 'backend/**'
-      - '.github/workflows/deploy.yml'
+      - "backend/**"
+      - ".github/workflows/deploy.yml"
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     environment: back_autodeploy
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
             sudo systemctl stop rck-backend.service || true
             rm -rf ${{ secrets.DEPLOY_PATH }}/* || true
             mkdir -p ${{ secrets.DEPLOY_PATH }}
-      
+
       - name: Deploy to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -47,7 +47,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           source: "publish/*"
           target: ${{ secrets.DEPLOY_PATH }}
-          
+
       - name: Restart backend service
         uses: appleboy/ssh-action@v0.1.7
         with:

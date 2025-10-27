@@ -3,7 +3,7 @@ name: Build & Deploy Backend (.NET)
 on:
   push:
     branches:
-      - feature/ulBAmKpj
+      - master
     paths:
       - 'backend/**'
       - '.github/workflows/deploy.yml'

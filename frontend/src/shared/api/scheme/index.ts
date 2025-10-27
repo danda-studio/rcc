@@ -6,6 +6,7 @@
  */
 
 export * from './contactMethod';
+export * from './countryCodeResponse';
 export * from './phone';
 export * from './sendContactRequest';
 export * from './sendContactResponse';

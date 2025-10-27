@@ -5,7 +5,7 @@ module.exports = {
       target: "./src/shared/api/generated.ts",
       schemas: "./src/shared/api/scheme",
       client: "react-query",
-      baseUrl: "http://api.rsk-olimpiyskiy.ru",
+      baseUrl: "https://api.rsk-olimpiyskiy.ru",
     },
   },
 };

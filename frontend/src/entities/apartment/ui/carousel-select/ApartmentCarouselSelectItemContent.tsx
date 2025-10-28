@@ -32,9 +32,6 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
   return (
     <div
       onClick={onClick}
-      style={{
-          WebkitMaskImage: '-webkit-radial-gradient(white, black)',
-      }}
       className={cn(`
         relative
         flex
@@ -51,7 +48,6 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
         md:has-[input:checked]:min-h-100
         has-[input:disabled]:opacity-20
         not-has-[input:checked]:rounded-md
-        overflow-hidden
       `, className)}
     >
       <Image
@@ -103,7 +99,6 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
         </p>
         <div className={`
           relative
-          overflow-hidden
           has-[~input:checked]:-mx-6
           not-has-[~input:checked]:-mx-4
           has-[~input:checked]:h-39
@@ -130,7 +125,6 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
           gap-2
           has-[~input:checked]:hidden
           mt-auto
-          overflow-hidden
         `}
         >
           <Badge size="sm">
@@ -142,11 +136,9 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
             className={`
               max-w-full
               !shrink
-              overflow-hidden
             `}
           >
             <span className={`
-              overflow-hidden
               text-ellipsis
               w-full
             `}
@@ -162,7 +154,6 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
           gap-2
           not-has-[~input:checked]:hidden
           mt-auto
-          overflow-hidden
         `}
         >
           <Badge variant="glass" size="md">
@@ -175,16 +166,14 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
             className={`
               max-w-full
               !shrink
-              overflow-hidden
             `}
           >
             <span className={`
-              overflow-hidden
               text-ellipsis
               w-full
             `}
             >
-              ыыыфввыфв
+              Этажи
               {" "}
               {floors.join(",")}
             </span>

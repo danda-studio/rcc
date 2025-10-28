@@ -20,7 +20,6 @@ export const ApartmentCarouselSelectItem: FC<ApartmentCarouselSelectItemProps> =
         max-md:last:pr-14
         max-md:pl-2
         max-md:pr-2
-        !overflow-visible
       `}
     >
       <ApartmentCarouselSelectItemContent {...props} />

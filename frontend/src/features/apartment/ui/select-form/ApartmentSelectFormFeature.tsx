@@ -111,6 +111,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
             justify-center
             items-center
             gap-4
+            overflow-hidden
             md:w-full
           `}
           >

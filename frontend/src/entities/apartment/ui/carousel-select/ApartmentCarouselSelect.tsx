@@ -22,6 +22,7 @@ export const ApartmentCarouselSelect: FC<ApartmentCarouselSelectProps> = ({
     >
       <CarouselContent
         className={cn(`
+          overflow-visible
           items-center
           max-md:!ml-0
         `, contentClassName)}

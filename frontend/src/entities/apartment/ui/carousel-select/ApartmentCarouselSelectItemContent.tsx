@@ -32,6 +32,9 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
   return (
     <div
       onClick={onClick}
+      style={{
+          WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+      }}
       className={cn(`
         relative
         flex
@@ -48,6 +51,7 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
         md:has-[input:checked]:min-h-100
         has-[input:disabled]:opacity-20
         not-has-[input:checked]:rounded-md
+        overflow-hidden
       `, className)}
     >
       <Image

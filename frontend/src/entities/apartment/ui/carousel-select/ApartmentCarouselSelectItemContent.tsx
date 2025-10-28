@@ -184,7 +184,7 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
               w-full
             `}
             >
-              Этажи
+              ыыыфввыфв
               {" "}
               {floors.join(",")}
             </span>

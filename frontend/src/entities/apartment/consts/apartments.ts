@@ -138,7 +138,7 @@ export const APARTMENTS: Apartment[] = [
       card: "/images/apartment/plan/2/d/3d.webp",
       carousel: [
         "/images/apartment/plan/2/d/3d.webp",
-        "/images/apartment/plan/2/d/2d@-m.webp",
+        "/images/apartment/plan/2/d/2d-m.webp",
       ],
     },
   },

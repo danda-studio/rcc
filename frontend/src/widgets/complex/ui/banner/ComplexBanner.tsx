@@ -201,7 +201,6 @@ export const ComplexBanner: FC = () => {
           md:top-136.5
         `}
         title={{
-          start: "от",
           middle: "2",
           end: (
             <span className="md:text-xl">

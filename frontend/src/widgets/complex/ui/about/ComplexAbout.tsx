@@ -392,12 +392,13 @@ export const ComplexAboutWidget: FC = () => {
                 `}
                 >
                   <p className={`
-                    text-md
+                    md:text-4-6xl
+                    text-4-6xl
                     font-medium
-                    md:text-lg
+                    text-white
                   `}
                   >
-                    Первоначальный взнос
+                    58
                   </p>
                 </div>
 
@@ -408,24 +409,15 @@ export const ComplexAboutWidget: FC = () => {
                     items-baseline
                   `}
                   >
-                    <p className={`
-                      text-4-6xl
-                      md:text-4-6xl
-                      font-medium
-                      text-white
-                    `}
+                    <span className={`
+                    text-sm-m
+                    md:text-lg
+                    font-medium
+                    text-white
+                  `}
                     >
-                      10
-                    </p>
-                    <p className={`
-                      ml-1.5
-                      text-2-6xl
-                      font-medium
-                      text-white
-                    `}
-                    >
-                      %
-                    </p>
+                    Парковочных мест
+                  </span>
                   </div>
                 </div>
               </div>
@@ -556,11 +548,23 @@ export const ComplexAboutWidget: FC = () => {
                 `}
                 >
                   <p className={`
+                    text-4-6xl
+                    md:text-4-6xl
                     font-medium
-                    text-lg
+                    text-white
                   `}
                   >
-                    Безопастность
+                    5
+                  </p>
+                  <p className={`
+                    ml-1.5
+                    text-xl
+                    md:text-2-6xl
+                    font-medium
+                    text-white
+                  `}
+                  >
+                    минут
                   </p>
                 </div>
 
@@ -571,15 +575,15 @@ export const ComplexAboutWidget: FC = () => {
                     items-baseline
                   `}
                   >
-                    <p className={`
-                      text-4-6xl
-                      md:text-4-6xl
-                      font-medium
-                      text-white
-                    `}
-                    >
-                      24/7
-                    </p>
+                   <span className={`
+                    text-sm-m
+                    md:text-lg
+                    font-medium
+                    text-white
+                  `}
+                   >
+                    На автомобиле к морю
+                  </span>
                   </div>
                 </div>
               </div>

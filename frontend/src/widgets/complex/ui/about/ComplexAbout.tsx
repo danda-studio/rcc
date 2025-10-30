@@ -582,7 +582,7 @@ export const ComplexAboutWidget: FC = () => {
                     text-white
                   `}
                    >
-                    Парковочных мест
+                    На автомобиле к морю
                   </span>
                   </div>
                 </div>

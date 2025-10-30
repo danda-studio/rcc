@@ -416,8 +416,8 @@ export const ComplexAboutWidget: FC = () => {
                     text-white
                   `}
                     >
-                    Парковочных мест
-                  </span>
+                      Парковочных мест
+                    </span>
                   </div>
                 </div>
               </div>
@@ -575,15 +575,15 @@ export const ComplexAboutWidget: FC = () => {
                     items-baseline
                   `}
                   >
-                   <span className={`
+                    <span className={`
                     text-sm-m
                     md:text-lg
                     font-medium
                     text-white
                   `}
-                   >
-                    На автомобиле к морю
-                  </span>
+                    >
+                      На автомобиле к морю
+                    </span>
                   </div>
                 </div>
               </div>

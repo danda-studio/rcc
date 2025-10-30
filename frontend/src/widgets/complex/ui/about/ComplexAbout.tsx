@@ -306,7 +306,7 @@ export const ComplexAboutWidget: FC = () => {
                     text-white
                   `}
                   >
-                    5
+                    10
                   </p>
                   <p className={`
                     ml-1.5

@@ -131,7 +131,7 @@ export const ResidentialWidget = () => {
                 font-medium
               `}
               >
-                128
+                81
               </span>
               <span className={`
                 md:text-lg
@@ -318,7 +318,7 @@ export const ResidentialWidget = () => {
                     md:text-md-x
                   `}
                   >
-                    госпрограмме ипотека от 2%
+                    госпрограмме ипотека 2%
                   </span>
                   , покупка квартиры становится реально доступной для каждой семьи
                 </span>

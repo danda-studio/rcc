@@ -110,6 +110,7 @@ export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({ 
               hover:opacity-80
               active:opacity-100
               rounded-sm
+              cursor-pointer
             `}
           >
             <X className="size-6" />

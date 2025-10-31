@@ -97,6 +97,7 @@ export const ContactFormModalFeature: FC<ContactFormModalFeatureProps> = ({ chil
               <UIGlass
                 border="corner"
                 className={`
+                  cursor-pointer
                   p-3
                   hover:opacity-80
                   active:opacity-100

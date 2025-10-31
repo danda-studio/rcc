@@ -1,7 +1,6 @@
 import type { FC } from "react";
 import type { ApartmentDetail } from "./types/ApartmentDetail";
 import type { CarouselApi } from "@/shared/lib/shadcn/ui/carousel";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/shared/lib/shadcn/ui/carousel";
 import { cn } from "@/shared/lib/shadcn/utils";

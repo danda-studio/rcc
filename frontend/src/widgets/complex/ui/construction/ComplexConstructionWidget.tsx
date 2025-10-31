@@ -10,25 +10,25 @@ export const ComplexConstructionWidget = () => {
 
   const slides = [
     {
-      image: "/images/complex/carousel/Q1.png",
+      image: "/images/complex/carousel/Q1.webp",
       year: "Q1 2025",
       title: "Подготовительные работы",
       description: "Разметка участка, вынос коммуникаций, установка ограждений, организация строительной площадки и начало земляных работ",
     },
     {
-      image: "/images/complex/carousel/Q2.png",
+      image: "/images/complex/carousel/Q2.webp",
       year: "Q2 2025",
       title: " Возведение несущего каркаса",
       description: "Заливка монолитного фундамента, возведение несущих конструкций и перекрытий. Гидроизоляция фундаментной плиты и стен, утепление стен подвала, устройство наружных инженерных сетей",
     },
     {
-      image: "/images/complex/carousel/Q3.png",
+      image: "/images/complex/carousel/Q3.webp",
       year: "Q3 2025",
       title: "Возведение несущего каркаса",
       description: "Монтаж инженерных внутридомовых коммуникаций, устройство монолитных  работ стен и перекрытий",
     },
     {
-      image: "/images/complex/carousel/Q4.png",
+      image: "/images/complex/carousel/Q4.webp",
       year: "Q4 2025",
       title: "Фасад, кровля и отделка МОПОВ",
       description: "Облицовка фасада, устройство кровли.Монтаж  окон и дверей, монтаж инженерного оборудования. Отделочные работы в местах общего пользования",

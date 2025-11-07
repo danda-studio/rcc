@@ -10,7 +10,6 @@ export interface Apartment {
     balcony?: number[];
     tambour?: number;
   };
-  floors: number[];
   image: {
     card: string;
     carousel: string[];

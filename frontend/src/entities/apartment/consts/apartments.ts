@@ -12,7 +12,6 @@ export const APARTMENTS: Apartment[] = [
       bathroom: 4.68,
       balcony: [4.23],
     },
-    floors: [2, 3, 4, 7, 8, 9, 11],
     image: {
       card: "/images/apartment/plan/1/a/3d.webp",
       carousel: [
@@ -32,7 +31,6 @@ export const APARTMENTS: Apartment[] = [
       bathroom: 4.60,
       balcony: [4.65],
     },
-    floors: [3, 4, 6, 7, 8, 9, 10],
     image: {
       card: "/images/apartment/plan/1/b/3d.webp",
       carousel: [
@@ -52,7 +50,6 @@ export const APARTMENTS: Apartment[] = [
       bathroom: 4.22,
       balcony: [4.65],
     },
-    floors: [3, 7, 9, 10],
     image: {
       card: "/images/apartment/plan/1/c/3d.webp",
       carousel: [
@@ -73,7 +70,6 @@ export const APARTMENTS: Apartment[] = [
       bathroom: 4.88,
       tambour: 2.32,
     },
-    floors: [2, 3, 6, 8, 9, 10, 11, 12],
     image: {
       card: "/images/apartment/plan/2/a/3d.webp",
       carousel: [
@@ -93,7 +89,6 @@ export const APARTMENTS: Apartment[] = [
       bathroom: 4.99,
       balcony: [4.65, 5.68],
     },
-    floors: [2, 3, 6, 8, 9, 10, 11, 12],
     image: {
       card: "/images/apartment/plan/2/b/3d.webp",
       carousel: [
@@ -113,7 +108,6 @@ export const APARTMENTS: Apartment[] = [
       bathroom: 4.68,
       balcony: [5.49],
     },
-    floors: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     image: {
       card: "/images/apartment/plan/2/c/3d.webp",
       carousel: [
@@ -133,7 +127,6 @@ export const APARTMENTS: Apartment[] = [
       bathroom: 6.29,
       balcony: [4.58],
     },
-    floors: [2, 3, 4, 10, 12],
     image: {
       card: "/images/apartment/plan/2/d/3d.webp",
       carousel: [
@@ -142,5 +135,4 @@ export const APARTMENTS: Apartment[] = [
       ],
     },
   },
-
 ];

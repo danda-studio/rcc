@@ -32,10 +32,6 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
         label: "Ванная",
         value: `${bathroom} м`,
       },
-      {
-        label: "Этажи",
-        value: floors.join(","),
-      },
     ];
     if (balcony) {
       els.push({

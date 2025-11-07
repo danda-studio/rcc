@@ -65,29 +65,6 @@ export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({ 
                 `}
                 >
                   <ApartmentCardModalFeatureImageCarousel {...apartment} />
-
-                  {/* <div className={`
-                    px-10
-                    flex
-                    flex-wrap
-                    justify-center
-                    gap-1
-                    md:gap-2
-                    mt-4
-                    md:mt-8
-                  `}
-                  >
-                    {apartment.image.carousel.map(r => (
-                      <Badge
-                        key={r}
-                        size="md"
-                        variant="glass"
-                        className="rounded-sm"
-                      >
-                        {r}
-                      </Badge>
-                    ))}
-                  </div> */}
                 </div>
               </div>
             )

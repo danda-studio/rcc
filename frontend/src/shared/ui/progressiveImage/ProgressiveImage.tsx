@@ -6,7 +6,7 @@ interface ProgressiveImageProps {
   src: string;
   alt: string;
   width?: number;
-  height?: number | string;
+  height?: number;
   className?: string;
   blurAmount?: number;
   transitionDuration?: number;

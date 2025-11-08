@@ -94,7 +94,7 @@ export const ComplexMortgageWidget: FC = () => {
               icon={<Wallet />}
               description={(
                 <>
-                  Первоначальный взнос 10,01 %
+                  Первоначальный взнос 10,1 %
                   <br />
                   Уникальные предложения от застройщика для участников СВО, многодетных семей и госслужащих
                 </>
@@ -159,7 +159,7 @@ export const ComplexMortgageWidget: FC = () => {
           width={192}
           height={108}
           alt="Hero image"
-          src="/images/complex/house-banner.png"
+          src="/images/complex/house-banner.webp"
           className={`
             absolute
             -bottom-28.25

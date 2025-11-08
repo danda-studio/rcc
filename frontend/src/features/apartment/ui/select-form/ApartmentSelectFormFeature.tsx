@@ -64,10 +64,6 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
     return data;
   }, [apartmentItems.secondary]);
 
-  // function onSubmit(data: z.infer<typeof formSchema>) {
-  //   console.log(data);
-  // }
-
   const apartamentId = form.watch("apartment");
 
   return (
@@ -132,6 +128,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
               contentClassName={`
                 md:shrink-0
                 max-md:max-w-88
+                max-md:min-w-88
               `}
               className="md:basis-208"
               {...field}
@@ -164,7 +161,6 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
           Подробнее
         </Button>
       </ApartmentCardModalFeature>
-
     </form>
   );
 };

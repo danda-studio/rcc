@@ -2,12 +2,10 @@ import type { FC } from "react";
 import type { ApartmentCarouselSelectItemProps } from "./types";
 import Image from "next/image";
 import { useMemo } from "react";
-import { Badge } from "@/shared/lib/shadcn/ui/badge";
 import { cn } from "@/shared/lib/shadcn/utils";
 
 export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemProps> = ({
   id,
-  floors,
   room,
   area: { total },
   image: { card },
@@ -119,72 +117,6 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
               object-contain
             `}
           />
-        </div>
-
-        <div className={`
-          flex
-          gap-2
-          has-[~input:checked]:hidden
-          mt-auto
-          overflow-hidden
-        `}
-        >
-          <Badge size="sm">
-            {id}
-          </Badge>
-
-          <Badge
-            size="sm"
-            className={`
-              max-w-full
-              !shrink
-              overflow-hidden
-            `}
-          >
-            <span className={`
-              overflow-hidden
-              text-ellipsis
-              w-full
-            `}
-            >
-              Этажи
-              {" "}
-              {floors.join(",")}
-            </span>
-          </Badge>
-        </div>
-        <div className={`
-          flex
-          gap-2
-          not-has-[~input:checked]:hidden
-          mt-auto
-          overflow-hidden
-        `}
-        >
-          <Badge variant="glass" size="md">
-            {id}
-          </Badge>
-
-          <Badge
-            variant="glass"
-            size="md"
-            className={`
-              max-w-full
-              !shrink
-              overflow-hidden
-            `}
-          >
-            <span className={`
-              overflow-hidden
-              text-ellipsis
-              w-full
-            `}
-            >
-              Этажи
-              {" "}
-              {floors.join(",")}
-            </span>
-          </Badge>
         </div>
 
         <input

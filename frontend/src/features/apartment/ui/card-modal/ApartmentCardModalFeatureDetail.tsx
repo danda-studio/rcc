@@ -9,7 +9,7 @@ import { cn } from "@/shared/lib/shadcn/utils";
 export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
   className?: string;
 }> = ({ room, area: { total, life, kitchen, hallway, bathroom, balcony, tambour,
-}, floors, className }) => {
+}, className }) => {
   const data = useMemo(() => {
     const els = [
       {
@@ -31,10 +31,6 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
       {
         label: "Ванная",
         value: `${bathroom} м`,
-      },
-      {
-        label: "Этажи",
-        value: floors.join(","),
       },
     ];
     if (balcony) {

@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 interface ProgressiveImageProps {
   src: string;
   alt: string;
-  width?: number | string;
+  width?: number;
   height?: number | string;
   className?: string;
   blurAmount?: number;

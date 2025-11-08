@@ -57,4 +57,5 @@ export const ProgressiveImage: React.FC<ProgressiveImageProps> = (props: Progres
       }}
     />
   );
+
 };

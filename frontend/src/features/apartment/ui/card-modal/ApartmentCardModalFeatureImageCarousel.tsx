@@ -4,7 +4,7 @@ import type { CarouselApi } from "@/shared/lib/shadcn/ui/carousel";
 import { useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/shared/lib/shadcn/ui/carousel";
 import { cn } from "@/shared/lib/shadcn/utils";
-import {ProgressiveImage} from "@/shared/ui/progressiveImage/ProgressiveImage";
+import { ProgressiveImage } from "@/shared/ui/progressiveImage/ProgressiveImage";
 
 export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
   className?: string;
@@ -70,12 +70,12 @@ export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
               `}
             >
               <ProgressiveImage
-                  className="object-contain w-full h-full"
-                  src={image}
-                  alt="Apartment image"
-                  width={956}
-                  height={535}
-                  objectFit="contain"
+                className="object-contain w-full h-full"
+                src={image}
+                alt="Apartment image"
+                width={956}
+                height={535}
+                objectFit="contain"
               />
             </CarouselItem>
           ))}

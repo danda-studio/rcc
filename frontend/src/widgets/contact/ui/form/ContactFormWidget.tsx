@@ -15,8 +15,8 @@ export const ContactFormWidget: FC = () => {
         alt="Hero image"
         src="/images/complex/banner.webp"
         className={`
-          absolute -bottom-22.5 -left-51.75 min-h-107.75 min-w-191.5
-          md:-bottom-30 md:left-95.5 md:h-270 md:w-480
+          absolute -bottom-22.5 -left-82 min-h-80 min-w-180
+          md:-bottom-30 md:left-10 md:h-224 md:w-480
         `}
       />
 

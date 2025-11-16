@@ -11,15 +11,25 @@ export const ComplexFooterWidget: FC = () => {
       md:pr-10 md:pl-10
     `}
     >
-      <h1 className={`
+      <div className="flex flex-col mb-6">
+        <h1 className={`
         mb-6 bg-linear-(--linear-5) bg-clip-text text-2-2xl font-medium
         -tracking-lg text-transparent
         max-md:mx-1
         md:mb-18.5 md:text-center md:text-7xl
       `}
-      >
-        Олимпийский
-      </h1>
+        >
+          Олимпийский
+        </h1>
+
+        <h2 className={`
+       hidden text-4-5xl font-medium -tracking-md text-blue-6
+       md:inline  md:text-center mb-[4.6rem]
+      `}
+        >
+          г. Мариуполь, ул. Киевская, 59Б
+        </h2>
+      </div>
 
       <div className={`
         flex flex-col items-start justify-between
@@ -81,7 +91,15 @@ export const ComplexFooterWidget: FC = () => {
             md:hidden
           `}
           >
-            +79499046784
+            +7 915 260-03-33
+          </span>
+
+          <span className={`
+            mt-4 text-lg-x leading-[0.92] font-medium -tracking-md text-blue-6
+            md:hidden
+          `}
+          >
+            +7 949 904-67-84
           </span>
 
           <Link
@@ -108,11 +126,18 @@ export const ComplexFooterWidget: FC = () => {
 
         <div className="flex flex-col items-end">
           <span className={`
-            hidden text-4-5xl font-medium -tracking-md text-blue-6
+            hidden text-md-x font-medium -tracking-md text-blue-6
+            md:inline mb-[2.5rem]
+          `}
+          >
+            +7 915 260-03-33
+          </span>
+          <span className={`
+            hidden text-md-x font-medium -tracking-md text-blue-6
             md:inline
           `}
           >
-            +79499046784
+            +7 949 904-67-84
           </span>
 
           <Link

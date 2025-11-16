@@ -126,14 +126,14 @@ export const ComplexFooterWidget: FC = () => {
 
         <div className="flex flex-col items-end">
           <span className={`
-            hidden text-4-5xl font-medium -tracking-md text-blue-6
+            hidden text-md-x font-medium -tracking-md text-blue-6
             md:inline mb-[2.5rem]
           `}
           >
             +7 915 260-03-33
           </span>
           <span className={`
-            hidden text-4-5xl font-medium -tracking-md text-blue-6
+            hidden text-md-x font-medium -tracking-md text-blue-6
             md:inline
           `}
           >

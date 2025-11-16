@@ -83,7 +83,6 @@ export const ComplexConstructionWidget = () => {
           Следите за каждым этапом — от фундамента до новоселья.
         </p>
       </div>
-
       <Carousel
         setApi={setApi}
         className={`

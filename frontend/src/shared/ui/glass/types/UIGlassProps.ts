@@ -4,5 +4,6 @@ export interface UIGlassProps {
   children: ReactNode;
   className?: string;
   border?: "corner" | "corner-fixed" | "default";
+  color?: "default" | "gold";
   onClick?: () => void;
 }

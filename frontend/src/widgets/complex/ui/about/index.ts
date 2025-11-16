@@ -1,1 +1,1 @@
-export { ComplexAboutWidget } from "./ComplexAbout";
+export { ComplexAboutWidget } from "./ComplexAboutWidget";

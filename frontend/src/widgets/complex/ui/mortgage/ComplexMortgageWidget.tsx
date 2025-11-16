@@ -9,11 +9,12 @@ export const ComplexMortgageWidget: FC = () => {
   return (
 
     <section className={`
-      relative h-284.75 overflow-hidden rounded-md bg-radial-(--radial-4)
+      relative h-307.25 overflow-hidden rounded-md bg-radial-(--radial-4)
       text-white
       md:h-295.75 md:bg-radial-(--radial-3)
     `}
     >
+
       <div className={`
         absolute inset-0 px-3 py-8
         max-md:pb-3
@@ -38,42 +39,16 @@ export const ComplexMortgageWidget: FC = () => {
 
           <p className={`
             w-69.25 text-base leading-[1.2]
-            md:w-135.5 md:text-lg
+            md:w-178.5 md:text-lg
           `}
           >
             Не упустите возможность!
-            <br />
+            {" "}
             <span className="text-white/40">
               Закажите обратный звонок, чтобы узнать подробности!
             </span>
           </p>
 
-          <div className={`
-            mt-10 grid w-full grid-cols-1 gap-x-4 gap-y-7 pr-1
-            md:mt-auto md:w-222 md:grid-cols-2 md:gap-y-9 md:pr-8
-          `}
-          >
-            <UIInfo
-              icon={<Users />}
-              description="Для данного объекта недвижимости доступна Госпрограмма для новых регионов со ставкой 2% и сроком до 30 лет"
-            />
-
-            <UIInfo
-              icon={<Wallet />}
-              description={(
-                <>
-                  Первоначальный взнос 10,1 %
-                  <br />
-                  Уникальные предложения от застройщика для участников СВО, многодетных семей и госслужащих
-                </>
-              )}
-            />
-
-            <UIInfo
-              icon={<TicketPercent />}
-              description="Льготные категорим граждан: участникам СВО, сотрудникам госучреждений, многодетным семьям"
-            />
-          </div>
         </div>
       </div>
 
@@ -81,58 +56,64 @@ export const ComplexMortgageWidget: FC = () => {
         width={1920}
         height={1080}
         alt="Hero image"
-        src="/images/complex/house-banner.png"
+        src="/images/buildings/2.webp"
         className={`
-          absolute -bottom-28.25 left-8 min-w-108.5
-          md:-bottom-14.25 md:left-250.25 md:h-280.25 md:w-280.25
+          absolute right-0 bottom-0 h-269.75 w-216
+          max-md:hidden
         `}
       />
+      <Image
+        width={1920}
+        height={1080}
+        alt="Hero image"
+        src="/images/buildings/2-md.webp"
+        className={`
+          absolute right-0 bottom-2.5 z-10 h-94.5 w-79
+          md:hidden
+        `}
+      />
+
       <div className={`
         absolute bottom-0 left-1/2 h-40 w-full overflow-hidden
         bg-linear-(--linear-4)
-        max-md:-translate-x-1/2
-        md:left-98 md:h-72 md:w-480
+        max-md:z-10 max-md:-translate-x-1/2
+        md:left-0 md:h-72 md:w-480
       `}
       />
 
-      {/* <div className={`
-        absolute
-        left-1/2
-        max-md:-translate-x-1/2
-        md:left-241.25
-        bottom-0
-        w-full
-        md:w-230.75
-        h-34
-        md:h-47.5
-        overflow-hidden
-        bg-blue-6/9
-        blur-lg
+      <div className={`
+        absolute bottom-85.25 left-3 grid grid-cols-1 gap-x-4 gap-y-3.25 pr-1
+        max-md:right-3
+        md:bottom-15 md:left-10 md:w-246 md:grid-cols-2 md:gap-y-4 md:pr-0
       `}
       >
-        <Image
-          width={192}
-          height={108}
-          alt="Hero image"
-          src="/images/complex/house-banner.webp"
-          className={`
-            absolute
-            -bottom-28.25
-            md:-bottom-14.25
-            left-8
-            md:left-9
-            min-w-108.5
-            md:min-w-280.25
-            md:min-h-280.25
-          `}
+        <UIInfo
+          icon={<Users />}
+          description="Ипотека 2% для всех граждан РФ на 30 лет"
         />
-      </div> */}
+
+        <UIInfo
+          icon={<Wallet />}
+          description={(
+            <>
+              Первоначальный взнос 10,1 %
+              <br />
+              Сумма до 6 000 000 рублей
+            </>
+          )}
+        />
+
+        <UIInfo
+          icon={<TicketPercent />}
+          description="Специальные предложения от застройщика участникам СВО, госслужащим и многодетным семьям"
+        />
+      </div>
 
       <ContactFormModalFeature>
         <Button
           className={`
             absolute bottom-3
-            max-md:inset-x-3
+            max-md:inset-x-3 max-md:z-10
             md:right-11 md:bottom-15
           `}
           variant="outline"

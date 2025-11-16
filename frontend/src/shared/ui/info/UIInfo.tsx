@@ -10,7 +10,11 @@ const colorVariants: Record<NonNullable<UIInfoProps["color"]>, string> = {
 
 export const UIInfo: FC<UIInfoProps> = ({ icon, description, className, color = "default" }) => {
   return (
-    <div className={cn("-m-px flex flex-col rounded-md p-8", colorVariants[color], className)}>
+    <div className={cn(`
+      -m-px flex flex-col rounded-md p-6
+      md:p-8
+    `, colorVariants[color], className)}
+    >
       <div className="mb-5 flex">
         <UIGlass
           className={`

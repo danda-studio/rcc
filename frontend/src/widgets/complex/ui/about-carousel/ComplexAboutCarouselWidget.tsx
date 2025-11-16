@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from "@/shared/lib/shadcn/ui/carousel";
 
-export const ComplexAboutWidget: FC = () => {
+export const ComplexAboutCarouselWidget: FC = () => {
   return (
     <section className={`
       relative w-full bg-white px-3

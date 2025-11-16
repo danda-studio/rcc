@@ -11,10 +11,16 @@ const borderVariants: Record<NonNullable<UIGlassProps["border"]>, string> = {
   "default": "before:absolute before:inset-0 -before:z-10 before:bg-radial-(--radial-2) before:[clip-path:var(--clip-path-3)] md:before:[clip-path:var(--clip-path-1)]",
 };
 
+const colorVariants: Record<NonNullable<UIGlassProps["color"]>, string> = {
+  default: "bg-white/9",
+  gold: "bg-gold-2/11 text-gold-4 before:border-gold-4/80!",
+};
+
 export const UIGlass: FC<UIGlassProps> = ({
   children,
   className,
   border = "default",
+  color = "default",
   onClick,
 }) => {
   return (
@@ -22,10 +28,11 @@ export const UIGlass: FC<UIGlassProps> = ({
       onClick={onClick}
       className={cx(
         `
-          shadow-1 overflow-hidden rounded-sm bg-white/9 backdrop-blur-md
+          shadow-1 overflow-hidden rounded-sm backdrop-blur-md
           md:rounded-md
         `,
         borderVariants[border],
+        colorVariants[color],
         className,
       )}
     >

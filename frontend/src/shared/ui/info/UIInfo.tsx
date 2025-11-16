@@ -1,29 +1,33 @@
 import type { FC } from "react";
 import type { UIInfoProps } from "./types";
+import { cn } from "@/shared/lib/shadcn/utils";
 import { UIGlass } from "../glass";
 
-export const UIInfo: FC<UIInfoProps> = ({ icon, description }) => {
+const colorVariants: Record<NonNullable<UIInfoProps["color"]>, string> = {
+  default: "bg-white",
+  gray: "border border-gray-7 bg-gray-1 box-content",
+};
+
+export const UIInfo: FC<UIInfoProps> = ({ icon, description, className, color = "default" }) => {
   return (
-    <div className="flex flex-col">
-      <div className={`
-        mb-7.5 flex
-        md:mb-12.5
-      `}
-      >
+    <div className={cn("-m-px flex flex-col rounded-md p-8", colorVariants[color], className)}>
+      <div className="mb-5 flex">
         <UIGlass
           className={`
-            inline-block p-5
+            inline-block p-4.5
             before:border-[calc(1.62/16*1rem)] before:border-white/80
+            md:p-5
             [&_svg]:size-6
           `}
           border="corner"
+          color="gold"
         >
           {icon}
         </UIGlass>
       </div>
       <p className={`
-        text-base leading-[1.2] -tracking-sm
-        md:text-md
+        text-base leading-[1.2] font-medium -tracking-sm text-blue-6
+        md:text-md-x
       `}
       >
         {description}

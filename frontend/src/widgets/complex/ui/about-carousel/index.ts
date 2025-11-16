@@ -1,0 +1,1 @@
+export { ComplexAboutCarouselWidget } from "./ComplexAboutCarouselWidget";

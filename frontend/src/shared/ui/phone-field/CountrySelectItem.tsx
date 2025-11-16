@@ -17,50 +17,19 @@ export const CountrySelectItem = memo(({
     <div
       onClick={handleClick}
       className={`
-        cursor-pointer
-        border-none
-        rounded-md
-        py-3
-        px-3
+        w-full cursor-pointer rounded-md border-none px-3 py-3 transition-colors
         hover:bg-gray-3
-        w-full
-        transition-colors
       `}
     >
-      <div className={`
-        w-full
-        flex
-        items-center
-        justify-between
-        gap-4
-      `}
-      >
-        <div className={`
-          w-full
-          flex
-          items-center
-          gap-3
-          min-w-0
-          flex-1
-        `}
-        >
+      <div className="flex w-full items-center justify-between gap-4">
+        <div className="flex w-full min-w-0 flex-1 items-center gap-3">
           <CountryFlag region={country.region} />
-          <span className={`
-            text-sm
-            font-normal
-            truncate
-          `}
-          >
+          <span className="truncate text-sm font-normal">
             {country.countryName}
           </span>
         </div>
         <span className={`
-          float-right
-          text-sm
-          text-gray-11
-          flex-shrink-0
-          ml-auto
-          tabular-nums
+          float-right ml-auto flex-shrink-0 text-sm text-gray-11 tabular-nums
         `}
         >
           {country.countryPhoneCode}

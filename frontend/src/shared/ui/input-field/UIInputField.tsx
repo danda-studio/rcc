@@ -22,27 +22,15 @@ export const UIInputField: FC<ControlledUIInputFieldProps> = ({
   className,
 }) => {
   return (
-    <Field className={`
-      relative
-      bg-gray-3
-      rounded-md
-    `}
-    >
+    <Field className="relative rounded-md bg-gray-3">
       <FieldLabel
         className={`
-          z-0
-          absolute
-          text-gray-5
-          px-3.5
-          has-[+input:focus,+input:not(:placeholder-shown)]:top-2.25
-          top-1/2
-          has-[+input:focus,+input:not(:placeholder-shown)]:translate-y-0
-          -translate-y-1/2
-          has-[+input:focus,+input:not(:placeholder-shown)]:text-xxs
-          [&+input]:pb-2.25
-          [&+input]:pt-5.75
-          [&+input]:leading-5
+          absolute top-1/2 z-0 -translate-y-1/2 px-3.5 text-gray-5
           transition-all
+          has-[+input:focus,+input:not(:placeholder-shown)]:top-2.25
+          has-[+input:focus,+input:not(:placeholder-shown)]:translate-y-0
+          has-[+input:focus,+input:not(:placeholder-shown)]:text-xxs
+          [&+input]:pt-5.75 [&+input]:pb-2.25 [&+input]:leading-5
         `}
         htmlFor={id}
       >
@@ -57,22 +45,14 @@ export const UIInputField: FC<ControlledUIInputFieldProps> = ({
         onBlur={onBlur}
         required
         className={`
-          z-10
-          bg-transparent
+          z-10 bg-transparent
           ${className ?? ""}
           ${error ? "border-red-1" : ""}
         `}
       />
 
       {error && (
-        <span className={`
-          top-full
-          absolute
-          text-xxs
-          leading-none
-          text-red-1
-        `}
-        >
+        <span className="absolute top-full text-xxs leading-none text-red-1">
           {error}
         </span>
       )}

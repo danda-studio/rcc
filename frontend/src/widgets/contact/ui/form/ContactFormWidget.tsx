@@ -5,15 +5,8 @@ import { ContactFormFeature } from "@/features/contact";
 export const ContactFormWidget: FC = () => {
   return (
     <section className={`
-      -mt-12
-      md:-mt-24
-      relative
-      overflow-hidden
-      bg-gray-1
-      border-gray-7
-      rounded-md
-      h-208
-      md:h-193.75
+      relative -mt-12 h-208 overflow-hidden rounded-md border-gray-7 bg-gray-1
+      md:-mt-24 md:h-193.75
     `}
     >
       <Image
@@ -22,25 +15,14 @@ export const ContactFormWidget: FC = () => {
         alt="Hero image"
         src="/images/complex/banner.webp"
         className={`
-          absolute
-          -left-51.75
-          md:left-95.5
-          -bottom-22.5
-          md:-bottom-30
-          min-w-191.5
-          md:w-480
-          min-h-107.75
-          md:h-270
+          absolute -bottom-22.5 -left-51.75 min-h-107.75 min-w-191.5
+          md:-bottom-30 md:left-95.5 md:h-270 md:w-480
         `}
       />
 
       <div className={`
-        absolute
-        inset-0
-        px-4
-        md:px-10
-        py-8
-        md:py-15
+        absolute inset-0 px-4 py-8
+        md:px-10 md:py-15
       `}
       >
         <div className={`
@@ -49,12 +31,8 @@ export const ContactFormWidget: FC = () => {
         `}
         >
           <h2 className={`
-            font-medium
-            text-blue-6
-            text-lg-x
-            md:text-4-5xl
-            mb-7
-            md:mb-4
+            mb-7 text-lg-x font-medium text-blue-6
+            md:mb-4 md:text-4-5xl
           `}
           >
             Готовы к
@@ -63,13 +41,8 @@ export const ContactFormWidget: FC = () => {
           </h2>
 
           <p className={`
-            text-gray-4
-            font-medium
-            leading-[1.2]
-            text-base
-            md:text-md-x
-            md:mb-15
-            mb-7
+            mb-7 text-base leading-[1.2] font-medium text-gray-4
+            md:mb-15 md:text-md-x
           `}
           >
             Оставьте заявку — и наш специалист поможет выбрать квартиру в
@@ -80,10 +53,7 @@ export const ContactFormWidget: FC = () => {
           <ContactFormFeature />
 
           <p className={`
-            mt-3.5
-            max-w-86
-            text-xxs
-            text-gray-4
+            mt-3.5 max-w-86 text-xxs text-gray-4
             md:text-xs
           `}
           >

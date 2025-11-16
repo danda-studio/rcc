@@ -62,38 +62,22 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
   }, [room]);
 
   return (
-    <div className={cn(`
-      flex
-      flex-col
-      items-start
-    `, className)}
-    >
+    <div className={cn(`flex flex-col items-start`, className)}>
       <DialogHeader className={`
         !gap-0
         max-md:mb-8
       `}
       >
         <DialogTitle className={`
-          font-medium
-          text-left
+          mb-4 max-w-111.5 text-left text-md-l font-medium -tracking-md
           text-blue-6
-          -tracking-md
-          max-w-111.5
-          text-md-l
-          md:text-4-5xl
-          mb-4
-          md:mb-6
+          md:mb-6 md:text-4-5xl
         `}
         >
           {title}
         </DialogTitle>
         <DialogDescription className={`
-          text-left
-          -tracking-sm
-          font-medium
-          leading-[1.2]
-          text-gray-4
-          text-base
+          text-left text-base leading-[1.2] font-medium -tracking-sm text-gray-4
           md:text-md-x
         `}
         >
@@ -102,46 +86,26 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
       </DialogHeader>
 
       <div className={`
+        mt-auto mb-4 grid grid-cols-[1fr_fit-content(7.5rem)] gap-3 text-nowrap
         max-md:w-53.25
-        mt-auto
-        mb-4
-        md:mb-7
-        grid
-        grid-cols-[1fr_fit-content(7.5rem)]
-        md:grid-cols-[fit-content(7.5rem)_1fr_fit-content(7.5rem)_1fr]
-        gap-3
+        md:mb-7 md:grid-cols-[fit-content(7.5rem)_1fr_fit-content(7.5rem)_1fr]
         md:gap-4
-        text-nowrap
       `}
       >
         {data.map(({ label, value }) => (
           <Fragment key={label}>
-            <div className={`
-              flex
-              items-center
-            `}
-            >
+            <div className="flex items-center">
               <span className={`
-                leading-[1.2]
-                text-gray-4
-                font-medium
-                text-xs
+                text-xs leading-[1.2] font-medium text-gray-4
                 md:text-base
               `}
               >
                 {label}
               </span>
             </div>
-            <div className={`
-              flex
-              items-center
-            `}
-            >
+            <div className="flex items-center">
               <span className={`
-                leading-[1.2]
-                text-blue-6
-                font-medium
-                text-base
+                text-base leading-[1.2] font-medium text-blue-6
                 md:text-md
               `}
               >
@@ -155,8 +119,8 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
       <ContactFormModalFeature>
         <Button
           className={`
-            max-md:w-full
             px-10
+            max-md:w-full
           `}
           size="md"
         >

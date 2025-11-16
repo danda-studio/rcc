@@ -86,32 +86,15 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
   }, []);
 
   return (
-    <Field className={`
-      relative
-      flex
-      flex-row
-      !gap-0
-    `}
-    >
+    <Field className="relative flex flex-row !gap-0">
       <label
         htmlFor={id}
         className={`
-          pl-2
-          pr-2.5
-          items-center
-          z-20
-          shrink-0
-          inline-flex
-          !w-fit
-          bg-gray-3
-          rounded-tl-md
-          rounded-bl-md
-          border-s
-          border-y
-          border-gray-2
-          has-[+div_input:hover]:border-blue-6
-          has-[+div_input:focus]:border-blue-6
+          z-20 inline-flex !w-fit shrink-0 items-center rounded-tl-md
+          rounded-bl-md border-y border-s border-gray-2 bg-gray-3 pr-2.5 pl-2
           has-[+div_input.border-red-1]:border-red-1
+          has-[+div_input:focus]:border-blue-6
+          has-[+div_input:hover]:border-blue-6
         `}
       >
         <Select
@@ -122,50 +105,26 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
           <SelectTrigger
             aria-label="Выбрать код страны"
             className={`
-              border-none
-              !bg-gray-8
-              h-9
-              gap-1.5
-              !focus:outline-none
-              focus-visible:border-none
-              focus-visible:ring-offset-0
-              !data-[state=open]:outline-none
-              !data-[state=open]:ring-0
-              !data-[state=open]:border-none
-              focus-visible:ring-0
-              focus-visible:ring-transparent
+              h-9 gap-1.5 rounded-xs border-none border-r-gray-6 bg-gray-8!
+              focus:outline-none!
+              focus-visible:border-none focus-visible:ring-0
+              focus-visible:ring-transparent focus-visible:ring-offset-0
               focus-visible:outline-none
+              data-[state=open]:border-none! data-[state=open]:ring-0!
+              data-[state=open]:outline-none!
               [&>svg]:hidden
-              rounded-xs
-              border-r-gray-6
             `}
           >
             <SelectValue>
-              <div className={`
-                flex
-                items-center
-                gap-1.5
-              `}
-              >
+              <div className="flex items-center gap-1.5">
                 {selectedCountry
                   ? (
                       <CountryFlag region={selectedCountry.region} />
                     )
                   : (
-                      <div className={`
-                        size-4
-                        bg-gray-6
-                        rounded-full
-                        shrink-0
-                      `}
-                      />
+                      <div className="size-4 shrink-0 rounded-full bg-gray-6" />
                     )}
-                <span className={`
-                  text-sm
-                  text-blue-6
-                  whitespace-nowrap
-                `}
-                >
+                <span className="text-sm whitespace-nowrap text-blue-6">
                   {value.code ? value.code.split("-")[0] : "+7"}
                 </span>
                 <svg
@@ -174,10 +133,7 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
                   viewBox="0 0 10 10"
                   fill="none"
                   className={`
-                    text-gray-10
-                    flex-shrink-0
-                    transition-transform
-                    duration-200
+                    flex-shrink-0 text-gray-10 transition-transform duration-200
                     ${
     isOpen ? "rotate-180" : ""
     }
@@ -195,25 +151,15 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
             </SelectValue>
           </SelectTrigger>
           <SelectContent
-            className={`
-              bg-gray-2
-              -left-2
-              mt-1
-              border-none
-            `}
+            className="-left-2 mt-1 border-none bg-gray-2"
             align="start"
             sideOffset={4}
           >
             <div>
               <div className="relative">
                 <Search className={`
-                  absolute
-                  left-3
-                  top-1/2
-                  -translate-y-1/2
-                  size-4
-                  text-gray-12
-                  pointer-events-none
+                  pointer-events-none absolute top-1/2 left-3 size-4
+                  -translate-y-1/2 text-gray-12
                 `}
                 />
 
@@ -223,17 +169,9 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
                   value={searchQuery}
                   onChange={handleSearchChange}
                   className={`
-                    w-full
-                    placeholder-gray-5
-                    h-10
-                    bg-gray-3
-                    border-none
-                    rounded-md
-                    pl-10
-                    pr-3
-                    text-sm
-                    focus:outline-none
-                    focus:ring-0
+                    h-10 w-full rounded-md border-none bg-gray-3 pr-3 pl-10
+                    text-sm placeholder-gray-5
+                    focus:ring-0 focus:outline-none
                   `}
                   onKeyDown={e => e.stopPropagation()}
                 />
@@ -243,17 +181,9 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
             {filteredCountries.length === 0
               ? (
                   <div className={`
-                    h-[10rem]
-                    w-[19.50rem]
+                    mt-3 flex h-[10rem] w-[19.50rem] flex-col justify-center p-2
+                    text-center text-sm text-gray-11
                     md:w-[27.55rem]
-                    flex
-                    flex-col
-                    justify-center
-                    p-2
-                    mt-3
-                    text-center
-                    text-sm
-                    text-gray-11
                   `}
                   >
                     Ничего не найдено
@@ -263,12 +193,8 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
                   <div
                     ref={parentRef}
                     className={`
-                      max-h-[19.5rem]
+                      mt-3 max-h-[19.5rem] w-[19.5rem] overflow-y-auto p-2
                       md:w-[29.6rem]
-                      w-[19.5rem]
-                      overflow-y-auto
-                      p-2
-                      mt-3
                     `}
                   >
                     <div
@@ -305,24 +231,14 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
         </Select>
       </label>
 
-      <div className={`
-        relative
-        grow
-      `}
-      >
+      <div className="relative grow">
         <FieldLabel
           className={`
-            absolute
-            z-10
-            left-0
-            text-gray-5
+            pointer-events-none absolute top-1/2 left-0 z-10 -translate-y-1/2
+            text-gray-5 transition-all
             has-[+input:focus,+input:not(:placeholder-shown)]:top-2.25
-            top-1/2
             has-[+input:focus,+input:not(:placeholder-shown)]:translate-y-0
-            -translate-y-1/2
             has-[+input:focus,+input:not(:placeholder-shown)]:text-xxs
-            pointer-events-none
-            transition-all
           `}
           htmlFor={id}
         >
@@ -335,26 +251,14 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
           value={value.number}
           onChange={handleNumberChange}
           className={cn(`
-            !border-l-0
-            rounded-tl-none
-            rounded-bl-none
-            pb-2.25
-            pt-5.75
+            rounded-tl-none rounded-bl-none !border-l-0 pt-5.75 pb-2.25 !pl-0
             leading-5
-            !pl-0
           `, error && "border-red-1")}
         />
 
       </div>
       {error && (
-        <span className={`
-          top-full
-          absolute
-          text-xxs
-          leading-none
-          text-red-1
-        `}
-        >
+        <span className="absolute top-full text-xxs leading-none text-red-1">
           {error}
         </span>
       )}

@@ -65,11 +65,7 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
     <div className={cn(`text-blue-6`, className)}>
       <form
         noValidate
-        className={`
-          flex
-          flex-col
-          gap-3.5
-        `}
+        className="flex flex-col gap-3.5"
         onSubmit={onSubmit}
       >
         <Controller
@@ -130,10 +126,7 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
           <Button
             type="submit"
             size="md"
-            className={`
-              w-full
-              cursor-pointer
-            `}
+            className="w-full cursor-pointer"
           >
             {
               mutation.isPending

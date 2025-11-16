@@ -9,45 +9,26 @@ export const ComplexMortgageWidget: FC = () => {
   return (
 
     <section className={`
-      bg-radial-(--radial-4)
-      md:bg-radial-(--radial-3)
-      h-284.75
-      md:h-295.75
+      relative h-284.75 overflow-hidden rounded-md bg-radial-(--radial-4)
       text-white
-      relative
-      rounded-md
-      overflow-hidden
+      md:h-295.75 md:bg-radial-(--radial-3)
     `}
     >
       <div className={`
-        absolute
-        inset-0
-        px-3
-        md:px-10
-        py-8
+        absolute inset-0 px-3 py-8
         max-md:pb-3
-        md:py-15
+        md:px-10 md:py-15
       `}
       >
         <div className={`
-          w-full
+          flex h-full w-full flex-col items-start
           md:w-291
-          h-full
-          flex
-          flex-col
-          items-start
         `}
         >
           <h1 className={`
-            text-3xl
-            md:text-6-5xl
-            mb-5
-            md:mb-8
-            font-medium
-            bg-linear-(--linear-1)
-            bg-clip-text
-            text-transparent
-            -tracking-md
+            mb-5 bg-linear-(--linear-1) bg-clip-text text-3xl font-medium
+            -tracking-md text-transparent
+            md:mb-8 md:text-6-5xl
           `}
           >
             Ипотека
@@ -56,11 +37,8 @@ export const ComplexMortgageWidget: FC = () => {
           </h1>
 
           <p className={`
-            text-base
-            md:text-lg
-            leading-[1.2]
-            w-69.25
-            md:w-135.5
+            w-69.25 text-base leading-[1.2]
+            md:w-135.5 md:text-lg
           `}
           >
             Не упустите возможность!
@@ -71,18 +49,8 @@ export const ComplexMortgageWidget: FC = () => {
           </p>
 
           <div className={`
-            grid
-            grid-cols-1
-            md:grid-cols-2
-            gap-x-4
-            gap-y-7
-            md:gap-y-9
-            w-full
-            md:w-222
-            pr-1
-            md:pr-8
-            mt-10
-            md:mt-auto
+            mt-10 grid w-full grid-cols-1 gap-x-4 gap-y-7 pr-1
+            md:mt-auto md:w-222 md:grid-cols-2 md:gap-y-9 md:pr-8
           `}
           >
             <UIInfo
@@ -115,28 +83,15 @@ export const ComplexMortgageWidget: FC = () => {
         alt="Hero image"
         src="/images/complex/house-banner.png"
         className={`
-          absolute
-          left-8
-          md:left-250.25
-          -bottom-28.25
-          md:-bottom-14.25
-          min-w-108.5
-          md:w-280.25
-          md:h-280.25
+          absolute -bottom-28.25 left-8 min-w-108.5
+          md:-bottom-14.25 md:left-250.25 md:h-280.25 md:w-280.25
         `}
       />
       <div className={`
-        absolute
-        left-1/2
+        absolute bottom-0 left-1/2 h-40 w-full overflow-hidden
+        bg-linear-(--linear-4)
         max-md:-translate-x-1/2
-        md:left-98
-        bottom-0
-        w-full
-        md:w-480
-        h-40
-        md:h-72
-        overflow-hidden
-        bg-liner-8
+        md:left-98 md:h-72 md:w-480
       `}
       />
 
@@ -176,11 +131,9 @@ export const ComplexMortgageWidget: FC = () => {
       <ContactFormModalFeature>
         <Button
           className={`
-            absolute
+            absolute bottom-3
             max-md:inset-x-3
-            md:right-11
-            bottom-3
-            md:bottom-15
+            md:right-11 md:bottom-15
           `}
           variant="outline"
           size="lg"

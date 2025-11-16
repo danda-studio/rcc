@@ -6,18 +6,9 @@ import React from "react";
 
 export const CarouselCard: FC<CarouselCardProps> = ({ image, year, title, description }) => (
   <div className={`
-    h-[21.25rem]
-    w-75
-    md:w-110
-    md:h-[35rem]
-    rounded-xs
-    relative
-    flex
-    flex-col
-    justify-between
-    overflow-hidden
-    p-6
-    text-white
+    relative flex h-[21.25rem] w-75 flex-col justify-between overflow-hidden
+    rounded-xs p-6 text-white
+    md:h-[35rem] md:w-110
   `}
   >
     <Image
@@ -26,46 +17,26 @@ export const CarouselCard: FC<CarouselCardProps> = ({ image, year, title, descri
       width={400}
       height={400}
       className={`
-        absolute
-        bottom-0
-        rounded-xs
-        md:rounded-0
-        left-1/2
-        -translate-x-1/2
-        w-full
-        h-full
+        absolute bottom-0 left-1/2 z-0 h-full w-full -translate-x-1/2 rounded-xs
         object-cover
-        z-0
+        md:rounded-none
       `}
     />
-    <div className={`
-      relative
-      z-10
-      flex
-      flex-col
-      justify-between
-      h-full
-    `}
-    >
+    <div className="relative z-10 flex h-full flex-col justify-between">
       <div className={`
+        flex flex-col items-baseline gap-6
         md:pl-0
-        items-baseline
-        flex
-        flex-col
-        gap-6
       `}
       >
         <h3 className={`
-          text-2xl
+          text-2xl text-white
           md:text-3xl
-          text-white
         `}
         >
           {year}
         </h3>
         <span className={`
-          font-medium
-          text-md-x
+          text-md-x font-medium
           md:text-lg
         `}
         >
@@ -74,17 +45,13 @@ export const CarouselCard: FC<CarouselCardProps> = ({ image, year, title, descri
       </div>
       <div>
         <div className={`
+          flex items-baseline
           md:pl-0
-          flex
-          items-baseline
         `}
         >
           <p className={`
-            ml-1.5
-            text-sm
+            ml-1.5 text-sm font-medium text-white/72
             md:text-md
-            font-medium
-            text-white/72
           `}
           >
             {description}

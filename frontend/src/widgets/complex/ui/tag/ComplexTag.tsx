@@ -11,28 +11,20 @@ export const ComplexTag: FC<ComplexTagProps> = ({
   return (
     <UIGlass
       className={cx(className, `
-        p-4
-        md:p-6
-        pr-8
-        md:pr-15
+        p-4 pr-8
+        md:p-6 md:pr-15
       `)}
     >
       {title && (title.start || title.middle || title.end) && (
         <p className={`
-          mb-10
-          md:mb-15
-          leading-7.25
-          h-7.25
-          md:h-11.5
-          md:leading-11.5
+          mb-10 h-7.25 leading-7.25 -tracking-sm
+          md:mb-15 md:h-11.5 md:leading-11.5
         `}
         >
           {title.start && (
             <span className={`
-              text-xs
+              text-xs leading-[inherit] font-medium
               md:text-md
-              font-medium
-              leading-[inherit]
             `}
             >
               {title.start}
@@ -40,11 +32,8 @@ export const ComplexTag: FC<ComplexTagProps> = ({
           )}
           {title.middle && (
             <span className={`
-              text-xl
+              ml-0.75 text-xl leading-[inherit] font-semibold
               md:text-4xl
-              font-semibold
-              ml-0.75
-              leading-[inherit]
             `}
             >
               {title.middle}
@@ -52,11 +41,8 @@ export const ComplexTag: FC<ComplexTagProps> = ({
           )}
           {title.end && (
             <span className={`
-              text-md
+              ml-0.75 text-md leading-[inherit] font-semibold
               md:text-lg
-              font-semibold
-              ml-0.75
-              leading-[inherit]
             `}
             >
               {title.end}
@@ -65,8 +51,8 @@ export const ComplexTag: FC<ComplexTagProps> = ({
         </p>
       )}
       <p className={`
-        text-xs
-        md:text-md
+        text-xs -tracking-sm
+        md:text-lg
       `}
       >
         {description}

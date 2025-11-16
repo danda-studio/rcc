@@ -19,32 +19,21 @@ export const ApartmentCountRoomSelect: FC<ApartmentCountRoomSelectProps> = ({ va
     return title;
   }, []);
   return (
-    <div className={`
-      flex
-      gap-3
-    `}
-    >
+    <div className="flex gap-3">
       {counts.map(count => (
         <label key={count}>
           <Badge
             className={`
-              relative
-              cursor-pointer
-              has-[input:checked]:bg-white
+              relative cursor-pointer
+              has-[input:checked]:bg-white has-[input:checked]:text-blue-6
               has-[input:checked]:before:hidden
-              has-[input:checked]:text-blue-6
             `}
             size="lg"
             variant="glass"
           >
             {title(count)}
             <input
-              className={`
-                absolute
-                inset-0
-                opacity-0
-                cursor-pointer
-              `}
+              className="absolute inset-0 cursor-pointer opacity-0"
               type="radio"
               name="ApartmentCountRoom"
               value={count}

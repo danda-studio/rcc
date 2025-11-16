@@ -31,64 +31,38 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
     <div
       onClick={onClick}
       className={cn(`
-        relative
-        flex
-        flex-col
-        p-4
-        md:has-[input:checked]:p-6
-        not-has-[input:checked]:bg-white
-        not-has-[input:checked]:before:hidden
+        relative flex flex-col p-4
+        not-has-[input:checked]:min-h-75 not-has-[input:checked]:rounded-md
+        not-has-[input:checked]:bg-white not-has-[input:checked]:text-blue-6
         not-has-[input:checked]:!backdrop-blur-none
-        not-has-[input:checked]:text-blue-6
-        has-[input:checked]:text-white
-        not-has-[input:checked]:min-h-75
-        has-[input:checked]:min-h-86.5
-        md:has-[input:checked]:min-h-100
+        not-has-[input:checked]:before:hidden
+        has-[input:checked]:min-h-86.5 has-[input:checked]:text-white
         has-[input:disabled]:opacity-20
-        not-has-[input:checked]:rounded-md
+        md:has-[input:checked]:min-h-100 md:has-[input:checked]:p-6
       `, className)}
     >
       <Image
-        className={`
-          absolute
-          inset-0
-          w-full
-          h-full
-        `}
+        className="absolute inset-0 h-full w-full"
         src="/images/backdrop/1.png"
         alt="bg"
         width={320}
         height={400}
       />
-      <div className={`
-        absolute
-        inset-0
-        flex
-        flex-col
-        p-4
-      `}
-      >
+      <div className="absolute inset-0 flex flex-col p-4">
         <p className={`
-          leading-[1.2]
-          font-semibold
-          text-md
-          has-[~input:checked]:text-md-x
+          mb-1 text-md leading-[1.2] font-semibold
+          has-[~input:checked]:mb-2 has-[~input:checked]:text-md-x
           md:has-[~input:checked]:text-lg
-          mb-1
-          has-[~input:checked]:mb-2
         `}
         >
           {title}
         </p>
         <p className={`
-          leading-[1.2]
-          text-xs
-          has-[~input:checked]:text-base
-          md:has-[~input:checked]:text-md
-          not-has-[~input:checked]:mb-5
-          has-[~input:checked]:mb-7
-          not-has-[~input:checked]:text-blue-6/72
+          text-xs leading-[1.2]
+          not-has-[~input:checked]:mb-5 not-has-[~input:checked]:text-blue-6/72
+          has-[~input:checked]:mb-7 has-[~input:checked]:text-base
           has-[~input:checked]:text-white/72
+          md:has-[~input:checked]:text-md
         `}
         >
           {total}
@@ -96,13 +70,10 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
           м
         </p>
         <div className={`
-          relative
-          overflow-hidden
-          has-[~input:checked]:-mx-6
-          not-has-[~input:checked]:-mx-4
-          has-[~input:checked]:h-39
+          relative overflow-hidden
+          not-has-[~input:checked]:-mx-4 not-has-[~input:checked]:h-35
+          has-[~input:checked]:-mx-6 has-[~input:checked]:h-39
           md:has-[~input:checked]:h-45
-          not-has-[~input:checked]:h-35
         `}
         >
           <Image
@@ -110,12 +81,7 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
             src={card}
             width={320}
             height={180}
-            className={`
-              absolute
-              w-full
-              h-full
-              object-contain
-            `}
+            className="absolute h-full w-full object-contain"
           />
         </div>
 
@@ -123,12 +89,7 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
           name="ApartmentCarouselSelect"
           type="radio"
           checked={checked}
-          className={`
-            absolute
-            inset-0
-            opacity-0
-            hidden
-          `}
+          className="absolute inset-0 hidden opacity-0"
           onChange={onClick}
           disabled={disabled}
         />

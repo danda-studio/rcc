@@ -22,12 +22,8 @@ export const UIGlass: FC<UIGlassProps> = ({
       onClick={onClick}
       className={cx(
         `
-          bg-white/9
-          shadow-1
-          backdrop-blur-md
-          rounded-sm
+          shadow-1 overflow-hidden rounded-sm bg-white/9 backdrop-blur-md
           md:rounded-md
-          overflow-hidden
         `,
         borderVariants[border],
         className,

@@ -8,52 +8,32 @@ export const ComplexFooterWidget: FC = () => {
   return (
     <section className={`
       bg-white
-      md:pl-10
-      md:pr-10
+      md:pr-10 md:pl-10
     `}
     >
       <h1 className={`
+        mb-6 bg-linear-(--linear-5) bg-clip-text text-2-2xl font-medium
+        -tracking-lg text-transparent
         max-md:mx-1
-        md:text-center
-        font-medium
-        mb-6
-        text-2-2xl
-        -tracking-lg
-        md:text-7xl
-        md:mb-18.5
-        bg-clip-text
-        text-transparent
-        bg-liner-3
+        md:mb-18.5 md:text-center md:text-7xl
       `}
       >
         Олимпийский
       </h1>
 
       <div className={`
-        flex
-        items-start
-        md:items-center
-        justify-between
-        flex-col
-        md:flex-row
+        flex flex-col items-start justify-between
+        md:flex-row md:items-center
       `}
       >
         <div className={`
-          flex
-          ml-2
-          md:ml-0
-          flex-col
-          gap-4
-          mb-10
-          md:mb-0
+          mb-10 ml-2 flex flex-col gap-4
+          md:mb-0 md:ml-0
         `}
         >
           <Link
             className={`
-              text-gray-4
-              font-medium
-              text
-              text-sm-m
+              text-sm-m font-medium text-gray-4
               hover:text-gray-700
             `}
             href="#about"
@@ -62,10 +42,7 @@ export const ComplexFooterWidget: FC = () => {
           </Link>
           <Link
             className={`
-              text-gray-4
-              font-medium
-              text
-              text-sm-m
+              text-sm-m font-medium text-gray-4
               hover:text-gray-700
             `}
             href="#mortgage"
@@ -74,10 +51,7 @@ export const ComplexFooterWidget: FC = () => {
           </Link>
           <Link
             className={`
-              text-gray-4
-              font-medium
-              text
-              text-sm-m
+              text-sm-m font-medium text-gray-4
               hover:text-gray-700
             `}
             href="#construction"
@@ -86,10 +60,7 @@ export const ComplexFooterWidget: FC = () => {
           </Link>
           <Link
             className={`
-              text-gray-4
-              font-medium
-              text
-              text-sm-m
+              text-sm-m font-medium text-gray-4
               hover:text-gray-700
             `}
             href="#catalog"
@@ -98,27 +69,16 @@ export const ComplexFooterWidget: FC = () => {
           </Link>
 
           <span className={`
-            mt-8
-            mb-7
-            text-gray-4
-            font-medium
-            text
-            hidden
+            mt-8 mb-7 hidden text-sm-m font-medium text-gray-4
             md:inline
-            text-sm-m
           `}
           >
             Офис - г. Мариуполь, улица Артема,58
           </span>
 
           <span className={`
-            font-medium
+            mt-4 text-lg-x leading-[0.92] font-medium -tracking-md text-blue-6
             md:hidden
-            text-lg-x
-            leading-[0.92]
-            text-blue-6
-            -tracking-md
-            mt-4
           `}
           >
             +79499046784
@@ -126,12 +86,7 @@ export const ComplexFooterWidget: FC = () => {
 
           <Link
             className={`
-              underline
-              mt-4
-              text-gray-4
-              font-medium
-              text
-              text-sm-m
+              mt-4 text-sm-m font-medium text-gray-4 underline
               hover:text-gray-700
               md:hidden
             `}
@@ -143,11 +98,7 @@ export const ComplexFooterWidget: FC = () => {
 
         <div>
           <span className={`
-            text-gray-4
-            font-medium
-            text
-            text-sm-m
-            hidden
+            hidden text-sm-m font-medium text-gray-4
             md:inline
           `}
           >
@@ -155,19 +106,10 @@ export const ComplexFooterWidget: FC = () => {
           </span>
         </div>
 
-        <div className={`
-          flex
-          flex-col
-          items-end
-        `}
-        >
+        <div className="flex flex-col items-end">
           <span className={`
-            font-medium
-            hidden
+            hidden text-4-5xl font-medium -tracking-md text-blue-6
             md:inline
-            text-blue-6
-            -tracking-md
-            text-4-5xl
           `}
           >
             +79499046784
@@ -175,15 +117,9 @@ export const ComplexFooterWidget: FC = () => {
 
           <Link
             className={`
-              md:my-10
-              underline
-              text-gray-4
-              font-medium
-              text
-              text-sm-m
+              hidden text-sm-m font-medium text-gray-4 underline
               hover:text-gray-700
-              hidden
-              md:inline
+              md:my-10 md:inline
             `}
             href="#"
           >
@@ -191,12 +127,8 @@ export const ComplexFooterWidget: FC = () => {
           </Link>
 
           <span className={`
+            ml-2 text-sm-m font-medium text-gray-4
             md:hidden
-            ml-2
-            text-gray-4
-            font-medium
-            text
-            text-sm-m
           `}
           >
             © 2025 ООО "СЗ"РСК""
@@ -205,8 +137,7 @@ export const ComplexFooterWidget: FC = () => {
           <Button
             onClick={() => window.open("https://yandex.ru/maps/-/CLb8iR0A", "_blank")}
             className={`
-              max-w-56
-              !hidden
+              !hidden max-w-56
               md:!inline-flex
             `}
             size="sm"
@@ -214,9 +145,8 @@ export const ComplexFooterWidget: FC = () => {
           >
             <Map className="text-blue-6" />
             <span className={`
-              font-medium
+              text-sm-m font-medium
               md:text-md-x
-              text-sm-m
             `}
             >
               Мы на карте
@@ -226,24 +156,12 @@ export const ComplexFooterWidget: FC = () => {
       </div>
 
       <div className={`
-        mx-1
-        mt-6
+        mx-1 mt-6
         md:hidden
       `}
       >
-        <div className={`
-          flex
-          items-center
-          justify-between
-        `}
-        >
-          <span className={`
-            text-gray-4
-            font-medium
-            text
-            text-sm-m
-          `}
-          >
+        <div className="flex items-center justify-between">
+          <span className="text-sm-m font-medium text-gray-4">
             Офис - г. Мариуполь, улица Артема,58
           </span>
 

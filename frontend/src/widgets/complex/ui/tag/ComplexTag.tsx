@@ -25,6 +25,7 @@ export const ComplexTag: FC<ComplexTagProps> = ({
           h-7.25
           md:h-11.5
           md:leading-11.5
+          -tracking-sm
         `}
         >
           {title.start && (
@@ -66,7 +67,8 @@ export const ComplexTag: FC<ComplexTagProps> = ({
       )}
       <p className={`
         text-xs
-        md:text-md
+        md:text-lg
+        -tracking-sm
       `}
       >
         {description}

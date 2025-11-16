@@ -1,16 +1,15 @@
 import type { FC } from "react";
-import { MousePointerClick, ShieldCheck } from "lucide-react";
+import { MousePointerClick } from "lucide-react";
 import Image from "next/image";
 import { CityBadge } from "@/entities/city";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
-import { UIGlass } from "@/shared/ui/glass";
 import { ComplexTag } from "../tag";
 
 export const ComplexBanner: FC = () => {
   return (
     <section className={`
-      bg-linear-(--linear-2)
+      bg-radial-(--radial-7)
       md:bg-radial-(--radial-1)
       h-158
       md:h-250
@@ -22,23 +21,39 @@ export const ComplexBanner: FC = () => {
     >
 
       <Image
-        width={1920}
-        height={1080}
+        width={980}
+        height={1000}
         alt="Hero image"
-        src="/images/complex/banner.webp"
-        sizes="(max-width: 768px) 832px, 1920px"
+        src="/images/buildings/1.webp"
+        sizes="(max-width: 768px) 832px, 1190px"
         fetchPriority="high"
         priority
         loading="eager"
         className={`
+          max-md:hidden
           absolute
-          left-1/2
-          max-md:-translate-x-1/2
-          md:left-98
           bottom-0
-          min-w-208
-          md:w-480
-          md:h-270
+          right-0
+          w-245
+          h-full
+        `}
+      />
+      <Image
+        width={980}
+        height={1000}
+        alt="Hero image"
+        src="/images/buildings/1-md.webp"
+        sizes="(max-width: 768px) 832px, 1190px"
+        fetchPriority="high"
+        priority
+        loading="eager"
+        className={`
+          md:hidden
+          absolute
+          bottom-0
+          right-0
+          w-75.25
+          h-102
         `}
       />
       <div className={`
@@ -56,36 +71,6 @@ export const ComplexBanner: FC = () => {
       `}
       />
 
-      {/* <div className={`
-        absolute
-        left-1/2
-        max-md:-translate-x-1/2
-        md:left-98
-        bottom-0
-        w-full
-        md:w-400
-        h-10
-        md:h-30
-        overflow-hidden
-        blur-lg
-      `}
-      >
-        <Image
-          width={192}
-          height={108}
-          alt="Hero image"
-          src="/images/complex/banner.png"
-          className={`
-            absolute
-            bottom-0
-            left-0
-            min-w-208
-            md:min-w-480
-            md:min-h-270
-          `}
-        />
-      </div> */}
-
       <div className={`
         absolute
         inset-0
@@ -98,7 +83,6 @@ export const ComplexBanner: FC = () => {
       >
         <div className={`
           w-full
-          md:w-222
           h-full
           flex
           flex-col
@@ -119,97 +103,86 @@ export const ComplexBanner: FC = () => {
             mb-5
             md:mb-7
             font-medium
-            bg-linear-(--linear-1)
-            bg-clip-text
-            text-transparent
+            -tracking-md
+            flex flex-col
+            md:w-222
           `}
           >
-            Продажи в новом ЖК "Олимпийский"
+            <span className="leading-none bg-linear-(--linear-1)
+            bg-clip-text
+            text-transparent"
+            >
+              Квартиры
+              <br />
+              в Новом ЖК
+              <br />
+            </span>
+            <span className="leading-none bg-linear-(--linear-3)
+            bg-clip-text
+            text-transparent"
+            >
+              "Олимпийский"
+            </span>
           </h1>
 
           <p
             className={`
               text-md
               md:text-xl
+              -tracking-md
             `}
-            style={
-              {
-                // color: "red",
-              }
-            }
           >
-            Место, где хочется жить
+            Дом комфорт класса
           </p>
 
-          <ContactFormModalFeature>
-            <Button
-              className={`
-                max-md:w-full
-                mt-auto
-              `}
-              variant="outline"
-              size="lg"
-            >
-              <MousePointerClick />
-              Подобрать квартиру
-            </Button>
-          </ContactFormModalFeature>
+          <div className="flex max-md:flex-col-reverse md:items-end mt-auto gap-2.25 md:gap-20.75 w-full">
+            <ContactFormModalFeature>
+              <Button
+                className={`
+                  max-md:w-full
+                `}
+                variant="outline"
+                size="lg"
+              >
+                <MousePointerClick />
+                Подобрать квартиру
+              </Button>
+            </ContactFormModalFeature>
+
+            <div className="flex gap-1.75 md:gap-4 max-md:flex-row-reverse">
+
+              <ComplexTag
+                className={`
+                  w-27.75
+                  md:w-52.5
+        `}
+                title={{
+                  middle: "2",
+                  end: (
+                    <span className="md:text-xl">
+                      %
+                    </span>
+                  ),
+                }}
+                description="Ипотека"
+              />
+
+              <ComplexTag
+                className={`
+                  max-md:grow
+                  md:w-101.75
+        `}
+                title={{
+                  start: "от",
+                  middle: "11 500",
+                  end: "₽",
+                }}
+                description="Ежемесячный платеж"
+              />
+            </div>
+          </div>
         </div>
       </div>
-
-      <UIGlass
-        className={`
-          absolute
-          right-66.5
-          md:right-180.5
-          top-76
-          md:top-54.5
-          p-3
-          md:p-7.5
-        `}
-        border="corner"
-      >
-        <ShieldCheck className={`
-          size-6
-          md:size-8
-        `}
-        />
-      </UIGlass>
-
-      <ComplexTag
-        className={`
-          absolute
-          right-3
-          md:right-33.5
-          top-68.25
-          md:top-74.5
-        `}
-        title={{
-          start: "от",
-          middle: "11 500",
-          end: "₽",
-        }}
-        description="Платеж по ипотеке"
-      />
-
-      <ComplexTag
-        className={`
-          absolute
-          right-58.25
-          md:right-153.5
-          top-109
-          md:top-136.5
-        `}
-        title={{
-          middle: "2",
-          end: (
-            <span className="md:text-xl">
-              %
-            </span>
-          ),
-        }}
-        description="Ипотека"
-      />
     </section>
   );
 };

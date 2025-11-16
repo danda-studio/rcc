@@ -36,28 +36,36 @@ const buttonVariants = cva(
           cursor-pointer justify-between rounded-xs border border-gray-2
           bg-gray-1 text-blue-6/80
         `,
+        fill: `
+          cursor-pointer border border-white bg-white text-blue-6
+          hover:bg-transparent hover:text-white
+          focus-visible:outline-white/40
+          active:bg-white active:text-blue-6
+        `,
       },
       size: {
-        "sm": `
+        sm: `
           h-12 gap-3.5 px-4 py-3 text-base
           md:h-17 md:text-md-x
           [&_svg:not([class*='size-'])]:size-4
           md:[&_svg:not([class*='size-'])]:size-6
         `,
-        "md": `
+        md: `
           h-15 rounded-md px-4 py-3 text-md
           md:h-17.5 md:rounded-2xl md:text-md-x
         `,
-        "lg": `
+        lg: `
           h-15.5 gap-4 rounded-2xl px-9 py-5 text-md -tracking-sm
           md:h-24 md:py-8 md:text-lg
           [&_svg:not([class*='size-'])]:size-5
           md:[&_svg:not([class*='size-'])]:size-8
         `,
-        "icon": "size-9",
-        "icon-sm": "size-8",
-        "icon-lg": "size-10",
-
+        icon: `
+          size-11 rounded-sm
+          md:size-16
+          [&_svg:not([class*='size-'])]:size-5
+          md:[&_svg:not([class*='size-'])]:size-7
+        `,
       },
     },
     defaultVariants: {

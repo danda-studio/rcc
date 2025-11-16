@@ -2,6 +2,8 @@ import antfu from "@antfu/eslint-config";
 import nextPlugin from "@next/eslint-plugin-next";
 import betterTailwind from "eslint-plugin-better-tailwindcss";
 
+console.log(betterTailwind.configs.recommended.rules["better-tailwindcss/multiline"]);
+
 export default antfu(
   {
     react: true,
@@ -28,17 +30,25 @@ export default antfu(
   {
     plugins: {
       "@next/next": nextPlugin,
-      "better-tailwind": betterTailwind,
+      "better-tailwindcss": betterTailwind,
     },
     settings: {
-      "better-tailwind": {
-        entryPoint: "src/shared/styles/global.css",
+      "better-tailwindcss": {
+        entryPoint: "src/shared/styles/globals.css",
+        lineBreakStyle: "auto",
       },
     },
     rules: {
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs["core-web-vitals"].rules,
-      "better-tailwind/no-duplicate-classes": "error",
+      ...betterTailwind.configs.recommended.rules,
+      "better-tailwindcss/enforce-consistent-line-wrapping": [
+        "warn",
+        {
+          lineBreakStyle: "windows",
+        },
+      ],
+      "better-tailwindcss/no-unregistered-classes": "off",
     },
   },
   {

@@ -64,27 +64,20 @@ export const ComplexConstructionWidget = () => {
     `}
     >
       <div className={`
-        max-w-[43.5rem]
-        pb-10
+        max-w-[43.5rem] pb-10
         md:pb-20
       `}
       >
         <h2 className={`
-          text-lg-x
-          mb-6
-          font-medium
-          text-blue-6
+          mb-6 text-lg-x font-medium text-blue-6
           md:text-4-5xl
         `}
         >
           Хронология строительства
         </h2>
         <p className={`
-          text-sm-m
+          mt-6 text-sm-m font-medium text-gray-4
           md:text-md-x
-          text-gray-4
-          font-medium
-          mt-6
         `}
         >
           Следите за каждым этапом — от фундамента до новоселья. Прозрачность, стабильные темпы и качество на каждом шаге это основа подхода РСК
@@ -94,32 +87,24 @@ export const ComplexConstructionWidget = () => {
       <Carousel
         setApi={setApi}
         className={`
-          -mx-4
+          -mx-4 max-w-[100vw] overflow-hidden
           md:-mx-14
-          max-w-[100vw]
-          overflow-hidden
         `}
         opts={{ align: "start", slidesToScroll: 1 }}
       >
         <CarouselContent className={`
-          !ml-0
+          !ml-0 items-end overflow-visible
           md:h-[40.25rem]
-          items-end
-          overflow-visible
         `}
         >
           {slides.map((slide, idx) => (
             <CarouselItem
               key={idx}
               className={`
-                md:last:pr-14
-                md:first:pl-14
-                pl-4
-                !basis-79
+                !basis-79 pl-4
                 last:!basis-83
-                md:last:!basis-128
-                md:first:!basis-124
-                md:!basis-114
+                md:!basis-114 md:first:!basis-124 md:first:pl-14
+                md:last:!basis-128 md:last:pr-14
               `}
             >
               <CarouselCard {...slide} />
@@ -129,26 +114,13 @@ export const ComplexConstructionWidget = () => {
       </Carousel>
 
       <div className={`
-        mt-4
-        block
+        mx-auto mt-4 block h-[3px] w-full max-w-[90vw] overflow-hidden
+        rounded-full bg-[#A5A5A636]
         md:hidden
-        w-full
-        max-w-[90vw]
-        mx-auto
-        h-[3px]
-        bg-[#A5A5A636]
-        rounded-full
-        overflow-hidden
       `}
       >
         <div
-          className={`
-            h-full
-            bg-gray-6
-            transition-all
-            duration-300
-            ease-out
-          `}
+          className="h-full bg-gray-6 transition-all duration-300 ease-out"
           style={{ width: `${progress * 100}%` }}
         />
       </div>

@@ -69,10 +69,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
   return (
     <form
       className={cn(`
-        flex
-        flex-col
-        items-center
-        gap-8
+        flex flex-col items-center gap-8
         md:gap-10
       `, className)}
       // onSubmit={form.handleSubmit(onSubmit)}
@@ -103,11 +100,7 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
         control={form.control}
         render={({ field }) => (
           <div className={`
-            flex
-            justify-center
-            items-center
-            gap-4
-            overflow-hidden
+            flex items-center justify-center gap-4 overflow-hidden
             md:w-full
           `}
           >
@@ -117,9 +110,9 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
                 {...i}
                 disabled
                 className={`
-                  md:basis-60
                   shrink-0
                   max-md:hidden
+                  md:basis-60
                 `}
               />
             ))}
@@ -141,9 +134,9 @@ export const ApartmentSelectFormFeature: FC<ApartmentSelectFormFeatureProps> = (
                 {...i}
                 disabled
                 className={`
-                  md:basis-60
                   shrink-0
                   max-md:hidden
+                  md:basis-60
                 `}
               />
             ))}

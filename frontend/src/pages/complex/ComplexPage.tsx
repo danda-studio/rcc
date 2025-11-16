@@ -12,9 +12,7 @@ import { ContactFormWidget } from "@/widgets/contact";
 export function ComplexPage() {
   return (
     <main className={`
-      flex
-      flex-col
-      gap-15
+      flex flex-col gap-15
       md:gap-30
     `}
     >

@@ -9,14 +9,9 @@ import { ComplexTag } from "../tag";
 export const ComplexBanner: FC = () => {
   return (
     <section className={`
-      bg-radial-(--radial-7)
-      md:bg-radial-(--radial-1)
-      h-158
-      md:h-250
+      relative h-158 overflow-hidden rounded-md bg-radial-(--radial-7)
       text-white
-      relative
-      rounded-md
-      overflow-hidden
+      md:h-250 md:bg-radial-(--radial-1)
     `}
     >
 
@@ -30,12 +25,8 @@ export const ComplexBanner: FC = () => {
         priority
         loading="eager"
         className={`
+          absolute right-0 bottom-0 h-full w-245
           max-md:hidden
-          absolute
-          bottom-0
-          right-0
-          w-245
-          h-full
         `}
       />
       <Image
@@ -48,47 +39,25 @@ export const ComplexBanner: FC = () => {
         priority
         loading="eager"
         className={`
+          absolute right-0 bottom-0 h-102 w-75.25
           md:hidden
-          absolute
-          bottom-0
-          right-0
-          w-75.25
-          h-102
         `}
       />
       <div className={`
-        absolute
-        left-1/2
+        absolute bottom-0 left-1/2 h-40 w-full overflow-hidden
+        bg-linear-(--linear-4)
         max-md:-translate-x-1/2
-        md:left-98
-        bottom-0
-        w-full
-        md:w-480
-        h-40
-        md:h-72
-        overflow-hidden
-        bg-liner-8
+        md:left-98 md:h-72 md:w-480
       `}
       />
 
       <div className={`
-        absolute
-        inset-0
-        px-3
-        md:px-10
-        py-8
+        absolute inset-0 px-3 py-8
         max-md:pb-3
-        md:py-15
+        md:px-10 md:py-15
       `}
       >
-        <div className={`
-          w-full
-          h-full
-          flex
-          flex-col
-          items-start
-        `}
-        >
+        <div className="flex h-full w-full flex-col items-start">
           <CityBadge
             name="Мариуполь"
             className={`
@@ -98,28 +67,22 @@ export const ComplexBanner: FC = () => {
           />
 
           <h1 className={`
-            text-2xl
-            md:text-5xl
-            mb-5
-            md:mb-7
-            font-medium
-            -tracking-md
-            flex flex-col
-            md:w-222
+            mb-5 flex flex-col text-2xl font-medium -tracking-md
+            md:mb-7 md:w-222 md:text-5xl
           `}
           >
-            <span className="leading-none bg-linear-(--linear-1)
-            bg-clip-text
-            text-transparent"
+            <span className={`
+              bg-linear-(--linear-1) bg-clip-text leading-none text-transparent
+            `}
             >
               Квартиры
               <br />
               в Новом ЖК
               <br />
             </span>
-            <span className="leading-none bg-linear-(--linear-3)
-            bg-clip-text
-            text-transparent"
+            <span className={`
+              bg-linear-(--linear-3) bg-clip-text leading-none text-transparent
+            `}
             >
               "Олимпийский"
             </span>
@@ -127,20 +90,22 @@ export const ComplexBanner: FC = () => {
 
           <p
             className={`
-              text-md
+              text-md -tracking-md
               md:text-xl
-              -tracking-md
             `}
           >
             Дом комфорт класса
           </p>
 
-          <div className="flex max-md:flex-col-reverse md:items-end mt-auto gap-2.25 md:gap-20.75 w-full">
+          <div className={`
+            mt-auto flex w-full gap-2.25
+            max-md:flex-col-reverse
+            md:items-end md:gap-20.75
+          `}
+          >
             <ContactFormModalFeature>
               <Button
-                className={`
-                  max-md:w-full
-                `}
+                className="max-md:w-full"
                 variant="outline"
                 size="lg"
               >
@@ -149,13 +114,18 @@ export const ComplexBanner: FC = () => {
               </Button>
             </ContactFormModalFeature>
 
-            <div className="flex gap-1.75 md:gap-4 max-md:flex-row-reverse">
+            <div className={`
+              flex gap-1.75
+              max-md:flex-row-reverse
+              md:gap-4
+            `}
+            >
 
               <ComplexTag
                 className={`
                   w-27.75
                   md:w-52.5
-        `}
+                `}
                 title={{
                   middle: "2",
                   end: (
@@ -171,7 +141,7 @@ export const ComplexBanner: FC = () => {
                 className={`
                   max-md:grow
                   md:w-101.75
-        `}
+                `}
                 title={{
                   start: "от",
                   middle: "11 500",

@@ -7,92 +7,47 @@ import { cn } from "@/shared/lib/shadcn/utils";
 
 const badgeVariants = cva(
   `
-    inline-flex
-    items-center
-    justify-center
-    border
-    font-medium
-    w-fit
-    whitespace-nowrap
-    shrink-0
-    gap-1
-    [&>svg]:pointer-events-none
-    focus-visible:border-ring
+    inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden
+    border font-medium whitespace-nowrap transition-[color,box-shadow]
+    focus-visible:border-ring focus-visible:ring-[3px]
     focus-visible:ring-ring/50
-    focus-visible:ring-[3px]
-    aria-invalid:ring-destructive/20
+    aria-invalid:border-destructive aria-invalid:ring-destructive/20
     dark:aria-invalid:ring-destructive/40
-    aria-invalid:border-destructive
-    transition-[color,box-shadow]
-    overflow-hidden
+    [&>svg]:pointer-events-none
   `,
   {
     variants: {
       variant: {
         glass:
           `
-            relative
-            border-none
             shadow-1
-            before:absolute
-            before:inset-0
             -before:z-10
-            before:bg-radial-(--radial-2)
+            relative border-none bg-white/9
+            before:absolute before:inset-0 before:bg-radial-(--radial-2)
             before:[clip-path:var(--clip-path-1)]
-            bg-white/9
           `,
         default:
-          `
-            border-gray-1
-            relative
-            bg-gray-1
-            text-blue-6/72
-          `,
+          `relative border-gray-1 bg-gray-1 text-blue-6/72`,
       },
       size: {
         xl: `
-          h-8
-          md:h-10
-          max-md:pl-2
-          max-md:pr-3
-          md:px-4
-          text-sm
-          md:text-md
+          h-8 gap-2 rounded-sm text-sm
+          max-md:pr-3 max-md:pl-2
+          md:h-10 md:rounded-md md:px-4 md:text-md
           [&>svg]:size-4
           md:[&>svg]:size-6
-          rounded-sm
-          md:rounded-md
-          gap-2
         `,
         lg: `
-          h-9
-          md:h-9.5
-          px-3
-          md:px-4
-          text-base
-          md:text-md
-          rounded-sm
-          md:rounded-md
+          h-9 rounded-sm px-3 text-base
+          md:h-9.5 md:rounded-md md:px-4 md:text-md
         `,
-        md: `
-          h-9
-          px-4
-          text-base
-          rounded-md
-        `,
+        md: `h-9 rounded-md px-4 text-base`,
         sm: `
-          h-8
-          md:h-7.5
-          max-md:pl-2
-          max-md:pr-3
-          md:px-3
-          text-sm
-          md:text-xs
+          h-8 gap-2 rounded-sm text-sm
+          max-md:pr-3 max-md:pl-2
+          md:h-7.5 md:rounded-sm md:px-3 md:text-xs
           [&>svg]:size-4
           md:[&>svg]:size-6
-          rounded-sm
-          md:rounded-sm
-          gap-2
         `,
       },
     },

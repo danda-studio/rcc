@@ -27,49 +27,32 @@ export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({
       <DialogContent
         showCloseButton={false}
         className={`
-          !p-0
-          !gap-0
-          !border-none
-          max-w-88
-          md:max-w-400
-          overflow-hidden
-          md:overflow-hidden
-          max-md:overflow-y-auto
-          max-md:max-h-[90vh]
-          custom-scroll
+          custom-scroll max-w-88 !gap-0 overflow-hidden !border-none !p-0
+          max-md:max-h-[90vh] max-md:overflow-y-auto
+          md:max-w-400 md:overflow-hidden
         `}
       >
         {apartment && (
           <div
             className={`
-              max-md:w-88
-              p-1.5
+              flex p-1.5
+              max-md:w-88 max-md:flex-col-reverse
               md:p-4
-              flex
-              max-md:flex-col-reverse
             `}
           >
             <ApartmentCardModalFeatureDetail
               {...apartment}
               className={`
-                p-3.5
+                p-3.5 pr-8
                 max-md:pt-5
-                pr-8
-                md:p-11
-                md:pr-4
+                md:p-11 md:pr-4
               `}
             />
             <div
               className={`
+                flex h-58 w-full shrink-0 items-center rounded-md
                 bg-radial-(--radial-6)
-                rounded-md
-                h-58
-                md:h-192
-                w-full
-                md:w-239
-                shrink-0
-                flex
-                items-center
+                md:h-192 md:w-239
               `}
             >
               <ApartmentCardModalFeatureImageCarousel {...apartment} />
@@ -80,21 +63,16 @@ export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({
         <DialogClose
           asChild
           className={`
-            absolute
-            top-4.5
-            right-4.5
-            md:top-9
-            md:right-9
+            absolute top-4.5 right-4.5
+            md:top-9 md:right-9
           `}
         >
           <UIGlass
             border="corner"
             className={`
-              p-3
+              cursor-pointer rounded-sm p-3
               hover:opacity-80
               active:opacity-100
-              rounded-sm
-              cursor-pointer
             `}
           >
             <X className="size-6" />

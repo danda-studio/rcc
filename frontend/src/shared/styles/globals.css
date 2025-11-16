@@ -335,11 +335,18 @@ h6 {
   --radial-6:
     119.67% 124.28% at 129.08% 149.93%, #ffffff 0%, #b6d4ee 15.13%, #345783 65.05%, #192435 85.1%, #03050c 100%;
   --radial-7: 102.85% 147.65% at 47.88% -69.85%, #fff 0%, #b6d4ee 27.44%, #345783 54.42%, #192435 78.88%, #03050c 100%;
+  --radial-8:
+    175.15% 145.93% at 122.19% -42.73%, #ffffff 0%, #b6d4ee 15.13%, #345783 56.39%, #192435 85.1%, #03050c 100%;
+  --radial-9: 66.15% 138.59% at 68.56% 137.75%, #ffffff 0%, #b6d4ee 15.13%, #345783 56.39%, #192435 85.1%, #03050c 100%;
 
   /* Linear gradients */
   --linear-1: 290.5deg, var(--white) 67.25%, rgba(255, 255, 255, 0) 113.92%;
   --linear-2: 270deg, var(--blue-8) 1.7%, var(--blue-7) 22.87%;
   --linear-3: 115deg, #ffeba5 16%, #d8b24f 35.33%, #b77521 91.73%;
+  --linear-4: 360deg, #03050c 17.58%, rgba(3, 5, 12, 0) 100%;
+  --linear-5: 115.15deg, #ffeba5 16%, #d8b24f 35.33%, #b77521 91.73%;
+  --linear-6: 137.07deg, #b77521 0%, #d8b24f 32.11%, #ffeba5 59.42%, #bb7e25 93.04%;
+  --linear-7: 290.5deg, #ffffff 67.25%, rgba(255, 255, 255, 0) 113.92%;
 
   /* Clip path */
   --clip-path-1: polygon(
@@ -540,42 +547,6 @@ h6 {
   /* Clip path */
   .clip-path-1 {
     clip-path: var(--clip-path-1);
-  }
-  .bg-liner-2 {
-    background-image: linear-gradient(115.15deg, #ffeba5 16%, #d8b24f 35.33%, #b77521 91.73%);
-  }
-  .bg-liner-3 {
-    background-image: linear-gradient(115.15deg, #ffeba5 16%, #d8b24f 35.33%, #b77521 91.73%);
-  }
-  .bg-liner-4 {
-    background-image: linear-gradient(137.07deg, #b77521 0%, #d8b24f 32.11%, #ffeba5 59.42%, #bb7e25 93.04%);
-  }
-  .bg-liner-5 {
-    background-image: radial-gradient(
-      175.15% 145.93% at 122.19% -42.73%,
-      #ffffff 0%,
-      #b6d4ee 15.13%,
-      #345783 56.39%,
-      #192435 85.1%,
-      #03050c 100%
-    );
-  }
-  .bg-liner-6 {
-    background-image: linear-gradient(290.5deg, #ffffff 67.25%, rgba(255, 255, 255, 0) 113.92%);
-  }
-  .bg-liner-7 {
-    background-image: radial-gradient(
-        66.15% 138.59% at 68.56% 137.75%,
-        #ffffff 0%,
-        #b6d4ee 15.13%,
-        #345783 56.39%,
-        #192435 85.1%,
-        #03050c 100%
-      )
-      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-  }
-  .bg-liner-8 {
-    background-image: linear-gradient(360deg, #03050c 17.58%, rgba(3, 5, 12, 0) 100%);
   }
 
   /* Clip path */

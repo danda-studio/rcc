@@ -7,24 +7,15 @@ import { ComplexTag } from "@/widgets/complex/ui/tag";
 export const ResidentialWidget = () => {
   const descrtion = (
     <span className={`
-      flex
-      items-center
-      justify-center
+      flex items-center justify-center
       md:ml-4
     `}
     >
       <House
-        className={`
-          shrink-0
-          size-6
-          mr-4
-          text-white
-        `}
+        className="mr-4 size-6 shrink-0 text-white"
       />
       <span className={`
-        font-medium
-        text-base
-        text-white
+        text-base font-medium text-white
         md:text-md
       `}
       >
@@ -35,25 +26,14 @@ export const ResidentialWidget = () => {
 
   return (
     <div className={`
-      bg-white
-      flex
-      flex-col
-      justify-between
-      md:flex-row
-      px-3
-      md:pr-14
-      md:pl-10
-      gap-x-12
+      flex flex-col justify-between gap-x-12 bg-white px-3
+      md:flex-row md:pr-14 md:pl-10
     `}
     >
       <div className="max-w-[55.5rem]">
         <h2 className={`
-          text-lg-x
-          mb-6
-          font-medium
-          text-blue-6
+          mb-6 text-lg-x font-medium -tracking-md text-blue-6
           md:text-4-5xl
-          -tracking-md
         `}
         >
           Пространство,
@@ -61,13 +41,8 @@ export const ResidentialWidget = () => {
           где комфорт встречается с современностью
         </h2>
         <p className={`
-          text-md-x
-          leading-[1.2]
+          mt-6 max-w-191 text-md-x leading-[1.2] font-medium -tracking-sm
           text-gray-4
-          font-medium
-          mt-6
-          -tracking-sm
-          max-w-191
         `}
         >
           Современный 12-этажный дом комфорт-класса предлагает удобные 1- и 2-комнатные квартиры с
@@ -75,38 +50,22 @@ export const ResidentialWidget = () => {
         </p>
 
         <div className={`
-          flex
-          flex-col
-          max-w-[28rem]
-          mt-10
+          mt-10 flex max-w-[28rem] flex-col
           md:mt-20
         `}
         >
-          <div className={`
-            flex
-            justify-start
-          `}
-          >
-            <div className={`
-              flex
-              flex-col
-              items-start
-            `}
-            >
+          <div className="flex justify-start">
+            <div className="flex flex-col items-start">
               <span className={`
-                text-5xl
+                text-5xl font-medium text-blue-6
                 md:text-6xl
-                text-blue-6
-                font-medium
               `}
               >
                 12
               </span>
               <span className={`
+                text-md-l font-medium text-blue-6
                 md:text-lg
-                text-md-l
-                text-blue-6
-                font-medium
               `}
               >
                 Этажей
@@ -114,30 +73,18 @@ export const ResidentialWidget = () => {
             </div>
           </div>
 
-          <div className={`
-            flex
-            justify-end
-          `}
-          >
-            <div className={`
-              flex
-              flex-col
-            `}
-            >
+          <div className="flex justify-end">
+            <div className="flex flex-col">
               <span className={`
-                text-5xl
+                text-5xl font-medium text-blue-6
                 md:text-6xl
-                text-blue-6
-                font-medium
               `}
               >
                 81
               </span>
               <span className={`
+                text-md-l font-medium text-blue-6
                 md:text-lg
-                text-md-l
-                text-blue-6
-                font-medium
               `}
               >
                 Квартир
@@ -148,11 +95,9 @@ export const ResidentialWidget = () => {
       </div>
 
       <div className={`
-        pt-10
-        md:pt-0
-        flex
-        gap-x-4
+        flex gap-x-4 pt-10
         max-md:flex-col
+        md:pt-0
       `}
       >
         <div className={`
@@ -162,47 +107,24 @@ export const ResidentialWidget = () => {
         >
           <div
             className={`
-              relative
-              flex
-              flex-col
-              justify-between
-              md:w-[26rem]
-              h-[25rem]
-              md:h-[37.125rem]
+              relative flex h-[25rem] flex-col justify-between overflow-hidden
               rounded-xs
-              overflow-hidden
+              md:h-[37.125rem] md:w-[26rem]
             `}
           >
-            <div className={`
-              absolute
-              inset-0
-              flex
-              items-center
-            `}
-            >
+            <div className="absolute inset-0 flex items-center">
               <Image
                 src="/images/complex/house.png"
                 alt="house"
                 width={420}
                 height={594}
-                className={`
-                  relative
-                  w-full
-                  h-full
-                  object-cover
-                `}
+                className="relative h-full w-full object-cover"
                 sizes="(max-width: 360px) 328px, 420px"
               />
               <UIGlass
                 className={`
-                  absolute
-                  right-8
-                  md:right-10
-                  top-15
-                  z-10
-                  md:top-30
-                  p-3
-                  md:p-7.5
+                  absolute top-15 right-8 z-10 p-3
+                  md:top-30 md:right-10 md:p-7.5
                 `}
                 border="corner"
               >
@@ -215,14 +137,8 @@ export const ResidentialWidget = () => {
               </UIGlass>
               <ComplexTag
                 className={`
-                  absolute
-                  !max-w-[18rem]
-                  bottom-4
-                  right-4
-                  md:right-6
-                  md:bottom-6
-                  md:!pr-8
-                  md:!max-w-[23rem]
+                  absolute right-4 bottom-4 !max-w-[18rem]
+                  md:right-6 md:bottom-6 md:!max-w-[23rem] md:!pr-8
                 `}
                 title={{
                   start: "",
@@ -237,84 +153,47 @@ export const ResidentialWidget = () => {
         </div>
 
         <div className={`
-          items-center
-          md:justify-self-end
-          md:w-110
-          md:h-[auto]
-          mt-3
-          md:mt-[42%]
+          mt-3 items-center
+          md:mt-[42%] md:h-[auto] md:w-110 md:justify-self-end
         `}
         >
           <div
             className={`
-              rounded-xs
-              relative
-              flex
-              flex-col
-              justify-between
-              w-auto
-              md:w-110
-              h-[25rem]
-              md:h-[37rem]
-              overflow-hidden
-              p-6
+              relative flex h-[25rem] w-auto flex-col justify-between
+              overflow-hidden rounded-xs border border-gray-11 bg-gray-1 p-6
               text-white
-              bg-gray-1
-              border
-              border-gray-11
+              md:h-[37rem] md:w-110
             `}
           >
-            <div className={`
-              relative
-              z-10
-              flex
-              flex-col
-              justify-between
-              h-full
-            `}
-            >
+            <div className="relative z-10 flex h-full flex-col justify-between">
               <div className={`
-                pl-6
+                flex items-baseline pl-6
                 md:pl-0
-                flex
-                items-baseline
               `}
               >
                 <p className={`
-                  text-4-6xl
+                  text-4-6xl font-medium text-blue-6
                   md:text-6xl
-                  font-medium
-                  text-blue-6
                 `}
                 >
                   2
                 </p>
-                <p className={`
-                  ml-1.5
-                  text-2-3xl
-                  font-medium
-                  text-blue-6
-                `}
-                >
+                <p className="ml-1.5 text-2-3xl font-medium text-blue-6">
                   %
                 </p>
               </div>
 
               <div>
                 <span className={`
-                  text-sm-m
+                  text-sm-m font-medium text-gray-4
                   md:text-md-x
-                  font-medium
-                  text-gray-4
                 `}
                 >
                   Благодаря
 
                   {" "}
                   <span className={`
-                    text-sm-m
-                    text-blue-6
-                    font-medium
+                    text-sm-m font-medium text-blue-6
                     md:text-md-x
                   `}
                   >

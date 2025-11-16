@@ -36,41 +36,27 @@ export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
 
   return (
     <div className={cn(`
-      flex
-      flex-col
-      items-center
-      gap-2
+      flex flex-col items-center gap-2
       md:gap-13
     `, className)}
     >
       <Carousel
         setApi={setApi}
-        className={`
-          max-w-full
-          overflow-hidden
-        `}
+        className="max-w-full overflow-hidden"
         opts={{ align: "start", slidesToScroll: 1 }}
       >
         <CarouselContent className={`
-          !ml-0
-          h-47.5
+          !ml-0 h-47.5 items-end overflow-visible
           md:h-133.75
-          items-end
-          overflow-visible
         `}
         >
           {carousel.map(image => (
             <CarouselItem
               key={image}
-              className={`
-                !pl-0
-                relative
-                w-full
-                h-full
-              `}
+              className="relative h-full w-full !pl-0"
             >
               <ProgressiveImage
-                className="object-contain w-full h-full"
+                className="h-full w-full object-contain"
                 src={image}
                 alt="Apartment image"
                 width={956}
@@ -83,24 +69,12 @@ export const ApartmentCardModalFeatureImageCarousel: FC<ApartmentDetail & {
       </Carousel>
 
       <div className={`
-        block
-        w-50
+        mx-auto block h-[3px] w-50 overflow-hidden rounded-full bg-white/49
         md:w-80
-        mx-auto
-        h-[3px]
-        bg-white/49
-        rounded-full
-        overflow-hidden
       `}
       >
         <div
-          className={`
-            h-full
-            bg-white
-            transition-all
-            duration-300
-            ease-out
-          `}
+          className="h-full bg-white transition-all duration-300 ease-out"
           style={{ width: `${progress * 100}%` }}
         />
       </div>

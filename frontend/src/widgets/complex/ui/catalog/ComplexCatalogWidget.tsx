@@ -4,41 +4,27 @@ import { ApartmentSelectFormFeature } from "@/features/apartment";
 export const ComplexCatalogWidget = () => {
   return (
     <div className={`
-      bg-liner-7
-      rounded-md
-      overflow-hidden
-      px-4
-      py-8
+      relative overflow-hidden rounded-md bg-radial-(--radial-9) px-4 py-8
       md:py-15
-      relative
     `}
     >
       <div className={`
-        flex
-        flex-col
-        items-center
-        mb-10
+        mb-10 flex flex-col items-center
         md:mb-15
       `}
       >
         <h2 className={`
-          bg-liner-6
-          bg-clip-text
+          mb-6 bg-linear-(--linear-7) bg-clip-text text-3xl font-medium
           text-transparent
-          font-medium
           max-md:text-center
-          text-3xl
-          md:text-5xl
-          mb-6
-          md:mb-7
+          md:mb-7 md:text-5xl
         `}
         >
           Каталог квартир
         </h2>
         <span className={`
-          text-white
+          text-md text-white
           max-md:text-center
-          text-md
           md:text-lg
         `}
         >
@@ -49,24 +35,13 @@ export const ComplexCatalogWidget = () => {
       <ApartmentSelectFormFeature className="w-full" />
 
       <div className={`
-        w-50
-        absolute
-        inset-y-0
-        left-0
-        bg-linear-90
-        from-black-1
-        to-transparent
+        absolute inset-y-0 left-0 w-50 bg-linear-90 from-black-1 to-transparent
         max-md:hidden
       `}
       />
 
       <div className={`
-        w-50
-        absolute
-        inset-y-0
-        right-0
-        bg-linear-270
-        from-black-1
+        absolute inset-y-0 right-0 w-50 bg-linear-270 from-black-1
         to-transparent
         max-md:hidden
       `}

@@ -16,29 +16,15 @@ interface SocialTabSelectProps {
 
 export const SocialTabSelect: FC<SocialTabSelectProps> = ({ value, onChange }) => {
   return (
-    <div className={`
-      flex
-      gap-1.5
-    `}
-    >
+    <div className="flex gap-1.5">
       {socials.map(s => (
         <label
           key={s.value}
           className={`
-            relative
-            cursor-pointer
-            border
-            border-gray-2
-            bg-gray-3
-            has-[input:checked]:border-blue-6
-            has-[input:checked]:bg-blue-6
+            relative flex h-9 cursor-pointer items-center rounded-sm border
+            border-gray-2 bg-gray-3 px-3.75 font-medium
+            has-[input:checked]:border-blue-6 has-[input:checked]:bg-blue-6
             has-[input:checked]:text-white
-            px-3.75
-            h-9
-            flex
-            items-center
-            rounded-sm
-            font-medium
           `}
         >
           <input
@@ -47,12 +33,7 @@ export const SocialTabSelect: FC<SocialTabSelectProps> = ({ value, onChange }) =
             value={s.value}
             checked={value === s.value}
             onChange={() => onChange?.(s.value)}
-            className={`
-              absolute
-              inset-0
-              opacity-0
-              cursor-pointer
-            `}
+            className="absolute inset-0 cursor-pointer opacity-0"
           />
           {s.label}
         </label>

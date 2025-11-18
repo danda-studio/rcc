@@ -73,14 +73,14 @@ export const ComplexConstructionWidget = () => {
           md:text-4-5xl
         `}
         >
-          Хронология строительства
+          Этапы строительства
         </h2>
         <p className={`
           mt-6 text-sm-m font-medium text-gray-4
           md:text-md-x
         `}
         >
-          Следите за каждым этапом — от фундамента до новоселья.
+          Следите за каждым шагом строительства Вашего дома
         </p>
       </div>
       <Carousel

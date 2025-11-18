@@ -34,7 +34,15 @@ export const ComplexMortgageWidget: FC = () => {
           >
             Ипотека
             <br />
-            со ставкой 2%
+            ставкой
+            {" "}
+            <span className={`
+              text-4-5xl
+              md:text-6-7xl
+            `}
+            >
+              2%
+            </span>
           </h1>
 
           <p className={`
@@ -42,7 +50,9 @@ export const ComplexMortgageWidget: FC = () => {
             md:w-178.5 md:text-lg
           `}
           >
-            Не упустите возможность!
+            <span className="font-semibold">
+              Не упустите возможность!
+            </span>
             {" "}
             <span className="text-white/40">
               Закажите обратный звонок, чтобы узнать подробности!
@@ -98,14 +108,20 @@ export const ComplexMortgageWidget: FC = () => {
             <>
               Первоначальный взнос 10,1 %
               <br />
-              Сумма до 6 000 000 рублей
+              Не упустите возможность!
             </>
           )}
         />
 
         <UIInfo
           icon={<TicketPercent />}
-          description="Специальные предложения от застройщика участникам СВО, госслужащим и многодетным семьям"
+          description={(
+            <>
+              Акция
+              <br />
+              Поддержка от застройщика для, участников СВО, госслужащих  и многодетных семей
+            </>
+          )}
         />
       </div>
 

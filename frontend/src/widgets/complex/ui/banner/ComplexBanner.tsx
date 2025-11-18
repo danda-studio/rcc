@@ -115,26 +115,43 @@ export const ComplexBanner: FC = () => {
             </ContactFormModalFeature>
 
             <div className={`
-              flex gap-1.75
+              flex items-end gap-1.75
               max-md:flex-row-reverse
               md:gap-4
             `}
             >
 
               <ComplexTag
-                className={`
-                  w-27.75
-                  md:w-52.5
-                `}
                 title={{
-                  middle: "2",
+                  className: "text-center -mr-3 md:-mr-9.25",
+                  middle: (
+                    <span className={`
+                      text-3xl
+                      md:text-5xl
+                    `}
+                    >
+                      2
+                    </span>
+                  ),
                   end: (
-                    <span className="md:text-xl">
+                    <span className={`
+                      text-lg
+                      md:text-4-5xl
+                    `}
+                    >
                       %
                     </span>
                   ),
                 }}
-                description="Ипотека"
+                description={(
+                  <span className={`
+                    text-md
+                    md:text-lg-x
+                  `}
+                  >
+                    Ипотека
+                  </span>
+                )}
               />
 
               <ComplexTag

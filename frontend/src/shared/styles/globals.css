@@ -103,6 +103,10 @@ h6 {
   /* Text */
   --default-font-family: var(--font-manrope);
 
+  /* 200px */
+  --text-6-7xl: 12.5rem;
+  --text-6-7xl--line-height: 0.92;
+
   /* 180px */
   --text-6-5xl: 11.25rem;
   --text-6-5xl--line-height: 0.92;

@@ -6,6 +6,7 @@ export interface ComplexTagProps {
     start?: ReactNode;
     middle?: ReactNode;
     end?: ReactNode;
+    className?: string;
   };
   description: string | ReactNode;
 }

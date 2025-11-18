@@ -116,7 +116,7 @@ export const ComplexFooterWidget: FC = () => {
 
         <div>
           <span className={`
-            hidden text-sm-m font-medium text-gray-4
+            hidden text-lg font-medium text-gray-4
             md:inline
           `}
           >
@@ -152,7 +152,7 @@ export const ComplexFooterWidget: FC = () => {
           </Link>
 
           <span className={`
-            ml-2 text-sm-m font-medium text-gray-4
+            ml-2 text-md-x font-medium text-gray-4
             md:hidden
           `}
           >

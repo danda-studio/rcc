@@ -83,7 +83,7 @@ export const ComplexFooterWidget: FC = () => {
             md:inline
           `}
           >
-            Офис - г. Мариуполь, улица Артема,58
+            Офис продаж - г. Мариуполь, улица Артема,58
           </span>
 
           <span className={`
@@ -160,7 +160,7 @@ export const ComplexFooterWidget: FC = () => {
           </span>
 
           <Button
-            onClick={() => window.open("https://yandex.ru/maps/-/CLb8iR0A", "_blank")}
+            onClick={() => window.open("https://yandex.md/maps/-/CLGXf2Nj", "_blank")}
             className={`
               !hidden max-w-56
               md:!inline-flex
@@ -187,10 +187,15 @@ export const ComplexFooterWidget: FC = () => {
       >
         <div className="flex items-center justify-between">
           <span className="text-sm-m font-medium text-gray-4">
-            Офис - г. Мариуполь, улица Артема,58
+            Офис продаж - г. Мариуполь, улица Артема,58
           </span>
 
-          <Button className="max-w-56" size="sm" variant="cart">
+          <Button
+            onClick={() => window.open("https://yandex.md/maps/-/CLGXf2Nj", "_blank")}
+            className="max-w-56"
+            size="sm"
+            variant="cart"
+          >
             <Map className="text-blue-6" />
             Мы на карте
           </Button>

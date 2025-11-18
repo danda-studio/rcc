@@ -108,7 +108,7 @@ export const ComplexFooterWidget: FC = () => {
               hover:text-gray-700
               md:hidden
             `}
-            href="https://rskdnr.ru/privacy"
+            href="/privacy"
             target="_blank"
           >
             Политика обработки персональных данных
@@ -147,7 +147,7 @@ export const ComplexFooterWidget: FC = () => {
               hover:text-gray-700
               md:my-10 md:inline
             `}
-            href="https://rskdnr.ru/privacy"
+            href="/privacy"
             target="_blank"
           >
             Политика обработки персональных данных

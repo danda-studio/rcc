@@ -348,6 +348,7 @@ h6 {
   --linear-6: 137.07deg, #b77521 0%, #d8b24f 32.11%, #ffeba5 59.42%, #bb7e25 93.04%;
   --linear-7: 290.5deg, #ffffff 67.25%, rgba(255, 255, 255, 0) 113.92%;
   --linear-8: 0deg, #03050c 0%, rgba(3, 5, 12, 0) 100%;
+  --linear-9: 0deg, #03050c 0%, rgba(3, 5, 12, 0) 50%;
 
   /* Clip path */
   --clip-path-1: polygon(

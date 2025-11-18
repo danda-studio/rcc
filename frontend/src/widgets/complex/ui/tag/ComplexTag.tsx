@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import type { ComplexTagProps } from "./type";
 import { cx } from "class-variance-authority";
+import { cn } from "@/shared/lib/shadcn/utils";
 import { UIGlass } from "@/shared/ui/glass";
 
 export const ComplexTag: FC<ComplexTagProps> = ({
@@ -11,15 +12,15 @@ export const ComplexTag: FC<ComplexTagProps> = ({
   return (
     <UIGlass
       className={cx(className, `
-        p-4 pr-8
+        flex flex-col p-4 pr-8
         md:p-6 md:pr-15
       `)}
     >
       {title && (title.start || title.middle || title.end) && (
-        <p className={`
-          mb-10 h-7.25 leading-7.25 -tracking-sm
-          md:mb-15 md:h-11.5 md:leading-11.5
-        `}
+        <p className={cn(`
+          mb-10 leading-none -tracking-sm
+          md:mb-15
+        `, title.className)}
         >
           {title.start && (
             <span className={`

@@ -7,6 +7,7 @@ import {
   ResidentialWidget,
 } from "@/widgets/complex/ui";
 import { ComplexAboutWidget } from "@/widgets/complex/ui/about";
+import { ComplexPlacesWidget } from "@/widgets/complex/ui/places/ComplexPlacesWidget";
 import { ContactFormWidget } from "@/widgets/contact";
 
 export function ComplexPage() {
@@ -22,6 +23,12 @@ export function ComplexPage() {
         <ComplexAboutWidget />
       </section>
 
+      <ComplexPlacesWidget />
+
+      <section id="catalog" aria-label="Каталог квартир">
+        <ComplexCatalogWidget />
+      </section>
+
       <section aria-label="Типы жилья">
         <ResidentialWidget />
       </section>
@@ -32,10 +39,6 @@ export function ComplexPage() {
 
       <section id="construction" aria-label="Ход строительства">
         <ComplexConstructionWidget />
-      </section>
-
-      <section id="catalog" aria-label="Каталог квартир">
-        <ComplexCatalogWidget />
       </section>
 
       <section aria-label="Форма обратной связи">

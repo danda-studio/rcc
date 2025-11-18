@@ -1,0 +1,54 @@
+name: Deploy to Ubuntu Server
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "frontend/**"
+      - ".github/workflows/deploy-frontend.prod.yml"
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment: frontend.prod
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn
+        working-directory: ./frontend
+
+      - name: Build project
+        run: yarn build
+        working-directory: ./frontend
+
+      - name: Deploy to server
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "frontend/.next/*,frontend/node_modules/*,frontend/public/*,frontend/yarn.lock,frontend/package.json"
+          target: "/var/rck/frontend"
+          rm: true
+      - name: Restart frontend via PM2
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            pm2 restart frontend

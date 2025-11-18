@@ -26,7 +26,7 @@ export const ContactFormModalFeature: FC<ContactFormModalFeatureProps> = ({ chil
         `}
         >
           <Image
-            src="/images/complex/house-banner.png"
+            src="/images/buildings/2.webp"
             alt="Build"
             width={364}
             height={364}

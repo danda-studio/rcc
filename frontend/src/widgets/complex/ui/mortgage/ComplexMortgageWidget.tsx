@@ -34,7 +34,15 @@ export const ComplexMortgageWidget: FC = () => {
           >
             Ипотека
             <br />
-            со ставкой 2%
+            ставкой
+            {" "}
+            <span className={`
+              text-4-5xl
+              md:text-6-7xl
+            `}
+            >
+              2%
+            </span>
           </h1>
 
           <p className={`

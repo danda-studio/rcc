@@ -54,7 +54,7 @@ export const ComplexAboutWidget: FC = () => {
           <UIInfo
             icon={<ShieldCheck />}
             color="gray"
-            description="Две современные детские площадки, уютные зоны отдыха и мангальная зона"
+            description="Современная детская площадка, спортивная площадка и уютные зоны отдыха, мангальная зона"
           />
           <UIInfo
             className="md:col-start-1 md:col-end-3"

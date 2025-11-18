@@ -66,7 +66,7 @@ export const ComplexFooterWidget: FC = () => {
             `}
             href="#construction"
           >
-            Хронология строительства
+            Этапы строительства
           </Link>
           <Link
             className={`
@@ -83,7 +83,7 @@ export const ComplexFooterWidget: FC = () => {
             md:inline
           `}
           >
-            Офис продаж - г. Мариуполь, улица Артема,58
+            Офис продаж -  г. Мариуполь, ул, Артема, д, 58
           </span>
 
           <span className={`
@@ -187,7 +187,11 @@ export const ComplexFooterWidget: FC = () => {
       >
         <div className="flex items-center justify-between">
           <span className="text-sm-m font-medium text-gray-4">
-            Офис продаж - г. Мариуполь, улица Артема,58
+            Офис продаж:
+            <br />
+            г. Мариуполь,
+            <br />
+            ул, Артема, д, 58
           </span>
 
           <Button

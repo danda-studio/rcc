@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Providers, UILayout } from "@/shared";
 import { manropeFont } from "@/shared/styles/fonts/manrope";
 import "@/shared/styles/globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://your-domain.com"),
@@ -48,7 +49,7 @@ export default function RootLayout({
         />
 
         {/* Yandex.Metrika */}
-        <script
+        <Script
             id="yandex-metrika"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{

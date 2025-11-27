@@ -18,7 +18,6 @@ import { cn } from "@/shared/lib/shadcn/utils";
 import { UIPhoneField } from "@/shared/ui/phone-field/UIPhoneField";
 import {reachGoal} from "@/shared/lib/analytics/yandexMetrika";
 
-
 export const ContactFormFeature: FC<{ className?: string }> = ({ className }) => {
 
   const form = useForm<ContactFormValues>({
@@ -60,7 +59,6 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
   });
 
   const onSubmit = handleSubmit((values) => {
-    console.log("values", values)
     mutation.mutate(values);
     reachGoal('submit-form', {
       name: values.name,

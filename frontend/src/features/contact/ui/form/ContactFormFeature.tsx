@@ -12,14 +12,13 @@ import { contactFormSchema } from "@/features/contact/model/contactFormSchema";
 import { UIInputField } from "@/shared";
 import { postApiContactContact } from "@/shared/api/generated";
 import { ContactMethod } from "@/shared/api/scheme";
+import { reachGoal } from "@/shared/lib/analytics/yandexMetrika";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { Field } from "@/shared/lib/shadcn/ui/field";
 import { cn } from "@/shared/lib/shadcn/utils";
 import { UIPhoneField } from "@/shared/ui/phone-field/UIPhoneField";
-import {reachGoal} from "@/shared/lib/analytics/yandexMetrika";
 
 export const ContactFormFeature: FC<{ className?: string }> = ({ className }) => {
-
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -60,7 +59,7 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
 
   const onSubmit = handleSubmit((values) => {
     mutation.mutate(values);
-    reachGoal('submit-form', {
+    reachGoal("submit-form", {
       name: values.name,
       email: values.email,
       phone: `${values.phone.code}${values.phone.number}`,
@@ -68,83 +67,84 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
   });
 
   return (
-      <div className={cn(`text-blue-6`, className)}>
-        <form
-            noValidate
-            className="flex flex-col gap-3.5"
-            onSubmit={onSubmit}
-        >
-          <Controller
-              name="name"
-              control={control}
-              render={({field}) => (
-                  <UIInputField
-                      {...field}
-                      id="name"
-                      label="Имя"
-                      error={errors.name?.message}
-                  />
-              )}
-          />
-
-          <Controller
-              name="phone"
-              control={control}
-              render={({field}) => (
-                  <UIPhoneField
-                      {...field}
-                      id="phone"
-                      label="Телефон"
-                      error={errors.phone?.code?.message ?? errors.phone?.number?.message}
-                  />
-              )}
-          />
-
-          <Field orientation="horizontal">
-            <Controller
-                name="contactMethod"
-                control={form.control}
-                render={({field}) => (
-                    <SocialTabSelect
-                        value={field.value as ContactMethodType}
-                        onChange={val => field.onChange(Number(val))}
-                    />
-                )}
+    <div className={cn(`text-blue-6`, className)}>
+      <form
+        noValidate
+        className="flex flex-col gap-3.5"
+        onSubmit={onSubmit}
+      >
+        <Controller
+          name="name"
+          control={control}
+          render={({ field }) => (
+            <UIInputField
+              {...field}
+              id="name"
+              label="Имя"
+              error={errors.name?.message}
             />
-          </Field>
+          )}
+        />
 
+        <Controller
+          name="phone"
+          control={control}
+          render={({ field }) => (
+            <UIPhoneField
+              {...field}
+              id="phone"
+              label="Телефон"
+              error={errors.phone?.code?.message ?? errors.phone?.number?.message}
+            />
+          )}
+        />
+
+        <Field orientation="horizontal">
           <Controller
-              name="email"
-              control={control}
-              render={({field: {onChange, value}}) => (
-                  <UIInputField
-                      value={value}
-                      name="email"
-                      onChange={onChange}
-                      id="email"
-                      label="Email"
-                      error={errors.email?.message}
-                  />
-              )}
+            name="contactMethod"
+            control={form.control}
+            render={({ field }) => (
+              <SocialTabSelect
+                value={field.value as ContactMethodType}
+                onChange={val => field.onChange(Number(val))}
+              />
+            )}
           />
+        </Field>
 
-          <Field orientation="horizontal">
-            <Button
-                id="submit-form"
-                type="submit"
-                size="md"
-                className="w-full cursor-pointer"
-            >
-              {
-                mutation.isPending
-                    ? <Loader2Icon className="animate-spin"/>
-                    : "Подобрать квартиру"
-              }
+        <Controller
+          name="email"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <UIInputField
+              value={value}
+              name="email"
+              onChange={onChange}
+              id="email"
+              label="Email"
+              error={errors.email?.message}
+            />
+          )}
+        />
 
-            </Button>
-          </Field>
-        </form>
+        <Field orientation="horizontal">
+          <Button
+            id="submit-form"
+            type="submit"
+            size="md"
+            className="w-full cursor-pointer"
+          >
+            {
+              mutation.isPending
+                ? <Loader2Icon className="animate-spin" />
+                : "Подобрать квартиру"
+            }
 
-      </div>
+          </Button>
+        </Field>
+      </form>
+
+    </div>
   );
 };
+

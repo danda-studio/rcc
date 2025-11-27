@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Providers, UILayout } from "@/shared";
 import { manropeFont } from "@/shared/styles/fonts/manrope";
 import "@/shared/styles/globals.css";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://your-domain.com"),
@@ -50,10 +50,10 @@ export default function RootLayout({
 
         {/* Yandex.Metrika */}
         <Script
-            id="yandex-metrika"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
+          id="yandex-metrika"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
               (function(m,e,t,r,i,k,a){
                 m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
                 m[i].l=1*new Date();
@@ -72,7 +72,7 @@ export default function RootLayout({
                 trackLinks:true
               });
             `,
-            }}
+          }}
         />
       </head>
       <body>

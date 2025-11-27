@@ -53,7 +53,7 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
       reset();
     },
     onError: (err: any) => {
-      console.error("Ошибка отправки формы", err);
+      console.error("Ошиббка отправки формы", err);
     },
   });
 

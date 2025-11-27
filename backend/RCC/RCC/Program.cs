@@ -37,7 +37,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowSpecificOrigin");
+app.UseCors("AllowLocalhost3000");
 
 if (app.Environment.IsDevelopment())
 {

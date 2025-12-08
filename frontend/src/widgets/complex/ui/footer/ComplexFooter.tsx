@@ -108,7 +108,8 @@ export const ComplexFooterWidget: FC = () => {
               hover:text-gray-700
               md:hidden
             `}
-            href="#"
+            href="/privacy"
+            target="_blank"
           >
             Политика обработки персональных данных
           </Link>
@@ -146,7 +147,8 @@ export const ComplexFooterWidget: FC = () => {
               hover:text-gray-700
               md:my-10 md:inline
             `}
-            href="#"
+            href="/privacy"
+            target="_blank"
           >
             Политика обработки персональных данных
           </Link>

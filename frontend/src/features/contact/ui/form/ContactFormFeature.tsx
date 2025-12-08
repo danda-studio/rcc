@@ -12,6 +12,7 @@ import { contactFormSchema } from "@/features/contact/model/contactFormSchema";
 import { UIInputField } from "@/shared";
 import { postApiContactContact } from "@/shared/api/generated";
 import { ContactMethod } from "@/shared/api/scheme";
+import { reachGoal } from "@/shared/lib/analytics/yandexMetrika";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { Field } from "@/shared/lib/shadcn/ui/field";
 import { cn } from "@/shared/lib/shadcn/utils";
@@ -52,12 +53,17 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
       reset();
     },
     onError: (err: any) => {
-      console.error("Ошибка отправки формы", err);
+      console.error("Ошиббка отправки формы", err);
     },
   });
 
   const onSubmit = handleSubmit((values) => {
     mutation.mutate(values);
+    reachGoal("submit-form", {
+      name: values.name,
+      email: values.email,
+      phone: `${values.phone.code}${values.phone.number}`,
+    });
   });
 
   return (
@@ -123,6 +129,7 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
 
         <Field orientation="horizontal">
           <Button
+            id="submit-form"
             type="submit"
             size="md"
             className="w-full cursor-pointer"

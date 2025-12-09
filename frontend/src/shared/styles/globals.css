@@ -142,6 +142,10 @@ h6 {
   --text-2-2xl: 3.625rem;
   --text-2-2xl--line-height: 1;
 
+  /* 52px */
+  --text-2-1xl: 3.25rem;
+  --text-2-1xl--line-height: 0.92;
+
   /* 60px */
   --text-3xl: 3.75rem;
   --text-3xl--line-height: 0.92;
@@ -239,6 +243,7 @@ h6 {
   --color-black-1: var(--black-1);
 
   --color-red-1: var(--red-1);
+  --color-red-2: var(--red-2);
 
   /* Backdrop blur */
   --blur-lg: calc(25 * var(--px));
@@ -320,6 +325,7 @@ h6 {
   --black-1: #04060d;
 
   --red-1: #d80027;
+  --red-2: #c00000;
 
   /* 1px to rem */
   --px: calc((1 / 16) * 1rem);
@@ -353,6 +359,7 @@ h6 {
   --linear-7: 290.5deg, #ffffff 67.25%, rgba(255, 255, 255, 0) 113.92%;
   --linear-8: 0deg, #03050c 0%, rgba(3, 5, 12, 0) 100%;
   --linear-9: 0deg, #03050c 0%, rgba(3, 5, 12, 0) 50%;
+  --linear-10: 290.5deg, var(--white) 67.25%, rgba(255, 255, 255, 0) 113.92%;
 
   /* Clip path */
   --clip-path-1: polygon(

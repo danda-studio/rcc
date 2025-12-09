@@ -42,6 +42,12 @@ const buttonVariants = cva(
           focus-visible:outline-white/40
           active:bg-white active:text-blue-6
         `,
+        danger: `
+          cursor-pointer border border-red-2 bg-red-2 text-white
+          hover:bg-red-2/80 hover:text-white
+          focus-visible:outline-white/40
+          active:bg-red-2 active:text-white
+        `,
       },
       size: {
         sm: `

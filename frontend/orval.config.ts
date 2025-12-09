@@ -1,5 +1,3 @@
-console.log(process.env.API_URL);
-
 module.exports = {
   client: {
     input: `${process.env.API_URL}/swagger/v1/swagger.json`,

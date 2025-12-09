@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "generate": "dotenv -e .env -- npx orval --config ./orval.config.ts"
+    "generate-api:development": "dotenv -e .env.development -- npx orval --config ./orval.config.ts",
+    "generate-api:production": "dotenv -e .env.production -- npx orval --config ./orval.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

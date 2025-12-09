@@ -3,10 +3,12 @@ name: Deploy to Ubuntu Server
 on:
   push:
     branches:
-      - main
+      - feature/bItxG4Tn
     paths:
       - "frontend/**"
       - ".github/workflows/deploy-frontend.prod.yml"
+env:
+  API_URL: https://api.rsk-olimpiyskiy.ru
 
 jobs:
   build-deploy:
@@ -27,6 +29,10 @@ jobs:
 
       - name: Install dependencies
         run: yarn
+        working-directory: ./frontend
+
+      - name: Get API Schema
+        run: yarn generate-api:production
         working-directory: ./frontend
 
       - name: Build project

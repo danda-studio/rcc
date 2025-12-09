@@ -13,24 +13,17 @@ export const ContactFormModalFeature: FC<ContactFormModalFeatureProps> = ({ chil
       <DialogContent
         showCloseButton={false}
         className={`
-
           flex flex-col !gap-0 overflow-hidden !border-none !p-0
-
           md:max-w-143
-
         `}
       >
         {/* <ContactFormModalFeatureDefaultHeader /> */}
         <ContactFormModalFeatureCarRafflePromotionHeader />
 
         <div className={`
-
           p-5
-
           max-md:w-88
-
           md:p-10
-
         `}
         >
           <ContactFormFeature
@@ -42,11 +35,8 @@ export const ContactFormModalFeature: FC<ContactFormModalFeatureProps> = ({ chil
           />
           <div className="mt-3.5 flex justify-center">
             <p className={`
-
               max-w-86 text-center text-xxs text-gray-4
-
               md:text-xs
-
             `}
             >
               Оставляя заявку, вы соглашаетесь с условиями обработки персональных данных

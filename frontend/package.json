@@ -10,7 +10,7 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "generate-api:development": "dotenv -e .env.development -- npx orval --config ./orval.config.cjs",
-    "generate-api:production": "orval --config ./orval.config.cjs"
+    "generate-api:production": "npx orval --config ./orval.config.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

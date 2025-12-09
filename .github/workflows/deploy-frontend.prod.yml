@@ -33,6 +33,7 @@ jobs:
         run: yarn generate-api:production
         working-directory: ./frontend
         env:
+          SCHEMA_URL: https://amused-arabelle-rcc-66096465.koyeb.app
           API_URL: https://api.rsk-olimpiyskiy.ru
 
       - name: Build project

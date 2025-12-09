@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "generate": "orval --config ./orval.config.ts"
+    "generate-api:development": "dotenv -e .env.development -- npx orval --config ./orval.config.cjs",
+    "generate-api:production": "npx orval --config ./orval.config.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -31,6 +32,7 @@
     "react-dom": "19.2.1",
     "react-hook-form": "^7.65.0",
     "tailwind-merge": "^3.3.1",
+    "use-mask-input": "^3.5.2",
     "zod": "^4.1.12"
   },
   "devDependencies": {
@@ -40,6 +42,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9.26.0",
     "eslint-config-next": "^15.3.2",
     "eslint-plugin-better-tailwindcss": "^3.7.10",

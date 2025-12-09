@@ -20,7 +20,17 @@ import { Field } from "@/shared/lib/shadcn/ui/field";
 import { cn } from "@/shared/lib/shadcn/utils";
 import { UIPhoneField } from "@/shared/ui/phone-field/UIPhoneField";
 
-export const ContactFormFeature: FC<{ className?: string }> = ({ className }) => {
+interface SubmitButton { variant: "default" | "danger"; label: string }
+
+const DEFAULT_BUTTON: SubmitButton = {
+  label: "Подобрать квартиру",
+  variant: "default",
+};
+
+export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton }> = ({
+  className,
+  button = DEFAULT_BUTTON,
+}) => {
   const { data } = useQuery({
     queryKey: ["country-codes"],
     queryFn: () =>
@@ -154,12 +164,13 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
             id="submit-form"
             type="submit"
             size="md"
+            variant={button.variant}
             className="w-full cursor-pointer"
           >
             {
               mutation.isPending
                 ? <Loader2Icon className="animate-spin" />
-                : "Подобрать квартиру"
+                : button.label
             }
 
           </Button>

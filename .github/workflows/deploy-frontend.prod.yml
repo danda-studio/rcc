@@ -7,8 +7,6 @@ on:
     paths:
       - "frontend/**"
       - ".github/workflows/deploy-frontend.prod.yml"
-env:
-  API_URL: https://api.rsk-olimpiyskiy.ru
 
 jobs:
   build-deploy:
@@ -34,6 +32,8 @@ jobs:
       - name: Get API Schema
         run: yarn generate-api:production
         working-directory: ./frontend
+        env:
+          API_URL: https://api.rsk-olimpiyskiy.ru
 
       - name: Build project
         run: yarn build

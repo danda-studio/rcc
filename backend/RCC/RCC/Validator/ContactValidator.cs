@@ -27,22 +27,23 @@ namespace RCC.Validator
         public static bool ValidateEmail(string email, out string error)
         {
             error = "";
-            if (email == null)
+            if (string.IsNullOrEmpty(email))
             {
-                error = "Email не может быть пустым.";
-                return false;
+                return true;
             }
-
-            try
+            else
             {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                error = "Неверный формат email.";
-                return false;
-            }
+                try
+                {
+                    var addr = new System.Net.Mail.MailAddress(email);
+                    return addr.Address == email;
+                }
+                catch
+                {
+                    error = "Неверный формат email.";
+                    return false;
+                }
+            } 
         }
 
         // Проверка номера телефона (код страны и цифры)

@@ -254,13 +254,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@epic-web/invariant@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@epic-web/invariant@npm:1.0.0"
-  checksum: 10c0/72dbeb026e4e4eb3bc9c65739b91408ca77ab7d603a2494fa2eff3790ec22892c4caba751cffdf30f5ccf0e7ba79c1e9c96cf0a357404b9432bf1365baac23ca
-  languageName: node
-  linkType: hard
-
 "@es-joy/jsdoccomment@npm:^0.50.2":
   version: 0.50.2
   resolution: "@es-joy/jsdoccomment@npm:0.50.2"
@@ -3484,19 +3477,6 @@ __metadata:
   dependencies:
     browserslist: "npm:^4.26.3"
   checksum: 10c0/d50f8870e14434477acac1f9f52929b6298fd86313386c4105be0d43978708ad10ab3b80b9b54d77b93761dbc5430e3151de0c792dabd117b58c25b551b78e20
-  languageName: node
-  linkType: hard
-
-"cross-env@npm:^10.1.0":
-  version: 10.1.0
-  resolution: "cross-env@npm:10.1.0"
-  dependencies:
-    "@epic-web/invariant": "npm:^1.0.0"
-    cross-spawn: "npm:^7.0.6"
-  bin:
-    cross-env: dist/bin/cross-env.js
-    cross-env-shell: dist/bin/cross-env-shell.js
-  checksum: 10c0/834a862db456ba1fedf6c6da43436b123ae38f514fa286d6f0937c14fa83f13469f77f70f2812db041ae2d84f82bac627040b8686030aca27fbdf113dfa38b63
   languageName: node
   linkType: hard
 
@@ -7647,7 +7627,6 @@ __metadata:
     axios: "npm:^1.12.2"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
-    cross-env: "npm:^10.1.0"
     dotenv-cli: "npm:^11.0.0"
     embla-carousel-react: "npm:^8.6.0"
     eslint: "npm:^9.26.0"
@@ -7666,6 +7645,7 @@ __metadata:
     tailwindcss: "npm:^4.1.14"
     tw-animate-css: "npm:^1.4.0"
     typescript: "npm:^5"
+    use-mask-input: "npm:^3.5.2"
     zod: "npm:^4.1.12"
   languageName: unknown
   linkType: soft
@@ -9035,6 +9015,16 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10c0/f887488c6e6075cdad4962979da1714b217bcb1ee009a9e57ce9a844bcfc4c3a99e93983dfc2e5af9e0913824d24e730090ff255e902c516dcb58d2d3837e01c
+  languageName: node
+  linkType: hard
+
+"use-mask-input@npm:^3.5.2":
+  version: 3.5.2
+  resolution: "use-mask-input@npm:3.5.2"
+  peerDependencies:
+    react: ">=17"
+    react-dom: ">=17"
+  checksum: 10c0/1a51711084edc011009ba1feca6e32aa875ee0acd0a93ba07b2641dfb1cfcc9a700ee2f438967dc779faff5c81a5b8eba12ac7108b6842972e611099ef421270
   languageName: node
   linkType: hard
 

@@ -3,14 +3,16 @@
 import type { FC } from "react";
 import type { ContactMethodType } from "@/entities/social/ui/tab-select/SocialTabSelect";
 import type { ContactFormValues } from "@/features/contact/model/contactFormSchema";
+import type { CountryCode } from "@/shared/ui/phone-field/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { Loader2Icon } from "lucide-react";
+import { useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { SocialTabSelect } from "@/entities/social";
 import { contactFormSchema } from "@/features/contact/model/contactFormSchema";
 import { UIInputField } from "@/shared";
-import { postApiContactContact } from "@/shared/api/generated";
+import { getApiCountryCodes, postApiContactContact } from "@/shared/api/generated";
 import { ContactMethod } from "@/shared/api/scheme";
 import { reachGoal } from "@/shared/lib/analytics/yandexMetrika";
 import { Button } from "@/shared/lib/shadcn/ui/button";
@@ -19,8 +21,19 @@ import { cn } from "@/shared/lib/shadcn/utils";
 import { UIPhoneField } from "@/shared/ui/phone-field/UIPhoneField";
 
 export const ContactFormFeature: FC<{ className?: string }> = ({ className }) => {
+  const { data } = useQuery({
+    queryKey: ["country-codes"],
+    queryFn: () =>
+      getApiCountryCodes(),
+    staleTime: 1000 * 60 * 60 * 24,
+    gcTime: 1000 * 60 * 60 * 24 * 7,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+  });
+  const countryCodes: CountryCode[] = useMemo(() => data?.data as unknown as CountryCode[] ?? [], [data]);
   const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(contactFormSchema(countryCodes)),
     defaultValues: {
       name: "",
       phone: {
@@ -58,11 +71,20 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
   });
 
   const onSubmit = handleSubmit((values) => {
-    mutation.mutate(values);
+    const number = values.phone.number
+      .replaceAll(" ", "")
+      .replaceAll("-", "");
+    mutation.mutate({
+      ...values,
+      phone: {
+        ...values.phone,
+        number,
+      },
+    });
     reachGoal("submit-form", {
       name: values.name,
-      email: values.email,
-      phone: `${values.phone.code}${values.phone.number}`,
+      email: values.email as string,
+      phone: `${values.phone.code}${number}`,
     });
   });
 
@@ -117,7 +139,7 @@ export const ContactFormFeature: FC<{ className?: string }> = ({ className }) =>
           control={control}
           render={({ field: { onChange, value } }) => (
             <UIInputField
-              value={value}
+              value={value ?? ""}
               name="email"
               onChange={onChange}
               id="email"

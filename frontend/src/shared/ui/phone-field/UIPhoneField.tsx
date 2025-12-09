@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { Search } from "lucide-react";
 import { memo, useCallback, useMemo, useRef, useState } from "react";
+import { withMask } from "use-mask-input";
 import { getApiCountryCodes } from "@/shared/api/generated";
 import { Field, FieldLabel } from "@/shared/lib/shadcn/ui/field";
 import { Input } from "@/shared/lib/shadcn/ui/input";
@@ -20,6 +21,7 @@ import "flag-icons/css/flag-icons.min.css";
 
 export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
   const { id, label, value, onChange, error } = props;
+
   const [searchQuery, setSearchQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const parentRef = useRef<HTMLDivElement>(null);
@@ -34,7 +36,7 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
     refetchOnReconnect: false,
   });
 
-  const countryCodes: CountryCode[] = useMemo(() => data?.data as CountryCode[] ?? [], [data]);
+  const countryCodes: CountryCode[] = useMemo(() => data?.data as unknown as CountryCode[] ?? [], [data]);
 
   const filteredCountries = useMemo(() => {
     if (!searchQuery) {
@@ -72,8 +74,19 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
 
     return countryCodes.find(c => c.countryPhoneCode === code);
   }, [countryCodes, value.code]);
+
+  const mask = useMemo(() => {
+    if (!selectedCountry) {
+      return;
+    }
+    return selectedCountry.mask;
+  }, [selectedCountry]);
+  const inputMask = useMemo(() => {
+    return mask?.split(" ").slice(1).join(" ").replaceAll("X", "9");
+  }, [mask]);
+
   const handleCodeChange = useCallback((newCode: string) => {
-    onChange({ code: newCode, number: value.number });
+    onChange({ code: newCode, number: "" });
     setIsOpen(false);
   }, [onChange, value.number]);
 
@@ -90,11 +103,17 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
       <label
         htmlFor={id}
         className={`
+
           z-20 inline-flex !w-fit shrink-0 items-center rounded-tl-md
+
           rounded-bl-md border-y border-s border-gray-2 bg-gray-3 pr-2.5 pl-2
+
           has-[+div_input.border-red-1]:border-red-1
+
           has-[+div_input:focus]:border-blue-6
+
           has-[+div_input:hover]:border-blue-6
+
         `}
       >
         <Select
@@ -105,14 +124,23 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
           <SelectTrigger
             aria-label="Выбрать код страны"
             className={`
+
               h-9 gap-1.5 rounded-xs border-none border-r-gray-6 bg-gray-8!
+
               focus:outline-none!
+
               focus-visible:border-none focus-visible:ring-0
+
               focus-visible:ring-transparent focus-visible:ring-offset-0
+
               focus-visible:outline-none
+
               data-[state=open]:border-none! data-[state=open]:ring-0!
+
               data-[state=open]:outline-none!
+
               [&>svg]:hidden
+
             `}
           >
             <SelectValue>
@@ -133,10 +161,13 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
                   viewBox="0 0 10 10"
                   fill="none"
                   className={`
+
                     flex-shrink-0 text-gray-10 transition-transform duration-200
+
                     ${
     isOpen ? "rotate-180" : ""
     }
+
                   `}
                 >
                   <path
@@ -158,8 +189,11 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
             <div>
               <div className="relative">
                 <Search className={`
+
                   pointer-events-none absolute top-1/2 left-3 size-4
+
                   -translate-y-1/2 text-gray-12
+
                 `}
                 />
 
@@ -169,9 +203,13 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
                   value={searchQuery}
                   onChange={handleSearchChange}
                   className={`
+
                     h-10 w-full rounded-md border-none bg-gray-3 pr-3 pl-10
+
                     text-sm placeholder-gray-5
+
                     focus:ring-0 focus:outline-none
+
                   `}
                   onKeyDown={e => e.stopPropagation()}
                 />
@@ -181,9 +219,13 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
             {filteredCountries.length === 0
               ? (
                   <div className={`
+
                     mt-3 flex h-[10rem] w-[19.50rem] flex-col justify-center p-2
+
                     text-center text-sm text-gray-11
+
                     md:w-[27.55rem]
+
                   `}
                   >
                     Ничего не найдено
@@ -193,8 +235,11 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
                   <div
                     ref={parentRef}
                     className={`
+
                       mt-3 max-h-[19.5rem] w-[19.5rem] overflow-y-auto p-2
+
                       md:w-[29.6rem]
+
                     `}
                   >
                     <div
@@ -234,27 +279,42 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
       <div className="relative grow">
         <FieldLabel
           className={`
+
             pointer-events-none absolute top-1/2 left-0 z-10 -translate-y-1/2
+
             text-gray-5 transition-all
+
             has-[+input:focus,+input:not(:placeholder-shown)]:top-2.25
+
             has-[+input:focus,+input:not(:placeholder-shown)]:translate-y-0
+
             has-[+input:focus,+input:not(:placeholder-shown)]:text-xxs
+
           `}
           htmlFor={id}
         >
           {label}
         </FieldLabel>
 
-        <Input
-          id={id}
-          placeholder=" "
-          value={value.number}
-          onChange={handleNumberChange}
-          className={cn(`
-            rounded-tl-none rounded-bl-none !border-l-0 pt-5.75 pb-2.25 !pl-0
-            leading-5
-          `, error && "border-red-1")}
-        />
+        {inputMask && (
+          <Input
+            id={id}
+            placeholder=" "
+            value={value.number}
+            onChange={handleNumberChange}
+            className={cn(`
+
+              rounded-tl-none rounded-bl-none !border-l-0 pt-5.75 pb-2.25 !pl-0
+
+              leading-5
+
+            `, error && "border-red-1")}
+            ref={withMask(inputMask, {
+              placeholder: "_",
+              showMaskOnHover: false,
+            })}
+          />
+        )}
 
       </div>
       {error && (

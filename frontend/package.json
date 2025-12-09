@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "generate": "orval --config ./orval.config.ts"
+    "generate": "dotenv -e .env -- npx orval --config ./orval.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -40,6 +40,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9.26.0",
     "eslint-config-next": "^15.3.2",
     "eslint-plugin-better-tailwindcss": "^3.7.10",

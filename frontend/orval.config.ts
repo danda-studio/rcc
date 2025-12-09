@@ -1,11 +1,13 @@
+console.log(process.env.API_URL);
+
 module.exports = {
   client: {
-    input: "https://diplomatic-staci-rcc-c14bdd3f.koyeb.app/swagger/v1/swagger.json",
+    input: `${process.env.API_URL}/swagger/v1/swagger.json`,
     output: {
       target: "./src/shared/api/generated.ts",
       schemas: "./src/shared/api/scheme",
       client: "react-query",
-      baseUrl: "https://api.rsk-olimpiyskiy.ru",
+      baseUrl: process.env.API_URL,
     },
   },
 };

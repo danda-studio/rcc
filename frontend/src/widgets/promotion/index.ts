@@ -1,1 +1,1 @@
-export { CarRafflePromotion } from "./ui/car-raffle/CarRafflePromotionWidget";
+export { CarRafflePromotionWidget } from "./ui/car-raffle/CarRafflePromotionWidget";

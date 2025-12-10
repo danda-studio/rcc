@@ -37,11 +37,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowSpecificOrigin");
-app.UseCors("AllowLocalhost3000");
-
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("AllowLocalhost3000");
     app.UseSwagger();
     app.MapScalarApiReference(options =>
     {
@@ -57,6 +55,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
+    app.UseCors("AllowSpecificOrigin");
     app.MapGet("/", () => "RCK API is running");
 }
 

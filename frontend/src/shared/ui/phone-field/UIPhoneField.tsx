@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { Search } from "lucide-react";
 import { memo, useCallback, useMemo, useRef, useState } from "react";
+import { withMask } from "use-mask-input";
 import { getApiCountryCodes } from "@/shared/api/generated";
 import { Field, FieldLabel } from "@/shared/lib/shadcn/ui/field";
 import { Input } from "@/shared/lib/shadcn/ui/input";
@@ -20,6 +21,7 @@ import "flag-icons/css/flag-icons.min.css";
 
 export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
   const { id, label, value, onChange, error } = props;
+
   const [searchQuery, setSearchQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const parentRef = useRef<HTMLDivElement>(null);
@@ -34,7 +36,7 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
     refetchOnReconnect: false,
   });
 
-  const countryCodes: CountryCode[] = useMemo(() => data?.data as CountryCode[] ?? [], [data]);
+  const countryCodes: CountryCode[] = useMemo(() => data?.data as unknown as CountryCode[] ?? [], [data]);
 
   const filteredCountries = useMemo(() => {
     if (!searchQuery) {
@@ -72,8 +74,19 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
 
     return countryCodes.find(c => c.countryPhoneCode === code);
   }, [countryCodes, value.code]);
+
+  const mask = useMemo(() => {
+    if (!selectedCountry) {
+      return;
+    }
+    return selectedCountry.mask;
+  }, [selectedCountry]);
+  const inputMask = useMemo(() => {
+    return mask?.split(" ").slice(1).join(" ").replaceAll("X", "9");
+  }, [mask]);
+
   const handleCodeChange = useCallback((newCode: string) => {
-    onChange({ code: newCode, number: value.number });
+    onChange({ code: newCode, number: "" });
     setIsOpen(false);
   }, [onChange, value.number]);
 
@@ -245,16 +258,22 @@ export const UIPhoneField = memo((props: UIPhoneFieldProps) => {
           {label}
         </FieldLabel>
 
-        <Input
-          id={id}
-          placeholder=" "
-          value={value.number}
-          onChange={handleNumberChange}
-          className={cn(`
-            rounded-tl-none rounded-bl-none !border-l-0 pt-5.75 pb-2.25 !pl-0
-            leading-5
-          `, error && "border-red-1")}
-        />
+        {inputMask && (
+          <Input
+            id={id}
+            placeholder=" "
+            value={value.number}
+            onChange={handleNumberChange}
+            className={cn(`
+              rounded-tl-none rounded-bl-none !border-l-0 pt-5.75 pb-2.25 !pl-0
+              leading-5
+            `, error && "border-red-1")}
+            ref={withMask(inputMask, {
+              placeholder: "_",
+              showMaskOnHover: false,
+            })}
+          />
+        )}
 
       </div>
       {error && (

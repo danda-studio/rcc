@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { ComplexPage } from "@/pages/complex";
+import { CarRafflePromotionWidget } from "@/widgets/promotion/ui/car-raffle/CarRafflePromotionWidget";
 
 export const metadata: Metadata = {
   title: "Купить квартиру в ЖК Олимпийский Мариуполь",
@@ -73,6 +74,8 @@ export default function Home() {
       />
 
       <ComplexPage />
+
+      <CarRafflePromotionWidget />
     </>
   );
 }

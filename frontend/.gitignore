@@ -45,3 +45,6 @@ next-env.d.ts
 *.iml
 # VS Code
 .vscode/
+
+# API
+/src/shared/api

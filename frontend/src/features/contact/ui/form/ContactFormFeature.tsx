@@ -60,12 +60,13 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
   const { errors } = formState;
 
   const mutation = useMutation({
-    mutationFn: async ({ contactMethod, name, phone: { code, number }, email }: ContactFormValues) => {
+    mutationFn: async ({ contactMethod, name, phone: { code: _code, number }, email }: ContactFormValues) => {
+      const code = _code.replace(/\D/g, "");
       const res = await postApiContactContact({
         name,
         phone: {
-          code: code.replace(/\D/g, ""),
-          number,
+          code,
+          number: number.startsWith(code) ? number.slice(code.length) : number,
         },
         contactMethod,
         email,

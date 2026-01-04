@@ -109,10 +109,10 @@ export const APARTMENTS: Apartment[] = [
       balcony: [5.49],
     },
     image: {
-      card: "/images/apartment/plan/2/c/3d.webp",
+      card: "/images/apartment/plan/2/d/3d.webp",
       carousel: [
-        "/images/apartment/plan/2/c/3d.webp",
-        "/images/apartment/plan/2/c/2d-m.webp",
+        "/images/apartment/plan/2/d/3d.webp",
+        "/images/apartment/plan/2/d/2d-m.webp",
       ],
     },
   },
@@ -128,10 +128,10 @@ export const APARTMENTS: Apartment[] = [
       balcony: [4.58],
     },
     image: {
-      card: "/images/apartment/plan/2/d/3d.webp",
+      card: "/images/apartment/plan/2/c/3d.webp",
       carousel: [
-        "/images/apartment/plan/2/d/3d.webp",
-        "/images/apartment/plan/2/d/2d-m.webp",
+        "/images/apartment/plan/2/c/3d.webp",
+        "/images/apartment/plan/2/c/2d-m.webp",
       ],
     },
   },

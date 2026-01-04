@@ -53,9 +53,8 @@ const jsonLd = {
     "addressCountry": "RU",
   },
   "priceRange": "от 11 500₽/мес",
-  "url": "https://your-domain.com",
   "image": "/images/complex/banner.webp",
-  "telephone": "+79499046784",
+  "telephone": "+7 915 260-03-33",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",

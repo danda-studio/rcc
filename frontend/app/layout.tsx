@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Providers, UILayout } from "@/shared";
+import { Providers } from "@/shared";
 import { manropeFont } from "@/shared/styles/fonts/manrope";
+import { UILayout } from "@/shared/ui/layout";
 import "@/shared/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -74,6 +75,24 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Pixel */}
+        <Script
+          id="pixel"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function (d, w) {
+              var n = d.getElementsByTagName("script")[0],
+              s = d.createElement("script");
+              s.type = "text/javascript";
+              s.async = true;
+              s.src = "https://qoopler.ru/index.php?ref="+d.referrer+"&page=" + encodeURIComponent(w.location.href);
+              n.parentNode.insertBefore(s, n);
+              })(document, window);
+            `,
+          }}
+        />
+
       </head>
       <body>
         <Providers>

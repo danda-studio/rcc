@@ -86,21 +86,21 @@ export const ComplexFooterWidget: FC = () => {
             Офис продаж -  г. Мариуполь, ул, Артема, д, 58
           </span>
 
-          <span className={`
+          <a href="tel:+79152600333" className={`
             mt-4 text-lg-x leading-[0.92] font-medium -tracking-md text-blue-6
             md:hidden
           `}
           >
             +7 915 260-03-33
-          </span>
+          </a>
 
-          <span className={`
+          <a href="tel:+79499046784" className={`
             mt-4 text-lg-x leading-[0.92] font-medium -tracking-md text-blue-6
             md:hidden
           `}
           >
             +7 949 904-67-84
-          </span>
+          </a>
 
           <Link
             className={`
@@ -126,20 +126,20 @@ export const ComplexFooterWidget: FC = () => {
         </div>
 
         <div className="flex flex-col items-end">
-          <span className={`
+          <a href="tel:+79152600333" className={`
             mb-[2.5rem] hidden text-md-x font-medium -tracking-md text-blue-6
             md:inline
           `}
           >
             +7 915 260-03-33
-          </span>
-          <span className={`
+          </a>
+          <a href="tel:+79499046784" className={`
             hidden text-md-x font-medium -tracking-md text-blue-6
             md:inline
           `}
           >
             +7 949 904-67-84
-          </span>
+          </a>
 
           <Link
             className={`

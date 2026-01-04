@@ -34,8 +34,8 @@ namespace RCC.Services
                 return new SendContactResponse { Success = false, Message = nameError };
 
             // Валидация email
-            if (!ContactValidator.ValidateEmail(request.Email, out var emailError))
-                return new SendContactResponse { Success = false, Message = emailError };
+            // if (!ContactValidator.ValidateEmail(request.Email, out var emailError))
+            //     return new SendContactResponse { Success = false, Message = emailError };
 
             // Валидация телефона
             if (!ContactValidator.ValidatePhone(request.Phone.Code, request.Phone.Number, out var phoneError))

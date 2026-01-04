@@ -17,7 +17,14 @@ export const contactFormSchema = (codes: CountryCode[]) => z.object({
     return;
   }
   const numberMask = mask.split(" ").slice(1).join(" ");
-  const escaped = numberMask.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+  const codeMask = mask.split(" ")[0].slice(1);
+  let maskStr: string;
+  if (phone.number.startsWith(code.slice(1))) {
+    maskStr = `${codeMask} ${numberMask}`;
+  } else {
+    maskStr = numberMask;
+  }
+  const escaped = maskStr.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
   const regexStr = escaped.replace(/X/g, "\\d");
   const regex = new RegExp(`^${regexStr}$`);
   return regex.test(phone.number);

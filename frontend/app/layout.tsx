@@ -1,59 +1,60 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 import Script from "next/script";
-import { Providers, UILayout } from "@/shared";
-import { manropeFont } from "@/shared/styles/fonts/manrope";
+import {Providers} from "@/shared";
+import {manropeFont} from "@/shared/styles/fonts/manrope";
 import "@/shared/styles/globals.css";
+import {UILayout} from "@/shared/ui/layout";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.com"),
-  title: {
-    template: "%s | ЖК Олимпийский",
-    default: "ЖК Олимпийский - Новостройки в Мариуполе",
-  },
-  description: "Официальный сайт жилого комплекса Олимпийский в Мариуполе",
-  keywords: ["жилой комплекс", "новостройки", "Мариуполь", "купить квартиру"],
-  authors: [{ name: "ЖК Олимпийский" }],
-  openGraph: {
-    type: "website",
-    locale: "ru_RU",
-    siteName: "ЖК Олимпийский",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      "index": true,
-      "follow": true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+    metadataBase: new URL("https://your-domain.com"),
+    title: {
+        template: "%s | ЖК Олимпийский",
+        default: "ЖК Олимпийский - Новостройки в Мариуполе",
     },
-  },
+    description: "Официальный сайт жилого комплекса Олимпийский в Мариуполе",
+    keywords: ["жилой комплекс", "новостройки", "Мариуполь", "купить квартиру"],
+    authors: [{name: "ЖК Олимпийский"}],
+    openGraph: {
+        type: "website",
+        locale: "ru_RU",
+        siteName: "ЖК Олимпийский",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            "index": true,
+            "follow": true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="ru" className={manropeFont.variable}>
-      <head>
-        <link rel="icon" href="/favicon.svg" />
-        <link
-          rel="preload"
-          as="image"
-          href="/images/complex/banner.webp"
-          type="image/webp"
-          fetchPriority="high"
-        />
+    return (
+        <html lang="ru" className={manropeFont.variable}>
+        <head>
+            <link rel="icon" href="/favicon.svg"/>
+            <link
+                rel="preload"
+                as="image"
+                href="/images/complex/banner.webp"
+                type="image/webp"
+                fetchPriority="high"
+            />
 
-        {/* Yandex.Metrika */}
-        <Script
-          id="yandex-metrika"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+            {/* Yandex.Metrika */}
+            <Script
+                id="yandex-metrika"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: `
               (function(m,e,t,r,i,k,a){
                 m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
                 m[i].l=1*new Date();
@@ -72,16 +73,33 @@ export default function RootLayout({
                 trackLinks:true
               });
             `,
-          }}
-        />
-      </head>
-      <body>
+                }}
+            />
+
+            {/* Pixel */}
+            <Script
+                dangerouslySetInnerHTML={{
+                    __html: `
+              (function (d, w) {
+              var n = d.getElementsByTagName("script")[0],
+              s = d.createElement("script");
+              s.type = "text/javascript";
+              s.async = true;
+              s.src = "https://qoopler.ru/index.php?ref="+d.referrer+"&page=" + encodeURIComponent(w.location.href);
+              n.parentNode.insertBefore(s, n);
+              })(document, window);
+            `,
+                }}
+            />
+
+        </head>
+        <body>
         <Providers>
-          <UILayout>
-            {children}
-          </UILayout>
+            <UILayout>
+                {children}
+            </UILayout>
         </Providers>
-      </body>
-    </html>
-  );
+        </body>
+        </html>
+    );
 }

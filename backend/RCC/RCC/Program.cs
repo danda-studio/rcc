@@ -56,7 +56,19 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseCors("AllowSpecificOrigin");
-    app.MapGet("/", () => "RCK API is running");
+    // app.MapGet("/", () => "RCK API is running");
+    app.UseSwagger();
+    app.MapScalarApiReference(options =>
+    {
+        options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
+        options.Title = "RCK API Documentation";
+    });
+
+    app.MapGet("/", context =>
+    {
+        context.Response.Redirect("/scalar");
+        return Task.CompletedTask;
+    });
 }
 
 var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "files");

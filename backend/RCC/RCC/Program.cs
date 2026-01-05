@@ -7,11 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-// if (builder.Environment.IsDevelopment())
-// {
+if (builder.Environment.IsDevelopment())
+{
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
-// }
+}
 
 builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("GmailSetting"));
 builder.Services.AddScoped<IContactService, ContactService>();
@@ -56,19 +56,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseCors("AllowSpecificOrigin");
-    // app.MapGet("/", () => "RCK API is running");
-    app.UseSwagger();
-    app.MapScalarApiReference(options =>
-    {
-        options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
-        options.Title = "RCK API Documentation";
-    });
-
-    app.MapGet("/", context =>
-    {
-        context.Response.Redirect("/scalar");
-        return Task.CompletedTask;
-    });
+    app.MapGet("/", () => "RCK API is running");
 }
 
 var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "files");

@@ -9,6 +9,8 @@ export interface Apartment {
     bathroom: number;
     balcony?: number[];
     tambour?: number;
+    oldPrice?: number;
+    newPrice?: number;
   };
   image: {
     card: string;

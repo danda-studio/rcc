@@ -244,6 +244,7 @@ h6 {
 
   --color-red-1: var(--red-1);
   --color-red-2: var(--red-2);
+  --color-red-3: var(--red-3);
 
   /* Backdrop blur */
   --blur-lg: calc(25 * var(--px));
@@ -326,6 +327,7 @@ h6 {
 
   --red-1: #d80027;
   --red-2: #c00000;
+  --red-3: #D40000;
 
   /* 1px to rem */
   --px: calc((1 / 16) * 1rem);

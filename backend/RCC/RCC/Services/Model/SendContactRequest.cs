@@ -24,5 +24,10 @@
         /// Адрес электронной почты клиента.
         /// </summary>
         public string Email { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Капча
+        /// </summary>
+        public AntiBot AntiBotDetails { get; set; }
     }
 }

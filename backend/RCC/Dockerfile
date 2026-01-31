@@ -2,8 +2,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Копируем только backend/RCC, чтобы не копировать весь проект
-COPY backend/RCC/RCC/ ./RCC/
+# Копируем содержимое RCC папки
+COPY RCC/ ./RCC/
 WORKDIR /src/RCC
 RUN dotnet publish RCC.csproj -c Release -o /app/publish
 

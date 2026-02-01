@@ -207,7 +207,7 @@ h6 {
 
   /* Border Radius */
   --radius-xs: 0.75rem;
-
+  --radius-xxs: 4rem;
   /* Colors */
   --color-white: var(--white);
 
@@ -317,6 +317,7 @@ h6 {
   --gray-10: #9aa1b1;
   --gray-11: #cbd3df;
   --gray-12: #53575f;
+  --gray-13: #03050CB8;
 
   --gold-1: #ffeba5;
   --gold-2: #d8b24f;

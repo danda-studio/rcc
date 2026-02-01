@@ -7,7 +7,7 @@ import { cn } from "@/shared/lib/shadcn/utils";
 export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemProps> = ({
   id,
   room,
-  area: { total },
+  area: { total, oldPrice, newPrice },
   image: { card },
   checked,
   onClick,
@@ -93,6 +93,36 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
           onChange={onClick}
           disabled={disabled}
         />
+
+        {(oldPrice || newPrice) && (
+            <div
+            className={cn(
+                "absolute flex flex-col bottom-4 text-left gap-3 z-10",
+                checked ? "bottom-4" : "bottom-[6]"
+          )}
+            >
+              <p
+                  className={cn(
+                      "font-medium -tracking-sm line-through",
+                      checked
+                          ? "text-white/72 text-sm-m md:text-md"
+                          : "top-4 text-gray-13/72 text-gray-13/72 md:text-xs"
+                  )}
+              >
+                    {oldPrice.toLocaleString()} ₽
+              </p>
+              <p
+                  className={cn(
+                      "font-medium bg-red-3 text-white",
+                      checked
+                          ? "text-md-x md:text-lg rounded-xl px-4 py-1.5"
+                          : "text-md-x md:text-md rounded-xl px-4 py-1.5"
+                  )}
+              >
+                {newPrice.toLocaleString()} ₽
+              </p>
+            </div>
+        )}
       </div>
     </div>
   );

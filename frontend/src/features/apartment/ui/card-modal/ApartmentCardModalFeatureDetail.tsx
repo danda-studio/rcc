@@ -155,3 +155,4 @@ export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeature
     </div>
   );
 };
+

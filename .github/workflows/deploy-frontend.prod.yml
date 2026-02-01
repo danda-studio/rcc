@@ -33,7 +33,7 @@ jobs:
         run: yarn generate-api:production
         working-directory: ./frontend
         env:
-          SCHEMA_URL: https://api.rsk-olimpiyskiy.ru
+          SCHEMA_URL: https://rcc-7z0s.onrender.com
           API_URL: https://api.rsk-olimpiyskiy.ru
 
       - name: Build project

@@ -1,3 +1,4 @@
+import type { ApartmentArea } from "@/entities/apartment/consts/apartments";
 import { Fragment, useMemo } from "react";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
@@ -7,7 +8,6 @@ import {
   DialogTitle,
 } from "@/shared/lib/shadcn/ui/dialog";
 import { cn } from "@/shared/lib/shadcn/utils";
-import {ApartmentArea} from "@/entities/apartment/consts/apartments";
 
 interface ApartmentCardModalFeatureDetailProps {
   room: number;

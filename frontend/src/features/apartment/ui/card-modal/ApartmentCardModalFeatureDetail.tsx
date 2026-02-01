@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import { Fragment, useMemo } from "react";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
@@ -9,35 +8,32 @@ import {
 } from "@/shared/lib/shadcn/ui/dialog";
 import { cn } from "@/shared/lib/shadcn/utils";
 
-export const ApartmentCardModalFeatureDetail = ({
-                                                  room,
-                                                  area: {
-                                                    oldPrice,
-                                                    newPrice,
-                                                    total,
-                                                    life,
-                                                    kitchen,
-                                                    hallway,
-                                                    bathroom,
-                                                    balcony,
-                                                    tambour,
-                                                  },
-                                                  className,
-                                                }: {
-  room: any;
-  area: {
-    oldPrice?: number | null;
-    newPrice?: number | null;
-    total: any;
-    life: any;
-    kitchen: any;
-    hallway: any;
-    bathroom: any;
-    balcony: any;
-    tambour: any;
-  };
-  className: any;
-}): JSX.Element => {
+export type ApartmentArea = {
+  total: number;
+  life: number;
+  kitchen: number;
+  hallway: number;
+  bathroom: number;
+
+  balcony?: number[];
+  tambour?: number;
+
+  oldPrice?: number;
+  newPrice?: number;
+};
+
+interface ApartmentCardModalFeatureDetailProps  {
+  room: number;
+  area: ApartmentArea;
+  className?: string;
+}
+
+export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeatureDetailProps) => {
+
+  const {total, life, kitchen, hallway, balcony, bathroom, oldPrice, newPrice, tambour} = props.area;
+  const room = props.room;
+  const className = props.className
+
   const data = useMemo(() => {
     const els = [
       { label: "Общая площадь", value: `${total} м²` },
@@ -95,12 +91,12 @@ export const ApartmentCardModalFeatureDetail = ({
 
         {(oldPrice || newPrice) && (
             <div className="flex items-center gap-4 mt-8 md:mt-35.5 mb-8">
-              <p className="text-lg-x text-red-3 md:text-2-1xl">{newPrice.toLocaleString()} ₽</p>
+              <p className="text-lg-x text-red-3 md:text-2-1xl">{newPrice?.toLocaleString("ru-RU")} ₽</p>
               <p className="
              text-left text-base leading-[1.2] font-medium -tracking-sm text-gray-4
              md:text-md-x line-through
               ">
-                {oldPrice.toLocaleString()} ₽
+                {oldPrice?.toLocaleString("ru-RU")} ₽
               </p>
             </div>
         )}

@@ -94,7 +94,7 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
           disabled={disabled}
         />
 
-        {(oldPrice || newPrice) && (
+        {(oldPrice && newPrice) && (
             <div
             className={cn(
                 "absolute flex flex-col bottom-4 text-left gap-3 z-10",
@@ -109,7 +109,7 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
                           : "top-4 text-gray-13/72 text-gray-13/72 md:text-xs"
                   )}
               >
-                    {oldPrice.toLocaleString()} ₽
+                    {oldPrice.toLocaleString("ru-RU")} ₽
               </p>
               <p
                   className={cn(
@@ -119,7 +119,7 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
                           : "text-md-x md:text-md rounded-xl px-4 py-1.5"
                   )}
               >
-                {newPrice.toLocaleString()} ₽
+                {newPrice.toLocaleString("ru-RU")} ₽
               </p>
             </div>
         )}

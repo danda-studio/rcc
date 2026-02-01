@@ -7,20 +7,7 @@ import {
   DialogTitle,
 } from "@/shared/lib/shadcn/ui/dialog";
 import { cn } from "@/shared/lib/shadcn/utils";
-
-export interface ApartmentArea {
-  total: number;
-  life: number;
-  kitchen: number;
-  hallway: number;
-  bathroom: number;
-
-  balcony?: number[];
-  tambour?: number;
-
-  oldPrice?: number;
-  newPrice?: number;
-}
+import {ApartmentArea} from "@/entities/apartment/consts/apartments";
 
 interface ApartmentCardModalFeatureDetailProps {
   room: number;

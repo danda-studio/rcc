@@ -54,7 +54,7 @@ export const APARTMENTS: Apartment[] = [
       bathroom: 4.22,
       balcony: [4.65],
       oldPrice: 5875254,
-      newPrice: 5500000
+      newPrice: 5500000,
     },
     image: {
       card: "/images/apartment/plan/1/c/3d.webp",

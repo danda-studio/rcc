@@ -317,7 +317,7 @@ h6 {
   --gray-10: #9aa1b1;
   --gray-11: #cbd3df;
   --gray-12: #53575f;
-  --gray-13: #03050CB8;
+  --gray-13: #03050cb8;
 
   --gold-1: #ffeba5;
   --gold-2: #d8b24f;
@@ -328,7 +328,7 @@ h6 {
 
   --red-1: #d80027;
   --red-2: #c00000;
-  --red-3: #D40000;
+  --red-3: #d40000;
 
   /* 1px to rem */
   --px: calc((1 / 16) * 1rem);

@@ -207,7 +207,7 @@ h6 {
 
   /* Border Radius */
   --radius-xs: 0.75rem;
-  --radius-xxs: 4rem;
+
   /* Colors */
   --color-white: var(--white);
 
@@ -244,7 +244,6 @@ h6 {
 
   --color-red-1: var(--red-1);
   --color-red-2: var(--red-2);
-  --color-red-3: var(--red-3);
 
   /* Backdrop blur */
   --blur-lg: calc(25 * var(--px));
@@ -317,7 +316,6 @@ h6 {
   --gray-10: #9aa1b1;
   --gray-11: #cbd3df;
   --gray-12: #53575f;
-  --gray-13: #03050cb8;
 
   --gold-1: #ffeba5;
   --gold-2: #d8b24f;
@@ -328,7 +326,6 @@ h6 {
 
   --red-1: #d80027;
   --red-2: #c00000;
-  --red-3: #d40000;
 
   /* 1px to rem */
   --px: calc((1 / 16) * 1rem);

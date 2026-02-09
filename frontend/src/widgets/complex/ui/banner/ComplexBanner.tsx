@@ -5,6 +5,7 @@ import { CityBadge } from "@/entities/city";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { ComplexTag } from "../tag";
+import {reachGoal} from "@/shared/lib/analytics/yandexMetrika";
 
 export const ComplexBanner: FC = () => {
   return (
@@ -108,6 +109,7 @@ export const ComplexBanner: FC = () => {
                 className="max-md:w-full"
                 variant="outline"
                 size="lg"
+                onClick={() => reachGoal("open-form")}
               >
                 <MousePointerClick />
                 Подобрать квартиру

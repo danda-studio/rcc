@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { UIInfo } from "@/shared/ui/info/UIInfo";
+import {reachGoal} from "@/shared/lib/analytics/yandexMetrika";
 
 export const ComplexMortgageWidget: FC = () => {
   return (
@@ -134,6 +135,7 @@ export const ComplexMortgageWidget: FC = () => {
           `}
           variant="outline"
           size="lg"
+          onClick={() => reachGoal("open-form")}
         >
           <MousePointerClick />
           Заказать звонок

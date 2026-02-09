@@ -5,6 +5,7 @@ import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { DialogDescription, DialogHeader, DialogTitle } from "@/shared/lib/shadcn/ui/dialog";
 import { cn } from "@/shared/lib/shadcn/utils";
+import {reachGoal} from "@/shared/lib/analytics/yandexMetrika";
 
 export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
   className?: string;
@@ -123,6 +124,7 @@ export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
             max-md:w-full
           `}
           size="md"
+          onClick={() => reachGoal("open-form")}
         >
           Забронировать
         </Button>

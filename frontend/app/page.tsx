@@ -77,7 +77,11 @@ export default function Home() {
 
       <ComplexPage />
 
-      <div className="hidden md:block">
+      <div className={`
+        hidden
+        md:block
+      `}
+      >
         <CarRafflePromotionWidget />
       </div>
     </>

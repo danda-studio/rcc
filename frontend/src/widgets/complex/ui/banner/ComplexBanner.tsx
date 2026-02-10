@@ -110,7 +110,7 @@ export const ComplexBanner: FC = () => {
                 size="lg"
               >
                 <MousePointerClick />
-                Подобрать квартиру
+                Заказать консультацию
               </Button>
             </ContactFormModalFeature>
 

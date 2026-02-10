@@ -3,9 +3,9 @@ import { MousePointerClick } from "lucide-react";
 import Image from "next/image";
 import { CityBadge } from "@/entities/city";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
+import { reachGoal } from "@/shared/lib/analytics/yandexMetrika";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { ComplexTag } from "../tag";
-import {reachGoal} from "@/shared/lib/analytics/yandexMetrika";
 
 export const ComplexBanner: FC = () => {
   return (

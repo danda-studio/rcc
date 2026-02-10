@@ -2,9 +2,9 @@ import type { FC } from "react";
 import { MousePointerClick, TicketPercent, Users, Wallet } from "lucide-react";
 import Image from "next/image";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
+import { reachGoal } from "@/shared/lib/analytics/yandexMetrika";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { UIInfo } from "@/shared/ui/info/UIInfo";
-import {reachGoal} from "@/shared/lib/analytics/yandexMetrika";
 
 export const ComplexMortgageWidget: FC = () => {
   return (

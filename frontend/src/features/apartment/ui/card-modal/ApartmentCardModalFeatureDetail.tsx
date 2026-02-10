@@ -80,7 +80,7 @@ export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeature
         </DialogDescription>
       </DialogHeader>
 
-      {/*{(oldPrice || newPrice) && ( feature sale price
+      {/* {(oldPrice || newPrice) && ( feature sale price
         <div className={`
           mt-8 mb-8 flex items-center gap-4
           md:mt-35.5
@@ -106,7 +106,7 @@ export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeature
             ₽
           </p>
         </div>
-      )}*/}
+      )} */}
 
       <div
         className={`

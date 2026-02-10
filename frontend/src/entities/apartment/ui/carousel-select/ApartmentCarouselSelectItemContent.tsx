@@ -93,8 +93,8 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
           onChange={onClick}
           disabled={disabled}
         />
-
-        {(oldPrice && newPrice) && (
+{/*
+        {(oldPrice && newPrice) && ( feature sale price
           <div
             className={cn(
               "absolute bottom-4 z-10 flex flex-col gap-3 text-left",
@@ -138,7 +138,7 @@ export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemP
               ₽
             </p>
           </div>
-        )}
+        )}*/}
       </div>
     </div>
   );

@@ -40,6 +40,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://your-domain.com", // добавить домен
   },
+  verification: {
+    yandex: "ea29af3239f9c122",
+  },
 };
 
 const jsonLd = {

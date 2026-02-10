@@ -6,7 +6,6 @@ import { UILayout } from "@/shared/ui/layout";
 import "@/shared/styles/globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.com"),
   title: {
     template: "%s | ЖК Олимпийский",
     default: "ЖК Олимпийский - Новостройки в Мариуполе",
@@ -29,6 +28,9 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    yandex: "ea29af3239f9c122",
   },
 };
 

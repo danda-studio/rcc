@@ -14,5 +14,7 @@
         /// Сообщение с подробностями результата отправки или текст ошибки.
         /// </summary>
         public string Message { get; set; } = string.Empty;
+
+        public bool NeedCaptcha { get; set; }
     }
 }

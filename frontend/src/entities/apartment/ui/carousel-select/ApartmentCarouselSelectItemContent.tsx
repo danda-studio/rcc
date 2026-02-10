@@ -7,7 +7,7 @@ import { cn } from "@/shared/lib/shadcn/utils";
 export const ApartmentCarouselSelectItemContent: FC<ApartmentCarouselSelectItemProps> = ({
   id,
   room,
-  area: { total},
+  area: { total },
   image: { card },
   checked,
   onClick,

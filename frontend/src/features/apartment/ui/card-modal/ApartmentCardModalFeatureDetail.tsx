@@ -16,7 +16,7 @@ interface ApartmentCardModalFeatureDetailProps {
 }
 
 export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeatureDetailProps) => {
-  const { total, life, kitchen, hallway, balcony, bathroom, oldPrice, newPrice, tambour } = props.area;
+  const { total, life, kitchen, hallway, balcony, bathroom, tambour } = props.area;
   const room = props.room;
   const className = props.className;
 

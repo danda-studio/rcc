@@ -16,7 +16,7 @@ interface ApartmentCardModalFeatureDetailProps {
 }
 
 export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeatureDetailProps) => {
-  const { total, life, kitchen, hallway, balcony, bathroom, oldPrice, newPrice, tambour } = props.area;
+  const { total, life, kitchen, hallway, balcony, bathroom, tambour } = props.area;
   const room = props.room;
   const className = props.className;
 
@@ -80,7 +80,7 @@ export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeature
         </DialogDescription>
       </DialogHeader>
 
-      {(oldPrice || newPrice) && (
+      {/* {(oldPrice || newPrice) && ( feature sale price
         <div className={`
           mt-8 mb-8 flex items-center gap-4
           md:mt-35.5
@@ -106,7 +106,7 @@ export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeature
             ₽
           </p>
         </div>
-      )}
+      )} */}
 
       <div
         className={`

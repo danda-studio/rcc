@@ -10,7 +10,7 @@ export const APARTMENTS: Apartment[] = [
       kitchen: 10.13,
       hallway: 7.7,
       bathroom: 4.68,
-      balcony: [4.23]
+      balcony: [4.23],
     },
     image: {
       card: "/images/apartment/plan/1/a/3d.webp",

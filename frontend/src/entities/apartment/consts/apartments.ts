@@ -10,9 +10,7 @@ export const APARTMENTS: Apartment[] = [
       kitchen: 10.13,
       hallway: 7.7,
       bathroom: 4.68,
-      balcony: [4.23],
-      // oldPrice: 6151950,
-      // newPrice: 5900000,
+      balcony: [4.23]
     },
     image: {
       card: "/images/apartment/plan/1/a/3d.webp",
@@ -32,8 +30,6 @@ export const APARTMENTS: Apartment[] = [
       hallway: 7.01,
       bathroom: 4.60,
       balcony: [4.65],
-      // oldPrice: 6324465,
-      // newPrice: 6100000,
     },
     image: {
       card: "/images/apartment/plan/1/b/3d.webp",

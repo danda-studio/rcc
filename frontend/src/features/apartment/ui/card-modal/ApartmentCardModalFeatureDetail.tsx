@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import type { Apartment } from "@/entities/apartment/types/Apartment";
 import { Fragment, useMemo } from "react";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
@@ -8,7 +9,6 @@ import {
   DialogTitle,
 } from "@/shared/lib/shadcn/ui/dialog";
 import { cn } from "@/shared/lib/shadcn/utils";
-import {Apartment} from "@/entities/apartment/types/Apartment";
 
 interface ApartmentCardModalFeatureDetailProps {
   room: number;

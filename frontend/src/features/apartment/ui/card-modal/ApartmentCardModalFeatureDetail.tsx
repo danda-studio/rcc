@@ -81,34 +81,6 @@ export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeature
         </DialogDescription>
       </DialogHeader>
 
-      {/* {(oldPrice || newPrice) && ( feature sale price
-        <div className={`
-          mt-8 mb-8 flex items-center gap-4
-          md:mt-35.5
-        `}
-        >
-          <p className={`
-            text-lg-x text-red-3
-            md:text-2-1xl
-          `}
-          >
-            {newPrice?.toLocaleString("ru-RU")}
-            {" "}
-            ₽
-          </p>
-          <p className={`
-            text-left text-base leading-[1.2] font-medium -tracking-sm
-            text-gray-4 line-through
-            md:text-md-x
-          `}
-          >
-            {oldPrice?.toLocaleString("ru-RU")}
-            {" "}
-            ₽
-          </p>
-        </div>
-      )} */}
-
       <div
         className={`
           mt-auto mb-4 grid grid-cols-[1fr_fit-content(7.5rem)] gap-3

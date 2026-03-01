@@ -41,12 +41,9 @@ export const ApartmentCardModalFeature: FC<ApartmentCardModalFeatureProps> = ({
             `}
           >
             <ApartmentCardModalFeatureDetail
-              {...apartment}
-              className={`
-                p-3.5 pr-8
-                max-md:pt-5
-                md:p-11 md:pr-4
-              `}
+                room={apartment.room}
+                area={apartment}
+                className={`p-3.5 pr-8 max-md:pt-5 md:p-11 md:pr-4`}
             />
             <div
               className={`

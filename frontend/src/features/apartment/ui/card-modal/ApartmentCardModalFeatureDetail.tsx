@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import type { ApartmentArea } from "@/entities/apartment/consts/apartments";
 import { Fragment, useMemo } from "react";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";

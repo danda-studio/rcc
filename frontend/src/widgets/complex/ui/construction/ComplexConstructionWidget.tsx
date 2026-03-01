@@ -104,7 +104,7 @@ export const ComplexConstructionWidget = () => {
         >
           {slides.map((slide, idx) => (
             <CarouselItem
-              key={idx}
+              key={`${slide.year}` + `${idx}`}
               className={`
                 !basis-79 pl-4
                 last:!basis-83

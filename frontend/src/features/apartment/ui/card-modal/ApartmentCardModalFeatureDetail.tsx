@@ -1,17 +1,12 @@
-import type { ApartmentArea } from "@/entities/apartment/consts/apartments";
+import type { FC } from "react";
+import type { ApartmentDetail } from "./types/ApartmentDetail";
 import { Fragment, useMemo } from "react";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
-import {
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/shared/lib/shadcn/ui/dialog";
+import { DialogDescription, DialogHeader, DialogTitle } from "@/shared/lib/shadcn/ui/dialog";
 import { cn } from "@/shared/lib/shadcn/utils";
 
-interface ApartmentCardModalFeatureDetailProps {
-  room: number;
-  area: ApartmentArea;
+export const ApartmentCardModalFeatureDetail: FC<ApartmentDetail & {
   className?: string;
 }
 
@@ -22,33 +17,53 @@ export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeature
 
   const data = useMemo(() => {
     const els = [
-      { label: "Общая площадь", value: `${total} м²` },
-      { label: "Жилая площадь", value: `${life} м` },
-      { label: "Кухня", value: `${kitchen} м` },
-      { label: "Коридор", value: `${hallway} м` },
-      { label: "Ванная", value: `${bathroom} м` },
+      {
+        label: "Общая площадь",
+        value: `${total} м²`,
+      },
+      {
+        label: "Жилая площадь",
+        value: `${life} м`,
+      },
+      {
+        label: "Кухня",
+        value: `${kitchen} м`,
+      },
+      {
+        label: "Коридор",
+        value: `${hallway} м`,
+      },
+      {
+        label: "Ванная",
+        value: `${bathroom} м`,
+      },
     ];
-
     if (balcony) {
-      els.push({ label: "Балкон", value: `${balcony} м` });
+      els.push({
+        label: "Балкон",
+        value: `${balcony} м`,
+      });
     }
-
     if (tambour) {
-      els.push({ label: "Тамбур", value: `${tambour} м` });
+      els.push({
+        label: "Тамбур",
+        value: `${tambour} м`,
+      });
     }
-
     return els;
   }, [total, life, kitchen, hallway, bathroom, balcony, tambour]);
 
   const title = useMemo(() => {
+    let title = "";
     switch (room) {
       case 1:
-        return "1-комнатная квартира";
+        title = "1-комнатная квартира";
+        break;
       case 2:
-        return "2-комнатная квартира";
-      default:
-        return "";
+        title = "2-комнатная квартира";
+        break;
     }
+    return title;
   }, [room]);
 
   return (
@@ -75,8 +90,7 @@ export const ApartmentCardModalFeatureDetail = (props: ApartmentCardModalFeature
             md:text-md-x
           `}
         >
-          Квартира имеет удачную планировку. Большие окна наполняют помещения
-          естественным светом, создавая теплую атмосферу
+          Квартира имеет удачную планировку. Большие окна наполняют помещения естественным светом, создавая теплую атмосферу
         </DialogDescription>
       </DialogHeader>
 

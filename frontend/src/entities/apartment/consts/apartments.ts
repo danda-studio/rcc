@@ -142,17 +142,3 @@ export const APARTMENTS: Apartment[] = [
     },
   },
 ];
-
-export interface ApartmentArea {
-  total: number;
-  life: number;
-  kitchen: number;
-  hallway: number;
-  bathroom: number;
-
-  balcony?: number[];
-  tambour?: number;
-
-  oldPrice?: number;
-  newPrice?: number;
-}

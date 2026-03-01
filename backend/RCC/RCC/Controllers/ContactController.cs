@@ -12,16 +12,14 @@ namespace RCC.Controllers
     public class ContactController : ControllerBase
     {
         private readonly IContactService _contactService;
-        private readonly IAntiBotService _antiBotService;
 
         /// <summary>
         /// Инициализирует новый экземпляр <see cref="ContactController"/>.
         /// </summary>
         /// <param name="contactService">Сервис для отправки контактных сообщений.</param>
-        public ContactController(IContactService contactService, IAntiBotService antiBotService)
+        public ContactController(IContactService contactService)
         {
             _contactService = contactService;
-            _antiBotService = antiBotService;
         }
 
         /// <summary>
@@ -35,19 +33,6 @@ namespace RCC.Controllers
         [HttpPost("contact")]
         public async Task<ActionResult<SendContactResponse>> SendContact([FromBody] SendContactRequest request)
         {
-            var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
-            var decision = await _antiBotService.CheckUser(request, ip);
-
-            if (decision.NeedCaptcha)
-                return Ok(new SendContactResponse
-                {
-                    Success = false,
-                    NeedCaptcha = true
-                });
-
-            if (!decision.Allowed)
-                return Ok(new SendContactResponse { Success = true });
-
             var result = await _contactService.SendContact(request);
             return Ok(result);
         }

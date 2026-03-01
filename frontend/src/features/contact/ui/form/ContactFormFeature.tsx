@@ -7,7 +7,7 @@ import type { CountryCode } from "@/shared/ui/phone-field/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Loader2Icon } from "lucide-react";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { SocialTabSelect } from "@/entities/social";
 import { contactFormSchema } from "@/features/contact/model/contactFormSchema";
@@ -80,6 +80,10 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
       console.error("Ошиббка отправки формы", err);
     },
   });
+
+  useEffect(() => {
+    reachGoal("open-form");
+  }, []);
 
   const onSubmit = handleSubmit((values) => {
     const number = values.phone.number

@@ -15,7 +15,8 @@ if (builder.Environment.IsDevelopment())
 
 builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("GmailSetting"));
 builder.Services.AddScoped<IContactService, ContactService>();
-
+builder.Services.AddScoped<IAntiBotService, AntiBotService>();
+builder.Services.AddHttpClient<ITurnstileService, TurnstileService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>

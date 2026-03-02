@@ -15,6 +15,6 @@
         /// </summary>
         public string Message { get; set; } = string.Empty;
 
-        public bool NeedCaptcha { get; set; }
+        //public bool NeedCaptcha { get; set; }
     }
 }

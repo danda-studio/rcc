@@ -35,18 +35,18 @@ namespace RCC.Controllers
         [HttpPost("contact")]
         public async Task<ActionResult<SendContactResponse>> SendContact([FromBody] SendContactRequest request)
         {
-            var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
-            var decision = await _antiBotService.CheckUser(request, ip);
+            //var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            //var decision = await _antiBotService.CheckUser(request, ip);
 
-            if (decision.NeedCaptcha)
-                return Ok(new SendContactResponse
-                {
-                    Success = false,
-                    NeedCaptcha = true
-                });
+            //if (decision.NeedCaptcha)
+            //    return Ok(new SendContactResponse
+            //    {
+            //        Success = false,
+            //        NeedCaptcha = true
+            //    });
 
-            if (!decision.Allowed)
-                return Ok(new SendContactResponse { Success = true });
+            //if (!decision.Allowed)
+            //    return Ok(new SendContactResponse { Success = true });
 
             var result = await _contactService.SendContact(request);
             return Ok(result);

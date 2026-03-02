@@ -28,6 +28,6 @@
         /// <summary>
         /// Капча
         /// </summary>
-        public AntiBot AntiBotDetails { get; set; }
+        public AntiBot? AntiBotDetails { get; set; }
     }
 }

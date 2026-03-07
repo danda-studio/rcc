@@ -13,10 +13,16 @@ if (builder.Environment.IsDevelopment())
     builder.Services.AddSwaggerGen();
 }
 
+
 builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("GmailSetting"));
+builder.Services.Configure<ExternalLeadApiSetting>(builder.Configuration.GetSection("ExternalLeadApi"));
+
+
 builder.Services.AddScoped<IContactService, ContactService>();
 builder.Services.AddScoped<IAntiBotService, AntiBotService>();
 builder.Services.AddHttpClient<ITurnstileService, TurnstileService>();
+builder.Services.AddHttpClient<IExternalLeadService, ExternalLeadService>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
@@ -27,6 +33,7 @@ builder.Services.AddCors(options =>
               .AllowCredentials();
     });
 
+    // �������� ��� ��������� ����������
     options.AddPolicy("AllowLocalhost3000", policy =>
     {
         policy.WithOrigins("http://localhost:3000")

@@ -1,0 +1,51 @@
+namespace RCC.Services.Model
+{
+    /// <summary>
+    /// «апрос на отправку лида (контактных данных) во внешний CRM API.
+    /// —одержит все необходимые данные дл€ обработки лида в системе CRM.
+    /// </summary>
+    public class ExternalLeadRequest
+    {
+        /// <summary>
+        /// “ип формы, из которой поступил лид.
+        /// ¬озможные значени€: "booking" (бронирование), "contact" (контакт), "callback" (обратный звонок), "footer" (форма подвала).
+        /// </summary>
+        public string FormType { get; set; } = string.Empty;
+
+        /// <summary>
+        /// »м€ клиента/лида.
+        /// </summary>
+        public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Ќомер телефона клиента (в формате +7 9991234567).
+        /// </summary>
+        public string Phone { get; set; } = string.Empty;
+
+        /// <summary>
+        /// —пособ св€зи с клиентом (Call, WhatsApp, Telegram и т.д.).
+        /// </summary>
+        public string ContactMethod { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Ќазвание апартамента, объекта или услуги (дл€ типа формы "booking").
+        /// </summary>
+        public string ApartmentName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Email адрес клиента (если предоставлен).
+        /// </summary>
+        public string Email { get; set; } = string.Empty;
+
+        /// <summary>
+        /// ѕолные данные отслеживани€: UTM параметры, ID кликов, информаци€ об устройстве и браузере.
+        /// </summary>
+        public Tracking Tracking { get; set; } = new Tracking();
+
+        /// <summary>
+        /// IP адрес клиента (добавл€етс€ сервером на основе запроса).
+        /// GDPR - требуетс€ согласие пользовател€ на обработку IP адреса.
+        /// </summary>
+        public string Ip { get; set; } = string.Empty;
+    }
+}

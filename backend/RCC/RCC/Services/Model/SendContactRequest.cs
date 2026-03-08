@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Данные заявки на контакт, которые отправляются через сервис.
+    /// Используется как входящий параметр для обработки контактных форм.
     /// </summary>
     public class SendContactRequest
     {
@@ -11,12 +12,12 @@
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// Телефонные данные клиента.
+        /// Телефонные данные клиента (код страны и номер).
         /// </summary>
         public Phone Phone { get; set; } = new Phone();
 
         /// <summary>
-        /// Предпочтительный способ связи с клиентом.
+        /// Предпочтительный способ связи с клиентом (звонок, WhatsApp, Telegram и т.д.).
         /// </summary>
         public ContactMethod ContactMethod { get; set; }
 
@@ -26,7 +27,7 @@
         public string Email { get; set; } = string.Empty;
 
         /// <summary>
-        /// Капча
+        /// Капча и данные защиты от ботов.
         /// </summary>
         public AntiBot? AntiBotDetails { get; set; }
     }

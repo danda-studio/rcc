@@ -58,11 +58,9 @@ namespace RCC.Services
             var mailMessage = new MailMessage
             {
                 From = new MailAddress(_emailSetting.Email),
-                Subject = $"New Contact Request from {request.Name}",
-                Body = FormatEmailBody(request),
-                IsBodyHtml = true,
-                BodyEncoding = Encoding.UTF8,
-                SubjectEncoding = Encoding.UTF8
+                Subject = $"Новая заявка от {request.Name}", 
+                SubjectEncoding = Encoding.UTF8,
+                IsBodyHtml = true
             };
 
             // Добавление адресов получателей из конфигурации
@@ -78,6 +76,20 @@ namespace RCC.Services
             {
                 mailMessage.To.Add(_emailSetting.Email);
             }
+
+            var htmlBody = FormatEmailBody(request);
+            var htmlView = AlternateView.CreateAlternateViewFromString(
+                htmlBody,
+                Encoding.UTF8,
+                System.Net.Mime.MediaTypeNames.Text.Html
+            );
+
+            // Yandex требует Base64 для кириллицы
+            htmlView.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
+            htmlView.ContentType.CharSet = "utf-8";
+            htmlView.ContentType.MediaType = "text/html";
+
+            mailMessage.AlternateViews.Add(htmlView);
 
             // Отправка email
             await client.SendMailAsync(mailMessage);

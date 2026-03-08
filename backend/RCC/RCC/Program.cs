@@ -2,7 +2,10 @@ using Microsoft.Extensions.FileProviders;
 using RCC.Services;
 using RCC.Services.Model;
 using Scalar.AspNetCore;
+using System.Text;
 
+
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();

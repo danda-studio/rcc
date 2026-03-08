@@ -3,6 +3,7 @@ using RCC.Services.Model;
 using RCC.Validator;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 
 namespace RCC.Services
 {
@@ -59,7 +60,9 @@ namespace RCC.Services
                 From = new MailAddress(_emailSetting.Email),
                 Subject = $"New Contact Request from {request.Name}",
                 Body = FormatEmailBody(request),
-                IsBodyHtml = true
+                IsBodyHtml = true,
+                BodyEncoding = Encoding.UTF8,
+                SubjectEncoding = Encoding.UTF8
             };
 
             // Добавление адресов получателей из конфигурации
@@ -88,7 +91,7 @@ namespace RCC.Services
                 ContactMethod = request.ContactMethod.ToString(),
                 ApartmentName = "",
                 Email = request.Email,
-                Tracking = new Tracking(),
+                Tracking = request.Tracking,
                 Ip = ipAddress
             };
 
@@ -109,7 +112,7 @@ namespace RCC.Services
             if (!File.Exists(filePath))
                 return FormatPlainTextEmail(request);
 
-            var htmlTemplate = File.ReadAllText(filePath);
+            var htmlTemplate = File.ReadAllText(filePath, Encoding.UTF8);
 
             string contactMethodText = request.ContactMethod switch
             {

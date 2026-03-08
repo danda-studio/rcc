@@ -30,6 +30,5 @@
         /// Капча и данные защиты от ботов.
         /// </summary>
         public AntiBot? AntiBotDetails { get; set; }
-
     }
 }

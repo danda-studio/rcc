@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Options;
+п»їusing Microsoft.Extensions.Options;
 using RCC.Services.Model;
 using RCC.Validator;
 using System.Net;
@@ -8,8 +8,8 @@ using System.Text;
 namespace RCC.Services
 {
     /// <summary>
-    /// Сервис для отправки контактных сообщений и лидов.
-    /// Отвечает за валидацию данных, отправку email и передачу данных во внешний CRM API.
+    /// РЎРµСЂРІРёСЃ РґР»СЏ РѕС‚РїСЂР°РІРєРё РєРѕРЅС‚Р°РєС‚РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№ Рё Р»РёРґРѕРІ.
+    /// РћС‚РІРµС‡Р°РµС‚ Р·Р° РІР°Р»РёРґР°С†РёСЋ РґР°РЅРЅС‹С…, РѕС‚РїСЂР°РІРєСѓ email Рё РїРµСЂРµРґР°С‡Сѓ РґР°РЅРЅС‹С… РІРѕ РІРЅРµС€РЅРёР№ CRM API.
     /// </summary>
     public class ContactService : IContactService
     {
@@ -17,10 +17,10 @@ namespace RCC.Services
         private readonly IExternalLeadService _externalLeadService;
 
         /// <summary>
-        /// Инициализирует новый экземпляр <see cref="ContactService"/>.
+        /// РРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚ РЅРѕРІС‹Р№ СЌРєР·РµРјРїР»СЏСЂ <see cref="ContactService"/>.
         /// </summary>
-        /// <param name="emailSetting">Настройки для отправки писем (SMTP, от кого, кому).</param>
-        /// <param name="externalLeadService">Сервис для отправки лидов во внешний CRM API.</param>
+        /// <param name="emailSetting">РќР°СЃС‚СЂРѕР№РєРё РґР»СЏ РѕС‚РїСЂР°РІРєРё РїРёСЃРµРј (SMTP, РѕС‚ РєРѕРіРѕ, РєРѕРјСѓ).</param>
+        /// <param name="externalLeadService">РЎРµСЂРІРёСЃ РґР»СЏ РѕС‚РїСЂР°РІРєРё Р»РёРґРѕРІ РІРѕ РІРЅРµС€РЅРёР№ CRM API.</param>
         public ContactService(
             IOptions<EmailSetting> emailSetting,
             IExternalLeadService externalLeadService)
@@ -30,11 +30,11 @@ namespace RCC.Services
         }
 
         /// <summary>
-        /// Отправляет контактное сообщение на указанные адреса электронной почты и передаёт лид в CRM API.
+        /// РћС‚РїСЂР°РІР»СЏРµС‚ РєРѕРЅС‚Р°РєС‚РЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РЅР° СѓРєР°Р·Р°РЅРЅС‹Рµ Р°РґСЂРµСЃР° СЌР»РµРєС‚СЂРѕРЅРЅРѕР№ РїРѕС‡С‚С‹ Рё РїРµСЂРµРґР°С‘С‚ Р»РёРґ РІ CRM API.
         /// </summary>
-        /// <param name="request">Данные заявки на контакт (с фронтенда).</param>
-        /// <param name="ipAddress">IP адрес клиента (извлекается с сервера).</param>
-        /// <returns>Объект <see cref="SendContactResponse"/> с результатом отправки.</returns>
+        /// <param name="request">Р”Р°РЅРЅС‹Рµ Р·Р°СЏРІРєРё РЅР° РєРѕРЅС‚Р°РєС‚ (СЃ С„СЂРѕРЅС‚РµРЅРґР°).</param>
+        /// <param name="ipAddress">IP Р°РґСЂРµСЃ РєР»РёРµРЅС‚Р° (РёР·РІР»РµРєР°РµС‚СЃСЏ СЃ СЃРµСЂРІРµСЂР°).</param>
+        /// <returns>РћР±СЉРµРєС‚ <see cref="SendContactResponse"/> СЃ СЂРµР·СѓР»СЊС‚Р°С‚РѕРј РѕС‚РїСЂР°РІРєРё.</returns>
         public async Task<SendContactResponse> SendContact(SendContactRequest request, string ipAddress = "")
         {
             if (!ContactValidator.ValidateName(request.Name, out var nameError))
@@ -43,7 +43,7 @@ namespace RCC.Services
             // if (!ContactValidator.ValidateEmail(request.Email, out var emailError))
             //     return new SendContactResponse { Success = false, Message = emailError };
 
-            // Валидация телефона
+            // Р’Р°Р»РёРґР°С†РёСЏ С‚РµР»РµС„РѕРЅР°
             if (!ContactValidator.ValidatePhone(request.Phone.Code, request.Phone.Number, out var phoneError))
                 return new SendContactResponse { Success = false, Message = phoneError };
 
@@ -63,7 +63,7 @@ namespace RCC.Services
                 IsBodyHtml = true
             };
 
-            // Добавление адресов получателей из конфигурации
+            // Р”РѕР±Р°РІР»РµРЅРёРµ Р°РґСЂРµСЃРѕРІ РїРѕР»СѓС‡Р°С‚РµР»РµР№ РёР· РєРѕРЅС„РёРіСѓСЂР°С†РёРё
             if (_emailSetting.Recipients != null && _emailSetting.Recipients.Count != 0)
             {
                 foreach (var recipient in _emailSetting.Recipients)
@@ -84,17 +84,17 @@ namespace RCC.Services
                 System.Net.Mime.MediaTypeNames.Text.Html
             );
 
-            // Yandex требует Base64 для кириллицы
+            // Yandex С‚СЂРµР±СѓРµС‚ Base64 РґР»СЏ РєРёСЂРёР»Р»РёС†С‹
             htmlView.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
             htmlView.ContentType.CharSet = "utf-8";
             htmlView.ContentType.MediaType = "text/html";
 
             mailMessage.AlternateViews.Add(htmlView);
 
-            // Отправка email
+            // РћС‚РїСЂР°РІРєР° email
             await client.SendMailAsync(mailMessage);
 
-            // Отправка лида
+            // РћС‚РїСЂР°РІРєР° Р»РёРґР°
             var externalLeadRequest = new ExternalLeadRequest
             {
                 FormType = "contact",
@@ -113,10 +113,10 @@ namespace RCC.Services
         }
 
         /// <summary>
-        /// Форматирует тело письма на основе HTML-шаблона или текста по умолчанию.
+        /// Р¤РѕСЂРјР°С‚РёСЂСѓРµС‚ С‚РµР»Рѕ РїРёСЃСЊРјР° РЅР° РѕСЃРЅРѕРІРµ HTML-С€Р°Р±Р»РѕРЅР° РёР»Рё С‚РµРєСЃС‚Р° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ.
         /// </summary>
-        /// <param name="request">Данные заявки на контакт.</param>
-        /// <returns>Строка с HTML или текстовой версией письма.</returns>
+        /// <param name="request">Р”Р°РЅРЅС‹Рµ Р·Р°СЏРІРєРё РЅР° РєРѕРЅС‚Р°РєС‚.</param>
+        /// <returns>РЎС‚СЂРѕРєР° СЃ HTML РёР»Рё С‚РµРєСЃС‚РѕРІРѕР№ РІРµСЂСЃРёРµР№ РїРёСЃСЊРјР°.</returns>
         private string FormatEmailBody(SendContactRequest request)
         {
             var filePath = Path.Combine("files", "email-message.html");
@@ -128,13 +128,13 @@ namespace RCC.Services
 
             string contactMethodText = request.ContactMethod switch
             {
-                ContactMethod.Call => "Звонок",
+                ContactMethod.Call => "Р—РІРѕРЅРѕРє",
                 ContactMethod.WhatsApp => "WhatsApp",
                 ContactMethod.Telegram => "Telegram",
-                _ => "Не указан"
+                _ => "РќРµ СѓРєР°Р·Р°РЅ"
             };
 
-            // Заменяем плейсхолдеры на реальные данные
+            // Р—Р°РјРµРЅСЏРµРј РїР»РµР№СЃС…РѕР»РґРµСЂС‹ РЅР° СЂРµР°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ
             return htmlTemplate
                 .Replace("{{NAME}}", request.Name)
                 .Replace("{{PHONE}}", $"+{request.Phone?.Code} {request.Phone?.Number}")
@@ -144,19 +144,19 @@ namespace RCC.Services
         }
 
         /// <summary>
-        /// Форматирует простое текстовое письмо, когда HTML шаблон недоступен.
+        /// Р¤РѕСЂРјР°С‚РёСЂСѓРµС‚ РїСЂРѕСЃС‚РѕРµ С‚РµРєСЃС‚РѕРІРѕРµ РїРёСЃСЊРјРѕ, РєРѕРіРґР° HTML С€Р°Р±Р»РѕРЅ РЅРµРґРѕСЃС‚СѓРїРµРЅ.
         /// </summary>
         private static string FormatPlainTextEmail(SendContactRequest request)
         {
             return $@"
-            Новая заявка
+            РќРѕРІР°СЏ Р·Р°СЏРІРєР°
             -------------------
-            Имя: {request.Name}
+            РРјСЏ: {request.Name}
             Email: {request.Email}
-            Номер телефона: +{request.Phone?.Code} {request.Phone?.Number}
-            Способ связи с клиентом: {request.ContactMethod}
+            РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°: +{request.Phone?.Code} {request.Phone?.Number}
+            РЎРїРѕСЃРѕР± СЃРІСЏР·Рё СЃ РєР»РёРµРЅС‚РѕРј: {request.ContactMethod}
             -------------------
-            Дата заявки: {DateTime.Now:yyyy-MM-dd HH:mm:ss}";
+            Р”Р°С‚Р° Р·Р°СЏРІРєРё: {DateTime.Now:yyyy-MM-dd HH:mm:ss}";
         }
 
     }

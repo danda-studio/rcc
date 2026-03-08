@@ -31,7 +31,5 @@
         /// </summary>
         public AntiBot? AntiBotDetails { get; set; }
 
-        public Tracking Tracking { get; set; } = new Tracking();
-
     }
 }

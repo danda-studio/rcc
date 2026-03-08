@@ -42,34 +42,30 @@ namespace RCC.Services
         {
             try
             {
-                // Проверка наличия обязательных параметров конфигурации
                 if (string.IsNullOrWhiteSpace(_settings.Url) || string.IsNullOrWhiteSpace(_settings.BearerToken))
                 {
                     _logger.LogWarning("Параметры внешнего CRM API лидов не настроены правильно");
                     return false;
                 }
 
-                // Создание HTTP запроса с методом POST и Bearer токеном в заголовке
                 using var requestMessage = new HttpRequestMessage(HttpMethod.Post, _settings.Url);
                 requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(
                     "Bearer",
                     _settings.BearerToken);
 
-                // Конфигурация сериализации JSON: используем camelCase для соответствия CRM API
+                // используем camelCase для соответствия CRM API
                 var jsonOptions = new JsonSerializerOptions
                 {
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                     WriteIndented = false
                 };
 
-                // Сериализация объекта лида в JSON
                 var jsonContent = JsonSerializer.Serialize(request, jsonOptions);
                 requestMessage.Content = new StringContent(
                     jsonContent,
                     System.Text.Encoding.UTF8);
                 requestMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
 
-                // Отправка запроса и получение ответа
                 var response = await _httpClient.SendAsync(requestMessage);
 
                 // Проверка успешности ответа

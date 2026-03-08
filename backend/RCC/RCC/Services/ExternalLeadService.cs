@@ -1,13 +1,13 @@
-ï»¿using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Options;
 using RCC.Services.Model;
 using System.Text.Json;
 
 namespace RCC.Services
 {
     /// <summary>
-    /// Ð¡ÐµÑÐ²Ð¸Ñ Ð´Ð»Ñ Ð¾ÑÐ¿ÑÐ°Ð²ÐºÐ¸ Ð»Ð¸Ð´Ð¾Ð² Ð²Ð¾ Ð²Ð½ÐµÑÐ½Ð¸Ð¹ CRM API.
-    /// ÐÑÐ²ÐµÑÐ°ÐµÑ Ð·Ð° ÑÐ¾ÑÐ¼Ð¸ÑÐ¾Ð²Ð°Ð½Ð¸Ðµ, ÑÐµÑÐ¸Ð°Ð»Ð¸Ð·Ð°ÑÐ¸Ñ Ð¸ Ð¾ÑÐ¿ÑÐ°Ð²ÐºÑ ÐºÐ¾Ð½ÑÐ°ÐºÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ Ð² ÑÐ¸ÑÑÐµÐ¼Ñ CRM
-    /// Ñ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸ÐµÐ¼ Bearer ÑÐ¾ÐºÐµÐ½Ð° Ð´Ð»Ñ Ð°Ð²ÑÐ¾ÑÐ¸Ð·Ð°ÑÐ¸Ð¸.
+    /// Сервис для отправки лидов во внешний CRM API.
+    /// Отвечает за формирование, сериализацию и отправку контактных данных в систему CRM
+    /// с использованием Bearer токена для авторизации.
     /// </summary>
     public class ExternalLeadService : IExternalLeadService
     {
@@ -16,11 +16,11 @@ namespace RCC.Services
         private readonly ILogger<ExternalLeadService> _logger;
 
         /// <summary>
-        /// ÐÐ½Ð¸ÑÐ¸Ð°Ð»Ð¸Ð·Ð¸ÑÑÐµÑ Ð½Ð¾Ð²ÑÐ¹ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ ÑÐµÑÐ²Ð¸ÑÐ° ExternalLeadService.
+        /// Инициализирует новый экземпляр сервиса ExternalLeadService.
         /// </summary>
-        /// <param name="httpClient">HTTP ÐºÐ»Ð¸ÐµÐ½Ñ Ð´Ð»Ñ Ð¾ÑÐ¿ÑÐ°Ð²ÐºÐ¸ Ð·Ð°Ð¿ÑÐ¾ÑÐ¾Ð² Ðº API.</param>
-        /// <param name="settings">ÐÐ¾Ð½ÑÐ¸Ð³ÑÑÐ°ÑÐ¸Ñ CRM API (URL, Bearer ÑÐ¾ÐºÐµÐ½).</param>
-        /// <param name="logger">ÐÐ¾Ð³Ð³ÐµÑ Ð´Ð»Ñ Ð·Ð°Ð¿Ð¸ÑÐ¸ ÑÐ¾Ð±ÑÑÐ¸Ð¹ Ð¸ Ð¾ÑÐ¸Ð±Ð¾Ðº.</param>
+        /// <param name="httpClient">HTTP клиент для отправки запросов к API.</param>
+        /// <param name="settings">Конфигурация CRM API (URL, Bearer токен).</param>
+        /// <param name="logger">Логгер для записи событий и ошибок.</param>
         public ExternalLeadService(
             HttpClient httpClient,
             IOptions<ExternalLeadApiSetting> settings,
@@ -32,19 +32,19 @@ namespace RCC.Services
         }
 
         /// <summary>
-        /// ÐÑÐ¿ÑÐ°Ð²Ð»ÑÐµÑ Ð»Ð¸Ð´ Ð²Ð¾ Ð²Ð½ÐµÑÐ½Ð¸Ð¹ CRM API.
-        /// ÐÐºÐ»ÑÑÐ°ÐµÑ Ð¿ÑÐ¾Ð²ÐµÑÐºÑ ÐºÐ¾Ð½ÑÐ¸Ð³ÑÑÐ°ÑÐ¸Ð¸, ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ðµ HTTP Ð·Ð°Ð¿ÑÐ¾ÑÐ° Ñ Bearer Ð°Ð²ÑÐ¾ÑÐ¸Ð·Ð°ÑÐ¸ÐµÐ¹,
-        /// ÑÐµÑÐ¸Ð°Ð»Ð¸Ð·Ð°ÑÐ¸Ñ Ð´Ð°Ð½Ð½ÑÑ Ð² JSON (camelCase) Ð¸ Ð¾ÑÐ¿ÑÐ°Ð²ÐºÑ.
+        /// Отправляет лид во внешний CRM API.
+        /// Включает проверку конфигурации, создание HTTP запроса с Bearer авторизацией,
+        /// сериализацию данных в JSON (camelCase) и отправку.
         /// </summary>
-        /// <param name="request">ÐÐ°Ð½Ð½ÑÐµ Ð»Ð¸Ð´Ð° Ð´Ð»Ñ Ð¾ÑÐ¿ÑÐ°Ð²ÐºÐ¸.</param>
-        /// <returns>true ÐµÑÐ»Ð¸ Ð»Ð¸Ð´ ÑÑÐ¿ÐµÑÐ½Ð¾ Ð¾ÑÐ¿ÑÐ°Ð²Ð»ÐµÐ½, false Ð² ÑÐ»ÑÑÐ°Ðµ Ð¾ÑÐ¸Ð±ÐºÐ¸.</returns>
+        /// <param name="request">Данные лида для отправки.</param>
+        /// <returns>true если лид успешно отправлен, false в случае ошибки.</returns>
         public async Task<bool> SendLead(ExternalLeadRequest request)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(_settings.Url) || string.IsNullOrWhiteSpace(_settings.BearerToken))
                 {
-                    _logger.LogWarning("ÐÐ°ÑÐ°Ð¼ÐµÑÑÑ Ð²Ð½ÐµÑÐ½ÐµÐ³Ð¾ CRM API Ð»Ð¸Ð´Ð¾Ð² Ð½Ðµ Ð½Ð°ÑÑÑÐ¾ÐµÐ½Ñ Ð¿ÑÐ°Ð²Ð¸Ð»ÑÐ½Ð¾");
+                    _logger.LogWarning("Параметры внешнего CRM API лидов не настроены правильно");
                     return false;
                 }
 
@@ -53,7 +53,7 @@ namespace RCC.Services
                     "Bearer",
                     _settings.BearerToken);
 
-                // Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÐµÐ¼ camelCase Ð´Ð»Ñ ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²Ð¸Ñ CRM API
+                // используем camelCase для соответствия CRM API
                 var jsonOptions = new JsonSerializerOptions
                 {
                     PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -68,24 +68,24 @@ namespace RCC.Services
 
                 var response = await _httpClient.SendAsync(requestMessage);
 
-                // ÐÑÐ¾Ð²ÐµÑÐºÐ° ÑÑÐ¿ÐµÑÐ½Ð¾ÑÑÐ¸ Ð¾ÑÐ²ÐµÑÐ°
+                // Проверка успешности ответа
                 if (response.IsSuccessStatusCode)
                 {
                     return true;
                 }
                 else
                 {
-                    // ÐÐ¾Ð³Ð¸ÑÐ¾Ð²Ð°Ð½Ð¸Ðµ Ð¾ÑÐ¸Ð±ÐºÐ¸ Ñ Ð´ÐµÑÐ°Ð»ÑÐ¼Ð¸ Ð¾ÑÐ²ÐµÑÐ°
+                    // Логирование ошибки с деталями ответа
                     var errorContent = await response.Content.ReadAsStringAsync();
                     _logger.LogError(
-                        $"ÐÑÐ¸Ð±ÐºÐ° Ð¿ÑÐ¸ Ð¾ÑÐ¿ÑÐ°Ð²ÐºÐµ Ð»Ð¸Ð´Ð° Ð²Ð¾ Ð²Ð½ÐµÑÐ½Ð¸Ð¹ CRM API. HTTP ÑÑÐ°ÑÑÑ: {response.StatusCode}, ÐÑÐ²ÐµÑ: {errorContent}");
+                        $"Ошибка при отправке лида во внешний CRM API. HTTP статус: {response.StatusCode}, Ответ: {errorContent}");
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                // ÐÐ¾Ð³Ð¸ÑÐ¾Ð²Ð°Ð½Ð¸Ðµ Ð½ÐµÐ¾Ð¶Ð¸Ð´Ð°Ð½Ð½Ð¾Ð³Ð¾ Ð¸ÑÐºÐ»ÑÑÐµÐ½Ð¸Ñ
-                _logger.LogError($"ÐÑÐºÐ»ÑÑÐµÐ½Ð¸Ðµ Ð¿ÑÐ¸ Ð¾ÑÐ¿ÑÐ°Ð²ÐºÐµ Ð»Ð¸Ð´Ð° Ð²Ð¾ Ð²Ð½ÐµÑÐ½Ð¸Ð¹ CRM API: {ex.Message}", ex);
+                // Логирование неожиданного исключения
+                _logger.LogError($"Исключение при отправке лида во внешний CRM API: {ex.Message}", ex);
                 return false;
             }
         }

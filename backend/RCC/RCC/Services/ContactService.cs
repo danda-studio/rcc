@@ -58,7 +58,7 @@ namespace RCC.Services
             var mailMessage = new MailMessage
             {
                 From = new MailAddress(_emailSetting.Email),
-                Subject = $"Новая заявка от {request.Name}", 
+                Subject = $"New Contact Request from {request.Name}", 
                 SubjectEncoding = Encoding.UTF8,
                 IsBodyHtml = true
             };

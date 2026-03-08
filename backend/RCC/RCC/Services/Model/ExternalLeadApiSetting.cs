@@ -1,19 +1,19 @@
 namespace RCC.Services.Model
 {
     /// <summary>
-    /// Настройки подключения к внешнему CRM API.
-    /// Содержит URL и токен авторизации для отправки лидов.
+    /// РќР°СЃС‚СЂРѕР№РєРё РїРѕРґРєР»СЋС‡РµРЅРёСЏ Рє РІРЅРµС€РЅРµРјСѓ CRM API.
+    /// РЎРѕРґРµСЂР¶РёС‚ URL Рё С‚РѕРєРµРЅ Р°РІС‚РѕСЂРёР·Р°С†РёРё РґР»СЏ РѕС‚РїСЂР°РІРєРё Р»РёРґРѕРІ.
     /// </summary>
     public class ExternalLeadApiSetting
     {
         /// <summary>
-        /// URL endpoint API для отправки лидов.
+        /// URL endpoint API РґР»СЏ РѕС‚РїСЂР°РІРєРё Р»РёРґРѕРІ.
         /// </summary>
         public string Url { get; set; } = string.Empty;
 
         /// <summary>
-        /// Bearer токен для авторизации при обращении к API.
-        /// Передаётся в заголовке: Authorization: Bearer {token}
+        /// Bearer С‚РѕРєРµРЅ РґР»СЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё РїСЂРё РѕР±СЂР°С‰РµРЅРёРё Рє API.
+        /// РџРµСЂРµРґР°С‘С‚СЃСЏ РІ Р·Р°РіРѕР»РѕРІРєРµ: Authorization: Bearer {token}
         /// </summary>
         public string BearerToken { get; set; } = string.Empty;
     }

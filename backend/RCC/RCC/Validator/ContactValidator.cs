@@ -2,9 +2,20 @@
 
 namespace RCC.Validator
 {
+    /// <summary>
+    /// Статический класс для валидации данных контактной формы.
+    /// Содержит методы проверки имени, email адреса и номера телефона.
+    /// </summary>
     public static class ContactValidator
     {
-        // Проверка имени (не пустое, минимум 2 символа)
+        /// <summary>
+        /// Проверяет корректность имени клиента.
+        /// </summary>
+        /// <param name="name">Имя для проверки.</param>
+        /// <param name="error">Выходной параметр с сообщением об ошибке (пуста строка если валидно).</param>
+        /// <returns>
+        /// true если имя прошло валидацию, false если валидация не прошла.
+        /// </returns>
         public static bool ValidateName(string name, out string error)
         {
             error = "";
@@ -23,7 +34,14 @@ namespace RCC.Validator
             return true;
         }
 
-        // Проверка email
+        /// <summary>
+        /// Проверяет корректность email адреса.
+        /// </summary>
+        /// <param name="email">Email адрес для проверки.</param>
+        /// <param name="error">Выходной параметр с сообщением об ошибке (пуста строка если валидно).</param>
+        /// <returns>
+        /// true если email прошёл валидацию, false если валидация не прошла.
+        /// </returns>
         public static bool ValidateEmail(string email, out string error)
         {
             error = "";
@@ -45,7 +63,15 @@ namespace RCC.Validator
             }
         }
 
-        // Проверка номера телефона (код страны и цифры)
+        /// <summary>
+        /// Проверяет корректность телефонного номера (код страны и собственно номер).
+        /// </summary>
+        /// <param name="code">Код страны (например, "7" для России).</param>
+        /// <param name="number">Основной номер телефона (цифры).</param>
+        /// <param name="error">Выходной параметр с сообщением об ошибке (пуста строка если валидно).</param>
+        /// <returns>
+        /// true если номер телефона прошёл валидацию, false если валидация не прошла.
+        /// </returns>
         public static bool ValidatePhone(string code, string number, out string error)
         {
             if (string.IsNullOrWhiteSpace(code) || string.IsNullOrWhiteSpace(number))

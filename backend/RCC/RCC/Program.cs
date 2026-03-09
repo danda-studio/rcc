@@ -22,7 +22,6 @@ builder.Services.AddScoped<IContactService, ContactService>();
 builder.Services.AddScoped<IAntiBotService, AntiBotService>();
 builder.Services.AddHttpClient<ITurnstileService, TurnstileService>();
 builder.Services.AddHttpClient<IExternalLeadService, ExternalLeadService>();
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
@@ -41,6 +40,7 @@ builder.Services.AddCors(options =>
               .AllowCredentials();
     });
 });
+
 
 var app = builder.Build();
 

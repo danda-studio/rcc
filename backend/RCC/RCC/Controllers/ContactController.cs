@@ -39,7 +39,6 @@ namespace RCC.Controllers
         [HttpPost("contact")]
         public async Task<ActionResult<SendContactResponse>> SendContact([FromBody] SendContactRequest request)
         {
-            // Проверка защиты от ботов (закомментирована, можно включить при необходимости)
             //var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
             //var decision = await _antiBotService.CheckUser(request, ip);
 

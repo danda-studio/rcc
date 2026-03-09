@@ -1,4 +1,4 @@
-namespace RCC.Services.Model
+﻿namespace RCC.Services.Model
 {
     /// <summary>
     /// Настройки подключения к внешнему CRM API.

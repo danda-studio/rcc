@@ -30,5 +30,8 @@
         /// Капча и данные защиты от ботов.
         /// </summary>
         public AntiBot? AntiBotDetails { get; set; }
+
+        public Tracking? Tracking { get; set; } 
+
     }
 }

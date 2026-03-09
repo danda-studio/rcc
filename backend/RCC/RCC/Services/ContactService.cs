@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using RCC.Services.Model;
 using RCC.Validator;
 using System.Net;
@@ -91,7 +91,7 @@ namespace RCC.Services
                 ContactMethod = request.ContactMethod.ToString(),
                 ApartmentName = "",
                 Email = request.Email,
-                Tracking = new Tracking(),
+                Tracking = request.Tracking == null ? new Tracking() : request.Tracking,
                 Ip = ipAddress
             };
 

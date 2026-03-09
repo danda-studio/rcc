@@ -1,4 +1,4 @@
-namespace RCC.Services.Model
+﻿namespace RCC.Services.Model
 {
     /// <summary>
     /// Данные отслеживания пользователя из браузера и сервера.
@@ -9,7 +9,7 @@ namespace RCC.Services.Model
         /// <summary>
         /// Реферер (источник перехода).
         /// </summary>
-        public string Referrer { get; set; } = string.Empty;
+        public string? Referrer { get; set; } = string.Empty;
 
         /// <summary>
         /// Источник трафика (UTM параметр: google, yandex, facebook и т.д.).
@@ -74,12 +74,12 @@ namespace RCC.Services.Model
         /// <summary>
         /// User Agent браузера (полная информация о браузере и ОС).
         /// </summary>
-        public string UserAgent { get; set; } = string.Empty;
+        public string? UserAgent { get; set; } = string.Empty;
 
         /// <summary>
         /// Языки браузера (Accept-Language заголовок).
         /// </summary>
-        public string AcceptLanguage { get; set; } = string.Empty;
+        public string? AcceptLanguage { get; set; } = string.Empty;
 
         /// <summary>
         /// Смещение часового пояса в минутах от UTC (например, -180 для MSK).

@@ -55,7 +55,14 @@ namespace RCC.Controllers
 
             // Извлечение IP адреса клиента из HttpContext
             var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
-            
+
+            if (request.Tracking != null)
+            {
+                request.Tracking.UserAgent = Request.Headers.UserAgent;
+                request.Tracking.AcceptLanguage = Request.Headers.AcceptLanguage;
+                request.Tracking.Referrer = Request.Headers.Referer;
+            }
+
             // Отправка заявки через сервис (обработка, email, CRM API)
             var result = await _contactService.SendContact(request, ip);
             

@@ -91,7 +91,7 @@ namespace RCC.Services
                 ContactMethod = request.ContactMethod.ToString(),
                 ApartmentName = "",
                 Email = request.Email,
-                Tracking = new Tracking(),
+                Tracking = request.Tracking == null ? new Tracking() : request.Tracking,
                 Ip = ipAddress
             };
 

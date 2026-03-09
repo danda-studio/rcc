@@ -40,7 +40,7 @@
         /// <summary>
         /// Полные данные отслеживания: UTM параметры, ID кликов, информация об устройстве и браузере.
         /// </summary>
-        public Tracking Tracking { get; set; } = new Tracking();
+        public Tracking? Tracking { get; set; }
 
         /// <summary>
         /// IP адрес клиента (добавляется сервером на основе запроса).

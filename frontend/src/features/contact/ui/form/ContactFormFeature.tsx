@@ -145,7 +145,6 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
             />
           )}
         />
-        сды
         <Controller
           name="email"
           control={control}

@@ -70,6 +70,16 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
         },
         contactMethod,
         email,
+        tracking: {
+          referrer: document.referrer || null,
+          userAgent: navigator.userAgent || null,
+          screenW: window.screen.width,
+          screenH: window.screen.height,
+          viewportW: window.innerWidth,
+          viewportH: window.innerHeight,
+          devicePixelRatio: window.devicePixelRatio,
+          timezoneOffset: new Date().getTimezoneOffset(),
+        },
       });
       return res.data ?? res;
     },
@@ -135,20 +145,6 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
             />
           )}
         />
-
-        <Field orientation="horizontal">
-          <Controller
-            name="contactMethod"
-            control={form.control}
-            render={({ field }) => (
-              <SocialTabSelect
-                value={field.value as ContactMethodType}
-                onChange={val => field.onChange(Number(val))}
-              />
-            )}
-          />
-        </Field>
-
         <Controller
           name="email"
           control={control}

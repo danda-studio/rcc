@@ -1,7 +1,6 @@
 "use client";
 
 import type { FC } from "react";
-import type { ContactMethodType } from "@/entities/social/ui/tab-select/SocialTabSelect";
 import type { ContactFormValues } from "@/features/contact/model/contactFormSchema";
 import type { CountryCode } from "@/shared/ui/phone-field/types";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,7 +8,6 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { Loader2Icon } from "lucide-react";
 import { useEffect, useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { SocialTabSelect } from "@/entities/social";
 import { contactFormSchema } from "@/features/contact/model/contactFormSchema";
 import { UIInputField } from "@/shared";
 import { getApiCountryCodes, postApiContactContact } from "@/shared/api/generated";

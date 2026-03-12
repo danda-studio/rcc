@@ -1,195 +1,195 @@
 "use client";
 
-import type { FC } from "react";
-import type { ContactFormValues } from "@/features/contact/model/contactFormSchema";
-import type { CountryCode } from "@/shared/ui/phone-field/types";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { Loader2Icon } from "lucide-react";
-import { useEffect, useMemo } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { contactFormSchema } from "@/features/contact/model/contactFormSchema";
-import { getTrackingParams } from "@/features/contact/ui/form/helpers/getTrackingParams";
-import { UIInputField } from "@/shared";
-import { getApiCountryCodes, postApiContactContact } from "@/shared/api/generated";
-import { ContactMethod } from "@/shared/api/scheme";
-import { reachGoal } from "@/shared/lib/analytics/yandexMetrika";
-import { Button } from "@/shared/lib/shadcn/ui/button";
-import { Field } from "@/shared/lib/shadcn/ui/field";
-import { cn } from "@/shared/lib/shadcn/utils";
-import { UIPhoneField } from "@/shared/ui/phone-field/UIPhoneField";
+import type {FC} from "react";
+import type {ContactFormValues} from "@/features/contact/model/contactFormSchema";
+import type {CountryCode} from "@/shared/ui/phone-field/types";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {useMutation, useQuery} from "@tanstack/react-query";
+import {Loader2Icon} from "lucide-react";
+import {useEffect, useMemo} from "react";
+import {Controller, useForm} from "react-hook-form";
+import {contactFormSchema} from "@/features/contact/model/contactFormSchema";
+import {getTrackingParams} from "@/features/contact/ui/form/helpers/getTrackingParams";
+import {UIInputField} from "@/shared";
+import {getApiCountryCodes, postApiContactContact} from "@/shared/api/generated";
+import {ContactMethod} from "@/shared/api/scheme";
+import {reachGoal} from "@/shared/lib/analytics/yandexMetrika";
+import {Button} from "@/shared/lib/shadcn/ui/button";
+import {Field} from "@/shared/lib/shadcn/ui/field";
+import {cn} from "@/shared/lib/shadcn/utils";
+import {UIPhoneField} from "@/shared/ui/phone-field/UIPhoneField";
 
 interface SubmitButton {
-  variant: "default" | "danger";
-  label: string;
+    variant: "default" | "danger";
+    label: string;
 }
 
 const DEFAULT_BUTTON: SubmitButton = {
-  label: "Подобрать квартиру",
-  variant: "default",
+    label: "Подобрать квартиру",
+    variant: "default",
 };
 
 export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton }> = ({
-                                                                                        className,
-                                                                                        button = DEFAULT_BUTTON,
+                                                                                          className,
+                                                                                          button = DEFAULT_BUTTON,
                                                                                       }) => {
-  const { data } = useQuery({
-    queryKey: ["country-codes"],
-    queryFn: () => getApiCountryCodes(),
-    staleTime: 1000 * 60 * 60 * 24,
-    gcTime: 1000 * 60 * 60 * 24 * 7,
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-  });
-
-  const countryCodes: CountryCode[] = useMemo(
-      () => (data?.data as unknown as CountryCode[]) ?? [],
-      [data],
-  );
-
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema(countryCodes)),
-    defaultValues: {
-      name: "",
-      phone: {
-        code: "+7-RU",
-        number: "",
-      },
-      contactMethod: ContactMethod.NUMBER_0,
-      email: "",
-    },
-    mode: "onChange",
-  });
-
-  const { control, handleSubmit, reset, formState } = form;
-  const { errors } = formState;
-
-  const mutation = useMutation({
-    mutationFn: async ({
-                         contactMethod,
-                         name,
-                         phone: { code: _code, number },
-                         email,
-                       }: ContactFormValues) => {
-      const code = _code.replace(/\D/g, "");
-      const utm = getTrackingParams();
-
-      const res = await postApiContactContact({
-        name,
-        phone: {
-          code,
-          number: number.startsWith(code) ? number.slice(code.length) : number,
-        },
-        contactMethod,
-        email,
-        tracking: {
-          referrer: document.referrer || null,
-          userAgent: navigator.userAgent || null,
-          screenW: window.screen.width,
-          screenH: window.screen.height,
-          viewportW: window.innerWidth,
-          viewportH: window.innerHeight,
-          devicePixelRatio: window.devicePixelRatio,
-          timezoneOffset: new Date().getTimezoneOffset(),
-          ...utm,
-        },
-      });
-
-      return res.data ?? res;
-    },
-    onSuccess: () => {
-      reset();
-    },
-    onError: (err: any) => {
-      console.error("Ошибка отправки формы", err);
-    },
-  });
-
-  useEffect(() => {
-    reachGoal("open-form");
-  }, []);
-
-  const onSubmit = handleSubmit((values) => {
-    const number = values.phone.number.replaceAll(" ", "").replaceAll("-", "");
-
-    mutation.mutate({
-      ...values,
-      phone: {
-        ...values.phone,
-        number,
-      },
+    const {data} = useQuery({
+        queryKey: ["country-codes"],
+        queryFn: () => getApiCountryCodes(),
+        staleTime: 1000 * 60 * 60 * 24,
+        gcTime: 1000 * 60 * 60 * 24 * 7,
+        refetchOnWindowFocus: false,
+        refetchOnMount: false,
+        refetchOnReconnect: false,
     });
 
-    reachGoal("submit-form", {
-      name: values.name,
-      email: values.email as string,
-      phone: `${values.phone.code}${number}`,
+    const countryCodes: CountryCode[] = useMemo(
+        () => (data?.data as unknown as CountryCode[]) ?? [],
+        [data],
+    );
+
+    const form = useForm<ContactFormValues>({
+        resolver: zodResolver(contactFormSchema(countryCodes)),
+        defaultValues: {
+            name: "",
+            phone: {
+                code: "+7-RU",
+                number: "",
+            },
+            contactMethod: ContactMethod.NUMBER_0,
+            email: "",
+        },
+        mode: "onChange",
     });
-  });
 
-  return (
-      <div className={cn("text-blue-6", className)}>
-        <form
-            noValidate
-            className="flex flex-col gap-3.5"
-            onSubmit={onSubmit}
-        >
-          <Controller
-              name="name"
-              control={control}
-              render={({ field }) => (
-                  <UIInputField
-                      {...field}
-                      id="name"
-                      label="Имя"
-                      error={errors.name?.message}
-                  />
-              )}
-          />
+    const {control, handleSubmit, reset, formState} = form;
+    const {errors} = formState;
 
-          <Controller
-              name="phone"
-              control={control}
-              render={({ field }) => (
-                  <UIPhoneField
-                      {...field}
-                      id="phone"
-                      label="Телефон"
-                      error={errors.phone?.code?.message ?? errors.phone?.number?.message}
-                  />
-              )}
-          />
+    const mutation = useMutation({
+        mutationFn: async ({
+                               contactMethod,
+                               name,
+                               phone: {code: _code, number},
+                               email,
+                           }: ContactFormValues) => {
+            const code = _code.replace(/\D/g, "");
+            const utm = getTrackingParams();
 
-          <Controller
-              name="email"
-              control={control}
-              render={({ field: { onChange, value } }) => (
-                  <UIInputField
-                      value={value ?? ""}
-                      name="email"
-                      onChange={onChange}
-                      id="email"
-                      label="Email"
-                      error={errors.email?.message}
-                  />
-              )}
-          />
+            const res = await postApiContactContact({
+                name,
+                phone: {
+                    code,
+                    number: number.startsWith(code) ? number.slice(code.length) : number,
+                },
+                contactMethod,
+                email,
+                tracking: {
+                    referrer: document.referrer || null,
+                    userAgent: navigator.userAgent || null,
+                    screenW: window.screen.width,
+                    screenH: window.screen.height,
+                    viewportW: window.innerWidth,
+                    viewportH: window.innerHeight,
+                    devicePixelRatio: window.devicePixelRatio,
+                    timezoneOffset: new Date().getTimezoneOffset(),
+                    ...utm,
+                },
+            });
 
-          <Field orientation="horizontal">
-            <Button
-                id="submit-form"
-                type="submit"
-                size="md"
-                variant={button.variant}
-                className="w-full cursor-pointer"
+            return res.data ?? res;
+        },
+        onSuccess: () => {
+            reset();
+        },
+        onError: (err: any) => {
+            console.error("Ошибка отправки формы", err);
+        },
+    });
+
+    useEffect(() => {
+        reachGoal("open-form");
+    }, []);
+
+    const onSubmit = handleSubmit((values) => {
+        const number = values.phone.number.replaceAll(" ", "").replaceAll("-", "");
+
+        mutation.mutate({
+            ...values,
+            phone: {
+                ...values.phone,
+                number,
+            },
+        });
+
+        reachGoal("submit-form", {
+            name: values.name,
+            email: values.email as string,
+            phone: `${values.phone.code}${number}`,
+        });
+    });
+
+    return (
+        <div className={cn("text-blue-6", className)}>
+            <form
+                noValidate
+                className="flex flex-col gap-3.5"
+                onSubmit={onSubmit}
             >
-              {mutation.isPending
-                  ? <Loader2Icon className="animate-spin" />
-                  : button.label}
-            </Button>
-          </Field>
-        </form>
-      </div>
-  );
+                <Controller
+                    name="name"
+                    control={control}
+                    render={({field}) => (
+                        <UIInputField
+                            {...field}
+                            id="name"
+                            label="Имя"
+                            error={errors.name?.message}
+                        />
+                    )}
+                />
+
+                <Controller
+                    name="phone"
+                    control={control}
+                    render={({field}) => (
+                        <UIPhoneField
+                            {...field}
+                            id="phone"
+                            label="Телефон"
+                            error={errors.phone?.code?.message ?? errors.phone?.number?.message}
+                        />
+                    )}
+                />
+
+                <Controller
+                    name="email"
+                    control={control}
+                    render={({field: {onChange, value}}) => (
+                        <UIInputField
+                            value={value ?? ""}
+                            name="email"
+                            onChange={onChange}
+                            id="email"
+                            label="Email"
+                            error={errors.email?.message}
+                        />
+                    )}
+                />
+
+                <Field orientation="horizontal">
+                    <Button
+                        id="submit-form"
+                        type="submit"
+                        size="md"
+                        variant={button.variant}
+                        className="w-full cursor-pointer"
+                    >
+                        {mutation.isPending
+                            ? <Loader2Icon className="animate-spin"/>
+                            : button.label}
+                    </Button>
+                </Field>
+            </form>
+        </div>
+    );
 };

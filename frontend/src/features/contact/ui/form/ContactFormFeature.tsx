@@ -1,23 +1,23 @@
 "use client";
 
-import type {FC} from "react";
-import type {ContactFormValues} from "@/features/contact/model/contactFormSchema";
-import type {CountryCode} from "@/shared/ui/phone-field/types";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {useMutation, useQuery} from "@tanstack/react-query";
-import {Loader2Icon} from "lucide-react";
-import {useEffect, useMemo} from "react";
-import {Controller, useForm} from "react-hook-form";
-import {contactFormSchema} from "@/features/contact/model/contactFormSchema";
-import {getTrackingParams} from "@/features/contact/ui/form/helpers/getTrackingParams";
-import {UIInputField} from "@/shared";
-import {getApiCountryCodes, postApiContactContact} from "@/shared/api/generated";
-import {ContactMethod} from "@/shared/api/scheme";
-import {reachGoal} from "@/shared/lib/analytics/yandexMetrika";
-import {Button} from "@/shared/lib/shadcn/ui/button";
-import {Field} from "@/shared/lib/shadcn/ui/field";
-import {cn} from "@/shared/lib/shadcn/utils";
-import {UIPhoneField} from "@/shared/ui/phone-field/UIPhoneField";
+import type { FC } from "react";
+import type { ContactFormValues } from "@/features/contact/model/contactFormSchema";
+import type { CountryCode } from "@/shared/ui/phone-field/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { Loader2Icon } from "lucide-react";
+import { useEffect, useMemo } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { contactFormSchema } from "@/features/contact/model/contactFormSchema";
+import { getTrackingParams } from "@/features/contact/ui/form/helpers/getTrackingParams";
+import { UIInputField } from "@/shared";
+import { getApiCountryCodes, postApiContactContact } from "@/shared/api/generated";
+import { ContactMethod } from "@/shared/api/scheme";
+import { reachGoal } from "@/shared/lib/analytics/yandexMetrika";
+import { Button } from "@/shared/lib/shadcn/ui/button";
+import { Field } from "@/shared/lib/shadcn/ui/field";
+import { cn } from "@/shared/lib/shadcn/utils";
+import { UIPhoneField } from "@/shared/ui/phone-field/UIPhoneField";
 
 interface SubmitButton {
     variant: "default" | "danger";
@@ -33,7 +33,7 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
                                                                                           className,
                                                                                           button = DEFAULT_BUTTON,
                                                                                       }) => {
-    const {data} = useQuery({
+    const { data } = useQuery({
         queryKey: ["country-codes"],
         queryFn: () => getApiCountryCodes(),
         staleTime: 1000 * 60 * 60 * 24,
@@ -62,14 +62,14 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
         mode: "onChange",
     });
 
-    const {control, handleSubmit, reset, formState} = form;
-    const {errors} = formState;
+    const { control, handleSubmit, reset, formState } = form;
+    const { errors } = formState;
 
     const mutation = useMutation({
         mutationFn: async ({
                                contactMethod,
                                name,
-                               phone: {code: _code, number},
+                               phone: { code: _code, number },
                                email,
                            }: ContactFormValues) => {
             const code = _code.replace(/\D/g, "");
@@ -138,7 +138,7 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
                 <Controller
                     name="name"
                     control={control}
-                    render={({field}) => (
+                    render={({ field }) => (
                         <UIInputField
                             {...field}
                             id="name"
@@ -151,7 +151,7 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
                 <Controller
                     name="phone"
                     control={control}
-                    render={({field}) => (
+                    render={({ field }) => (
                         <UIPhoneField
                             {...field}
                             id="phone"
@@ -164,7 +164,7 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
                 <Controller
                     name="email"
                     control={control}
-                    render={({field: {onChange, value}}) => (
+                    render={({ field: { onChange, value } }) => (
                         <UIInputField
                             value={value ?? ""}
                             name="email"
@@ -185,7 +185,7 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
                         className="w-full cursor-pointer"
                     >
                         {mutation.isPending
-                            ? <Loader2Icon className="animate-spin"/>
+                            ? <Loader2Icon className="animate-spin" />
                             : button.label}
                     </Button>
                 </Field>

@@ -15,6 +15,6 @@ export const getTrackingParams = () => {
     };
 
     return Object.fromEntries(
-        Object.entries(utm).filter(([, value]) => value !== null)
+        Object.entries(utm).filter(([, value]) => value !== null),
     );
 };

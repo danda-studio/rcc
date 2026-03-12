@@ -17,6 +17,7 @@ import { Button } from "@/shared/lib/shadcn/ui/button";
 import { Field } from "@/shared/lib/shadcn/ui/field";
 import { cn } from "@/shared/lib/shadcn/utils";
 import { UIPhoneField } from "@/shared/ui/phone-field/UIPhoneField";
+import {getTrackingParams} from "@/features/contact/ui/form/helpers/getTrackingParams";
 
 interface SubmitButton { variant: "default" | "danger"; label: string }
 
@@ -60,6 +61,7 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
   const mutation = useMutation({
     mutationFn: async ({ contactMethod, name, phone: { code: _code, number }, email }: ContactFormValues) => {
       const code = _code.replace(/\D/g, "");
+      const utm = getTrackingParams();
       const res = await postApiContactContact({
         name,
         phone: {
@@ -77,6 +79,7 @@ export const ContactFormFeature: FC<{ className?: string; button?: SubmitButton 
           viewportH: window.innerHeight,
           devicePixelRatio: window.devicePixelRatio,
           timezoneOffset: new Date().getTimezoneOffset(),
+          ...utm,
         },
       });
       return res.data ?? res;

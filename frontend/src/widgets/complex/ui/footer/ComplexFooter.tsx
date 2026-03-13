@@ -170,7 +170,7 @@ export const ComplexFooterWidget: FC = () => {
           </span>
 
           <Button
-            onClick={() => window.open("https://yandex.md/maps/-/CLGXf2Nj", "_blank")}
+            onClick={() => window.open("https://yandex.ru/maps/?ll=37.686894%2C47.126604&mode=poi&poi%5Bpoint%5D=37.686801%2C47.126694&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D83013884566&utm_source=ntp_chrome&z=19.49", "_blank")}
             className={`
               !hidden max-w-56
               md:!inline-flex
@@ -205,7 +205,7 @@ export const ComplexFooterWidget: FC = () => {
           </span>
 
           <Button
-            onClick={() => window.open("https://yandex.md/maps/-/CLGXf2Nj", "_blank")}
+            onClick={() => window.open("https://yandex.ru/maps/?ll=37.686894%2C47.126604&mode=poi&poi%5Bpoint%5D=37.686801%2C47.126694&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D83013884566&utm_source=ntp_chrome&z=19.49", "_blank")}
             className="max-w-56"
             size="sm"
             variant="cart"

@@ -19,8 +19,8 @@ export const CarRafflePromotionWidget: FC = () => {
       onClose={() => setVisible(false)}
     >
       <ContactFormModalFeature>
-        <Button className="w-full" variant="danger" size="md">
-          Подробнее про акцию
+        <Button className="w-full" variant="default" size="md">
+          Подобрать квартиру
         </Button>
       </ContactFormModalFeature>
     </CarRafflePromotion>

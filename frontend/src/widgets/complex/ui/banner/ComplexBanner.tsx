@@ -14,7 +14,6 @@ export const ComplexBanner: FC = () => {
       md:h-250 md:bg-radial-(--radial-1)
     `}
     >
-
       <Image
         width={980}
         height={1000}

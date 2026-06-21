@@ -1,12 +1,20 @@
 "use client";
 import type { FC } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CarRafflePromotion } from "@/entities/promotion";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 
 export const CarRafflePromotionWidget: FC = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <CarRafflePromotion

@@ -90,9 +90,8 @@ export const ComplexBanner: FC = () => {
 
           <p
             className={`
-              text-md -tracking-md
+              mb-16 text-md -tracking-md
               md:text-xl
-              mb-16
             `}
           >
             Дом комфорт класса

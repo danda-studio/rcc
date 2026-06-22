@@ -91,13 +91,17 @@ export const ComplexBanner: FC = () => {
           <p
             className={`
               text-md -tracking-md
-              md:text-xl 
+              md:text-xl
             `}
           >
             Дом комфорт класса
           </p>
 
-          <div className={`block mt-15 md:hidden`}>
+          <div className={`
+            mt-15 block
+            md:hidden
+          `}
+          >
             <BuildingCommissioning />
           </div>
 
@@ -110,7 +114,11 @@ export const ComplexBanner: FC = () => {
             <div className={`
             flex flex-col gap-4
           `}>
-              <div className={`hidden md:block`}>
+              <div className={`
+                hidden
+                md:block
+              `}
+              >
                 <BuildingCommissioning />
               </div>
               <ContactFormModalFeature>

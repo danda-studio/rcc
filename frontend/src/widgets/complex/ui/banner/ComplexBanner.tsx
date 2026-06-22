@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { MousePointerClick } from "lucide-react";
 import Image from "next/image";
 import { CityBadge } from "@/entities/city";
+import { BuildingCommissioning } from "@/entities/promotion";
 import { ContactFormModalFeature } from "@/features/contact/ui/form";
 import { Button } from "@/shared/lib/shadcn/ui/button";
 import { ComplexTag } from "../tag";
@@ -14,7 +15,6 @@ export const ComplexBanner: FC = () => {
       md:h-250 md:bg-radial-(--radial-1)
     `}
     >
-
       <Image
         width={980}
         height={1000}
@@ -98,21 +98,40 @@ export const ComplexBanner: FC = () => {
           </p>
 
           <div className={`
+            mt-15 block
+            md:hidden
+          `}
+          >
+            <BuildingCommissioning />
+          </div>
+
+          <div className={`
             mt-auto flex w-full gap-2.25
             max-md:flex-col-reverse
             md:items-end md:gap-20.75
           `}
           >
-            <ContactFormModalFeature>
-              <Button
-                className="max-md:w-full"
-                variant="outline"
-                size="lg"
+            <div className={`
+            flex flex-col gap-4
+          `}>
+              <div className={`
+                hidden
+                md:block
+              `}
               >
-                <MousePointerClick />
-                Заказать консультацию
-              </Button>
-            </ContactFormModalFeature>
+                <BuildingCommissioning />
+              </div>
+              <ContactFormModalFeature>
+                <Button
+                  className="max-md:w-full"
+                  variant="outline"
+                  size="lg"
+                >
+                  <MousePointerClick />
+                  Подобрать квартиру
+                </Button>
+              </ContactFormModalFeature>
+            </div>
 
             <div className={`
               flex items-end gap-1.75
@@ -120,28 +139,11 @@ export const ComplexBanner: FC = () => {
               md:gap-4
             `}
             >
-
               <ComplexTag
                 title={{
-                  className: "text-center -mr-3 md:-mr-9.25",
-                  middle: (
-                    <span className={`
-                      text-3xl
-                      md:text-5xl
-                    `}
-                    >
-                      2
-                    </span>
-                  ),
-                  end: (
-                    <span className={`
-                      text-lg
-                      md:text-4-5xl
-                    `}
-                    >
-                      %
-                    </span>
-                  ),
+                  className: "text-left -mr-3 md:-mr-9.25",
+                  middle: "2",
+                  end: "%",
                 }}
                 description={(
                   <span className={`

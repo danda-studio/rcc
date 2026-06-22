@@ -1,32 +1,27 @@
 import type { FC } from "react";
 import { X } from "lucide-react";
 import Image from "next/image";
-import { DialogClose, DialogDescription, DialogHeader, DialogTitle } from "@/shared/lib/shadcn/ui/dialog";
+import { CityBadge } from "@/entities/city";
+import { DialogClose, DialogHeader, DialogTitle } from "@/shared/lib/shadcn/ui/dialog";
 import { UIGlass } from "@/shared/ui/glass";
 
 export const ContactFormModalFeatureCarRafflePromotionHeader: FC = () => {
   return (
     <DialogHeader className={`
       relative flex h-45 items-center justify-center !gap-0 overflow-hidden
+      bg-radial-(--radial-7)
       max-md:w-88
       md:h-67
     `}
     >
       <Image
-        src="/images/promotion/car-raffle/bg-2.webp"
-        alt="BG"
-        width={572}
-        height={276}
-        className="absolute h-full w-full object-cover"
-      />
-      <Image
-        src="/images/promotion/car-raffle/car-2.webp"
+        src="/images/complex/banner.webp"
         alt="CAR"
         width={405}
         height={276}
         className={`
-          absolute right-0 bottom-0 w-60
-          md:w-101.25
+          absolute right-0 bottom-0 w-4/5 translate-x-6 object-cover
+          md:w-3/5 md:translate-x-4
         `}
       />
       <div className={`
@@ -42,27 +37,26 @@ export const ContactFormModalFeatureCarRafflePromotionHeader: FC = () => {
         `}
         >
           <span className={`
-            bg-linear-(--linear-10) bg-clip-text text-transparent
+            bg-linear-(--linear-1) bg-clip-text leading-none text-transparent
           `}
           >
-            Розыгрыш
+            Дом сдан
           </span>
-          <span className="text-red-2">
-            автомобиля!
+          <span className={`
+            bg-linear-(--linear-5) bg-clip-text leading-none text-transparent
+          `}
+          >
+            в эксплуатацию
           </span>
-        </DialogTitle>
-        <DialogDescription className={`
-          max-w-46 text-xs leading-[1.2] font-medium -tracking-sm text-black/60
-          max-md:text-left
-          md:max-w-70.5 md:text-base
-        `}
-        >
-          Представьте: вы получаете ключи от
-          {" "}
-          <br className="max-md:hidden" />
-          своей новой уютной квартиры в ЖК «Олимпийский», а в придачу – новый автомобиль LADA Granta
-        </DialogDescription>
 
+          <CityBadge
+            name="Мариуполь"
+            className={`
+              mt-4 mb-1
+              md:mt-6 md:mb-5
+            `}
+          />
+        </DialogTitle>
         <DialogClose
           asChild
           className="absolute top-5 right-5"

@@ -7,11 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-if (builder.Environment.IsDevelopment())
-{
+// if (builder.Environment.IsDevelopment())
+// {
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
-}
+// }
 
 
 builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("GmailSetting"));
@@ -47,7 +47,7 @@ var app = builder.Build();
 // if (app.Environment.IsDevelopment())
 // {
     app.UseCors("AllowSpecificOrigin");
-    
+
     app.UseCors("AllowLocalhost3000");
     app.UseSwagger();
     app.MapScalarApiReference(options =>

@@ -14,7 +14,10 @@ interface CarRafflePromotionProps {
 
 export const CarRafflePromotion: FC<CarRafflePromotionProps> = ({ className, visible, onClose, children }) => {
   return (
-    <article className={cn("z-20 flex flex-col", !visible && "-z-10 opacity-0", className)}>
+    <article className={cn("z-20 flex-col", !visible
+      ? `-z-10 hidden opacity-0`
+      : `flex`, className)}
+    >
       <div className={`
         relative flex h-24 items-center overflow-hidden rounded-t-md
         bg-radial-(--radial-7)

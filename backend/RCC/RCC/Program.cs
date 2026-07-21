@@ -44,8 +44,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseCors("AllowLocalhost3000");
     app.UseSwagger();
     app.MapScalarApiReference(options =>
@@ -59,12 +59,12 @@ if (app.Environment.IsDevelopment())
         context.Response.Redirect("/scalar");
         return Task.CompletedTask;
     });
-}
-else
-{
-    app.UseCors("AllowSpecificOrigin");
-    app.MapGet("/", () => "RCK API is running");
-}
+// }
+// else
+// {
+//     app.UseCors("AllowSpecificOrigin");
+//     app.MapGet("/", () => "RCK API is running");
+// }
 
 var staticPath = Path.Combine(Directory.GetCurrentDirectory(), "files");
 if (!Directory.Exists(staticPath))

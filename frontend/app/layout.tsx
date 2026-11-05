@@ -95,6 +95,12 @@ export default function RootLayout({
           }}
         />
 
+        {/* JivoSite online chat */}
+        <Script
+          id="jivo-widget"
+          src="//code.jivo.ru/widget/PxUbnVToEI"
+          strategy="afterInteractive"
+        />
       </head>
       <body>
         <Providers>
